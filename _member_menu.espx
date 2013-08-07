@@ -1,0 +1,13 @@
+<div class="welcomename">Welcome <#[cookie.first]#> <#[cookie.last]#>:</div>
+<div class="welcometime">It is now <# system.date_time_short #>.</div>
+<# start list for webstyle;
+include when webstyle.status == "on";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# webstyle.member_menu #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<# end no results #>
+<# end list #>

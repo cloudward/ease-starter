@@ -1,0 +1,59 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+ 
+
+<# start form for articles <#[url.edit]#>; 
+// when creating set articles.status to "new"; 
+
+when creating set articles.created_on to "<# system.date_time_short #>";
+
+when creating redirect to "/?page=admin_article_list";
+// need to get id's passed properly in redirect
+
+when updating redirect to "/?page=admin_article_list";
+
+when deleting redirect to "/?page=admin_article_list";
+
+#> 
+<p>Headline<br>
+<input type="text" style="width:100%;font-size: 26px;height: auto;" <# articles.headline #> >
+
+<p>Teaser (used in list as introduction)<br>
+<input type="text" style="width:100%"  <# articles.teaser #> >
+<div style="width: 100%;">
+	<p style="float: left;">Body</p> 
+	<p style="float: right;"><a href="/?page=admin_article_edit&edit=<#[url.edit]#>">[Editor On]</a></p>
+</div>
+<textarea style="width:100%;height:285px" <# articles.body #> ></textarea>
+
+<p>Status (on / off)
+	<input type="text" style="width:50px" <# articles.status #> >
+	    
+<p>Publish On:
+	<input type="text" value="blog" <# articles.blog #> > 
+	blog  
+	<input type="text" value="members" <# articles.members #> > 
+	members 
+
+<p>
+	Day (<# system.day_short #>)
+		<input type="text" style="width:50px"  <# articles.weekday #> >
+	Month (<# system.month #>)
+	<input type="text" style="width:50px" <# articles.month #> >
+	Date (<# system.date #>)
+	<input type="text" style="width:50px" <# articles.day #> >
+ Year (<# system.year #>)
+	<input type="text" style="width:50px" <# articles.year #> >
+<p>
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<input type="button" value="delete" <# delete button #> >
+<p>
+<# end form #> 
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

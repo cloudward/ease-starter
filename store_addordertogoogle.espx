@@ -1,0 +1,38 @@
+
+<head>
+ <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+ <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT"> 
+</head>
+
+<h3>Processing...</h3>
+<p>Please do not refresh this window...<p>
+<div style="display:hidden">
+
+<# apply orders.<#[cookie.orderid]#> as "order".#>
+
+
+<# start list for cart;
+include when cart.orderid == "<#[url.oid]#>" and cart.orderstatus == "cart";
+#>
+<# start header #>
+<# end header #>
+<# start row #>
+found
+<script>
+			var total = <# cart.qty #> * <# cart.price #>;
+			window.location = "/?page=store_add_frame&oid=<#[url.oid]#>&iid=<# cart.id #>&qty=<# cart.qty #>&product_name=<# cart.product_name #>&price=<# cart.price #>&sku=<# cart.sku #>&total="+total+"&hello=";
+			// loop this process
+</script>
+<# end row #>
+<# start footer #>
+<# end footer #>
+<# no results #> 
+
+<script>
+	window.location = "/?page=store_confirmation&oid=<#[url.oid]#>&iid=<#[url.iid]#>";
+</script>
+
+<# end no results #>
+<# end list #>
+
+

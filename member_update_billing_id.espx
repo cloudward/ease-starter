@@ -1,0 +1,21 @@
+
+<div style="display:none">	
+<# start form for webuser <#[url.mid]#>;
+when updating set webuser.billing_cid to "<#[url.contact_id]#>"; 
+
+when updating redirect to "/?page=members&mid=<#[cookie.cid]#>";
+#> 
+<p>orders<br>
+
+<input type="button" value="update" id="updateBTN" <# update button #> >
+<p>
+<# end form #> 
+
+<script>
+function myClickButton(){
+	document.getElementById('updateBTN').click();
+}
+myClickButton();
+</script>
+
+</div>

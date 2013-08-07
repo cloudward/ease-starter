@@ -1,0 +1,227 @@
+<#:
+
+
+           RELEASE NOTES FOR THIS TEMPLATE 05/09/2013 - Version 2.0
+
+####################################################################
+GETTING STARTED PART ONE: THE GOOGLE STUFF
+####################################################################
+
+1) Signup for Google App Engine account at: https://developers.google.com/appengine/
+
+2) Create new Google App Engine Application at: 
+https://appengine.google.com/start/createapp?
+
+3) Download Google App Engine Launcher for Python and Install on Your Local Machine:
+https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python
+
+4) Add your "New Application" to "Google App Engine Launcher" - on your Local Machine using the Application Name created in Step 2.
+
+--- update ---
+This app uses a lot of reads with the Google App Engine Datastore and if your website gets a lot of hits you may need to enable billing.  We have found the costs to be minimal.  I was billing $.12 for 1 week of usage, and yes they billed my credit card for $.12 
+--------------
+
+####################################################################
+GETTING STARTED PART TWO: THE CLOUDWARD EASE STUFF
+####################################################################
+
+5) Find the location of the directory/folder on your local machine with your app name. Open app.yaml and remember the name of your application on line 1:
+
+6) Copy the files from this zip-file/folder into your apps directory/folder. It's okay to overwrite the files.
+
+7) Edit app.yaml - and replace cloudwardbeta with the name of your app created in Step 2, which should map the name of your application identified in step 5. Be sure to save your changes.
+
+8) You can now run your application locally using Google App Engine Launcher and it will work.  You will be prompted to setup some default content for your pages including your username and password.
+
+9) You will be prompted via your browser to setup website design and style. This is only on your local machine and you will be prompted to do it online as well, unless when you deploy from Google App Engine Launcher you select to also deploy datastore. We recommend not doing too much locally at first because we'd rather you setup your datastore on Google App Engine after you deploy.
+
+10) Edit easeGAppUtils.py and remove the # symbol from line 20 (#self.readLiveCredentials()) before you deploy to your live site and add the symbol to line 19 (#self.readLocalCredentials()). This will set up the app to read your live google credentials.
+
+11) Edit easeConfig.json and plug in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration. (This can also be accomplished in the application itself via the startup wizard under "google ID's" and "Spreadsheets" menu options).
+
+12) You can deploy using Google App Engine Launcher to your website. The first time pages run on your website, the EASE code will run and setup your DataStore, etc.
+ 
+
+####################################################################
+NOTES ABOUT EDITING THE STYLE AND DESIGN IN THIS TEMPLATE
+####################################################################
+A) This website is for a non-HTML savvy person. When you launch your website the first time you will be prompted to setup styles and graphics. It will give you defaults that you can change.
+
+B) Once you navigate your site for the first time, it will ask you to setup various pages. This is managed via /?page=admin part of the website.
+
+C) Savvy HTML coders can do a lot to change and improve the design and performance of this application to their liking. Look for subsequent release notes on this soon.
+
+D) Regarding ___deleteaftersetup.espx
+You must deploy and complete the web user setup on you google appspot account before deleting this file. This file configs the datastore for your user information. 
+
+E) Regarding _htmlheader.espx -
+You can delete lines 1-23 in this file after completing your initial web user setup.  Deleting these lines will save on datastore reads in your account.  After deleting these lines, save the file and re-deploy your app to google app engine.
+
+
+####################################################################
+GETTING STARTED WITH GOOGLE API CONSOLE: CREATING API ACCOUNT
+####################################################################
+In order to use the google Drive/Docs and other features in this application we must first enable those
+API's in our google account so that we may use them in this app. Here are the step by step instructions for that process.
+
+I. Sign-up/Sign-in to API console account at https://code.google.com/apis/console
+	1). after loggin in to your google account... navigate to the above url and click on the blue "Create Project" button.
+	2). in the "Services" screen you will select the API services you wish to enable for your new project. For now you will 
+	want to turn on Drive API, Drive SDK, Blogger API v3. You can always go back to this screen at anytime to enable additional services
+	or disable services you no longer deem necessary to your project.
+	
+	3). Accept the Terms of Service agreements from google and continue.
+	4). After accepting terms, you need to click on the "API Access" menu option on the left hand menu.
+	5). In the API Access screen, click on the blue "create an oAuth 2.0 client ID..." button.
+	6). In create Client ID screen, name your product, give it a logo or branding and enter the URL for the homepage.
+	7). Select Web Application radio option under application type. then enter your host domain that your app will reside at (i.e. www.myappdomain.com) and click 
+	"Create Client ID" button.
+		NOTE: you can and most likely will need to enter two or more host domains for your dev/live instances of your 
+			application (i.e. http://www.myappdomain.com, http://localhost:9080/ [this should match the url you use when previewing your app locally]).
+			you can do this but make sure they are on seperate lines and not just on the same line when entered into the google API setup wizard. 
+			If you do not have a domain pointed at your account then use your appspot domain: https://myprojectname.appspot.com/
+	
+	8). After you have created your client id, click on the "API Access" menu item on the left. in the API Access page, you will see the new project you
+	just created... click the "Edit Settings..." link on the right of the Client ID information. In the Edit settings popup, enter the two following url's
+	into the text area marked "Authorized Redirect URIs"
+	
+			http://yourprojectname.appspot.com/handleAccessToken
+			http://localhost/handleAccessToken
+			
+	 and click the "Update" button.
+	
+	9). You are done for now... there are many other options in this console but for this application you have completed all that is necessary.
+	
+II. Edit easeConfig.json and plug in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration. (This can also be accomplished in the application itself via the startup wizard under "google ID's" and "Spreadsheets" menu options).
+	1). save file.
+	
+III. You are done.
+
+
+#####################################################################################################
+CONFIGURING GOOGEL SPREADSHEET TEMPLATES FOR ORDERS, STORE, CONTACTS, SURVEY, SUGGESTIONS AND ADMINS
+#####################################################################################################
+
+Below are the instructions for creating a spreadsheet template that the store feature can use as its catalog of available items.
+Below are the steps to properly configure these spreadsheets for Store/Orders use.
+
+I. Log into your google account and click on the "Drive" menu option from the main nav menu at the top of the page.
+
+II. Create a new spreadsheet using the red "Create" button on the left, and name it Shopping or Orders depending on which spreadsheet you are creating.
+
+CONTACTS:
+III. To set up the spreadsheet for use with contacts, you will need the following columns:
+	A). First 
+	B). Last
+	C). Email
+	D). Phone
+	E). Comments
+
+STORE:
+IV. To set up the Spreadsheet for use with the store, you will need columns A-G configured in the following order:
+	A). Product
+	B). Description
+	C). Image
+	D). Thumbnail
+	E). Big Image
+	F). Price
+	G). SKU
+
+ORDERS:
+V. To set up the Spreadsheet for use with Order, Repeat steps I and II and then you will need columns A-P configured in the following order:
+	A). Date
+	B). OrderID
+	C). Sold To
+	D). Order Total
+	E). Qty
+	F). Sku
+	G). Product
+	H). Each
+	I). Total
+	J). Address1
+	K). Address2
+	L). City
+	M). State
+	N). Zip
+	O). Phone
+	P). Email
+
+SURVEY:
+VI. To set up the spreadsheet for use with Surveys, you will need the following columns:
+	A). Name 
+	B). Email
+	C). Experience
+	D). Recomend
+	E). Comments
+
+SUGGESTIONS:
+VII. To set up the spreadsheet for use with Suggestions, you will need the following columns:
+	A). Name 
+	B). Email
+	C). Suggestion
+
+VIII. To use your new spreadsheets in the application complete the following steps:
+	1). Navigate to Startup Wizard menu item in the admin menu.
+	2). In the Startup Wizard sub menu, navigate to spreadsheets menu item.
+	3). Paste the coorisponding spreadsheet ID's into the text forms marked accordingly.
+	4). Save the form.
+	5). You are done.
+
+####################################################################
+LICENSING - THIS IS AN OPEN SOURCE PROJECT
+http://opensource.org/licenses/CDDL-1.0
+COMMON DEVELOPMENT AND DISTRIBUTION LICENSE Version 1.0 (CDDL-1.0)
+####################################################################
+####################################################################
+####################################################################
+####################################################################
+####################################################################
+####################################################################
+####################################################################
+####################################################################
+####################################################################
+
+
+####################################################################
+Warning: the below instructions are for the EASE geeks.
+####################################################################
+CURRENT EASE FEATURES SUPPORTED 05/05/2013
+
+1- Set Cookies & Cookie Lookup
+2- Set Sessions & Lookup Sessions
+3- LogOff - setting blank cookies
+4- If Then Statements 
+5- Include ESPX files
+6- Forms Creating/Updating/Deleting Records in Datastore
+	automatically creates entities/tables, etc.
+	formaction support for creating/updating/etc.
+7- List Datastore Records
+	with include statements and sorting
+	no results messages
+8- System Tags - date stamp, pages, etc.
+9- Google Form - Google Form
+10- Google List - Google List
+11 - Generate Token for Admin Uploading to Google Drive
+12- Uploading Images / Files - Upload Images
+13- Sending Emails & CONTENT Management
+14- Functions with Calculations
+
+EASE FEATURES IN DEVELOPMENT FOR UPCOMING RELEASE
+
+1 Advanced Search Support on Lists
+2- Form Validations
+3- Functions for Datastore Management without Forms
+4- List Functions and Calculations in Rows
+5- Linking Lists with Functions and Calculations in Rows
+6- LogOff #2 - Kill Cookies and Session
+7- Importing Data to Spreadsheets from List
+8- Recurring Jobs / CRON Jobs
+
+
+####################################################################
+
+END OF RELEASE NOTES
+
+
+:#>
+

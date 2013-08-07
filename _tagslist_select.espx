@@ -1,0 +1,46 @@
+<head>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">	
+<META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+</head>
+
+<# start list for tags;
+// include when tags.name == "<#[url.tag]#>";
+#>
+<# start header #>
+<# end header #>
+
+<# start row #>
+<li class="tags"><a href="/?page=_tagslist_processor3&tag=<# tags.name #>&aid=<#[url.aid]#>&tid=<# tags.id #>&link=on"><# tags.name #></a></li>
+<# end row #>
+
+<# start footer #>
+<# end footer #>
+
+<# no results #>
+<li class="tags">There are no tags yet. </li>
+<# end no results #>
+
+<# end list #>
+<hr>
+<form name="input" action="/" method="get"> 
+	<input type="text" name="tag" >
+	<input type="submit" value="Add Tag" > 
+	<input type="hidden" value="_tagslist_processor0" name="page">
+	<input type="hidden" value="<#[url.aid]#>" name="aid">
+	<input type="hidden" value="<# system.date_time_short #>" name="date">
+	<input type="hidden" value="1" name="create">
+</form>
+
+
+<style>
+.tags {
+	font-family: helvetica;
+	font-size: 13px;
+	display: inline;
+	Min-width:20px;
+	height: 16px;
+	text-align:center;
+	padding: 4px;	
+}
+
+</style>

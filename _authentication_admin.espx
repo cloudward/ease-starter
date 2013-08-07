@@ -1,0 +1,6 @@
+<# if ("<#[cookie.keypassn]#>" != "554bd8fc3801fd2e560154e42a32670ab554bd8fc3801fd2e560154e42a32670ab") {
+  redirect to "/?page=admin_logon&goto=<#[url.page]#>";
+} else {
+// authenticated
+}
+#>

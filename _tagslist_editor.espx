@@ -1,0 +1,51 @@
+<# include "_authentication_admin.espx" #>
+<font color="red"><#[url.message]#></font>
+<font color="green"><b><#[url.message_added]#></b></font>
+<form name="input" action="/" method="get"> 
+	<input type="text" name="tag" >
+	<input type="submit" value="Add Tag" > 
+	<input type="hidden" value="_tagslist_processor0" name="page">
+	<input type="hidden" value="<#[url.aid]#>" name="aid">
+	<input type="hidden" value="<# system.date_time_short #>" name="date">
+	<input type="hidden" value="1" name="create">
+	<input type="button" onclick="javascript:window.open('/?page=_tagslist_select&aid=<#[url.aid]#>', target='_self')" value="Select" > 
+</form>
+<head>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">	
+<META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+</head>
+<# start list for tags_links;
+include when tags_links.aid == "<#[url.aid]#>";
+#>
+<# start header #>
+<li class="tags">Tags:</li>
+<# end header #>
+
+<# start row #>
+<li class="tags"><# tags_links.name #>  
+	<a href="/?page=_tagslist_delete&edit=<# tags_links.id #>&aid=<#[url.aid]#>&tag=<# tags_links.name #>">[x]</a></li>
+<# end row #>
+
+<# start footer #>
+<# end footer #>
+
+<# no results #>
+<li class="tags">No Tags</li> 
+<# end no results #>
+
+<# end list #>
+
+<style>
+.tags {
+	font-family: helvetica;
+	font-size: 13px;
+	display: inline;
+	Min-width:20px;
+	height: 16px;
+	text-align:center;
+	padding: 4px;	
+}
+
+</style>
+
+ 

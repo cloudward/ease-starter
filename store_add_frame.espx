@@ -1,0 +1,44 @@
+<h3>Processing...</h3>
+<p>Please do not refresh this window......<p>
+<# apply orders.<#[url.oid]#> as "order".#>
+<div style="display:none">
+
+<# start form for googlespreadsheet <#[webstyle.orders_sheet_id]#>;
+
+save to "Sheet1";
+// specifies what sheet to save results to
+
+when creating redirect to "/?page=store_gadded&oid=<#[url.oid]#>&iid=<#[url.iid]#>";
+#>
+<input type="text"  value="<#[order.created_on]#>" style="width:120px" <# row.a #> >
+<input type="text"  value="<#[order.id]#>" style="width:120px" <# row.b #> >
+<input type="text"  value="<#[order.shipping_to]#>" style="width:120px" <# row.c #> >
+<input type="text"  value="<#[order.ordertotal]#>" style="width:120px" <# row.d #> >
+
+<input type="text" value="<#[url.qty]#>" style="width:120px" <# row.e #> >
+<input type="text"  value="<#[url.sku]#>" style="width:120px" <# row.f #> >
+<input type="text"  value="<#[url.product_name]#>" style="width:120px" <# row.g #> >
+<input type="text"  value="<#[url.price]#>" style="width:120px" <# row.h #> >
+<input type="text"  value="<#[url.total]#>" style="width:120px" <# row.i #> >
+
+<input type="text"  value="<#[order.shipping_address1]#>" style="width:120px" <# row.j #> >
+<input type="text"  value="<#[order.shipping_address2]#>" style="width:120px" <# row.k #> >
+<input type="text"  value="<#[order.shipping_city]#>" style="width:120px" <# row.l #> >
+<input type="text"  value="<#[order.shipping_state]#>" style="width:120px" <# row.m #> >
+<input type="text"  value="<#[order.shipping_zip]#>" style="width:120px" <# row.n #> >
+<input type="text"  value="<#[order.shipping_phone]#>" style="width:120px" <# row.o #> >
+<input type="text"  value="<#[order.shipping_email]#>" style="width:120px" <# row.p #> >
+
+<input type="button" value="Submit" id="createBTN" <# create button #> >
+</div>
+<# end form #>
+
+
+<script>
+function myClickButton(){
+	document.getElementById('createBTN').click();
+}
+myClickButton();
+</script>
+
+

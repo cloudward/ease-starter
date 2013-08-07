@@ -1,0 +1,63 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+
+<# start form for blah <#[url.edit]#>; 
+when creating set blah.status to "default"; 
+when creating set blah.created_on to "<# system.date_time_short #>";
+when creating redirect to "/?page=admin";
+when updating redirect to "/?page=admin";
+
+#> 
+<p>Headline
+<input type="text" style="width:400px" <# blah.headline #> >
+<p>SubHeadline
+<input type="text" style="width:400px" <# blah.subheadline #> >
+
+<p>Welcome<br>
+<textarea style="width:400px;height:285px"  <# blah.welcome #> ></textarea>
+<p>About Text<br>
+<textarea style="width:400px;height:285px"  <# blah.about_text #> ></textarea>
+<p>Music Text<br>
+<textarea style="width:400px;height:285px"  <# blah.music_text #> ></textarea>
+<p>Blog Text<br>
+<textarea style="width:400px;height:285px"  <# blah.blog_text #> ></textarea>
+<p>Contact Text<br>
+<textarea style="width:400px;height:285px"  <# blah.contact_text #> ></textarea>
+<p>
+	<p>Header<br>
+	<textarea style="width:400px;height:285px"  <# blah.header #> ></textarea>
+	<p>Footer<br>
+	<textarea style="width:400px;height:285px"  <# blah.footer #> ></textarea>
+	<p>Menu<br>
+	<textarea style="width:400px;height:285px"  <# blah.menu #> ></textarea>
+<p>Style<br>
+<textarea style="width:400px;height:285px"  <# blah.style #> ></textarea>
+<p>
+	<p>First Name
+	<input type="text" style="width:400px" <# blah.first #> >
+	<p>Last Name
+	<input type="text" style="width:400px" <# blah.last #> >
+	<p>Email
+	<input type="text" style="width:400px" <# blah.email #> >
+	<p>Company
+	<input type="text" style="width:400px" <# blah.company #> >
+
+
+<p>Username
+<input type="text" style="width:400px" <# blah.unme #> >
+<p>Password
+<input type="text" style="width:400px" <# blah.psswd #> >
+
+
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<p>
+<# end form #> 
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,70 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<# start list for content;
+include when content.page == "store-top";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Store-top Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=store-top&name=Website-store-top&desc=Content for our store-top"><u>Click here</u></a>.</div>
+<# end no results #>
+<# end list #>
+
+
+<# start list for googlespreadsheet <#[webstyle.store_sheet_id]#>;
+
+include all columns from "Sheet1";
+// get's the data from "Sheet1" --> based on the name in the spreadsheet file
+
+start row template at row 2;
+
+#>
+<# start header #>
+<div class="storeheader"></div>
+<# end header #>
+
+<# start row #>
+<div class="storelisting"><img src="<# row.c #>" border="0" class="storeimagesmall"></td>
+<div class="storelistingname"><# row.a #></div>
+<div class="storelistingprice">$ <# row.f #></div>
+<div class="storelistingdesc"><# row.b #>
+	<form name="addtocart" action="/" method="get"> 
+	<input type="hidden" value="store_add_to_cart" name="page">
+	<input type="text" value="1" name="qty" class="storeqty">
+	<input type="submit" value="Add to Cart" class="storebutton">
+	<input type="hidden" value="<# row.a #>" name="product_name">
+	<input type="hidden" value="<# row.f #>" name="price">
+	<input type="hidden" value="<# row.g #>" name="sku">
+	<input type="hidden" value="<# row.c #>" name="img">
+	</form>
+	</div>
+<div class="storelistingsku">sku <# row.g #></div>
+</div>
+<# end row #>
+
+<# start footer #>
+<div class="storefooter"></div>
+<# end footer #>
+
+<# end list #>
+<# start list for content;
+include when content.page == "store-bottom";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Store-bottom Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=store-bottom&name=Website-store-bottom&desc=Content for our store-bottom"><u>Click here</u></a>.</div>
+<# end no results #>
+<# end list #>
+
+
+
+<# include "_htmlfooter.espx" #>

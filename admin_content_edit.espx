@@ -1,0 +1,71 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<style>
+.warning { display:none;}
+</style>
+<p> 
+<# start form for content <#[url.edit]#>; 
+// when creating set content.status to "new"; 
+
+when creating set content.created_on to "<# system.date_time_short #>";
+
+when creating redirect to "/?page=admin_content_list";
+// need to get id's passed properly in redirect
+
+when updating redirect to "/?page=admin_content_list";
+
+when deleting redirect to "/?page=admin_content_list";
+
+#> 
+<p>Name (internal use only)<br>
+<input type="text" style="width:400px" <# content.name #> >
+<p>Description (internal use only)<br>
+<input type="text" style="width:400px" <# content.description #> >
+
+<p>Body (what get's published - HTML is okay) <a href="/?page=admin_content_edit_wysiwyg&edit=<#[url.edit]#>&value=<#[url.value]#>">[Use WYSIWYG Editor]</a>
+<br>
+<textarea style="width:650px;height:285px" <# content.body #> ></textarea>
+
+<p>Publish On What Page: 
+	<select <# content.page #> >
+	    <option value="<#[url.value]#>" ><#[url.value]#></option>
+	    <option value="index" >home/index</option>    
+	    <option value="about" >about</option>    
+	    <option value="blog_intro" >blog intro</option>    
+	    <option value="contact_intro" >contact intro</option>    
+	    <option value="confirmation" >contact form confirmation</option>    
+	    <option value="htmlheader" >HTML Header</option>    
+	    <option value="stylesheet" >Website Stylesheet</option>
+	    <option value="navtop" >Website Navigation Top</option>
+	    <option value="navbottom" >Website Navigation Bottom</option>
+	    <option value="htmlfooter" >HTML Footer</option>
+	    <option value="member_menu" >member menu</option>
+	    <option value="admin_menu" >admin menu</option>
+		<option value="admin_logon" >admin_logon </option>
+		<option value="privacy" >privacy </option>
+		<option value="terms" >website terms </option>
+		<option value="logged_off" >logged_off confirmation </option>
+		<option value="store-top" >store-top</option>
+		<option value="store-bottom">store-bottom</option>
+		<option value="members">members homepage</option>
+	</select>
+	<br><br>
+<p>
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<input type="button" value="delete" <# delete button #> >
+<p>
+<# end form #> 
+
+To link to as a misc/general webpage - use the following URL: 
+<br>
+<input type="text" value="/?page=content&aid=<#[url.edit]#>" style="width:600px">
+<br>
+<br>
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

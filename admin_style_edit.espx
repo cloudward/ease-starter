@@ -1,0 +1,115 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<style>
+.warning { display:none;}
+</style>
+<script>
+function editstyle(){
+document.getElementById('editstyle').style.display = ''; 	
+}
+function edithtml(){
+document.getElementById('edithtml').style.display = ''; 	
+}
+function edithtmlfooter(){
+document.getElementById('edithtmlfooter').style.display = ''; 	
+}
+function editnavtop(){
+document.getElementById('editnavtop').style.display = ''; 	
+}
+function editnavbottom(){
+document.getElementById('editnavbottom').style.display = ''; 	
+}
+function editadmin(){
+document.getElementById('editadmin').style.display = ''; 	
+}
+function editadminfoot(){
+document.getElementById('editadminfoot').style.display = ''; 	
+}
+
+function editmembers(){
+document.getElementById('editmembers').style.display = ''; 	
+}
+function editmembersfoot(){
+document.getElementById('editmembersfoot').style.display = ''; 	
+}
+
+
+</script>
+
+<# start form for webstyle <#[url.edit]#>; 
+when creating set webstyle.status to "on"; 
+
+when creating set webstyle.created_on to "<# system.date_time_short #>";
+
+when creating redirect to "/?page=admin_content_list";
+// need to get id's passed properly in redirect
+
+when updating redirect to "/?page=admin_content_list";
+
+when deleting redirect to "/?page=admin_content_list";
+
+#> 
+<p>Name (internal use only)<br>
+<input type="text" style="width:400px" <# content.name #> >
+<p>Description (internal use only)<br>
+<input type="text" style="width:400px" <# content.description #> >
+
+<p>Stylesheet <a href="javascript:editstyle()">[edit]</a><br>
+<div id="editstyle" style="display:none">
+<textarea style="width:650px;height:285px" <# webstyle.stylesheet #> ></textarea>
+</div>
+<p>HTML Header <a href="javascript:edithtml()">[edit]</a><br>
+<div id="edithtml" style="display:none">
+<textarea style="width:650px;height:185px" <# webstyle.html_header #> ></textarea>	
+</div>
+
+<p>HTML Footer	<a href="javascript:edithtmlfooter()">[edit]</a><br>
+<div id="edithtmlfooter" style="display:none">
+<textarea style="width:650px;height:200px" <# webstyle.html_footer #> ></textarea>
+</div>
+
+<p>Website Navigation Top <a href="javascript:editnavtop()">[edit]</a><br>
+<div id="editnavtop" style="display:none">
+<textarea style="width:650px;height:200px" <# webstyle.nav_top #> ></textarea>	
+</div>
+
+<p>Website Navigation Bottom <a href="javascript:editnavbottom()">[edit]</a><br>
+<div id="editnavbottom" style="display:none">
+<textarea style="width:650px;height:100px" <# webstyle.nav_bottom #> ></textarea>	
+</div>	
+
+<p>Admin Menu <a href="javascript:editadmin()">[edit]</a><br>
+<div id="editadmin" style="display:none">
+<textarea style="width:650px;height:200px" <# webstyle.admin_menu #> ></textarea>	
+</div>
+
+<p>Admin Footer <a href="javascript:editadminfoot()">[edit]</a><br>
+<div id="editadminfoot" style="display:none">
+<textarea style="width:650px;height:100px" <# webstyle.admin_footer #> ></textarea>	
+</div>
+
+	
+<p>Members Menu <a href="javascript:editmembers()">[edit]</a><br>
+<div id="editmembers" style="display:none">
+<textarea style="width:650px;height:200px" <# webstyle.member_menu #> ></textarea>
+</div>
+
+<p>Member Footer <a href="javascript:editmembersfoot()">[edit]</a><br>
+<div id="editmembersfoot" style="display:none">
+<textarea style="width:650px;height:100px" <# webstyle.member_footer #> ></textarea>	
+</div>	
+<br>
+	
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<input type="button" value="delete" <# delete button #> >
+<p>
+<# end form #> 
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

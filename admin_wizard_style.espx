@@ -1,0 +1,500 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+</div>
+<style>
+body,h1,h2,h3,p,quote,small,form,input,ul,li,ol,label{
+    /* Page reset */
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    /* Setting default text color, background and a font stack */
+    color:#444444;
+    font-size:13px;
+    background: #555;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+input[type="button"]{
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	height: 25px;
+	border: 1px #888 solid;
+	color: #333;
+	font-weight: bold;
+	cursor: pointer;
+    margin: 3px 0px 3px 0px;
+	border-radius: 3px;
+	font-size: 12px;
+	padding: 5px;
+}
+
+
+/* Gallery styles */
+.header{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 25px;
+	border-radius: 3px;
+	border: 1px #ccc solid;
+	text-shadow: 1px 1px 1px #FFF;
+	line-height: 20px;
+	color: #555;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px;
+	height: 20px;
+	width: 915px;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+
+#gallery{
+    /* CSS3 Box Shadow */
+    box-shadow:0 0 3px #AAAAAA;
+
+    /* CSS3 Rounded Corners */
+	border-radius: 3px;
+    border:1px solid white;
+
+    /* The width of the gallery */
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+    width:920px;
+	height: 600px;
+    overflow: hidden;
+	background-color: #FFF;
+}
+
+#slides{
+    /* This is the slide area */
+    height:525px;
+
+    /* jQuery changes the width later on to the sum of the widths of all the slides. */
+    width:920px;
+    overflow:hidden;
+	padding-left: 8%;
+}
+
+.slide{
+    float:left;
+	width: 920px;
+}
+
+#menu{
+    /* This is the container for the thumbnails */
+    height:77px;
+	overflow: scroll;
+	background:url(/images/panel.jpg) repeat-x left #ffffff;
+}
+
+ul{
+    margin:0px 0px 0px -60px;
+	width: 1000%;
+    padding:0px;
+	height: 77px;
+}
+
+li{
+    /* Every thumbnail is a li element */
+    width:77px;
+	float: left;
+    list-style:none;
+    height:77px;
+    overflow:hidden;
+}
+
+li.inact:hover{
+    /* The inactive state, highlighted on mouse over */
+    background: url(http://cdn.demo.tutorialzine.com/2009/11/beautiful-apple-gallery-slideshow/img/pic_bg.png) repeat;
+}
+
+li.act,li.act:hover{
+    /* The active state of the thumb */
+    background:url(/images/active_bg.png) no-repeat;
+}
+
+li.act a{
+    cursor:default;
+}
+
+.fbar{
+    /* The left-most vertical bar, next to the first thumbnail */
+    width:2px;
+    background:url(/images/divider.png) no-repeat right;
+	height: 77px;
+}
+
+li a{
+    display:block;
+    background:url(/images/divider.png) no-repeat right;
+    height:60px;
+    padding-top:15px;
+}
+
+li img{
+	margin-left: 2px;
+}
+
+img{
+	border-radius: 3px;
+}
+.warning{
+	display: none;
+}
+.warning_msg{
+	display: none;
+}
+
+/** reflection **/
+.image-block { width:920px; margin:0px 10px; float:left; } 
+.reflection { position:relative; } 
+.reflection img { 
+    -webkit-transform: scaleY(-1); 
+       -moz-transform: scaleY(-1); 
+        -ms-transform: scaleY(-1); 
+         -o-transform: scaleY(-1); 
+            transform: scaleY(-1); 
+    filter: flipv; opacity:0.20; 
+    filter: alpha(opacity='20'); 
+} 
+.overlay { position:absolute; top:0px; left:0px; width:920px; height:285px; 
+    background-image: -moz-linear-gradient( center bottom, rgb(255,255,255) 60%, rgba(255,255,255,0) 75%); 
+    background-image:   -o-linear-gradient( rgba(255,255,255,0) 25%, rgb(255,255,255) 40%); 
+    background-image:     -webkit-gradient( linear, left bottom, left top, color-stop(0.68, rgb(255,255,255)), color-stop(.85, rgba(255,255,255,0))); 
+    filter: progid:DXImageTransform.Microsoft.Gradient( gradientType=0, startColor=0, EndColorStr=#ffffff); 
+}
+
+</style>
+<div class="header">
+	Select Your Theme
+</div>
+<div id="gallery">
+	<div id="slides">
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_orange';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_orange" >
+						<img src="/images/theme-orange.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/theme-orange.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_black';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_black" >
+						<img src="/images/theme-black.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/theme-black.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_simple';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_simple" >
+						<img src="/images/theme-gray.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/theme-gray.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_bluetabs';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_bluetabs" >
+						<img src="/images/theme-blue.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/theme-blue.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_reverse_image';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_reverse_image" >
+						<img src="/images/theme-reversed.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/theme-reversed.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_bubbles';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_bubbles" >
+						<img src="/images/tiny_bubbles.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/tiny_bubbles.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_simpleorange';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_simpleorange" >
+						<img src="/images/Simple_Orange.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/Simple_Orange.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_photobanner';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_photobanner" >
+						<img src="/images/photo_banner.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/photo_banner.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_cleangreen';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_cleangreen" >
+						<img src="/images/clean_green.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/clean_green.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_bluepattern';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_bluepattern" >
+						<img src="/images/Blue_pattern.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/Blue_pattern.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_blackandwhite';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_blackandwhite" >
+						<img src="/images/black_and_white.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/black_and_white.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="slide">
+			<div id="buttons" style="width: 100%;">
+				<input type="button" onclick="javascript: window.location='/?page=admin_wizard_honeycomb';" style="margin-left: 350px;margin-top: 10px;" value="Preview">
+			</div>
+			<div class="image-block">
+				<div class="mainImgContainer" style="margin-bottom: 10px;">
+					<a href="/?page=admin_wizard_honeycomb" >
+						<img src="/images/Black_Honeycomb.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+					</a>
+				</div>
+				<div class="reflection">
+					<img src="/images/Black_Honeycomb.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<div class="overlay"></div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			<li id="fbar">&nbsp;</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/theme-orange.png" width="70px">
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/theme-black.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/theme-gray.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/theme-blue.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/theme-reversed.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/tiny_bubbles.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/Simple_Orange.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/photo_banner.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/clean_green.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/Blue_Pattern.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/black_and_white.png" width="70px" border="0" >
+				</a>
+			</li>
+			<li class="menuItem">
+				<a href="" >
+					<img src="/images/Black_Honeycomb.png" width="70px" border="0" >
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+	    /* This code is executed after the DOM has been completely loaded */
+
+	    var totWidth=0;
+	    var positions = new Array();
+
+	    jQuery('#slides .slide').each(function(i){
+	        /* Loop through all the slides and store their accumulative widths in totWidth */
+	        positions[i]= totWidth;
+	        totWidth += jQuery(this).width();
+
+	        /* The positions array contains each slide's commulutative offset from the left part of the container */
+
+	        if(!jQuery(this).width())
+	        {
+	            alert("there is an image with no width property!");
+	            return false;
+	        }
+	    });
+
+	    jQuery('#slides').width(totWidth);
+
+	    /* Change the cotnainer div's width to the exact width of all the slides combined */
+
+	    jQuery('#menu ul li a').click(function(e){
+			
+	        /* On a thumbnail click */
+	        jQuery('li.menuItem').removeClass('act').addClass('inact');
+	        jQuery(this).parent().addClass('act');
+
+	        var pos = jQuery(this).parent().prevAll('.menuItem').length;
+
+	        jQuery('#slides').stop().animate({marginLeft:-positions[pos]+'px'},450);
+	        /* Start the sliding animation */
+
+	        e.preventDefault();
+	        /* Prevent the default action of the link */
+	    });
+
+	    jQuery('#menu ul li.menuItem:first').addClass('act').siblings().addClass('inact');
+	    /* On page load, mark the first thumbnail as active */
+	});
+</script>
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

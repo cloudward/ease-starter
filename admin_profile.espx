@@ -1,0 +1,51 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+
+
+<h3>Edit Admin Information</h3>
+<font color="red"><#[url.message]#></font>
+<# start form for webuser <#[cookie.cid]#>; 
+when updating redirect to "/?page=admin_profile&message=Changes Saved";
+#> 
+<table>
+	<tr>
+		<td valign="top">
+<p>First<br>
+<input type="text" style="width:200px" <# webuser.first #> >
+<p>Last<br>
+<input type="text" style="width:200px" <# webuser.last #> >
+<p>Company<br>
+<input type="text" style="width:200px" <# webuser.company #> >
+<p>Email<br>
+<input type="text" style="width:200px" <# webuser.email #> >
+<p>Phone<br>
+<input type="text" style="width:200px" <# webuser.phone #> >
+</td>
+<td valign="top">
+<p>Username<br>
+<input type="text" style="width:200px" <# webuser.username #> >
+<p>Password<br>
+<input type="password" style="width:200px" <# webuser.password #> >
+
+<input type="hidden" style="width:200px" <# webuser.address #> >
+<input type="hidden" style="width:200px" <# webuser.address2 #> >
+<input type="hidden" style="width:200px" <# webuser.city #> >
+<input type="hidden" style="width:200px" <# webuser.state #> >
+<input type="hidden" style="width:200px" <# webuser.zip #> >
+<input type="hidden" style="width:200px" <# webuser.country #> >
+
+<br><br>
+<input type="button" value="Update" <# update button #> >
+<p>
+</td>
+</tr>
+</table>
+<# end form #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

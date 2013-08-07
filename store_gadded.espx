@@ -1,0 +1,26 @@
+<h3>Processing........</h3>
+<p>Please do not refresh this window... <p>
+
+	<div style="display:none">
+		
+		
+	<# start form for cart <#[url.iid]#>; 
+	when updating set cart.orderstatus to "processed";
+	when updating redirect to "/?page=store_addordertogoogle&oid=<#[url.oid]#>&iid=<#[url.iid]#>";
+	#> 
+
+	<input type="button" value="update" id="createBTN" <# update button #> >
+	<p>
+	<# end form #> 
+
+	<script>
+	function myClickButton(){
+		document.getElementById('createBTN').click();
+	}
+	myClickButton();
+	</script>
+
+	</div>
+
+
+

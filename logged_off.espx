@@ -1,0 +1,26 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<#:
+// this page is here if you don't want to use the google form on your contact page
+// just link to /?page=contactus  instead of the other link in the navigation
+:#>
+
+<# start list for content;
+include when content.page == "logged_off";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Logged Off Content Not Setup <br>
+<a href="/?page=admin_wizard_pages&edit=0&value=logged_off&name=Logged%20Off%20Page&desc=Displayed after a user logs off of the website.">Click here</a>.
+</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

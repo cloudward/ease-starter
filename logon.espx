@@ -1,0 +1,32 @@
+<# include "header.espx" #>
+
+<h3>These Pages are "For Admin Only..." </h3>
+<script language="javascript"> 
+function submit_search( evt, tb, bn )
+   {
+      if( evt.keyCode == 13 )
+         {
+         document.getElementsByName(bn)[0].onclick()
+         }
+         evt.cancelBubble = true;
+   }
+</script> 
+
+<div style="padding:20px;">
+<hr size="1">
+<h3><font color="red"><#[url.message]#></font></h3>
+<form name="input" action="/" method="get"> 
+<p>Username:<br>
+<input type="text"  style="display:" name="username" >
+<br>Password:<br>
+<input type="password"  style="display:" name="pass" >
+<br>
+<input type="submit" style="display:" value="Member Logon" > 
+
+<input type="hidden" value="validate" name="page">
+<input type="hidden" value="<#[url.goto]#>" name="goto">
+</form>
+
+<# include "footer.espx" #>
+
+

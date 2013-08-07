@@ -1,0 +1,42 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+
+<div class="welcomeheadline">Edit Members</div>
+<p>Add new Members or update Members.</p>
+<hr size="1">
+<a href="/?page=admin_member_edit&edit=0">+Add New Member</a>
+
+
+<hr size="1">
+
+<# start list for webuser;
+//sort by webuser.last in descending order;
+#>
+
+<# start header #><# end header #>
+
+<# start row #>
+<div class="blogheadline"><a href="/?page=admin_member_edit&edit=<# webuser.id #>&editaccount=0" ><# webuser.last #>, <# webuser.first #> </a></div>
+<div class="blogteaser"><# webuser.email #> <# webuser.phone #> <# webuser.company #>
+Status = <# webuser.status #> <# webuser.type #>
+ </div>
+<div class="blogseparator"></div>
+<# end row #>
+<# start footer #>
+<p>
+<# end footer #>
+
+<# no results #>
+	<h2>There are no webuser in this list yet...</h2>
+<# end no results #>
+
+<# end list #>
+
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

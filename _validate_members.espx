@@ -1,0 +1,34 @@
+
+<# start list for webuser;
+
+include when webuser.username == "<#[url.username]#>" and webuser.password == "<#[url.pass]#>" and webuser.status == "active";
+
+#>
+<# start header #>
+<# end header #>
+<# start row #>
+<# 
+set cookie.memberkey to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
+set cookie.keypassn to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
+set cookie.first to "<# webuser.first #>";
+set cookie.last to "<# webuser.last #>";
+set cookie.email to "<# webuser.email #>";
+set cookie.cid to "<# webuser.id #>";
+set cookie.company to "<# webuser.company #>";
+redirect to "/?page=<#[url.goto]#>";
+#>
+<# end row #>
+<# start footer #>
+<# end footer #>
+<# no results #>
+<#
+redirect to "/?page=member_logon&message=Logon%20Failed&goto=<#[url.goto]#>";
+#>
+<# end no results #>
+<# end list #>
+
+<#
+// redirect to "/?page=_validate2&username=<#[url.username]#>&pass=<#[url.pass]#>&goto=<#[url.goto]#>";
+// would rather user code on this page to validate and set cookies.
+// validate 2 uses javascript from row template...
+#>

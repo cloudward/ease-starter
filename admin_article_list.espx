@@ -1,0 +1,42 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<div class="welcomeheadline">Edit Blog Posts</div>
+<p>This is your blog editor. Add new blog posts or edit existing blog posts.</p>
+<hr size="1">
+<a href="/?page=admin_article_edit&edit=0">+Add New Blog Post</a>
+
+
+<hr size="1">
+
+<# start list for articles;
+
+sort by articles.created_on in descending order;
+#>
+
+<# start header #><# end header #>
+
+<# start row #>
+<div class="blogheadline"><a href="/?page=article&aid=<# articles.id #>"  target="_blank"><# articles.headline #></a></div>
+<div class="blogteaser"><# articles.teaser #>
+<br><# articles.weekday #> <# articles.month #>/<# articles.day #>/<# articles.year #>
+<br><a href="/?page=admin_article_edit&edit=<# articles.id #>">[Edit this Post]</a> Status = <# articles.status #>
+ </div>
+<div class="blogseparator"></div>
+<# end row #>
+<# start footer #>
+<p>
+<# end footer #>
+
+<# no results #>
+	<h2>There are no articles in this list yet...</h2>
+<# end no results #>
+
+<# end list #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

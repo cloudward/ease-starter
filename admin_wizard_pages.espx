@@ -1,0 +1,95 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<style>
+.warning { display:none;}
+</style>
+
+<script>
+function editgdoc(){
+document.getElementById('editgoogledoc').style.display = ''; 	
+document.getElementById('googledocbutton').style.display = 'none'; 	
+document.getElementById('otherformelements').style.display = 'none'; 	
+}
+function canceleditgdoc(){
+document.getElementById('editgoogledoc').style.display = 'none'; 	
+document.getElementById('googledocbutton').style.display = ''; 	
+document.getElementById('otherformelements').style.display = ''; 	
+}
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	tinymce.init({
+	    selector: "textarea",
+		content_css : "/style_test.css",
+	    plugins: [
+	        "advlist autolink lists link image charmap print preview anchor  fullpage",
+	        "searchreplace visualblocks code fullscreen",
+	        "insertdatetime media table contextmenu paste textcolor"
+	    ],
+	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor"
+	});
+});
+</script>
+
+<# start form for content <#[url.edit]#>; 
+// when creating set content.status to "new"; 
+
+when creating set content.created_on to "<# system.date_time_short #>";
+
+when creating redirect to "/?page=admin_content_list";
+// need to get id's passed properly in redirect
+
+when updating redirect to "/?page=admin_content_list";
+
+when deleting redirect to "/?page=admin_content_list";
+
+#> 
+<p>Name (internal use only)<br>
+<input type="text" id="name" style="width:400px" value="<#[url.name]#>" <# content.name #> >
+<p>Description (internal use only)<br>
+<input type="text" id="description" style="width:400px" value="<#[url.desc]#>" <# content.description #> >
+
+<span id="googledocbutton" style="display:">[<a href="javascript:editgdoc()">get Google Doc</a>]</span>
+<div id="editgoogledoc" style="display:none">
+<p>GoogleDocID (used for integration)<br>
+<input type="text" style="width:350px"  <# content.googledoc_id #> id="googledoc_id" > 
+<input type="button" value="update google doc" onclick="javascript:getgoogledoc()">
+<a href="javascript:canceleditgdoc()">[Cancel]</a>
+</div>
+
+<p>Body<br>
+<textarea style="width:650px;height:285px" <# content.body #> ></textarea>
+
+<p>Publish On What Page: 
+	<input type="text" id="page" value="<#[url.value]#>" <# content.page #>  >
+	<br><br>
+<p>
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<input type="button" value="delete" <# delete button #> >
+<p>
+<# end form #> 
+
+<script>
+function getgoogledoc() {
+	if ("<#[url.edit]#>" == "0"){
+		var docid = document.getElementById("googledoc_id").value;
+		var name = document.getElementById("name").value;
+		var description = document.getElementById("description").value;
+		var page = document.getElementById("page").value;
+		window.location = "/?page=admin_wizard_pages_getdoc&edit=<#[url.edit]#>&value="+page+"&doc="+ docid +"&name="+ name +"&description="+ description +"";
+	} else {
+		var docid = document.getElementById("googledoc_id").value;
+		window.location = "/?page=admin_article_getdoc&edit=<#[url.edit]#>&doc="+ docid +"";
+	}
+}
+</script>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

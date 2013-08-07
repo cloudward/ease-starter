@@ -1,0 +1,105 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<# start form for eas_vault <#[easvault.id]#>; 
+when creating set eas_vault.gappsetupdone to "true"; 
+when creating set eas_vault.id to "9a7ac1363ff31893fc4047a4f5224f48";
+when creating redirect to "/?page=google_global&edit=9a7ac1363ff31893fc4047a4f5224f48";
+when updating redirect to "/?page=google_global&edit=9a7ac1363ff31893fc4047a4f5224f48";
+when deleting redirect to "/?page=google_global&edit=9a7ac1363ff31893fc4047a4f5224f48";
+#>
+<style>
+	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
+	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+</style>
+<div id="otherformelements"> 
+		<p style="font-weight: bold;margin-top: 10px;">Google Integration Credentials</p>
+		<div class="instructions">
+			These ID's are obtained in the Google API Console after setting up access to the various google API's you would like to use (i.e. Google Drive).<br><br>
+			Please put the corresponding ID's from your Google API Console (<a href="https://code.google.com/apis/console/" target="_blank">Found Here</a>) Account into the designated<br>
+			fields below to complete integration for your spreadsheet and documents on Google Drive. 
+		</div>
+		<div class="divSpacer">
+			<div class="label">
+				Google Email<br><span style="font-size: 9px;">(Enter your gmail username here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:300px;height:18px;font-size:14px"  <# eas_vault.gspreadsheet_email #> >
+			</div>
+		</div>
+		<div class="divSpacer">
+			<div class="label">
+				Google Password<br><span style="font-size: 9px;">(Enter your gmail password here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="password" style="width:300px;height:18px;font-size:14px"  <# eas_vault.gspreadsheet_password #> >
+			</div>
+		</div>	
+		<div class="local divSpacer">
+			<div class="label">
+				Google Client ID (localhost)<br><span style="font-size: 9px;">(Enter the google API clientID from your google API console here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_id_local #> >
+			</div>
+		</div>
+		<div class="live divSpacer">
+			<div class="label">
+				Google Client ID (live)<br><span style="font-size: 9px;">(Enter the google API clientID from your google API console here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_id_live #> >
+			</div>
+		</div>
+		<div class="local divSpacer">
+			<div class="label">
+				Google API Secret (localhost)<br><span style="font-size: 9px;">(Enter the google API client secret from your google API console here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_secret_local #> >
+			</div>
+		</div>
+		<div class="live divSpacer">
+			<div class="label">
+				Google API Secret (live)<br><span style="font-size: 9px;">(Enter the google API client secret from your google API console here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_secret_live #> >
+			</div>
+		</div>
+		<div class="local divSpacer">
+			<div class="label">
+				Google Redirect URI (localhost)<br><span style="font-size: 9px;">(Enter the google API URI redirect from your google API console here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_redirect_uri_local #> >
+			</div>
+		</div>
+		<div class="live divSpacer">
+			<div class="label">
+				Google Redirect URI (live)<br><span style="font-size: 9px;">(Enter the google API URI redirect from your google API console here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_redirect_uri_live #> >
+			</div>
+		</div>
+		<input type="button" value="Save" <# create button #> >
+		<input type="button" value="Update" <# update button #> >
+	</p>
+</div>
+<# end form #>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	if(document.domain == "localhost"){
+		jQuery('.live').hide();
+	}else{
+		jQuery('.local').hide();
+	}
+});
+</script>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

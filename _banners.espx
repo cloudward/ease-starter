@@ -1,0 +1,34 @@
+<# start list for webimages;
+include when webimages.banner == "yes" and webimages.status = "on";
+#>
+<# start header #>
+<# end header #>
+<# start row #>
+<div id='banner<# webimages.showorder #>' style='display:none;' class='homepagebanner' >
+<a href="<# webimages.link #>" border="0"><img src="<# webimages.image1 #>" class='homepagebannerimage'></a>
+</div>
+<script>
+function next<# webimages.showorder #>() { 
+	if ("<# webimages.showorder #>" == "2") {
+	document.getElementById('banner1').style.display = 'none'; 
+	} else {
+	}
+	document.getElementById('banner<# webimages.shownext #>').style.display = ''; 
+	document.getElementById('banner<# webimages.showorder #>').style.display = 'none'; 
+	window.setTimeout('next<# webimages.shownext #>()', 4000); 
+}
+</script>
+
+<# end row #>
+<# start footer #>
+<script>
+document.getElementById('banner1').style.display = ''; 
+window.setTimeout('next2()', 4000); 
+</script>
+<# end footer #>
+<# no results #>
+
+<# end no results #>
+<# end list #>
+
+<div id="banner0"></div>

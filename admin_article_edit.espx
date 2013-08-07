@@ -1,0 +1,228 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+<script>
+function editgdoc(){
+document.getElementById('editgoogledoc').style.display = ''; 	
+document.getElementById('googledocbutton').style.display = 'none'; 	
+document.getElementById('otherformelements').style.display = 'none'; 	
+}
+function canceleditgdoc(){
+document.getElementById('editgoogledoc').style.display = 'none'; 	
+document.getElementById('googledocbutton').style.display = ''; 	
+document.getElementById('otherformelements').style.display = ''; 	
+}
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	tinymce.init({
+	    selector: "textarea",
+		content_css : "/style_test.css",
+	    plugins: [
+	        "advlist autolink lists link image charmap print preview anchor",
+	        "searchreplace visualblocks code fullscreen",
+	        "insertdatetime media table contextmenu paste"
+	    ],
+	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+	});
+	
+	var sid = "<#[easvault.gspreadsheet_email]#>";
+	var spw = "<#[easvault.gspreadsheet_password]#>";
+	if(sid == "" || spw == ""){
+		jQuery('#tokenizer').attr('href', "javascript: alert('You must enter complete the Google IDs portion of the startup wizard before you can upload files to google drive.');");
+	}else{
+		sf = "<#[webstyle.uploads_folder_id]#>";
+		if(sf == ""){
+			jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
+		}else{
+			var c = readCookie('DgU00');
+			if(c == '' || c == null){
+				jQuery('#tokenizer').show();
+			}else{
+				jQuery('#tokenizer').hide();
+			}
+			jQuery('#tokenizer').show();
+		}
+	}
+});
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+</script>
+
+<# start form for articles <#[url.edit]#>; 
+// when creating set articles.status to "new"; 
+
+when creating set articles.created_on to "<# system.date_time_short #>";
+when creating set articles.author_id to "<#[cookie.cid]#>";
+when creating set articles.author to "<#[cookie.first]#> <#[cookie.last]#>";
+
+when creating redirect to "/?page=admin_article_list";
+// need to get id's passed properly in redirect
+
+when updating redirect to "/?page=admin_article_list";
+
+when deleting redirect to "/?page=admin_article_list";
+
+#> 
+<p>Headline<br>
+<input type="text" style="width:100%;font-size: 26px;height: auto;" maxlength="200" <# articles.headline #> id="headline" >
+<span id="googledocbutton" style="display:;float: right;">[<a href="javascript:editgdoc()">get Google Doc</a>]</span>
+<div id="editgoogledoc" style="display:none">
+	<p>GoogleDocID (used for integration)<br>
+		<input type="text" style="width:350px"  <# articles.googledoc_id #> id="googledoc_id" > 
+		<input type="button" value="update google doc" onclick="javascript:getgoogledoc()">
+		<a href="javascript:canceleditgdoc()">[Cancel]</a>
+</div>
+<div id="otherformelements"><p>Teaser (used in list as introduction)<br>
+<input type="text" style="width:100%"  <# articles.teaser #> id="teaser">
+
+<div><a id="googleDocToggle" href="javascript: void(0);">[+Add Image]</a></div>
+<div id="googleDriveImage" style="display: none;">
+	<span style="float: right;">Trouble uploading? <a href="/genrateAccessToken?redirectURL=http://<# system.domain #>/?page=admin_article_edit&t=true" id="tokenizer">[Generate Access Token]</a></span>
+	<input type="text" style="width:100%"  <# articles.thumb #> >
+	<input type="file" <# upload file to googledrive "/<#[webstyle.uploads_folder_id]#>" for articles.thumb #> >
+</div>
+<div style="width: 100%;">
+	<p style="float: left;">Body</p> 
+	<p style="float: right;"><a href="/?page=admin_article_edit_fix&edit=<#[url.edit]#>">[Editor Off]</a></p>
+</div>
+<div style="width: 100%;float: left;">
+<textarea style="width:650px;height:285px" <# articles.body #> ></textarea>
+</div>
+<div style="width: 100%;float: left;">
+<p>Status
+	<select <# articles.status #> >
+	    <option value="on" >on</option>
+	    <option value="off" >off</option>    
+	</select>
+<p>Publish On:
+	<input type="checkbox" value="blog" <# articles.blog #> > 
+	Blog  
+	<input type="checkbox" value="members" <# articles.members #> > 
+	Member News 
+
+<p>
+	Day
+		<select <# articles.weekday #> >
+			<option value="<# system.day_short #>"><# system.day_short #></option>
+		    <option value="Sun" >Sunday</option>
+		    <option value="Mon" >Monday</option>    
+		    <option value="Tues" >Tuesday</option>    
+		    <option value="Wed" >Wednesday</option>    
+		    <option value="Thurs" >Thursday</option>    
+		    <option value="Fri" >Friday</option>    
+		    <option value="Sat" >Saturday</option>
+		</select>
+	Month
+	<select <# articles.month #> >
+		<option value="<# system.month #>"><# system.month #></option>
+	    <option value="01" >January</option>
+	    <option value="02" >February</option>    
+	    <option value="03" >March</option>    
+	    <option value="04" >April</option>    
+	    <option value="05" >May</option>    
+	    <option value="06" >June</option>    
+	    <option value="07" >July</option>    
+	    <option value="08" >August</option>    
+	    <option value="09" >September</option>    
+	    <option value="10" >October</option>    
+	    <option value="11" >November</option>    
+	    <option value="12" >December</option>    
+	</select> Date
+	<select <# articles.day #> >
+		<option value="<# system.date #>"><# system.date #></option>
+	    <option value="1" >1st</option>    
+	    <option value="2" >2nd</option>    
+	    <option value="3" >3rd</option>    
+	    <option value="4" >4th</option>    
+	    <option value="5" >5th</option>    
+	    <option value="6" >6th</option>    
+	    <option value="7" >7th</option>    
+	    <option value="8" >8th</option>    
+	    <option value="9" >9th</option>    
+	    <option value="10" >10th</option>    
+	    <option value="11" >11th</option>    
+	    <option value="12" >12th</option>    
+	    <option value="13" >13th</option>    
+	    <option value="14" >14th</option>    
+	    <option value="15" >15th</option>    
+	    <option value="16" >16th</option>    
+	    <option value="17" >17th</option>    
+	    <option value="18" >18th</option>    
+	    <option value="19" >19th</option>    
+	    <option value="20" >20th</option>    
+	    <option value="21" >21st</option>    
+	    <option value="22" >22nd</option>    
+	    <option value="23" >23rd</option>    
+	    <option value="24" >24th</option>    
+	    <option value="25" >25th</option>    
+	    <option value="26" >26th</option>    
+	    <option value="27" >27th</option>    
+	    <option value="28" >28th</option>    
+	    <option value="29" >29th</option>    
+	    <option value="30" >30th</option>    
+	    <option value="31" >31st</option>    
+	</select>
+ Year
+	<select <# articles.year #> >
+	    <option value="<# system.year #>" ><# system.year #></option>    
+	    <option value="2013" >2013</option>    
+	    <option value="2012" >2012</option>    
+	    <option value="2011" >2011</option>    
+	    <option value="2010" >2010</option>    
+	    <option value="2009" >2009</option>    
+	    <option value="2008" >2008</option>    
+	    <option value="2007" >2007</option>    
+	    <option value="2006" >2006</option>    
+	</select>
+<p>
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<input type="button" value="delete" <# delete button #> >
+<p>
+
+<# end form #> 
+<div id="taglist" style="width:100%">
+<iframe src="/?page=_tagslist_editor&aid=<#[url.edit]#>" frameborder="0" width="654" height="200" scrolling="auto">
+</iframe>
+</div>
+</div>
+<script>
+jQuery(document).ready(function(){
+
+	jQuery('#googleDocToggle').click(function(){
+		jQuery('#googleDriveImage').slideToggle('fast');
+	});
+});
+
+if ("<#[url.edit]#>" == "0"){
+document.getElementById("taglist").style.visibility = "hidden";
+} 
+function getgoogledoc() {
+	if ("<#[url.edit]#>" == "0"){
+		var docid = document.getElementById("googledoc_id").value;
+		var head = document.getElementById("headline").value;
+		var teaser = document.getElementById("teaser").value;
+		window.location = "/?page=admin_article_getdoc&edit=<#[url.edit]#>&doc="+ docid +"&head="+ head +"&tease="+ teaser +"";
+	} else {
+		var docid = document.getElementById("googledoc_id").value;
+		window.location = "/?page=admin_article_getdoc&edit=<#[url.edit]#>&doc="+ docid +"";
+	}
+}
+</script> 
+</div>
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

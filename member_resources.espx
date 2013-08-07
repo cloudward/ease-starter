@@ -1,0 +1,53 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+<# include "_member_menu.espx" #>
+
+<h1>Resources</h1>
+
+<# start list for googlespreadsheet <#[webuser.resourcessheet]#>;
+
+include all columns from "<#[webuser.resourcestab]#>";
+
+
+start row template at row 2;
+#>
+
+<# start header #>
+<table class="resources_table">
+	<tr class="resources_table_header">
+		<td class="resources_table_header_td" ><# a.1 #></td>
+		<td class="resources_table_header_td" ><# b.1 #></td>
+		<td class="resources_table_header_td" ><# c.1 #></td>
+		<td class="resources_table_header_td" ><# e.1 #></td>
+		<td class="resources_table_header_td" ><# f.1 #></td>
+		<td class="resources_table_header_td" ><# g.1 #></td>
+	</tr>
+<# end header #>
+
+<# start row #>
+	<tr  class="resources_table_row" >
+		<td class="resources_table_row_td" ><# row.a #></td>
+		<td class="resources_table_row_td" ><# row.b #></td>
+		<td class="resources_table_row_td" ><# row.c #></td>
+		<td class="resources_table_row_td" ><a href="<# row.d #>" target="_blank"><# row.e #></a></td>
+		<td class="resources_table_row_td" ><# row.f #></td>
+		<td class="resources_table_row_td" ><# row.g #></td>
+	</tr>
+<# end row #>
+
+<# start footer #>
+	</table>
+<# end footer #>
+
+
+<# end list #>
+
+
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
+
+
+
+

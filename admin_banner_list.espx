@@ -1,0 +1,40 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<div class="welcomeheadline">Edit Banners</div>
+<p>Insert instructions here.</p>
+<hr size="1">
+<a href="/?page=admin_banner_edit&edit=0">+Add New Banner</a>
+
+
+<hr size="1">
+
+<# start list for webimages;
+#>
+
+<# start header #><# end header #>
+
+<# start row #>
+<div class="blogheadline"><a href="<# webimages.file #>"  target="_blank"><img src="<# webimages.image1 #>" style="width:200;float:left"><# webimages.name #></a></div>
+<div class="blogteaser"> Display Order: <# webimages.showorder #>  Displayed Next: <# webimages.shownext #> 
+<br><a href="/?page=admin_banner_edit&edit=<# webimages.id #>">[Edit this Banner]</a> Status = <# webimages.status #>
+<br>Link to: <# webimages.link #>
+ </div>
+<div class="blogseparator"></div>
+<# end row #>
+<# start footer #>
+<p>
+<# end footer #>
+
+<# no results #>
+	<h2>There are no banners in this list yet...</h2>
+<# end no results #>
+
+<# end list #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

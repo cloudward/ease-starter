@@ -1,0 +1,19 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<# start list for content;
+include when content.page == "privacy";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Privacy Page Content Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=privacy&name=Website-Privacy-Policy&desc=Content for our privacy"><u>Click here</u></a>.</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

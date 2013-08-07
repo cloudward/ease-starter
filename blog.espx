@@ -1,0 +1,47 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<# start list for content;
+include when content.page == "blog_intro";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Blog Intro Content Not Setup 
+<a href="/?page=admin_wizard_pages&edit=0&value=blog_intro&name=BLOG%20INTRO&desc=Introduction content for my blog">Click here</a>.
+</div>
+<# end no results #>
+<# end list #>
+
+
+<# start list for articles;
+include when articles.status == "on" and articles.blog == "blog";
+sort by articles.created_on in descending order;
+#>
+<# start header #><# end header #>
+<# start row #>
+<div class="blogheadline">
+	<img src="<# articles.thumb #>" class="blog_thumb">
+	<a href="/?page=article&aid=<# articles.id #>"><# articles.headline #></a>
+</div>
+<div class="blogteaser">
+	<i>Posted on <# articles.weekday #> <# articles.month #>/<# articles.day #>/<# articles.year #></i><br><# articles.teaser #>
+	<br>
+	<a href="/?page=article&aid=<# articles.id #>"><u>Read More...</u></a>
+</div>
+<div class="blogseparator"></div>
+<# end row #>
+<# start footer #><# end footer #>
+
+<# no results #>
+	<p>There are no blog posts yet...</p>
+<# end no results #>
+
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

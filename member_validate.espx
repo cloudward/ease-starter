@@ -1,0 +1,40 @@
+<# include "_htmlheader.espx" #>
+
+<# apply webuser.<#[url.mid]#> as "mid" .#>
+<center>
+<div class="googlecontactform" style="width: 60%;">
+
+
+<# if ("<#[mid.member_level]#>" == "<#[easvault.basic_label]#>") {
+	
+	set cookie.price to "<#[easvault.basic_cost]#>";
+	set cookie.sku to "<#[easvault.basic_label]#>";
+} else {
+	set cookie.price to "<#[easvault.premium_cost]#>";
+	set cookie.sku to "<#[easvault.premium_label]#>";
+}
+#>
+
+<h2>Email Address Validated</h2>
+
+<p>Thank you! 
+
+<p><a href="https://<# system.domain #>?page=member_payment&mid=<#[url.mid]#>">Click here</a> to complete your signup.
+
+<#
+	set cookie.first to "<# mid.first #>";
+	set cookie.last to "<# mid.last #>";
+	set cookie.email to "<# mid.email #>";
+	set cookie.cid to "<# mid.id #>";
+	set cookie.company to "<# mid.company #>";
+#>
+</div>
+</center>
+
+<style>
+.emailsignup {display:none}
+</style>
+
+
+<# include "_htmlfooter.espx" #>
+

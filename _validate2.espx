@@ -1,0 +1,45 @@
+<#
+redirect to "/?page=_validate&username=<#[url.username]#>&pass=<#[url.pass]#>&goto=<#[url.goto]#>";
+// this page is option 2 for validation - using javascript, prefer _validate.espx instead
+#>
+<script>
+function setCookie2(c_name,value,exdays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate() + exdays);
+var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+document.cookie=c_name + "=" + c_value;
+}
+</script>
+
+
+<# start list for webuser;
+
+include when webuser.username == "<#[url.username]#>" and webuser.password == "<#[url.pass]#>" and webuser.status == "active";
+
+#>
+<# start header #>
+<# end header #>
+<# start row #>
+<h2>Logging On</h2>
+<script>
+setCookie2('keypassn','554bd8fc3801fd2e560154e42a32670ab554bd8fc3801fd2e560154e42a32670ab','2');
+setCookie2('first','<# webuser.first #>','2');
+setCookie2('last','<# webuser.last #>','2');
+setCookie2('email','<# webuser.email #>','2');
+setCookie2('company','<# webuser.company #>','2');
+function next(){
+	window.location = "/?page=<#[url.goto]#>";	
+}
+window.setTimeout('next()', 4000); 
+</script>
+<# end row #>
+<# start footer #>
+<# end footer #>
+<# no results #>
+<script>
+window.location = "/?page=logon&message=Logon%20Failed&goto=<#[url.goto]#>";	
+</script>
+
+<# end no results #>
+<# end list #>

@@ -1,0 +1,45 @@
+<div style="width: 600px;margin-left: auto;margin-right: auto;">
+	<div id="declinedHeader" style="margin-top: 40px;">
+		<h3>Order Declined</h3>
+	</div>
+	<div id="declinedBody" style="color: #000;padding: 10px;width: 99%;border: 1px #999 solid;background-color: #CCC;margin-top: 15px;">
+		<p>
+			The provided payment method for this order has been declined. Please try again and enter a different payment method to continue with this order. 
+		</p>
+		<p>
+			If you feel you have reached this page in error, you can contact our customer service at the following:
+		</p>
+		
+		<p>
+			Address:<br>
+			Attn: Customer Service Dept.<br>
+			555 My Business Address<br>
+			SomeCity, SomeState SomeZip<br>
+		</p>
+		
+		<ul>
+			<li>Email: customerservice@mydomain.com</li>
+			<li>Phone: 1-800-444-5555</li>
+		</ul>
+	</div>
+	<div id="declinedFooter" style="margin-top: 15px;text-align: center;">
+		<div>
+			<input type="button" value="Back to Store" onclick="javascript: rdirect('store');">
+			<input type="button" value="Back to Home" onclick="javascript: rdirect('home');">
+		</div>
+		<h4>Thank you for shopping with us, we look forward to serving you in the near future.</h4>
+	</div>
+	<div style="clear: both;"></div>
+</div>
+<script type="text/javascript">
+function rdirect(param){
+	switch(param){
+		case "store":
+			window.location = "/?page=store";
+			break;
+		case "home":
+			window.location = "/";
+			break;
+	}
+}
+</script>

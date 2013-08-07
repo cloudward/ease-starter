@@ -1,0 +1,11 @@
+<# apply orders.<#[url.oid]#> as "order".#>
+<# if ("<#[order.status]#>" <> "declined") {
+	redirect to "/?page=store_addordertogoogle&oid=<#[order.id]#>";
+} else {
+	redirect to "/?page=store_declined&oid=<#[order.id]#>";
+}
+
+#>
+<div style="width: 600px;margin-left: auto;margin-right: auto;">
+	
+</div>

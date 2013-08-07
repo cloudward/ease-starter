@@ -1,0 +1,43 @@
+<# include "_htmlheader.espx" #>
+
+<# apply webuser.<#[url.mid]#> as "mid" .#>
+<center>
+<div class="googlecontactform" style="width: 60%;">
+
+<h2>Please Check Your Email</h>
+
+<p>We sent an email to <#[mid.email]#> to validate your email address for your account.
+
+<# apply webuser.61e4c67057c8a3df76286ab89fca716a as "webuser" .#>
+
+<# if ("<#[webstyle.notification_site_email]#>" == ""){
+	set webstyle.notification_site_email to "<#[webuser.email]#>";
+}
+#>
+
+<# if ("<#[webstyle.notification_comments]#>" == ""){
+	set webstyle.notification_store_purchase to "<#[webuser.email]#>";
+}
+#>
+
+<# if ( "<#[url.mid]#>" <> "" ) {
+	send email;
+		from_name = "<#[webstyle.notification_site_email]#>";
+		to = "<#[mid.email]#>";
+		subject = "Membership Confirmation";
+		type = "html"; // text or html
+		bodypage = "email_member_confirmation?mid=<#[url.mid]#>";
+}
+#>
+
+
+</div>
+</center>
+
+<style>
+.emailsignup {display:none}
+</style>
+
+
+<# include "_htmlfooter.espx" #>
+

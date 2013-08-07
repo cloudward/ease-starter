@@ -1,0 +1,5 @@
+<#
+set cookie.orderid to "<#[url.orderid]#>";
+redirect to "/?page=store_add_to_cart&orderid=<#[url.orderid]#>&qty=<#[url.qty]#>&product_name=<#[url.product_name]#>&price=<#[cookie.price]#>&sku=<#[cookie.sku]#>&img=<#[url.img]#>";
+#>
+

@@ -1,0 +1,50 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+
+<h1>My Google List from Contact Form</h1>
+
+<# start list for googlespreadsheet <#[webstyle.contact_us_id]#>;
+// should look something like 0AjfUurRV-PuudE5mZnQxUy0xMlg3YnNPVzA4b01XOHc;
+// for googlespreadsheet means we are getting data from google spreadsheet
+// the id after the spreadsheet is the id we get from the google URL/key
+
+include all columns from "Sheet1";
+// get's the data from "Sheet1" --> based on the name in the spreadsheet file
+
+start row template at row 2;
+// tells us where to start the row template from
+// all sorting, etc is currently done on the google spreadsheet
+
+#>
+<# start header #>
+<table>
+	<tr>
+		<td><# a.1 #></td>
+		<td><# b.1 #></td>
+		<td><# c.1 #></td>
+		<td><# d.1 #></td>
+	</tr>
+<# end header #>
+
+<# start row #>
+	<tr>
+		<td><# row.a #></td>
+		<td><# row.b #></td>
+		<td><# row.c #></td>
+		<td><# row.d #></td>
+	</tr>
+<# end row #>
+
+<# start footer #>
+	</table>
+<# end footer #>
+
+<# end list #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

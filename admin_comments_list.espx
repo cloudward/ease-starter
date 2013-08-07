@@ -1,0 +1,33 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<# start list for comments;
+// use to show only comments for a particular article
+// include when comments.articleid == "<#[url.aid]#>";
+#>
+<# start header #>
+<div class="welcomeheadline">Comments</div>
+<p>The following comments are have been posted to your blog.</p>
+<hr size="1">
+<# end header #>
+<# start row #>
+<div class="blogteaser"><# comments.message #></div>
+<div class="blogteaser">
+<a href="?page=admin_comments_edit&edit=<# comments.id #>&aid=<# comments.articleid #>">[Edit this Comment]</a>
+by <# comments.name #> <# comments.email #> <# comments.created_on #></div>
+<div class="blogseparator"></div>
+<# end row #>
+<# start footer #> 
+<# end footer #>
+<# no results #>
+	<div class="nocomments">There are no comments yet... when you have comments you will be able to edit them here.</div>
+<# end no results #>
+
+<# end list #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

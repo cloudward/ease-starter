@@ -1,0 +1,96 @@
+<# start list for articles;
+include when articles.status == "on" and articles.blog == "blog";
+sort by articles.created_on in descending order;
+#>
+<# start header #>
+<rss xmlns:cwd="http://<# system.domain #>/?page=blog_rss" xmlns:cwdml="http://<# system.domain #>/?page=blog_rss" version="2.0">
+<channel>
+<title><# system.domain #> Blog</title>
+<link>http://<# system.domain #>/</link>
+<description></description>
+<language>en-us</language>
+<pubDate><# system.date_time_short #></pubDate>
+<lastBuildDate><# system.date_time_short #></lastBuildDate>
+<docs>http://<# system.domain #>/?page=blog_rss</docs>
+<generator>Weblog Editor 2.0</generator>
+<managingEditor></managingEditor>
+<webMaster></webMaster>
+<# end header #>
+<# start row #>
+<image>
+   <url><# articles.thumb #></url>
+   <title><# articles.headline #></title>
+   <link><# articles.thumb #></link>
+ </image>
+<item>
+	<title>
+		<# articles.headline #>
+	</title>
+	<link>
+		<a href="http://<# system.domain #>/?page=article&aid=<# articles.id #>">http://<# system.domain #>/?page=article&aid=<# articles.id #></a>
+	</link>
+	<description>
+		<# articles.teaser #>
+	</description>
+	<pubDate>
+		<# articles.weekday #> <# articles.month #>/<# articles.day #>/<# articles.year #>
+	</pubDate>
+	<guid>
+		http://<# system.domain #>/?page=article&aid=<# articles.id #>
+	</guid>
+</item>
+<# end row #>
+<# start footer #>
+</channel>
+</rss>
+<# end footer #>
+<# no results #>
+<rss version="2.0">
+<channel>
+<title>
+	<# system.domain #> Blog
+</title>
+<link>
+	http://<# system.domain #>/
+</link>
+<description>
+	
+</description>
+<language>
+		en-us
+</language>
+<pubDate>
+	<# system.date_time_short #>
+</pubDate>
+<lastBuildDate>
+	<# system.date_time_short #>
+</lastBuildDate>
+<docs>
+	http://<# system.domain #>/?page=blog_rss
+</docs>
+<generator>
+	Weblog Editor 2.0
+</generator>
+<managingEditor>
+	
+</managingEditor>
+<webMaster>
+	
+</webMaster>
+	<item>
+		<title>
+			No Posts
+		</title>
+		<link>
+			http://<# system.domain #>/?page=blog
+		</link>
+		<description>
+			There is nothing here yet.
+			</description>
+	</item>
+</channel>
+</rss>
+<# end no results #>
+<# end list #>
+
+

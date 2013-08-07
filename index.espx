@@ -1,0 +1,23 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<# include "_banners.espx" #>
+
+<# start list for content;
+include when content.page == "index";
+#>
+<# start header #><# end header #>
+<# start row #>
+<div style="width: 100%;">
+<# content.body #>
+</div>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Home Page Content Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=index&name=HOMEPAGE&desc=Content for our homepage"><u>Click here</u></a>.</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,31 @@
+<# include "_htmlheader.espx" #>
+
+<# apply tags.<#[url.tid]#> as "taglabel".#>
+
+<h1>Tagged: <#[taglabel.name]#></h1>
+
+<# start list for tags_links;
+include when tags_links.tid == "<#[url.tid]#>";
+#>
+<# start header #>
+<# end header #>
+
+<# start row #>
+<div class="blogheadline"><a href="/?page=article&aid=<# tags_links.aid #>"><# tags_links.headline #></a></div>
+<div class="blogteaser"><i>Posted on <# tags_links.published_on #> by <# tags_links.author #>
+</i><br><# tags_links.teaser #>
+<br><a href="/?page=article&aid=<# tags_links.aid #>"><u>Read More...</u></a></div>
+<div class="blogseparator"></div><# end row #>
+<# end row #>
+
+<# start footer #>
+<# end footer #>
+<# no results #>
+<h1>There are no links for this tag</h1>
+<# end no results #>
+<# end list #>
+
+
+
+
+<# include "_htmlfooter.espx" #>

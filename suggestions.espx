@@ -1,0 +1,31 @@
+<# include "_htmlheader.espx" #>
+
+<h2>Please Let Us Know Your Suggestions</h2>
+<hr>
+
+<# start form for googlespreadsheet <#[webstyle.suggestions_id]#>;
+
+save to "Sheet1";
+// specifies what sheet to save results to
+
+// insert at row 2;
+// inserts the new record at row two and shifts the rest of the records down
+
+when creating redirect to "/?page=suggestions_submitted";
+#>
+
+<p>Name:<br>
+<input type="text"  style="width:300px" <# row.a #> >
+
+<p>Email:<br>
+<input type="text"  style="width:300px" <# row.b #> >
+
+<p>Suggestions<br>
+	<textarea style="width:400px;height:105px"  <# row.c #> >
+	</textarea>
+<p>
+<input type="button" value="Submit" <# create button #> >
+<p>
+<# end form #> 
+
+<# include "_htmlfooter.espx" #>

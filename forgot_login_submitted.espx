@@ -1,0 +1,30 @@
+<# include "_htmlheader.espx" #>
+
+
+<# start list for webuser;
+include when webuser.email == "<#[url.e]#>";
+
+#>
+<# start header #>
+<# end header #>
+<# start row #>
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		window.location = '/?page=forgot_login_send&e=<#[url.e]#>&f=<# webuser.email #>&edit=<#[url.edit]#>'
+	});
+	</script>
+<# end row #>
+<# start footer #>
+<# end footer #>
+<# no results #>
+	
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		window.location = '/?page=forgot_login_admin&e=fail'
+	});
+	</script>
+	
+<# end no results #>
+<# end list #>
+
+<# include "_htmlfooter.espx" #>

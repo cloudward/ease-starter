@@ -1,0 +1,24 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+
+<# include "_member_menu.espx" #>
+
+<# start list for content;
+include when content.page == "members";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Members Page Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=members&name=Website-Members&desc=Content for our members"><u>Click here</u></a>.</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

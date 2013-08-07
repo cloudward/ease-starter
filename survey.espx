@@ -1,0 +1,83 @@
+<# include "_htmlheader.espx" #>
+
+<h2>Let Us Know How We Are Doing</h2>
+<hr>
+
+<# start form for googlespreadsheet <#[webstyle.surveys_id]#>;
+
+save to "Sheet1";
+// specifies what sheet to save results to
+
+// insert at row 2;
+// inserts the new record at row two and shifts the rest of the records down
+
+when creating redirect to "/?page=survey_submitted";
+#>
+
+<p>	
+<table>
+	<tr>
+		<td><u>Question:</u></td>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+		
+	</tr>
+	<tr>
+		<td width="300">
+		Rate Your Overall Experience: 
+		</td>
+		<td>
+			<input type="radio"  value="1" <# row.c #> >
+		</td>
+		<td>
+			<input type="radio"  value="2" <# row.c #> >
+		</td>
+		<td>
+			<input type="radio"  value="3" <# row.c #> >
+		</td>
+		<td>
+			<input type="radio"  value="4" <# row.c #> >
+		</td>
+		<td>
+			<input type="radio"  value="5" <# row.c #> >
+		</td>
+	</tr>
+	<tr>
+		<td width="300">
+		Willingness to Recommend: 
+		</td>
+		<td>
+			<input type="radio"  value="1" <# row.d #> >
+		</td>
+		<td>
+			<input type="radio"  value="2" <# row.d #> >
+		</td>
+		<td>
+			<input type="radio"  value="3" <# row.d #> >
+		</td>
+		<td>
+			<input type="radio"  value="4" <# row.d #> >
+		</td>
+		<td>
+			<input type="radio"  value="5" <# row.d #> >
+		</td>
+	</tr>
+</table>
+<p>Name:<br>
+<input type="text"  style="width:300px" <# row.a #> >
+
+<p>Email:<br>
+<input type="text"  style="width:300px" <# row.b #> >
+
+<p>Comments<br>
+	<textarea style="width:400px;height:105px"  <# row.e #> >
+	</textarea>
+<p>
+<input type="button" value="Submit" <# create button #> >
+<p>
+<# end form #> 
+
+<# include "_htmlfooter.espx" #>

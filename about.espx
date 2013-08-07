@@ -1,0 +1,19 @@
+<# include "_htmlheader.espx" #>
+
+<# start list for content;
+include when content.page == "about";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">About Us Content Not Setup 
+<a href="/?page=admin_wizard_pages&edit=0&value=about&name=About%20Page&desc=About Page Content">Click here</a>.
+</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

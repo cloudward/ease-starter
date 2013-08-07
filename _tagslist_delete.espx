@@ -1,0 +1,25 @@
+
+<# include "_authentication_admin.espx" #>
+
+<div style="display:none">
+
+<# start form for tags_links <#[url.edit]#>; 
+when creating set tags_links.created_on to "<# system.date_time_short #>";
+when creating set tags_links.aid to "<#[url.aid]#>";
+when creating set tags_links.tid to "<#[url.tid]#>";
+when deleting redirect to "/?page=_tagslist_editor&aid=<#[url.aid]#>&message=<#[url.tag]#> deleted";
+#> 
+<p>tag<br>
+<input type="hidden" style="width:50px" maxlength="200" value="<#[url.tag]#>" <# tags_links.name #> >
+
+<input type="button" value="delete" id="deleteBTN" <# delete button #> >
+<p>
+<# end form #> 
+
+<script>
+function myClickButton(){
+	document.getElementById('deleteBTN').click();
+}
+myClickButton();
+</script>
+</div>

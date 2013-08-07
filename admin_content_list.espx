@@ -1,0 +1,70 @@
+<# include "_htmlheader.espx" #>
+<# include "_authentication_admin.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<div class="welcomeheadline">Edit Website Content</div>
+<p>This is a content datastore editor. Add new content and pages you can link to or edit system website pages.</p>
+<hr size="1">
+<a href="/?page=admin_content_edit&edit=0">+Add New Content Here.</a>
+
+
+<hr>
+
+<# start list for content;
+
+sort by content.created_on in descending order;
+#>
+
+<# start header #>
+<# end header #>
+
+<# start row #>
+<div class="blogheadline"><a href="/?page=content&aid=<# content.id #>" target="_blank"><# content.name #></a></div>
+<div class="blogteaser"><# content.description #> <br>
+<a href="/?page=admin_content_edit&edit=<# content.id #>&value=<# content.page #>">[Edit]</a></div>
+<div class="blogseparator"></div>
+<# end row #>
+
+<# start footer #>
+<p>
+<# end footer #>
+
+<# no results #>
+	<h2>There is no content in this list yet...</h2>
+<# end no results #>
+
+<# end list #>
+
+
+<# start list for webstyle;
+sort by webstyle.created_on in descending order;
+#>
+
+<# start header #><# end header #>
+
+<# start row #>
+<div class="blogheadline"><# webstyle.name #></div>
+<div class="blogteaser"><# webstyle.description #> <br>
+<a href="/?page=admin_style_edit&edit=<# webstyle.id #>">[Edit]</a></div>
+<div class="blogseparator"></div>
+<# end row #>
+
+<# start footer #>
+<p>
+<# end footer #>
+
+<# no results #>
+	<h2>There is no webstyle in this list yet...</h2>
+<# end no results #>
+
+<# end list #>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery(".warning_msg").hide();
+});
+</script>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

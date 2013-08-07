@@ -1,0 +1,24 @@
+
+<# include "_authentication_admin.espx" #>
+<div style="display:none">
+
+<# start form for tags 0; 
+when creating set tags.created_on to "<# system.date_time_short #>";
+when creating redirect to "/?page=_tagslist_processor1&aid=<#[url.aid]#>&tag=<#[url.tag]#>&time=<# system.date_time_short #>";
+#> 
+<p>tag<br>
+<input type="hidden" style="width:400px" maxlength="200" value="<#[url.tag]#>" <# tags.name #> >
+
+
+<input type="button" value="create" id="createBTN" <# create button #> >
+<p>
+<# end form #> 
+
+<script>
+function myClickButton(){
+	document.getElementById('createBTN').click();
+}
+myClickButton();
+</script>
+
+</div>

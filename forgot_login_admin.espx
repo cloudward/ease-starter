@@ -1,0 +1,130 @@
+<# include "_htmlheader.espx" #>
+
+
+<style type="text/css">
+
+body,h1,h2,h3,p,quote,small,form,input,ul,li,ol,label{
+    /* Page reset */
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    /* Setting default text color, background and a font stack */
+    color:#444444;
+    font-size:13px;
+    background-color: #555;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.warning { display:none;}
+
+.header{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 80px;
+	border-radius: 3px;
+	border: 1px #ccc solid;
+	text-shadow: 1px 1px 1px #FFF;
+	line-height: 20px;
+	color: #555;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px;
+	height: 20px;
+	width: 350px;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+#formContainer{
+    /* CSS3 Box Shadow */
+    box-shadow:0 0 3px #AAAAAA;
+
+    /* CSS3 Rounded Corners */
+	border-radius: 3px;
+    border:1px solid white;
+
+    /* The width of the gallery */
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+    width:350px;
+	height: 300px;
+    overflow: hidden;
+	background-color: #FFF;
+}
+#insideContainer{
+	margin-top: 20px;
+	width: 58%;
+	margin-left: auto;
+	margin-right: auto;
+}
+input[type="submit"]{
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	height: 25px;
+	border: 1px #888 solid;
+	color: #333;
+	font-weight: bold;
+	cursor: pointer;
+    margin: 3px 0px 3px 0px;
+	border-radius: 3px;
+	font-size: 12px;
+	padding: 5px;
+}
+input[type="text"]{
+	background-color: #ebebeb;
+	border: 1px #999 solid;
+	border-radius: 3px;
+	padding: 3px;
+	color: #333;
+	font-weight: bold;
+}
+</style>
+
+<# start form for forgot_password <#[url.edit]#>;  
+
+when creating set forgot_password.created_on to "<# system.date_time_short #>";
+when creating set forgot_password.sent_on to "";
+
+when creating redirect to "/?page=forgot_login_send&e=<# form.email #>&edit=<# form.id #>";
+
+#>
+<div class="header">
+	Administrator Login
+</div>
+<div id="formContainer">
+	<div id="insideContainer">
+		<br>Enter Admin Email<br>
+		<input type="text" style="width:200px;height:18px;font-size:14px"  <# forgot_password.email #> >
+		<input type="button" value="Create & Submit" <# create button #> >
+		<input type="button" value="update" <# update button #> >
+		<input type="button" value="delete" <# delete button #> >
+		<p>
+	</div>
+</div>
+<# end form #>
+<script typ="text/javascript">
+jQuery(document).ready(function(){
+	jQuery(".warning").hide();
+	jQuery(".warning_msg").hide();
+	jQuery(".warning_msg_intro").hide();
+	jQuery(".wizard").hide();
+	if("<#[url.page]#>" == "forgot_login_admin"){
+		jQuery(".emailsignup").hide();
+	}
+});
+</script>

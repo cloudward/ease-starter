@@ -1,0 +1,22 @@
+<# include "_htmlheader.espx" #>
+
+
+<# start list for content;
+include when content.page == "suggestions_submitted";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Suggestions Confirmation Page Not Setup  
+<a href="/?page=admin_wizard_pages&edit=0&value=suggestions_submitted&name=Suggestions%20Submitted%20Page&desc=Page shown after user submits survey.">Click here</a>.
+</div>
+<# end no results #>
+<# end list #>
+
+
+
+<# include "_htmlfooter.espx" #>
+

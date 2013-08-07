@@ -1,0 +1,19 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<# start list for content;
+include when content.page == "terms";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Terms Page Content Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=terms&name=Website-Terms&desc=Content for our terms"><u>Click here</u></a>.</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

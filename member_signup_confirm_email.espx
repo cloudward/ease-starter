@@ -1,0 +1,37 @@
+<# include "_htmlheader.espx" #>
+
+<# apply webuser.<#[url.mid]#> as "mid".#>
+
+<# start list for webuser;
+include when webuser.email == "<#[mid.email]#>";
+#>
+<# start header #>
+<h2>Email Validation</h2>
+<# end header #>
+<# start row #>
+<#
+//delete record for "webuser.<#[url.mid]#>";
+redirect to "/?page=member_signup_confirm&mid=<# webuser.id #>";
+#>
+	
+<# end row #>
+
+<# start footer #>
+
+<# end footer #>
+
+<# no results #>
+<#
+redirect to "/?page=member_signup_confirm&mid=<#[url.mid]#>";
+#>
+	
+<# end no results #>
+
+<# end list #>
+
+
+
+
+
+<# include "_htmlfooter.espx" #>
+

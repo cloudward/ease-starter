@@ -1,0 +1,17 @@
+
+<#[url.result]#>
+
+<br>
+
+<#[url.message]#>
+
+<br>
+
+<# if ("<#[url.result]#>" == "approved") {
+	
+	redirect to "/?page=store_addordertogoogle&oid=<#[cookie.orderid]#>";
+} else {
+	
+	redirect to "/?page=store_charge&msg=declined";
+}
+#>

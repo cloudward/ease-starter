@@ -1,0 +1,279 @@
+<# include "_htmlheader.espx" #>
+
+<center>
+<# apply webuser.<#[url.mid]#> as "mid" .#>
+
+<h3>Enter Payment Information</h3>
+<div class="googlecontactform" style="width: 60%;">
+
+
+<# if ("<#[url.msg]#>" == "declined") {
+	
+	<div style="width: 90%;margin-left: auto;margin-right: auto;color: red:">Your transaction was declined... Please check your information and try again or try another payment method.</div>
+} else {
+	
+	<!-- no message -->
+}
+#>
+
+<# start list for webuser;
+
+include when webuser.id == "<#[cookie.cid]#>";
+
+#>
+<# start header #>
+
+<form name="cloudBillingForm" id="cloudBillingForm" action="https://billing.cloudward.com/web_services/billing/" method="post" autocomplete="off">
+	<input type="hidden" name="submit" value="1">
+	<input type="hidden" name="master_account_id" value="<#[easvault.marketplace_id]#>">
+	<input type="hidden" name="api_password" value="<#[easvault.merchant_password]#>">
+	<input type="hidden" name="action" value="billing_form">
+	<input type="hidden" name="return_url" id="return_url" value='<#[easvault.merchant_gateway_url]#>'>
+	<input type="hidden" name="return_page" id="return_page" value='member_payment_listener'>
+	<input type="hidden" name="invoice" value="<#[cookie.cid]#>">
+	<input type="hidden" name="order_id" value="<#[cookie.cid]#>">
+	<input type="hidden" name="orderTotal" value="<#[cookie.price]#>">
+	<input type="hidden" name="email" value="<#[cookie.email]#>">
+	<input type="hidden" name="shipping_phone" value="<# webuser.phone #>">
+
+<# end header #>
+
+<# start row #>
+
+	<input type="hidden" name="item[<# rownumber #>][qty]" value="1">
+	<input type="hidden" name="item[<# rownumber #>][description]" value="<#[cookie.sku]#>">
+	<input type="hidden" name="item[<# rownumber #>][price]" value="<#[cookie.price]#>">
+	<input type="hidden" name="item[<# rownumber #>][frequency]" value="Monthly">
+	<input type="hidden" name="item[<# rownumber #>][chargeType]" value="charge">
+
+<# end row #>
+
+<# start footer #>
+
+<div align="center">
+	<table border="0" width="100%" cellpadding="4" cellspacing="0">
+		<tr>
+			<td width="692" colspan="2">
+			<p align="center">
+			<img border="0" src="/images/visa.gif" width="44" height="28" hspace="3">			
+			<img border="0" src="/images/mastercard.gif" width="44" height="28" hspace="3">			
+			<img border="0" src="/images/amex.gif" width="44" height="28" hspace="3">			
+			<img border="0" src="/images/discover.gif" width="44" height="28" hspace="3">									
+			</td>
+		</tr>
+
+		<tr>
+
+			<td width="692" colspan="2">&nbsp;</td>
+
+		</tr>
+
+		<tr>
+
+			<td width="692" colspan="2">
+
+			<b><font face="Verdana, Arial, Helvetica">Order Summary:</font></b></td>
+
+		</tr>
+
+		<tr>
+
+			<td width="234" align="right"><font size="2" face="Verdana">Order Number:</font></td>
+
+			<td width="450">&nbsp; <#[cookie.cid]#></td>
+
+		</tr>
+		<tr>
+
+			<td width="234" align="right"><font size="2" face="Verdana">Amount:</font></td>
+
+			<td width="450">&nbsp; $ <#[cookie.price]#></td>
+
+		</tr>
+			
+
+		<tr>
+
+			<td width="692" colspan="2"><b><font face="Verdana, Arial">Credit Card Information:</font> </b></td>
+
+		</tr>
+
+		<input type="hidden" name="paybycredit" value="1">
+
+		<tr>
+
+			<td width="234" align="right"><font size="2" face="Verdana">Card Type:</font></td>
+
+			<td width="450">
+
+			
+
+				<p><select size="1" name="payment_type">
+
+				<option value="Visa">Visa</option>				
+				<option value="MasterCard">MasterCard</option>				
+				<option value="American Express">American Express</option>				
+				<option value="Discover">Discover</option>												
+				</select></p>
+			</td>
+
+		</tr>
+
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Name as on Card:
+
+			</font></td>
+
+			<td width="450">
+
+			<input type="text" name="name" size="25" value=""></td>
+
+		</tr>
+
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Billing Address:
+
+			</font></td>
+
+			<td width="450">
+
+			<input type="text" name="address" size="25" value=""></td>
+
+		</tr>
+		
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Billing Address2:
+
+			</font></td>
+
+			<td width="450">
+
+			<input type="text" name="address2" size="25" value=""></td>
+
+		</tr>
+		
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Card Billing City:
+
+			</font></td>
+
+			<td width="450">
+
+			<input type="text" name="city" size="25" value=""></td>
+
+		</tr>
+		
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Billing State:
+
+			</font></td>
+
+			<td width="450">
+
+			<input type="text" name="state" size="25" value=""></td>
+
+		</tr>
+		
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Card Billing Zipcode:
+
+			</font></td>
+
+			<td width="450">
+
+			<input type="text" name="zip" size="10" value=""></td>
+
+		</tr>
+
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Card Number:</font></td>
+
+			<td width="450">
+
+			<input type="text" name="card" size="17"></td>
+
+		</tr>
+
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana" size="2">Card Expiration 
+
+			Date: </font></td>
+
+			<td width="450">
+
+			<input type="text" name="exp" size="4"> MMYY</td>
+
+		</tr>
+
+		<tr>
+
+			<td width="234" align="right"><font face="Verdana"><font size="2">
+
+			Card ID (CVV2/CID) Number:<br>
+
+			</td>
+
+			<td width="450">
+
+			<input type="text" name="cvv2" size="5"></td>
+
+		</tr>
+
+		<tr>
+
+			<td width="692" colspan="2">&nbsp;&nbsp;&nbsp; </td>
+
+		</tr>
+		<!-- tr>
+			<td width="234" align="right"><font face="Verdana" size="2">Email Address:</font></td>
+			<td width="450">
+			<input type="hidden" name="UMemail" size="20" value=""></td>
+		</tr-->
+
+
+
+
+			<td width="692" colspan="2">
+
+							<p align="center">
+
+ 							<input type="submit" name="submitbutton" value="Process Payment &gt;&gt;"></p>
+
+						<!--<input type="button" id="submitPayment" value="Process Payment"></p>-->
+
+<br><br><br>
+
+			</td>
+
+		</tr>
+
+
+	</table>
+</form>
+
+<# end footer #>
+
+<# no results #>
+<b>No records Found</b><br>
+<# end no results #>
+
+<# end list #>
+
+</div>
+
+</center>
+<style>
+.emailsignup {display:none}
+</style>
+
+
+<# include "_htmlfooter.espx" #>
+

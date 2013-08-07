@@ -1,0 +1,29 @@
+
+<# start list for webuser;
+
+include when webuser.username == "<#[url.username]#>" and webuser.password == "<#[url.pass]#>" and webuser.type == "admin" and webuser.status == "active";
+
+#>
+<# start header #>
+<# end header #>
+<# start row #>
+<#
+
+	set cookie.keypassn to "554bd8fc3801fd2e560154e42a32670ab554bd8fc3801fd2e560154e42a32670ab";
+	set cookie.memberkey to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
+	set cookie.first to "<# webuser.first #>";
+	set cookie.last to "<# webuser.last #>";
+	set cookie.email to "<# webuser.email #>";
+	set cookie.cid to "<# webuser.id #>";
+	set cookie.company to "<# webuser.company #>";
+	redirect to "/?page=<#[url.goto]#>&signup=<#[url.signup]#>";
+#>
+<# end row #>
+<# start footer #>
+<# end footer #>
+<# no results #>
+<#
+	redirect to "/?page=admin_logon&message=Logon%20Failed&goto=<#[url.goto]#>&signup=<#[url.signup]#>";
+#>
+<# end no results #>
+<# end list #>

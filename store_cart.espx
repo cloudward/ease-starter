@@ -1,0 +1,136 @@
+<# include "_htmlheader.espx" #>
+
+
+<style>
+.cartheadercell {
+	border-bottom: 1px dotted #000000;
+//	text-decoration:underline;
+}
+.cartfooterrowcell {
+	border-top: 1px dotted #000000;
+//	text-decoration:underline;
+}
+</style>
+<script>
+function goBack()
+{
+window.location = "/?page=store";
+}
+</script>
+
+<center>
+<table width="600">
+	<tr>
+		<td>
+			
+
+<h3><#[url.message]#></h3>
+<# start list for content;
+include when content.page == "store-cart";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Store-cart Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=store-cart&name=Website-store-cart&desc=Content for our store-cart"><u>Click here</u></a>.</div>
+<# end no results #>
+<# end list #>
+
+<# start list for cart;
+include when cart.orderid == "<#[cookie.orderid]#>";
+#>
+<# start header #>
+<table class="carttable" width="600">
+	<tr class="cartheaderrow">
+		<td class="cartheadercell">Qty</td>
+		<td class="cartheadercell">Item</td>
+		<td class="cartheadercell" width="60">Price</td>
+		<td class="cartheadercell" width="60">Total</td>
+		<td width="10"  class="cartheadercell">Remove</td>
+	</tr>
+<# end header #>
+<# start row #>
+	<tr class="cartrow">
+		<td class="cartrowcell"><# cart.qty #></td>
+		<td class="cartrowcell"><# cart.product_name #></td>
+		<td class="cartrowcell">$ <# cart.price #> </td>
+		<td class="cartrowcell">$ 
+		<script>
+		var total = <# cart.qty #> * <# cart.price #>;
+		document.write( "<input type='text' class='itemTotal' value='"+total+"' style='display:none'>" );
+		document.write(total);
+		</script>
+		</td>
+		<td width="10" class="cartrowcell">
+			<center>
+				<a href="/?page=store_delete_cart_item&cartid=<# cart.id #>&product_name=<# cart.product_name #>&orderid=<#[cookie.orderid]#>">[X]</a>
+				</center>
+			 </td>
+	</tr>
+
+<# end row #>
+<# start footer #>
+	<tr class="cartfooterrow">
+		<td colspan="2" class="cartfooterrowcell" ></td>
+		<td class="cartfooterrowcell">Total </td>
+		<td colspan="2" class="cartfooterrowcell">$ 
+<input type="text" id="tbTotal" value="" style="display:none">
+<script type="text/javascript">
+	function UpdateTotal()
+	{
+	       var oInputs = new Array();
+			var total = 0;
+			var subject = 0;
+		     oInputs = document.getElementsByClassName( 'itemTotal' ); // store collection of all <input/> elements
+		    for ( i = 0; i < oInputs.length; i++ )
+		     {
+				subject = parseFloat(oInputs[i].value);
+			//	alert(subject);
+		       	total = subject + total;
+		     }
+				document.write(total);
+			document.getElementById("tbTotal").value = total;
+	}
+	var test = UpdateTotal();
+	function goBack()
+	  {
+	  	window.location = "/?page=store";
+	  }
+	function checkout()
+	  {
+		var tbTotal = document.getElementById("tbTotal").value;
+		window.location = "https://<# system.domain #>/?page=store_shipping";
+	  }
+</script>
+	</td>
+	</tr>
+</table>
+<center>&nbsp;<br>
+<input type="button" value="Keep Shopping" onclick="goBack()">
+<input type="button" value="Checkout" onclick="checkout()">
+</center>
+<br>
+<font color="white">OrderID <#[cookie.orderid]#></font>
+<br>
+<br>
+<br>
+&nbsp;
+<# end footer #>
+<# no results #>
+<center>&nbsp;<br>
+<input type="button" value="Keep Shopping" onclick="goBack()">
+</center>
+<font color="white">OrderID <#[cookie.orderid]#></font>
+
+<style>
+.cartheadercell {display:none}
+</style>
+
+ <# end no results #>
+<# end list #>
+</td></tr></table>
+
+<# include "_htmlfooter.espx" #>
+

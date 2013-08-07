@@ -1,0 +1,87 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<# start form for eas_vault <#[easvault.id]#>; 
+when creating set eas_vault.gappsetupdone to "true"; 
+when creating set eas_vault.id to "9a7ac1363ff31893fc4047a4f5224f48";
+when creating redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893fc4047a4f5224f48";
+when updating redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893fc4047a4f5224f48";
+when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893fc4047a4f5224f48";
+#>
+<style>
+	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
+	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+</style>
+<div id="otherformelements"> 
+		<p style="font-weight: bold;margin-top: 10px;">Cloudward Billing Credentials</p>
+		<div class="instructions" style="width: 65%;float: left;">
+			These are the ID's needed to integrate with your Cloudward Billing solution.<br>
+			Please enter the required ID's into the corresponding fields below and click the save button 
+		</div>
+		<div class="billing_link" style="width: 30%;float: right;">
+			<a href="http://billing.cloudward.com/" target="_blank" style="float: right;">[Cloudward Billing Solution]</a>
+		</div>
+		<div style="width: 100%;float: left;">
+		<div class="divSpacer">
+			<div class="label">
+				Master Account ID<br><span style="font-size: 9px;">(Enter your Cloudward Master Account ID Here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:300px;height:18px;font-size:14px"  <# eas_vault.marketplace_id #> >
+			</div>
+		</div>	
+		<div class="local divSpacer">
+			<div class="label">
+				API Password<br><span style="font-size: 9px;">(Enter your Cloudward API Password here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:300px;height:18px;font-size:14px"  <# eas_vault.merchant_password #> >
+			</div>
+		</div>
+		<div class="divSpacer">
+			<div class="label">
+				API Key<br><span style="font-size: 9px;">(Enter your Cloudward API Key here)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="password" style="width:300px;height:18px;font-size:14px"  <# eas_vault.merchant_token #> >
+			</div>
+		</div>
+		<div class="live divSpacer">
+			<div class="label">
+				API Redirect URL<br><span style="font-size: 9px;">(Enter the URL to redirect to after submitting payment form)</span><br>
+			</div>
+			<div class="formElem">
+				<input type="text" style="width:650px;height:18px;font-size:14px" value="https://<# system.domain #>"  <# eas_vault.merchant_gateway_url #> >
+			</div>
+		</div>
+		
+			<div class="live divSpacer">
+				<div class="label">
+					Member Levels<br><span style="font-size: 9px;">Enter Member Names & Amounts for Your Member Website</span><br>
+				</div>
+				<div class="formElem">
+					Basic Label:<br>
+					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_label #> >
+					<br>Basic Cost:<br>
+					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_cost #> >
+					<br>Premium Label:<br>
+					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_label #> >
+					<br>Premium Cost:<br>
+					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_cost #> >
+				</div>
+			</div>
+		
+		
+		<input type="button" value="Save" <# create button #> >
+		<input type="button" value="Update" <# update button #> >
+		</div>
+	</p>
+</div>
+<# end form #>
+
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,9 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<h1>Forbidden Access</h1>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

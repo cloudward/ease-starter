@@ -1,0 +1,102 @@
+<# include "_htmlheader.espx" #>
+
+<# apply webuser.61e4c67057c8a3df76286ab89fca716a as "webuser" .#>
+
+<# if ("<#[webstyle.notification_site_email]#>" == ""){
+	set webstyle.notification_site_email to "<#[webuser.email]#>";
+}
+#>
+
+<# start list for webuser;
+
+	include when webuser.email == "<#[url.e]#>";
+
+#>
+<# start header #>
+<h2>Password Recovery Confirmation</h2>
+<hr>
+<# end header #>
+
+<# start row #>
+	
+	<#
+
+		send email;
+			from_name = "<#[webstyle.notification_site_email]#>";
+			to = "<#[url.e]#>";
+			subject = "Password Recovery";
+			type = "html"; // text or html
+			body = """<# webuser.first #> <# webuser.last #>,
+
+		We are sending you this email because you forgot your password<br>
+		and requested we send it to you.<br>
+		
+		Below is your password, for security reasons we recommend you do not forward<br>
+		this email to anyone.<br><br>
+
+		<b><# webuser.password #></b><br>
+
+		Login Here:<br>  
+		<a href='http://<# system.domain #>/?page=admin_logon'>login Here</a><br><br>
+
+		Sincerely,<br>
+		<# system.domain #> Technical Support<br><br>
+
+		 """;
+		
+	#>
+	
+	<div style="width: 70%;margin-left: auto;margin-right: auto;min-height: 300px;padding: 20px;">
+		<div>
+			Your Credentials Have Been Sent!
+		</div>
+		<div>
+			<p><# webuser.first #> <# webuser.last #>,</p>
+			<p>
+				Your password has been sent to the email address provided. Please check your email and use the link included
+				to logon to your account.
+			</p>
+			<p>
+				If you do not see the email we sent you please be sure to check your spam folder as this is a rare occurance but it has been 
+				known to happen. If you still don't see your email, please contact us at <#[webstyle.notification_site_email]#> .
+			</p>
+			<p>
+				Sincerely,<br>
+				Technical Support
+			</p>
+		</div>
+	</div>
+	
+<# end row #>
+
+<# start footer #>
+
+<# end footer #>
+
+<# no results #>
+	<div style="width: 70%;margin-left: auto;margin-right: auto;min-height: 300px;padding: 20px;">
+		<div>
+			We Did Not Find Your Email in Our Database!
+		</div>
+		<div>
+			<p>
+				We did not locate the email you supplied in our database. Please verify this email address is the email address you 
+				originally signed up with this account.
+			</p>
+			<p>
+				If you have verified this is in fact the email you registered with and have reached this page in error, Please contact us at
+				<#[webstyle.notification_site_email]#> for additional support.
+			</p>
+			<p>
+				Sincerely,<br>
+				Technical Support
+			</p>
+		</div>
+	</div>
+<# end no results #>
+
+<# end list #>
+
+
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,26 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<#:
+// this page is here if you don't want to use the google form on your contact page
+// just link to /?page=contactus  instead of the other link in the navigation
+:#>
+
+<# start list for content;
+include when content.page == "contact_intro";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<div class="warning">Contact Us Intro Content Not Setup <br>
+<a href="/?page=admin_wizard_pages&edit=0&value=contact_intro&name=Contact%20Page%20Intro&desc=Introduction content before contact form.">Click here</a>.
+</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

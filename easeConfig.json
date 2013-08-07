@@ -1,0 +1,13 @@
+{
+    "configuration":
+    {
+            "gspreadsheet_email": "",
+            "gspreadsheet_password": "",
+            "gapp_client_secret_live": "",
+            "gapp_client_id_live": "",
+            "gapp_redirect_uri_live": "",
+            "gapp_client_secret_local": "",
+            "gapp_client_id_local": "",
+            "gapp_redirect_uri_local": "http://localhost:8080/handleAccessToken"
+    }
+}

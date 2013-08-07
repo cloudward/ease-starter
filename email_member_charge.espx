@@ -1,0 +1,17 @@
+
+<# apply webuser.<#[url.mid]#> as "mid" .#>
+
+<#[mid.first]#> <#[mid.last]#>,<br>
+
+We are sending you this email because your membership has been approved<br>
+and activated.<br>
+
+Your credit card has been charged the following membership fee:<br>
+
+Membership Charge: $<#[cookie.price]#></b><br>
+
+Login Here:<br>  
+<a href='http://<# system.domain #>/?page=member_logon'>login Here</a><br><br>
+
+Sincerely,<br>
+<# system.domain #> Billing and Memberships<br><br>

@@ -1,0 +1,65 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+<# include "_member_menu.espx" #>
+
+<h2>Account Notes</h2>
+
+<# start list for webuseraccount;
+include when webuseraccount.parent == "<#[cookie.cid]#>";
+sort by webuseraccount.timestamp in descending order;
+#>
+
+<# start header #>
+
+<table class="accountnotes">
+	<tr >
+		<td class="accountnotesheader">Label</td>
+		<td class="accountnotesheader">Note</td>
+		<td class="accountnotesheader">Type</td>
+		<td class="accountnotesheader">Amount</td>
+	</tr>
+	
+<# end header #>
+
+<# start row #>
+	<tr>
+		<td class="accountnotesrow">
+		<# webuseraccount.label #>
+		</td>
+		<td class="accountnotesrow">
+			<# webuseraccount.note #>
+		</td>
+		<td class="accountnotesrow">
+			 <# webuseraccount.type #>
+		</td>
+		<td class="accountnotesrow"><center>	
+			 <# webuseraccount.amount #> 
+			</center>
+		</td>
+ </tr>
+<# end row #>
+
+<# start footer #>
+<tr class="accountnotesfooter">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</table>
+<# end footer #>
+
+<# no results #>
+<p><b>There are no account notes in this list yet...</b></p>
+<style>
+.accountnotes {display:none}
+</style>
+</table>
+<# end no results #>
+
+<# end list #>
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

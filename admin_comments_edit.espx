@@ -1,0 +1,49 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<# apply comments.<#[url.edit]#> as "comment".#>
+
+
+<# start list for articles;
+include when articles.id == "<#[url.aid]#>";
+#>
+<# start header #>
+<div class="welcomeheadline">Comments On Your Blog Post: </div> 
+<# end header #>
+<# start row #><div class="blogheadline">" <# articles.headline #> "</div>
+<div class="blogteaser"><# articles.teaser #></div>
+<div class="blogseparator"></div>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #><h2></h2><# end no results #>
+<# end list #>
+
+<p>&nbsp; <br></p>
+
+<# start form for comments <#[url.edit]#>; 
+when creating set comments.status to "new"; 
+when creating set comments.articleid to "<#[url.aid]#>"; 
+when creating set comments.created_on to "<# system.date_time_short #>";
+when creating redirect to "/?page=admin_comments_list";
+when updating redirect to "/?page=admin_comments_list";
+when deleting redirect to "/?page=admin_comments_list";
+#> 
+<div class="addcomment">Edit Comment Only Here<br>&nbsp;</div>
+<div class="commentformlabel">Name (displayed)</div>
+<input type="text" style="width:400px" <# comments.name #> >
+<div class="commentformlabel">Email (not-displayed)</div>
+<input type="text" style="width:400px"  <# comments.email #> >
+<div class="commentformlabel">Comment</div>
+<textarea style="width:400px;height:85px" <# comments.message #> ></textarea>
+<br>
+<input type="button" value="Submit" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<input type="button" value="delete" <# delete button #> >
+<# end form #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

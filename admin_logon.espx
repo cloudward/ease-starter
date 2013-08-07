@@ -1,0 +1,135 @@
+<# include "_htmlheader.espx" #>
+
+
+<style type="text/css">
+
+.warning { display:none;}
+
+.header{
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 80px;
+	border-radius: 3px;
+	border: 1px #ccc solid;
+	text-shadow: 1px 1px 1px #FFF;
+	line-height: 20px;
+	color: #555;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px;
+	height: 20px;
+	width: 350px;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+#formContainer{
+    /* CSS3 Box Shadow */
+    box-shadow:0 0 3px #AAAAAA;
+
+    /* CSS3 Rounded Corners */
+	border-radius: 3px;
+    border:1px solid white;
+
+    /* The width of the gallery */
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+    width:350px;
+	height: 300px;
+    overflow: hidden;
+	background-color: #FFF;
+}
+#insideContainer{
+	margin-top: 20px;
+	width: 58%;
+	margin-left: auto;
+	margin-right: auto;
+}
+input[type="submit"]{
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	height: 25px;
+	border: 1px #888 solid;
+	color: #333;
+	font-weight: bold;
+	cursor: pointer;
+    margin: 3px 0px 3px 0px;
+	border-radius: 3px;
+	font-size: 12px;
+	padding: 5px;
+}
+input[type="text"]{
+	background-color: #ebebeb;
+	border: 1px #999 solid;
+	border-radius: 3px;
+	padding: 3px;
+	color: #333;
+	font-weight: bold;
+}
+</style>
+
+<# start list for content;
+include when content.page == "admin_logon";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<!-- -->
+<# end no results #>
+<# end list #>
+
+<div class="header">
+	Administrator Login
+</div>
+<div id="formContainer">
+	<div id="insideContainer">
+
+		<div style="padding:20px;" class="admin_logon_form">
+			<h3><font color="red"><#[url.message]#></font></h3>
+			<form name="input" action="/" method="get"> 
+				<p>Username:<br>
+					<input type="text"  style="display:" name="username" >
+					<br>Password:<br>
+					<input type="password"  style="display:" name="pass" >
+					<br>
+					<input type="submit" style="display:" value="Logon" > 
+
+					<input type="hidden" value="_validate" name="page">
+					<input type="hidden" value="<#[url.signup]#>" name="signup">
+					<input type="hidden" value="<#[url.goto]#>" name="goto">
+				</form>
+				<div style="margin-top: 10px;font-size: 12px;">
+					<a href="/?page=forgot_login_admin">Forgot Login</a>
+				</div>
+			</div>
+			<# include "_htmlfooter.espx" #>
+		</div>
+	</div>
+</div>
+<script typ="text/javascript">
+jQuery(document).ready(function(){
+	jQuery(".warning").hide();
+	jQuery(".warning_msg").hide();
+	jQuery(".warning_msg_intro").hide();
+	jQuery(".wizard").hide();
+	if("<#[url.page]#>" == "admin_logon"){
+		jQuery(".emailsignup").hide();
+	}
+});
+</script>

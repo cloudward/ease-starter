@@ -1,0 +1,36 @@
+<div style="display:none">
+<# start form for orders 0; 
+when creating set orders.created_on to "<# system.date_time_short #>";
+when creating set orders.ordercid to "<#[cookie.cid]#>";
+when creating redirect to "/?page=store_create_order_id2&orderid=<# form.id #>&qty=<#[url.qty]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
+#> 
+<p>orders<br>
+	<input type="hidden" value="" <# orders.name #> >
+	<input type="hidden" value="" <# orders.number #> >
+	<input type="hidden" value="" <# orders.ordertotal #> >
+	<input type="hidden" value="" <# orders.total #> >
+	<input type="hidden" value="" <# orders.shipping_address1 #> >
+	<input type="hidden" value="" <# orders.shipping_address2 #> >
+	<input type="hidden" value="" <# orders.shipping_city #> >
+	<input type="hidden" value="" <# orders.shipping_state #> >
+	<input type="hidden" value="" <# orders.shipping_zip #> >
+	<input type="hidden" value="" <# orders.shipping_phone #> >
+	<input type="hidden" value="" <# orders.shipping_type #> >
+	<input type="hidden" value="" <# orders.shipping_to #> >
+	<input type="hidden" value="" <# orders.shipping_email #> >
+	<input type="hidden" value="" <# orders.shipping_country #> >
+	<input type="hidden" value="" <# orders.shipping_county #> >
+
+
+<input type="button" value="create" id="createBTN" <# create button #> >
+<p>
+<# end form #> 
+
+<script>
+function myClickButton(){
+	document.getElementById('createBTN').click();
+}
+myClickButton();
+</script>
+
+</div>

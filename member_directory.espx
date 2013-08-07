@@ -1,0 +1,37 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+
+<# include "_member_menu.espx" #>
+
+
+<div class="welcomeheadline">Member Directory</div>
+
+<hr size="1">
+
+<# start list for webuser;
+include when webuser.memberdirectory == "Yes";
+sort by webuser.last in descending order;
+#>
+
+<# start header #><# end header #>
+
+<# start row #>
+<div class="blogheadline"><# webuser.last #>, <# webuser.first #> </a></div>
+<div class="blogteaser"><# webuser.email #> <# webuser.phone #> <# webuser.company #>
+ </div>
+<div class="blogseparator"></div>
+<# end row #>
+<# start footer #>
+<p>
+<# end footer #>
+
+<# no results #>
+	<h2>There are no members in this list yet.</h2>
+<# end no results #>
+
+<# end list #>
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

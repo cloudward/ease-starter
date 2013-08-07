@@ -1,0 +1,13 @@
+
+<# apply webuser.<#[url.mid]#> as "mid" .#>
+
+<#[mid.first]#> <#[mid.last]#>,<br>
+
+We are sending you this email to confirm your email address.<br>
+<br>
+Follow the link below to complete your member signup.<br><br>
+
+<a href='http://<# system.domain #>/?page=member_validate&mid=<#[mid.id]#>'>http://<# system.domain #>/?page=member_validate&mid=<#[mid.id]#></a><br><br>
+
+Sincerely,<br>
+<# system.domain #> Technical Support<br><br>

@@ -1,0 +1,24 @@
+<# include "_htmlheader.espx" #>
+
+<h1>Articles from <#[url.author]#></h1>
+
+<# start list for articles;
+include when articles.status == "on" and articles.blog == "blog" and articles.author_id = "<#[url.aid]#>";
+sort by articles.created_on in descending order;
+#>
+<# start header #><# end header #>
+<# start row #>
+<div class="blogheadline"><a href="/?page=article&aid=<# articles.id #>"><# articles.headline #></a></div>
+<div class="blogteaser"><i>Posted on <# articles.weekday #> <# articles.month #>/<# articles.day #>/<# articles.year #></i><br><# articles.teaser #>
+<br><a href="/?page=article&aid=<# articles.id #>"><u>Read More...</u></a></div>
+<div class="blogseparator"></div><# end row #>
+<# start footer #><# end footer #>
+
+<# no results #>
+	<p>There are no blog posts yet...</p>
+<# end no results #>
+
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,61 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+<# include "_member_menu.espx" #>
+<# apply webuser.<#[cookie.cid]#> as "webuser".#>
+
+<# if ("<#[webuser.lessonplanspreadsheet]#>" == ""){
+	redirect to "/?page=forbidden"
+}
+#>
+
+
+<h1>Plans</h1>
+
+<# start list for googlespreadsheet <#[webuser.lessonplanspreadsheet]#>;
+
+include all columns from "<#[webuser.lessonplansheet]#>";
+
+start row template at row 2;
+#>
+
+<# start header #>
+<table class="lesson_plans">
+	<tr class="lesson_plans_header">
+		<td class="lesson_plans_header_td"><# a.1 #></td>
+		<td class="lesson_plans_header_td"><# b.1 #></td>
+		<td class="lesson_plans_header_td"><# c.1 #></td>
+		<td class="lesson_plans_header_td"><# d.1 #></td>
+		<td class="lesson_plans_header_td"><# e.1 #></td>
+		<td class="lesson_plans_header_td"><# f.1 #></td>
+		<td class="lesson_plans_header_td"><# g.1 #></td>
+	</tr>
+<# end header #>
+
+<# start row #>
+	<tr class="lesson_plans_row">
+		<td class="lesson_plans_td"><# row.a #></td>
+		<td class="lesson_plans_td"><# row.b #></td>
+		<td class="lesson_plans_td"><# row.c #></td>
+		<td class="lesson_plans_td"><# row.d #></td>
+		<td class="lesson_plans_td"><# row.e #></td>
+		<td class="lesson_plans_td"><# row.f #></td>
+		<td class="lesson_plans_td"><# row.g #></td>
+	</tr>
+<# end row #>
+
+<# start footer #>
+	</table>
+<# end footer #>
+
+
+<# end list #>
+
+
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
+
+
+
+

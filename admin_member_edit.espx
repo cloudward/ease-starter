@@ -1,0 +1,171 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<h2>Edit Member Information</h2>
+<# start form for webuser <#[url.edit]#>; 
+when creating set webuser.source to "admin_user"; 
+when creating redirect to "/?page=admin_member_list";
+when updating redirect to "/?page=admin_member_list";
+when deleting redirect to "/?page=admin_member_list";
+#> 
+<table>
+	<tr>
+		<td valign="top">
+<p>First<br>
+<input type="text" style="width:200px" <# webuser.first #> >
+<p>Last<br>
+<input type="text" style="width:200px" <# webuser.last #> >
+<p>Company<br>
+<input type="text" style="width:200px" <# webuser.company #> >
+<p>Email<br>
+<input type="text" style="width:200px" <# webuser.email #> >
+<br>&nbsp;
+
+</td>
+		<td valign="top">
+<p>Phone<br>
+<input type="text" style="width:200px" <# webuser.phone #> >
+<p>Username<br>
+<input type="text" style="width:200px" <# webuser.username #> >
+<p>Password<br>
+<input type="password" style="width:200px" <# webuser.password #> >
+<input type="hidden" style="width:200px" <# webuser.address #> >
+<input type="hidden" style="width:200px" <# webuser.address2 #> >
+<input type="hidden" style="width:200px" <# webuser.city #> >
+<input type="hidden" style="width:200px" <# webuser.state #> >
+<input type="hidden" style="width:200px" <# webuser.zip #> >
+<input type="hidden" style="width:200px" <# webuser.country #> >
+<p>Status: &nbsp;<br>
+	<select <# webuser.status #> >
+	    <option value="active" >active</option>
+	    <option value="deactive" >deactive</option>
+	    <option value="declined" >declined</option>
+	    <option value="new_request" >new_request</option>
+	</select>
+<br>Access:<br>
+		<select <# webuser.type #> >
+		    <option value="members" >members</option>
+		    <option value="admin" >admin + members</option>
+		</select>
+<br>Select Member Level: <br>
+		<select <# webuser.member_level #> >
+		    <option value="<#[easvault.basic_label]#>" ><#[easvault.basic_label]#> ($ <#[easvault.basic_cost]#> )</option>
+		    <option value="<#[easvault.premium_label]#>" ><#[easvault.premium_label]#> ($ <#[easvault.premium_cost]#> )</option>
+		</select>
+<br> 
+	<input type="checkbox" value="Yes" <# webuser.memberdirectory #> > 
+ Show in Member Directory
+</td>
+</tr>
+
+</table>
+<input type="button" value="Submit" <# create button #> >
+<input type="button" value="Update" <# update button #> >
+<input type="button" value="Delete" <# delete button #> >
+<p>
+<# end form #> 
+
+<hr>
+
+<h2>Account Notes & Ledger</h2>
+<# start form for webuseraccount <#[url.editaccount]#>; 
+when creating set webuseraccount.timestamp to "<# system.date_time_short #>"; 
+when creating set webuseraccount.parent to "<#[url.edit]#>"; 
+when creating redirect to "/?page=admin_member_edit&edit=<#[url.edit]#>&editaccount=0";
+when updating redirect to "/?page=admin_member_edit&edit=<#[url.edit]#>&editaccount=0";
+when deleting redirect to "/?page=admin_member_edit&edit=<#[url.edit]#>&editaccount=0";
+#> 
+<p>Label 
+<input type="text" style="width:100px" <# webuseraccount.label #> >
+<br>Note&nbsp;
+<input type="text" style="width:355px" <# webuseraccount.note #> >
+<br>
+Type: 
+		<select <# webuseraccount.type #> >
+		    <option value="note" >note</option>
+		    <option value="payment" >payment</option>
+		    <option value="debit" >debit</option>
+</select>
+
+For Payment/Debit Amount: 
+<input type="text" style="width:100px" <# webuseraccount.amount #> >
+<br><br>
+<input type="button" value="Create" <# create button #> >
+<input type="button" value="Update" <# update button #> >
+<input type="button" value="Delete" <# delete button #> >
+<p>
+<# end form #> 
+
+<hr size="1">
+<h2>Account Notes</h2>
+
+
+<# start list for webuseraccount;
+include when webuseraccount.parent == "<#[url.edit]#>";
+sort by webuseraccount.timestamp in descending order;
+#>
+
+<# start header #>
+
+<table class="accountnotes">
+	<tr >
+		<td class="accountnotesheader"></td>
+		<td class="accountnotesheader">Label</td>
+		<td class="accountnotesheader">Note</td>
+		<td class="accountnotesheader">Type</td>
+		<td class="accountnotesheader">Amount</td>
+	</tr>
+	
+<# end header #>
+
+<# start row #>
+	<tr >
+		<td class="accountnotesrow">
+			<a href="/?page=admin_member_edit&edit=<# webuseraccount.parent #>&editaccount=<# webuseraccount.id #>" >[Edit]</a>
+		</td>
+		<td class="accountnotesrow">
+		<# webuseraccount.label #>
+		</td>
+		<td class="accountnotesrow">
+			<# webuseraccount.note #>
+		</td>
+		<td class="accountnotesrow">
+			 <# webuseraccount.type #>
+		</td>
+		<td class="accountnotesrow">
+			<center>
+			 <# webuseraccount.amount #> 
+			</center>
+		</td>
+ </tr>
+<# end row #>
+
+<# start footer #>
+<tr class="accountnotesfooter">
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+</table>
+<# end footer #>
+
+<# no results #>
+<p><b>There are no account notes in this list yet...</b></p>
+
+</table>
+
+<# end no results #>
+
+<# end list #>
+
+
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
+

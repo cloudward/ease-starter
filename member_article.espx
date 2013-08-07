@@ -1,0 +1,56 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+
+<# include "_member_menu.espx" #>
+
+
+<# apply articles.<#[url.aid]#> as "story".#>
+
+<p>&nbsp; 
+<div class="blogheadline"><#[story.headline]#></div>
+<p><i>Posted on <#[story.weekday]#> <#[story.month]#>/<#[story.day]#>/<#[story.year]#></i>
+<p><#[story.body]#></p>
+
+
+<# start list for comments;
+include when comments.articleid == "<#[url.aid]#>";
+#>
+<# start header #>
+<div class="commentsheadline">Comments</div>
+<# end header #>
+<# start row #>
+<div class="commentsmessage"><# comments.message #></div>
+<div class="commentsbyline"><# comments.name #> <# comments.created_on #></div>
+<# end row #>
+<# start footer #> 
+<# end footer #>
+<# no results #>
+	<div class="nocomments">There are no comments yet...</div>
+<# end no results #>
+
+<# end list #>
+<# start form for comments 0; 
+when creating set comments.status to "new"; 
+when creating set comments.articleid to "<#[url.aid]#>"; 
+when creating set comments.created_on to "<# system.date_time_short #>";
+when creating redirect to "/?page=member_article&aid=<#[url.aid]#>";
+#> 
+<div class="addcomment">Add A Comment</div>
+<div class="commentformlabel">Name (displayed)</div>
+<input type="text" style="width:200px" <# comments.name #> >
+<div class="commentformlabel">Email (not-displayed)</div>
+<input type="text" style="width:200px"  <# comments.email #> >
+<div class="commentformlabel">Comment</div>
+<textarea style="width:200px;height:85px" <# comments.message #> ></textarea>
+<br>
+<input type="button" value="Submit" <# create button #> >
+<# end form #>
+
+
+
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

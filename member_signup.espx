@@ -1,0 +1,69 @@
+<# include "_htmlheader.espx" #>
+
+<center>
+<div class="googlecontactform" style="width: 60%;">
+
+
+<h2>New Member Signup</h2>
+<# start form for webuser <#[url.edit]#>; 
+when creating set webuser.status to "new_request"; 
+when creating set webuser.type to "members"; 
+when creating set webuser.source to "websignup";
+when creating set webuser.billing_cid to ""; 
+when creating redirect to "/?page=member_signup_confirm_email&mid=<# form.id #>";
+#> 
+<table>
+	<tr>
+		<td valign="top">
+<p>First<br>
+<input type="text" style="width:200px" <# webuser.first #> >
+<p>Last<br>
+<input type="text" style="width:200px" <# webuser.last #> >
+<p>Company<br>
+<input type="text" style="width:200px" <# webuser.company #> >
+<p>Email<br>
+<input type="text" style="width:200px" <# webuser.email #> >
+<br>&nbsp;
+
+</td>
+		<td valign="top">
+<p>Phone<br>
+<input type="text" style="width:200px" <# webuser.phone #> >
+<p>Username<br>
+<input type="text" style="width:200px" <# webuser.username #> >
+<p>Password<br>
+<input type="password" style="width:200px" <# webuser.password #> >
+<input type="hidden" style="width:200px" <# webuser.address #> >
+<input type="hidden" style="width:200px" <# webuser.address2 #> >
+<input type="hidden" style="width:200px" <# webuser.city #> >
+<input type="hidden" style="width:200px" <# webuser.state #> >
+<input type="hidden" style="width:200px" <# webuser.zip #> >
+<input type="hidden" style="width:200px" <# webuser.country #> >
+<br> 
+<input type="checkbox" value="Yes" <# webuser.memberdirectory #> > 
+ Show in Member Directory
+
+<p>Select Member Level: <br>
+	<select <# webuser.member_level #> >
+	    <option value="<#[easvault.basic_label]#>" ><#[easvault.basic_label]#> ($ <#[easvault.basic_cost]#> )</option>
+	    <option value="<#[easvault.premium_label]#>" ><#[easvault.premium_label]#> ($ <#[easvault.premium_cost]#> )</option>
+	</select>
+</td>
+</tr>
+
+
+</table>
+<input type="button" value="Submit" <# create button #> >
+<input type="button" value="Submit" <# update button #> >
+<p>
+<# end form #> 
+</div>
+
+</center>
+<style>
+.emailsignup {display:none}
+</style>
+
+
+<# include "_htmlfooter.espx" #>
+

@@ -1,0 +1,11 @@
+
+<# if ( "<#[url.cartid]#>" != "" ) {
+	delete record for "cart.<#[url.cartid]#>";
+	set cookie.orderid to "<#[url.orderid]#>";
+	redirect to "/?page=store_cart&message=<#[url.product_name]#> Deleted&time=123&orderid=<#[url.orderid]#>";
+}
+#>
+
+
+
+

@@ -1,0 +1,51 @@
+<# include "_htmlheader.espx" #>
+
+<# apply webuser.61e4c67057c8a3df76286ab89fca716a as "webuser" .#>
+
+<# if ("<#[webstyle.notification_site_email]#>" == ""){
+	set webstyle.notification_site_email to "<#[webuser.email]#>";
+}
+#>
+
+<# if ("<#[webstyle.notification_comments]#>" == ""){
+	set webstyle.notification_contact_us to "<#[webuser.email]#>";
+}
+#>
+
+<# start list for content;
+include when content.page == "confirmation";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# content.body #>
+
+<#
+
+	send email;
+		from_name = "<#[webstyle.notification_site_email]#>";
+		to = "<#[webstyle.notification_contact_us]#>";
+		subject = "New Contact";
+		type = "html"; // text or html
+		body = """ You have a new contact.<br>
+	
+	Go to your contacts spreadsheets to view details and comments<br><br>
+
+	Sincerely,<br>
+	<# system.domain #> Technical Support<br><br>
+
+	 """;
+	
+#>
+
+<# end row #>
+<# start footer #>
+<# end footer #>
+<# no results #>
+<div class="warning">Contact Confirmation Page Not Setup  
+<a href="/?page=admin_wizard_pages&edit=0&value=confirmation&name=Contact%20Form%20Confirmation%20Page&desc=Page shown after visitor submits contact form.">Click here</a>.
+</div>
+<# end no results #>
+<# end list #>
+
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,34 @@
+<div class="newslettersignup" style="margin-top: 60px;">
+<# start form for googlespreadsheet <#[webstyle.email_sheet_id]#>;
+
+save to "Sheet1";
+// specifies what sheet to save results to
+
+when creating redirect to "/?page=confirmation&emailform=none";
+#>
+<div class="emailsignup" style="text-align: center;display:<#[url.emailform]#>">Sign Up for My Email List:<br>
+	<input type="text" value="name" style="width:120px" <# row.a #> >
+	<input type="text"  value="email_address" style="width:120px" <# row.b #> >
+	<input type="button" value="Submit" <# create button #> >
+</div>
+<# end form #>
+</div>
+<# start list for webstyle;
+include when webstyle.status == "on";
+#>
+<# start header #>
+<# end header #>
+
+<# start row #>
+	<# webstyle.nav_bottom #>
+	<# webstyle.html_footer #>
+<# end row #>
+
+<# start footer #>
+<# end footer #>
+
+<# no results #>
+<# end no results #>
+
+<# end list #>
+</body>

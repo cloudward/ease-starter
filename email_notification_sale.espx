@@ -1,0 +1,145 @@
+
+<br>
+<center>
+<table width="600">
+	<tr>
+		<td>
+			
+<h3>Order Complete</h3>
+<style>
+.cartheadercell {
+	border-bottom: 1px dotted #000000;
+//	text-decoration:underline;
+}
+.cartfooterrowcell {
+	border-top: 1px dotted #000000;
+//	text-decoration:underline;
+}
+</style>
+
+<# apply orders.<#[url.oid]#> as "order".#>
+
+
+
+
+
+<table width="600">
+	<tr>
+		<td colspan="2"  class="cartheadercell"></td>
+	</tr>
+	<tr>
+		<td>Order Date:</td>
+		<td><#[order.created_on]#></td>
+	</tr>
+	<tr>
+		<td>Order ID:</td>
+		<td><#[order.id]#></td>
+	</tr>
+	<tr>
+		<td>Order Total: </td>
+		<td>$ <#[order.ordertotal]#></td>
+	</tr>
+	<tr>
+		<td colspan="2"  class="cartfooterrowcell"></td>
+	</tr>
+</table>
+<h3>Deliver To:</h3>
+<table width="600">
+	<tr>
+		<td colspan="2"  class="cartheadercell"></td>
+	</tr>
+
+	<tr>
+		<td>Attention:</td>
+		<td><#[order.shipping_to]#></td>
+	</tr>
+	<tr>
+		<td valign="top">Address:</td>
+		<td> <#[order.shipping_address1]#> <#[order.shipping_address2]#><br>
+<#[order.shipping_city]#>, 
+<#[order.shipping_state]#>
+<#[order.shipping_zip]#>
+		</td>
+	</tr>
+	<tr>
+		<td>Phone</td>
+		<td><#[order.shipping_phone]#></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><#[order.shipping_email]#></td>
+	</tr>
+	<tr>
+		<td colspan="2"  class="cartfooterrowcell"></td>
+	</tr>
+</table>
+
+
+<h3>Items Ordered:</h3>
+
+<# start list for cart;
+include when cart.orderid == "<#[url.oid]#>";
+#>
+<# start header #>
+<table width="600">
+	<tr>
+		<td class="cartheadercell">Qty</td>
+		<td class="cartheadercell">Item</td>
+		<td class="cartheadercell">Price</td>
+		<td class="cartheadercell">Total</td>
+	</tr>
+<# end header #>
+<# start row #>
+	<tr>
+		<td><# cart.qty #></td>
+		<td><# cart.product_name #></td>
+		<td>$ <# cart.price #> </td>
+		<td > $ 
+		<script>
+		var total = <# cart.qty #> * <# cart.price #>;
+		document.write( "<input type='text' class='itemTotal' value='"+total+"' style='display:none'>" );
+		document.write(total);
+		</script>
+		</td>
+	</tr>
+
+<# end row #>
+<# start footer #>
+	<tr>
+		<td class="cartfooterrowcell"></td>
+		<td class="cartfooterrowcell">Total</td>
+		<td class="cartfooterrowcell"></td>
+		<td class="cartfooterrowcell" id="tbTotal"></td>
+	</tr>
+</table>
+<script type="text/javascript">
+
+	function UpdateTotal()
+	{
+	       var oInputs = new Array();
+			var total = 0;
+			var subject = 0;
+		     oInputs = document.getElementsByClassName( 'itemTotal' ); // store collection of all <input/> elements
+		    for ( i = 0; i < oInputs.length; i++ )
+		     {
+				subject = parseFloat(oInputs[i].value);
+			//	alert(subject);
+		       	total = subject + total;
+		     }
+			document.getElementById('tbTotal').innerHTML = total;
+	}
+	var test = UpdateTotal();
+
+</script>
+<# end footer #>
+<# no results #> <# end no results #>
+<# end list #>
+<br>
+<br>
+<br>&nbsp;
+
+
+</td></tr></table>
+</center>
+
+

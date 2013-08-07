@@ -1,0 +1,10 @@
+<# include "_htmlheader.espx" #>
+
+
+
+<# apply content.<#[url.aid]#> as "story".#>
+<#[story.body]#>
+
+
+
+<# include "_htmlfooter.espx" #>

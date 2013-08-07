@@ -1,0 +1,31 @@
+
+<# include "_authentication_admin.espx" #>
+
+<div style="display:none">
+<# apply articles.<#[url.aid]#> as "story".#>
+
+<# start form for tags_links 0; 
+when creating set tags_links.created_on to "<# system.date_time_short #>";
+when creating set tags_links.aid to "<#[url.aid]#>";
+when creating set tags_links.tid to "<#[url.tid]#>";
+when creating redirect to "/?page=_tagslist_editor&aid=<#[url.aid]#>&message_added=<#[url.tag]#> added&dt=<# system.date_time_short #>";
+#> 
+<p>tag<br>
+<input type="hidden" style="width:50px" maxlength="200" value="<#[url.tag]#>" <# tags_links.name #> >
+<input type="hidden" style="width:50px" maxlength="200" value="<#[story.weekday]#> <#[story.month]#>/<#[story.day]#>/<#[story.year]#>" <# tags_links.published_on #> >
+<input type="hidden" style="width:50px" maxlength="200" value="<#[story.author]#>" <# tags_links.author #> >
+<input type="hidden" style="width:50px" maxlength="200" value="<#[story.author_id]#>" <# tags_links.author_id #> >
+<textarea <# tags_links.teaser #> ><#[story.teaser]#></textarea>
+<textarea <# tags_links.headline #> ><#[story.headline]#></textarea>
+
+<input type="button" value="create" id="createBTN" <# create button #> >
+<p>
+<# end form #> 
+
+<script>
+function myClickButton(){
+	document.getElementById('createBTN').click();
+}
+myClickButton();
+</script>
+</div>

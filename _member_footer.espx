@@ -1,0 +1,11 @@
+<# start list for webstyle;
+include when webstyle.status == "on";
+#>
+<# start header #><# end header #>
+<# start row #>
+<# webstyle.member_footer #>
+<# end row #>
+<# start footer #><# end footer #>
+<# no results #>
+<# end no results #>
+<# end list #>

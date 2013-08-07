@@ -1,0 +1,35 @@
+<# include "_authentication_admin.espx" #>
+<head>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">	
+<META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+</head>
+
+<# start list for tags;
+include when tags.name == "<#[url.tag]#>";
+#>
+<# start header #>
+<# end header #>
+
+<# start row #>
+<# 
+redirect to "/?page=_tagslist_processor3&tag=<#[url.tag]#>&aid=<#[url.aid]#>&tid=<# tags.id #>&link=on";
+#>
+// if found create link 
+<# end row #>
+
+<# start footer #>
+<# end footer #>
+
+<# no results #>
+<# 
+redirect to "/?page=_tagslist_processor2&tag=<#[url.tag]#>&aid=<#[url.aid]#>&create=on";
+#>
+// if not found create tag and link <#[url.name]#> <br>
+// need the functions working - or loading formactions 
+<# end no results #>
+
+<# end list #>
+
+
+ 
+

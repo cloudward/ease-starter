@@ -1,0 +1,43 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<# start form for webstyle <#[webstyle.id]#>;
+ 
+when updating redirect to "/?page=admin_notifications&t=<# system.date_time_short #>";
+
+#>
+
+<div id="otherformelements">
+	<p style="font-weight: bold;margin-top: 10px;">Email Notification Addresses</p>
+	
+	<p>Website Email <br><span style="font-size: 9px;">(Enter the email address you wish all outgoing emails are from. This must be a valid gmail address i.e. mysite@gmail.com)</span><br>
+		<input type="text" style="width:350px"  <# webstyle.notification_site_email #> id="store_id">
+	</p>
+	
+	<p>Contact Sign-Up <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications that a user has signed up in your contact sign up form)</span><br>
+		<input type="text" style="width:350px"  <# webstyle.notification_contact_signup #> id="store_id">
+	</p>
+	<p>
+		<p>Store Purchase <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications that a user has purchased an item through the store)</span><br>
+		<input type="text" style="width:350px"  <# webstyle.notification_store_purchase #> id="orders_id">
+	</p>
+	<p>
+		<p>Contact Us <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications when a user corresponds via the contact us form )</span><br>
+		<input type="text" style="width:350px"  <# webstyle.notification_contact_us #> id="uploads_id">
+	</p>
+	<p>
+		<p>Blog Comments <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications that a user has commented on a blog post)</span><br>
+		<input type="text" style="width:350px"  <# webstyle.notification_comments #> id="email_id">
+	</p>
+
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<p>
+	
+<# end form #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,51 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+
+<# start form for webstyle <#[webstyle.id]#>; 
+when updating redirect to "/?page=admin_wizard_spreadsheets&t=<# system.date_time_short #>";
+when deleting redirect to "/?page=admin_wizard_spreadsheets&t=<# system.date_time_short #>";
+
+#>
+
+<div id="otherformelements">
+	<p style="font-weight: bold;margin-top: 10px;">Spreadsheet ID's</p>
+	<p>Store Spreadsheet <br><span style="font-size: 9px;">(spreadsheet used to manage store products)</span><br>
+	<input type="text" style="width:650px"  <# webstyle.store_sheet_id #> id="store_id">
+	</p>
+	<p>
+		<p>Orders Spreadsheet <br><span style="font-size: 9px;">(spreadsheet used to manage store orders)</span><br>
+		<input type="text" style="width:650px"  <# webstyle.orders_sheet_id #> id="orders_id">
+	</p>
+	<p>
+		<p>Uploads Folder <br><span style="font-size: 9px;">(folder used to manage Google Drive Uploads)</span><br>
+		<input type="text" style="width:650px"  <# webstyle.uploads_folder_id #> id="uploads_id">
+	</p>
+	<p>
+		<p>Email Sign-Up <br><span style="font-size: 9px;">(spreadsheet used to manage your list of contacts that signed up for your emails)</span><br>
+		<input type="text" style="width:650px"  <# webstyle.email_sheet_id #> id="email_id">
+	</p>
+	<p>
+		<p>Contact List <br><span style="font-size: 9px;">(spreadsheet used to manage the list of contacts that have used the contact us section of your site)</span><br>
+		<input type="text" style="width:650px"  <# webstyle.contact_us_id #> id="api_id">
+	</p>
+	<p>
+		<p>Suggestions List <br><span style="font-size: 9px;">(spreadsheet used to manage the list of suggestions submitted via your suggestions form)</span><br>
+		<input type="text" style="width:650px"  <# webstyle.suggestions_id #> id="api_id">
+	</p>
+	<p>
+		<p>Survey <br><span style="font-size: 9px;">(spreadsheet used to manage your surveys collected via your website)</span><br>
+		<input type="text" style="width:650px"  <# webstyle.surveys_id #> id="api_id">
+	</p>
+
+<input type="button" value="Save" <# create button #> >
+<input type="button" value="Save" <# update button #> >
+<p>
+	
+<# end form #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,39 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+
+<# start list for settings;
+include when settings.status == "default";
+#>
+
+<# start header #>
+<i>My list of stories...</i>
+<hr size="1">
+	
+<# end header #>
+
+<# start row #>
+<h3><a href="/?page=article&aid=<# settings.id #>&cid=<#[url.cid]#>"><# settings.headline #></a></h3>
+<p><# settings.subheadline #>
+<br><a href="/?page=admin_settings&edit=<# settings.id #>&cid=<#[url.cid]#>">Edit</a>	
+</p>
+<hr size="1">
+<# end row #>
+
+<# start footer #>
+<p>...end of the list
+<# end footer #>
+
+<# no results #>
+	<h2>There are no settings in this list yet...</h2>
+	<a href="/?page=admin_settings&edit=0">Add Settings</a>
+<# end no results #>
+
+<# end list #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

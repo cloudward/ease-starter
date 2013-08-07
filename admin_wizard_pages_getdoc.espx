@@ -1,0 +1,157 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	
+    <script type="text/javascript">
+		if(document.domain == "localhost"){
+			var clientId = '<#[easvault.gapp_client_id_local]#>';
+			var apiKey = '<#[easvault.gapp_client_secret_local]#>';
+		}else{
+			var clientId = '<#[easvault.gapp_client_id_live]#>';
+			var apiKey = '<#[easvault.gapp_client_secret_live]#>';
+		}
+		var scopes = 'https://www.googleapis.com/auth/drive';
+
+
+		function handleClientLoad() {
+	    	gapi.client.setApiKey(apiKey);
+	    	window.setTimeout(checkAuth,1);
+		}
+
+		function checkAuth() {
+	    	gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true},handleAuthResult);
+		}
+
+		function handleAuthResult(authResult) {
+	    	var authorizeButton = document.getElementById('authorizeButton');
+
+	    	if (authResult && !authResult.error) {
+	        	authorizeButton.style.visibility = 'hidden';
+	        	makeApiCall();
+	    	}else{
+	        	authorizeButton.style.visibility = '';
+	        	authorizeButton.onclick = handleAuthClick;
+	    	}
+		}
+
+		function handleAuthClick(event) {
+	    	gapi.auth.authorize({client_id: clientId, scope: [scopes], immediate: false}, handleAuthResult);
+	    	return false;
+		}
+
+		function makeApiCall() {  
+	    	gapi.client.load('drive', 'v2', makeRequest);   
+		}
+
+		function makeRequest()
+		{
+	    	var request = gapi.client.request({
+			               path : '/drive/v2/files/<#[url.doc]#>',
+			               method : 'GET',
+			               params : {
+			                    projection: "FULL"
+			               }
+			          });
+
+	    	request.execute(function(resp) { 
+		         //console.log(resp);
+				var test = downloadFile(resp, output);
+
+	    	});    
+		}
+
+		/**
+		 * Download a file's content.
+		 *
+		 * @param {File} file Drive File instance.
+		 * @param {Function} callback Function to call when the request is complete.
+		 */
+		function downloadFile(file, callback) {
+
+		    var accessToken = gapi.auth.getToken().access_token;
+		    var xhr = new XMLHttpRequest();
+		    xhr.open('GET', file.exportLinks["text/html"]);
+		    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+		    xhr.onload = function() {
+		      callback(xhr.responseText);
+		    };
+		    xhr.onerror = function() {
+		      callback(null);
+		    };
+		    xhr.send();
+		}
+
+		function output(oText){
+			document.getElementById("content").innerHTML = oText;
+			tinyMCE.activeEditor.setContent(oText);
+		}
+		
+    </script>
+	
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+  </head>
+  <body>
+    <!--Add a file picker for the user to start the upload process -->
+    <input type="button" name="authorizeButton" id="authorizeButton" style="display: block" value="Authorize" />
+	<!--<div id="authorizeButton" style="display: block;width: 100%;"><span style="font-size: 12px;font-weight: bold;color: red;">You must enter your google ID's in the startup wizard menu.</span></div>-->
+	
+	<# start form for content <#[url.edit]#>; 
+	// when creating set content.status to "new"; 
+
+	when creating set content.created_on to "<# system.date_time_short #>";
+
+	when creating redirect to "/?page=admin_content_list";
+	// need to get id's passed properly in redirect
+
+	when updating redirect to "/?page=admin_content_list";
+
+	when deleting redirect to "/?page=admin_content_list";
+
+	#>
+	<p>Name (internal use only)<br>
+	<input type="text" style="width:400px" value="<#[url.name]#>" <# content.name #> >
+	<p>Description (internal use only)<br>
+	<input type="text" style="width:400px" value="<#[url.description]#>" <# content.description #> >
+
+	<p>GoogleDocID (used for integration)<br>
+	<input type="text" style="width:350px"  <# content.googledoc_id #> value="<#[url.doc]#>">
+
+	<p>Body<br>
+	<textarea id="content" style="width:650px;height:285px" <# content.body #> ></textarea>
+
+	<p>Publish On What Page: 
+		<input type="text" value="<#[url.value]#>" <# content.page #>  >
+		<br><br>
+	<p>
+	<input type="button" value="create" <# create button #> >
+	<input type="button" value="update" <# update button #> >
+	<input type="button" value="delete" <# delete button #> >
+	<p>
+	<# end form #>
+
+
+
+	<script type="text/javascript">
+	jQuery(document).ready(function(){
+		tinymce.init({
+		    selector: "textarea",
+			content_css : "/style_test.css",
+		    plugins: [
+		        "advlist autolink lists link image charmap print preview anchor  fullpage",
+		        "searchreplace visualblocks code fullscreen",
+		        "insertdatetime media table contextmenu paste textcolor"
+		    ],
+		    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | forecolor backcolor",
+			init_instance_callback : function() {
+				var content = document.getElementById("content").innerHTML;
+				tinyMCE.activeEditor.setContent(content);
+			}
+		});
+	});
+	</script>
+	<# include "_admin_footer.espx" #>
+
+	<# include "_htmlfooter.espx" #>

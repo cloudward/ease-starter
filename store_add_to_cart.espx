@@ -1,0 +1,18 @@
+<# if ("<#[cookie.orderid]#>" != ""){
+create new record for "cart" reference as "currentcart";
+set currentcart.created_on to "<# system.date_time_short #>";
+set currentcart.orderid to "<#[cookie.orderid]#>";
+set currentcart.ordercid to "<#[cookie.cid]#>";
+set currentcart.orderstatus to "cart";
+set currentcart.qty to "<#[url.qty]#>";
+set currentcart.product_name to "<#[url.product_name]#>";
+set currentcart.price to "<#[url.price]#>";
+set currentcart.sku to "<#[url.sku]#>";
+set currentcart.img to "<#[url.img]#>";
+redirect to "/?page=store_cart&message=<#[url.product_name]#>Added&time=<#[cookie.cartid]#>&orderid=<#[url.orderid]#>";
+} else {
+redirect to "/?page=store_create_order_id&qty=<#[url.qty]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
+}
+#>
+
+
