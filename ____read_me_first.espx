@@ -1,7 +1,6 @@
-<#:
+<#:     
 
-
-           RELEASE NOTES FOR THIS TEMPLATE 05/09/2013 - Version 2.0
+        RELEASE NOTES FOR THIS TEMPLATE 05/09/2013 - Version 2.0
 
 ####################################################################
 GETTING STARTED PART ONE: THE GOOGLE STUFF
@@ -25,21 +24,17 @@ This app uses a lot of reads with the Google App Engine Datastore and if your we
 GETTING STARTED PART TWO: THE CLOUDWARD EASE STUFF
 ####################################################################
 
-5) Find the location of the directory/folder on your local machine with your app name. Open app.yaml and remember the name of your application on line 1:
+5) Edit app.yaml - and replace "cloudwardbeta" with the name of your app created in Step 2, save changes
 
-6) Copy the files from this zip-file/folder into your apps directory/folder. It's okay to overwrite the files.
+6) You can now run your application locally using Google App Engine Launcher and it will work.  You will be prompted to setup some default content for your pages including your username and password.
 
-7) Edit app.yaml - and replace cloudwardbeta with the name of your app created in Step 2, which should map the name of your application identified in step 5. Be sure to save your changes.
+7) You will be prompted via your browser to setup website design and style. This is only on your local machine and you will be prompted to do it online as well, unless when you deploy from Google App Engine Launcher you select to also deploy datastore. We recommend not doing too much locally at first because we'd rather you setup your datastore on Google App Engine after you deploy.
 
-8) You can now run your application locally using Google App Engine Launcher and it will work.  You will be prompted to setup some default content for your pages including your username and password.
+8) Edit easeGAppUtils.py and remove the # symbol from line 20 (#self.readLiveCredentials()) before you deploy to your live site and add the symbol to line 19 (#self.readLocalCredentials()). This will set up the app to read your live google credentials.
 
-9) You will be prompted via your browser to setup website design and style. This is only on your local machine and you will be prompted to do it online as well, unless when you deploy from Google App Engine Launcher you select to also deploy datastore. We recommend not doing too much locally at first because we'd rather you setup your datastore on Google App Engine after you deploy.
+9) Edit easeConfig.json and plug in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration. (This can also be accomplished in the application itself via the startup wizard under "google ID's" and "Spreadsheets" menu options).
 
-10) Edit easeGAppUtils.py and remove the # symbol from line 20 (#self.readLiveCredentials()) before you deploy to your live site and add the symbol to line 19 (#self.readLocalCredentials()). This will set up the app to read your live google credentials.
-
-11) Edit easeConfig.json and plug in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration. (This can also be accomplished in the application itself via the startup wizard under "google ID's" and "Spreadsheets" menu options).
-
-12) You can deploy using Google App Engine Launcher to your website. The first time pages run on your website, the EASE code will run and setup your DataStore, etc.
+10) You can deploy using Google App Engine Launcher to your website. The first time pages run on your website, the EASE code will run and setup your DataStore, etc.
  
 
 ####################################################################
@@ -167,6 +162,7 @@ VIII. To use your new spreadsheets in the application complete the following ste
 	4). Save the form.
 	5). You are done.
 
+
 ####################################################################
 LICENSING - THIS IS AN OPEN SOURCE PROJECT
 http://opensource.org/licenses/CDDL-1.0
@@ -217,11 +213,6 @@ EASE FEATURES IN DEVELOPMENT FOR UPCOMING RELEASE
 7- Importing Data to Spreadsheets from List
 8- Recurring Jobs / CRON Jobs
 
-
 ####################################################################
 
-END OF RELEASE NOTES
-
-
 :#>
-
