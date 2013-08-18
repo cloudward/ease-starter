@@ -12,7 +12,7 @@ include when content.page == "blog_intro";
 <# start footer #><# end footer #>
 <# no results #>
 <div class="warning">Blog Intro Content Not Setup 
-<a href="/?page=admin_wizard_pages&edit=0&value=blog_intro&name=BLOG%20INTRO&desc=Introduction content for my blog">Click here</a>.
+<a href="/?page=admin_wizard_pages&edit=0&iid=1150085e1bc14c2fa02a7926eed99ffa&value=blog_intro&name=BLOG%20INTRO&desc=Introduction content for my blog">Click here</a>.
 </div>
 <# end no results #>
 <# end list #>

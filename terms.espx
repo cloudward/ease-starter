@@ -11,7 +11,7 @@ include when content.page == "terms";
 <# end row #>
 <# start footer #><# end footer #>
 <# no results #>
-<div class="warning">Terms Page Content Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=terms&name=Website-Terms&desc=Content for our terms"><u>Click here</u></a>.</div>
+<div class="warning">Terms Page Content Not Setup <a href="/?page=admin_wizard_pages&edit=0&iid=240fdf8e77ce420a993cc0ce367ee9a9&value=terms&name=Website-Terms&desc=Content for our terms"><u>Click here</u></a>.</div>
 <# end no results #>
 <# end list #>
 

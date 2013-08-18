@@ -17,7 +17,7 @@ include when content.page == "contact_intro";
 <# start footer #><# end footer #>
 <# no results #>
 <div class="warning">Contact Us Intro Content Not Setup <br>
-<a href="/?page=admin_wizard_pages&edit=0&value=contact_intro&name=Contact%20Page%20Intro&desc=Introduction content before contact form.">Click here</a>.
+<a href="/?page=admin_wizard_pages&edit=0&iid=f98f771efcba4aa99e179f3b3aa19bf4&value=contact_intro&name=Contact%20Page%20Intro&desc=Introduction content before contact form.">Click here</a>.
 </div>
 <# end no results #>
 <# end list #>

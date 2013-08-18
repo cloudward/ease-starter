@@ -2,7 +2,7 @@
 
 <# start list for webuser;
 include when webuser.setup == "new";
-// IMPORTANT
+// IMPORTANTANT
 // delete lines 3 - 47 of this file after completing setup wizard on your website
 // then deploy via Google App Engine Launcher
 #>

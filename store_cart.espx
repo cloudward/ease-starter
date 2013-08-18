@@ -34,7 +34,7 @@ include when content.page == "store-cart";
 <# end row #>
 <# start footer #><# end footer #>
 <# no results #>
-<div class="warning">Store-cart Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=store-cart&name=Website-store-cart&desc=Content for our store-cart"><u>Click here</u></a>.</div>
+<div class="warning">Store-cart Not Setup <a href="/?page=admin_wizard_pages&edit=0&iid=9bef2c1c3e544fe3856b12f4c98ea228&value=store-cart&name=Website-store-cart&desc=Content for our store-cart"><u>Click here</u></a>.</div>
 <# end no results #>
 <# end list #>
 

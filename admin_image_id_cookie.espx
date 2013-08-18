@@ -1,0 +1,7 @@
+<#
+
+	set cookie.blog_id to "<#[url.bid]#>";
+	set cookie.image_id to "<#[url.edit]#>";
+	redirect to "/?page=admin_blog_image_edit&bid=<#[url.bid]#>&edit=<#[url.edit]#>";
+	
+#>

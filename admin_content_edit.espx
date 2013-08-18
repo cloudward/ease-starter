@@ -66,6 +66,7 @@ To link to as a misc/general webpage - use the following URL:
 <input type="text" value="/?page=content&aid=<#[url.edit]#>" style="width:600px">
 <br>
 <br>
+
 <# include "_admin_footer.espx" #>
 
 <# include "_htmlfooter.espx" #>

@@ -14,7 +14,7 @@ include when content.page == "members";
 <# end row #>
 <# start footer #><# end footer #>
 <# no results #>
-<div class="warning">Members Page Not Setup <a href="/?page=admin_wizard_pages&edit=0&value=members&name=Website-Members&desc=Content for our members"><u>Click here</u></a>.</div>
+<div class="warning">Members Page Not Setup <a href="/?page=admin_wizard_pages&edit=0&iid=6f6e61d3a0ca476ba552dc22f1af845b&value=members&name=Website-Members&desc=Content for our members"><u>Click here</u></a>.</div>
 <# end no results #>
 <# end list #>
 

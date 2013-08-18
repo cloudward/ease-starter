@@ -11,3 +11,44 @@ include when webstyle.status == "on";
 <# no results #>
 <# end no results #>
 <# end list #>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	if("<#[homepage.id]#>"){
+		jQuery('.home').hide();
+	}
+	if("<#[blog.id]#>"){
+		jQuery('.blog').hide();
+	}
+	if("<#[about.id]#>"){
+		jQuery('.about').hide();
+	}
+	if("<#[contactintro.id]#>"){
+		jQuery('.intro').hide();
+	}
+	if("<#[contactconfirm.id]#>"){
+		jQuery('.confirm').hide();
+	}
+	if("<#[members.id]#>"){
+		jQuery('.member').hide();
+	}
+	if("<#[terms.id]#>"){
+		jQuery('.term').hide();
+	}
+	if("<#[privacy.id]#>"){
+		jQuery('.privacy').hide();
+	}
+	if("<#[logoff.id]#>"){
+		jQuery('.logoff').hide();
+	}
+	if("<#[storetop.id]#>"){
+		jQuery('.top').hide();
+	}
+	if("<#[storebottom.id]#>"){
+		jQuery('.bottom').hide();
+	}
+	if("<#[storecart.id]#>"){
+		jQuery('.cart').hide();
+	}
+});
+</script>

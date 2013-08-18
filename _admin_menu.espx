@@ -1,3 +1,18 @@
+<!-- apply pages instances -->
+<# apply content.53c1162e146d4e0f93730dcecaa1fe63 as "homepage" .#>
+<# apply content.1150085e1bc14c2fa02a7926eed99ffa as "blog" .#>
+<# apply content.13ac3893dcfd41abb93cee368ea112f3 as "about" .#>
+<# apply content.f98f771efcba4aa99e179f3b3aa19bf4 as "contactintro" .#>
+<# apply content.3ed7fe928ebb434e9fcec985aafb655b as "contactconfirm" .#>
+<# apply content.6f6e61d3a0ca476ba552dc22f1af845b as "members" .#>
+<# apply content.240fdf8e77ce420a993cc0ce367ee9a9 as "terms" .#>
+<# apply content.647ccef6f6b54980b574d247fbeb2216 as "privacy" .#>
+<# apply content.a4ecbe64030f40f8a898cb629eaaa432 as "logoff" .#>
+<# apply content.3a48923809754c7ca77cd72db6fcb403 as "storetop" .#>
+<# apply content.46b241a7a08b4e57a5f7e548836bc864 as "storebottom" .#>
+<# apply content.9bef2c1c3e544fe3856b12f4c98ea228 as "storecart" .#>
+
+
 <div class="welcomename">Welcome <#[cookie.first]#> <#[cookie.last]#>:</div>
 <div class="welcometime">It is now <# system.date_time_short #>.</div>
 

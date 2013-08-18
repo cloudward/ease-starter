@@ -18,10 +18,11 @@ include when cart.orderid == "<#[url.oid]#>" and cart.orderstatus == "cart";
 <# end header #>
 <# start row #>
 found
+<# cart.id #><br>
 <script>
-			var total = <# cart.qty #> * <# cart.price #>;
-			window.location = "/?page=store_add_frame&oid=<#[url.oid]#>&iid=<# cart.id #>&qty=<# cart.qty #>&product_name=<# cart.product_name #>&price=<# cart.price #>&sku=<# cart.sku #>&total="+total+"&hello=";
-			// loop this process
+	var total = <# cart.qty #> * <# cart.price #>;
+	window.location = "/?page=store_add_frame&oid=<#[url.oid]#>&iid=<# cart.id #>&qty=<# cart.qty #>&product_name=<# cart.product_name #>&price=<# cart.price #>&sku=<# cart.sku #>&total="+total+"&hello=";
+	// loop this process
 </script>
 <# end row #>
 <# start footer #>

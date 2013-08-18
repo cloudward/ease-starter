@@ -1,0 +1,10 @@
+<# apply blogimages.<#[url.edit]#> as "image".#>
+
+<#
+	
+	update record for "articles.<#[url.bid]#>" reference as "article";
+	set article.thumb to "<#[image.thumb]#>";
+	set article.thumbId to "<#[image.thumbId]#>";
+	redirect to "/?page=admin_article_edit&edit=<#[url.bid]#>";
+	
+#>

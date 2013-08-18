@@ -137,7 +137,7 @@ input[type="text"]{
 		<p>Username<br>
 		<input type="text" style="width:200px" <# webuser.username #> >
 		<p>Password<br>
-		<input type="password" style="width:200px" <# webuser.password #> >
+		<input type="text" style="width:200px" <# webuser.password #> >
 		<p>Email<br>
 		<input type="text" style="width:200px" <# webuser.email #> >
 

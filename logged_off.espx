@@ -17,7 +17,7 @@ include when content.page == "logged_off";
 <# start footer #><# end footer #>
 <# no results #>
 <div class="warning">Logged Off Content Not Setup <br>
-<a href="/?page=admin_wizard_pages&edit=0&value=logged_off&name=Logged%20Off%20Page&desc=Displayed after a user logs off of the website.">Click here</a>.
+<a href="/?page=admin_wizard_pages&edit=0&iid=a4ecbe64030f40f8a898cb629eaaa432&value=logged_off&name=Logged%20Off%20Page&desc=Displayed after a user logs off of the website.">Click here</a>.
 </div>
 <# end no results #>
 <# end list #>

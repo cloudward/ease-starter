@@ -1398,18 +1398,18 @@ border-left: 2px dotted #c0c0c0;
 								<li class="admin_menu"><a href="/?page=admin_google_list">Contact Us Form</a></li>
 								<li class="admin_menu sub_menu_trigger"><a href="javascript: void(0);">Setup Wizard</a></li>
 									<ul class="admin_sub_menu">
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=index&name=HOMEPAGE&desc=Content for our homepage">1 Setup Home</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=blog_intro&name=BLOG INTRO&desc=Introduction content for my blog">2 Setup Blog</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=about&name=About Page&desc=About Page Content">3 Setup About</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=contact_intro&name=Contact Page Intro&desc=Introduction content before contact form.">4 Setup Contact Intro</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=confirmation&name=Contact Form Confirmation Page&desc=Page shown after visitor submits contact form.">6 Setup Contact Confirm</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=members&name=Website-Members&desc=Content for our members">7 Setup Members</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=terms&name=Website-Terms&desc=Content for our terms">8 Setup Terms</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=privacy&name=Website-Privacy-Policy&desc=Content for our privacy">9 Setup Privacy</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=logged_off&name=Logged%20Off%20Page&desc=Displayed after a user logs off of the website">10 Setup Logoff</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=store-top&name=Website-store-top&desc=Content for our store-top">11 Setup Store Top</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=store-bottom&name=Website-store-bottom&desc=Content for our store-bottom">12 Setup Store Bottom</a></li>
-										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_pages&edit=0&value=store-cart&name=Website-store-cart&desc=Content%20for%20our%20store-cart">13 Setup Store Cart</a></li>
+										<li class="admin_sub_menu_item home"><a href="/?page=admin_wizard_pages&edit=0&iid=53c1162e146d4e0f93730dcecaa1fe63&value=index&name=HOMEPAGE&desc=Content for our homepage">1 Setup Home</a></li>
+										<li class="admin_sub_menu_item blog"><a href="/?page=admin_wizard_pages&edit=0&iid=1150085e1bc14c2fa02a7926eed99ffa&value=blog_intro&name=BLOG INTRO&desc=Introduction content for my blog">2 Setup Blog</a></li>
+										<li class="admin_sub_menu_item about"><a href="/?page=admin_wizard_pages&edit=0&iid=13ac3893dcfd41abb93cee368ea112f3&value=about&name=About Page&desc=About Page Content">3 Setup About</a></li>
+										<li class="admin_sub_menu_item intro"><a href="/?page=admin_wizard_pages&edit=0&iid=f98f771efcba4aa99e179f3b3aa19bf4&value=contact_intro&name=Contact Page Intro&desc=Introduction content before contact form.">4 Setup Contact Intro</a></li>
+										<li class="admin_sub_menu_item confirm"><a href="/?page=admin_wizard_pages&edit=0&iid=3ed7fe928ebb434e9fcec985aafb655b&value=confirmation&name=Contact Form Confirmation Page&desc=Page shown after visitor submits contact form.">5 Setup Contact Confirm</a></li>
+										<li class="admin_sub_menu_item member"><a href="/?page=admin_wizard_pages&edit=0&iid=6f6e61d3a0ca476ba552dc22f1af845b&value=members&name=Website-Members&desc=Content for our members">6 Setup Members</a></li>
+										<li class="admin_sub_menu_item term"><a href="/?page=admin_wizard_pages&edit=0&iid=240fdf8e77ce420a993cc0ce367ee9a9&value=terms&name=Website-Terms&desc=Content for our terms">7 Setup Terms</a></li>
+										<li class="admin_sub_menu_item privacy"><a href="/?page=admin_wizard_pages&edit=0&iid=647ccef6f6b54980b574d247fbeb2216&value=privacy&name=Website-Privacy-Policy&desc=Content for our privacy">8 Setup Privacy</a></li>
+										<li class="admin_sub_menu_item logoff"><a href="/?page=admin_wizard_pages&edit=0&iid=a4ecbe64030f40f8a898cb629eaaa432&value=logged_off&name=Logged%20Off%20Page&desc=Displayed after a user logs off of the website">9 Setup Logoff</a></li>
+										<li class="admin_sub_menu_item top"><a href="/?page=admin_wizard_pages&edit=0&iid=3a48923809754c7ca77cd72db6fcb403&value=store-top&name=Website-store-top&desc=Content for our store-top">10 Setup Store Top</a></li>
+										<li class="admin_sub_menu_item bottom"><a href="/?page=admin_wizard_pages&edit=0&iid=46b241a7a08b4e57a5f7e548836bc864&value=store-bottom&name=Website-store-bottom&desc=Content for our store-bottom">11 Setup Store Bottom</a></li>
+										<li class="admin_sub_menu_item cart"><a href="/?page=admin_wizard_pages&edit=0&iid=9bef2c1c3e544fe3856b12f4c98ea228&value=store-cart&name=Website-store-cart&desc=Content%20for%20our%20store-cart">12 Setup Store Cart</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=google_global">Google ID's</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_spreadsheets">Spreadsheets</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_billing_ids">Billing ID's</a></li>

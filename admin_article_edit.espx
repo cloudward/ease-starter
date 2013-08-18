@@ -28,6 +28,13 @@ jQuery(document).ready(function(){
 	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 	});
 	
+	if("<#[url.edit]#>" == "0"){
+	
+		jQuery('#imageLinkContainer').html("You must create the blog post before uploading images.");
+	}else{
+		jQuery('#imageLinkContainer').html('<a id="addImageLing" href="/?page=admin_image_id_cookie&bid=<#[url.edit]#>&edit=0">[+Add Image]</a>');
+	}
+	
 	var sid = "<#[easvault.gspreadsheet_email]#>";
 	var spw = "<#[easvault.gspreadsheet_password]#>";
 	if(sid == "" || spw == ""){
@@ -62,16 +69,14 @@ function readCookie(name) {
 </script>
 
 <# start form for articles <#[url.edit]#>; 
-// when creating set articles.status to "new"; 
 
 when creating set articles.created_on to "<# system.date_time_short #>";
 when creating set articles.author_id to "<#[cookie.cid]#>";
 when creating set articles.author to "<#[cookie.first]#> <#[cookie.last]#>";
 
-when creating redirect to "/?page=admin_article_list";
-// need to get id's passed properly in redirect
+when creating redirect to "/?page=admin_article_edit";
 
-when updating redirect to "/?page=admin_article_list";
+when updating redirect to "/?page=admin_article_edit";
 
 when deleting redirect to "/?page=admin_article_list";
 
@@ -88,7 +93,7 @@ when deleting redirect to "/?page=admin_article_list";
 <div id="otherformelements"><p>Teaser (used in list as introduction)<br>
 <input type="text" style="width:100%"  <# articles.teaser #> id="teaser">
 
-<div><a id="googleDocToggle" href="javascript: void(0);">[+Add Image]</a></div>
+<div id="imageLinkContainer"></div>
 <div id="googleDriveImage" style="display: none;">
 	<span style="float: right;">Trouble uploading? <a href="/genrateAccessToken?redirectURL=http://<# system.domain #>/?page=admin_article_edit&t=true" id="tokenizer">[Generate Access Token]</a></span>
 	<input type="text" style="width:100%"  <# articles.thumb #> >

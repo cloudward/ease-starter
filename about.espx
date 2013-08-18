@@ -10,7 +10,7 @@ include when content.page == "about";
 <# start footer #><# end footer #>
 <# no results #>
 <div class="warning">About Us Content Not Setup 
-<a href="/?page=admin_wizard_pages&edit=0&value=about&name=About%20Page&desc=About Page Content">Click here</a>.
+<a href="/?page=admin_wizard_pages&edit=0&iid=13ac3893dcfd41abb93cee368ea112f3&value=about&name=About%20Page&desc=About Page Content">Click here</a>.
 </div>
 <# end no results #>
 <# end list #>

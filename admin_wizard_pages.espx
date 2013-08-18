@@ -37,15 +37,11 @@ jQuery(document).ready(function(){
 </script>
 
 <# start form for content <#[url.edit]#>; 
-// when creating set content.status to "new"; 
-
 when creating set content.created_on to "<# system.date_time_short #>";
+when creating set content.id to "<#[url.iid]#>";
 
 when creating redirect to "/?page=admin_content_list";
-// need to get id's passed properly in redirect
-
 when updating redirect to "/?page=admin_content_list";
-
 when deleting redirect to "/?page=admin_content_list";
 
 #> 

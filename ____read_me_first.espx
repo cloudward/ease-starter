@@ -1,6 +1,7 @@
-<#:     
+<#:
 
-        RELEASE NOTES FOR THIS TEMPLATE 05/09/2013 - Version 2.0
+
+           RELEASE NOTES FOR THIS TEMPLATE 08/09/2013 - Version 2.1
 
 ####################################################################
 GETTING STARTED PART ONE: THE GOOGLE STUFF
@@ -24,17 +25,19 @@ This app uses a lot of reads with the Google App Engine Datastore and if your we
 GETTING STARTED PART TWO: THE CLOUDWARD EASE STUFF
 ####################################################################
 
-5) Edit app.yaml - and replace "cloudwardbeta" with the name of your app created in Step 2, save changes
+5) Find the location of the directory/folder on your local machine with your app name. Open app.yaml and remember the name of your application on line 1:
 
-6) You can now run your application locally using Google App Engine Launcher and it will work.  You will be prompted to setup some default content for your pages including your username and password.
+6) Copy the files from this zip-file/folder into your apps directory/folder. It's okay to overwrite the files.
 
-7) You will be prompted via your browser to setup website design and style. This is only on your local machine and you will be prompted to do it online as well, unless when you deploy from Google App Engine Launcher you select to also deploy datastore. We recommend not doing too much locally at first because we'd rather you setup your datastore on Google App Engine after you deploy.
+7) Edit app.yaml - and replace cloudward0513c with the name of your app created in Step 2, which should map the name of your application identified in step 5. Be sure to save your changes.
 
-8) Edit easeGAppUtils.py and remove the # symbol from line 20 (#self.readLiveCredentials()) before you deploy to your live site and add the symbol to line 19 (#self.readLocalCredentials()). This will set up the app to read your live google credentials.
+8) You can now run your application locally using Google App Engine Launcher and it will work.  You will be prompted to setup some default content for your pages including your username and password.
 
-9) Edit easeConfig.json and plug in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration. (This can also be accomplished in the application itself via the startup wizard under "google ID's" and "Spreadsheets" menu options).
+9) You will be prompted via your browser to setup website design and style. This is only on your local machine and you will be prompted to do it online as well, unless when you deploy from Google App Engine Launcher you select to also deploy datastore. We recommend not doing too much locally at first because we'd rather you setup your datastore on Google App Engine after you deploy.
 
-10) You can deploy using Google App Engine Launcher to your website. The first time pages run on your website, the EASE code will run and setup your DataStore, etc.
+10) Once your site it running you can update your Google API Client ID, Client Secret and Redirect URL's in the application under the "Startup Wizard" menu item. (Developers can accomplish this in the easeConfig.json file by plugging in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration.).
+
+11) You can deploy using Google App Engine Launcher to your website. The first time pages run on your website, the EASE code will run and setup your DataStore, etc.
  
 
 ####################################################################
@@ -60,14 +63,14 @@ In order to use the google Drive/Docs and other features in this application we 
 API's in our google account so that we may use them in this app. Here are the step by step instructions for that process.
 
 I. Sign-up/Sign-in to API console account at https://code.google.com/apis/console
-	1). after loggin in to your google account... navigate to the above url and click on the blue "Create Project" button.
-	2). in the "Services" screen you will select the API services you wish to enable for your new project. For now you will 
-	want to turn on Drive API, Drive SDK, Blogger API v3. You can always go back to this screen at anytime to enable additional services
+	1). after loggin in to your google account... navigate to the above url, you should have an existing project from when you created your app from Google App Engine, if not, click on the blue "Create Project" button.
+	2). Click on "Services". In the "Services" screen you will select the API services you wish to enable for your new project. For now you will 
+	want to turn on Drive API and Drive SDK. You can always go back to this screen at anytime to enable additional services
 	or disable services you no longer deem necessary to your project.
 	
 	3). Accept the Terms of Service agreements from google and continue.
 	4). After accepting terms, you need to click on the "API Access" menu option on the left hand menu.
-	5). In the API Access screen, click on the blue "create an oAuth 2.0 client ID..." button.
+	5). Click on the blue "create an oAuth 2.0 client ID..." button.
 	6). In create Client ID screen, name your product, give it a logo or branding and enter the URL for the homepage.
 	7). Select Web Application radio option under application type. then enter your host domain that your app will reside at (i.e. www.myappdomain.com) and click 
 	"Create Client ID" button.
@@ -87,7 +90,7 @@ I. Sign-up/Sign-in to API console account at https://code.google.com/apis/consol
 	
 	9). You are done for now... there are many other options in this console but for this application you have completed all that is necessary.
 	
-II. Edit easeConfig.json and plug in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration. (This can also be accomplished in the application itself via the startup wizard under "google ID's" and "Spreadsheets" menu options).
+II. Edit easeConfig.json and plug in your Google API ClientID and Secret as well as your url redirect path into the file for Google API Integration from the values in your "API Access" page. (This can also be accomplished in the application itself via the startup wizard under "google ID's" and "Spreadsheets" menu options).
 	1). save file.
 	
 III. You are done.
@@ -154,14 +157,22 @@ VII. To set up the spreadsheet for use with Suggestions, you will need the follo
 	A). Name 
 	B). Email
 	C). Suggestion
+	
+EMAIL SIGNUP:
+VIII. To set up the spreadsheet for use with email signups , you will need the following columns:
+		A). Name 
+		B). Email
 
-VIII. To use your new spreadsheets in the application complete the following steps:
+IX. UPLOAD FOLDER:
+Create a folder called "uploads". You will need the ID for this in setup
+
+X. To use your new spreadsheets in the application complete the following steps:
 	1). Navigate to Startup Wizard menu item in the admin menu.
 	2). In the Startup Wizard sub menu, navigate to spreadsheets menu item.
 	3). Paste the coorisponding spreadsheet ID's into the text forms marked accordingly.
-	4). Save the form.
-	5). You are done.
-
+	4). For the Folder, use the ID and the end of the URL
+	5). Save the form.
+	6). You are done.
 
 ####################################################################
 LICENSING - THIS IS AN OPEN SOURCE PROJECT
@@ -213,6 +224,11 @@ EASE FEATURES IN DEVELOPMENT FOR UPCOMING RELEASE
 7- Importing Data to Spreadsheets from List
 8- Recurring Jobs / CRON Jobs
 
+
 ####################################################################
 
+END OF RELEASE NOTES
+
+
 :#>
+
