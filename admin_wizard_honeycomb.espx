@@ -203,7 +203,7 @@ text-align:left;
 margin-top:0px;
 padding:0px;
 width:100%;
-background: #000 url('https://lh6.googleusercontent.com/-xq8yjtFMYRI/UbGkaUrcOlI/AAAAAAAAAPs/ju-4O_C2BY4/w1117-h152-no/honeycomb.jpg') repeat-y 20% 20%; 
+background: #000 url('https://lh6.googleusercontent.com/-MhGPiQr9YHk/UjkK1RmYWsI/AAAAAAAAAcg/M1oACnJBXJY/w1117-h152-no/honeycomb.jpg') repeat-y 20% 20%; 
 }
 .websitetitle {
 color: #FFF;
@@ -844,7 +844,7 @@ border-left: 2px dotted #c0c0c0;
 					margin-top:0px;
 					padding:0px;
 					width:100%;
-					background: #000 url('https://lh6.googleusercontent.com/-xq8yjtFMYRI/UbGkaUrcOlI/AAAAAAAAAPs/ju-4O_C2BY4/w1117-h152-no/honeycomb.jpg') repeat-y 20% 20%; 
+					background: #000 url('https://lh6.googleusercontent.com/-MhGPiQr9YHk/UjkK1RmYWsI/AAAAAAAAAcg/M1oACnJBXJY/w1117-h152-no/honeycomb.jpg') repeat-y 20% 20%; 
 					}
 					.websitetitle {
 					color: #FFF;

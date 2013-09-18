@@ -89,6 +89,18 @@
 			tinyMCE.activeEditor.setContent(oText);
 		}
 		
+		function editgdoc(){
+			document.getElementById('editgoogledoc').style.display = ''; 	
+			document.getElementById('googledocbutton').style.display = 'none'; 	
+			document.getElementById('otherformelements').style.display = 'none'; 	
+		}
+
+		function canceleditgdoc(){
+			document.getElementById('editgoogledoc').style.display = 'none'; 	
+			document.getElementById('googledocbutton').style.display = ''; 	
+			document.getElementById('otherformelements').style.display = ''; 	
+		}
+		
     </script>
 	
     <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
@@ -112,18 +124,25 @@
 
 	#>
 	<p>Name (internal use only)<br>
-	<input type="text" style="width:400px" value="<#[url.name]#>" <# content.name #> >
+	<input type="text" id="name" style="width:400px" value="<#[url.name]#>" <# content.name #> >
 	<p>Description (internal use only)<br>
-	<input type="text" style="width:400px" value="<#[url.description]#>" <# content.description #> >
+	<input type="text" id="description" style="width:400px" value="<#[url.description]#>" <# content.description #> >
 
+	<span id="googledocbutton" style="display:">[<a href="javascript:editgdoc()">get Google Doc</a>]</span>
+	<div id="editgoogledoc" style="display:none">
 	<p>GoogleDocID (used for integration)<br>
-	<input type="text" style="width:350px"  <# content.googledoc_id #> value="<#[url.doc]#>">
+	<input type="text" style="width:350px"  <# content.googledoc_id #> id="googledoc_id" value="<#[url.doc]#>" > 
+	<input type="button" value="update google doc" onclick="javascript:getgoogledoc();">
+	<a href="javascript:canceleditgdoc()">[Cancel]</a>
+	</div>
+
+
 
 	<p>Body<br>
 	<textarea id="content" style="width:650px;height:285px" <# content.body #> ></textarea>
 
 	<p>Publish On What Page: 
-		<input type="text" value="<#[url.value]#>" <# content.page #>  >
+		<input type="text" id="page" value="<#[url.value]#>" <# content.page #>  >
 		<br><br>
 	<p>
 	<input type="button" value="create" <# create button #> >
@@ -136,6 +155,7 @@
 
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
+		
 		tinymce.init({
 		    selector: "textarea",
 			content_css : "/style_test.css",
@@ -150,7 +170,30 @@
 				tinyMCE.activeEditor.setContent(content);
 			}
 		});
+		
+		if("<#[url.doc]#>"){
+			document.getElementById('editgoogledoc').style.display = ''; 	
+			document.getElementById('googledocbutton').style.display = 'none'; 	
+			document.getElementById('otherformelements').style.display = 'none';
+		}
 	});
+	
+	function getgoogledoc() {
+		if ("<#[url.edit]#>" == "0"){
+			var docid = document.getElementById("googledoc_id").value;
+			var name = document.getElementById("name").value;
+			var description = document.getElementById("description").value;
+			var page = document.getElementById("page").value;
+			window.location = "/?page=admin_wizard_pages_getdoc&edit=<#[url.edit]#>&value="+page+"&doc="+ docid +"&name="+ name +"&description="+ description +"";
+		} else {
+			var docid = document.getElementById("googledoc_id").value;
+			var name = document.getElementById("name").value;
+			var description = document.getElementById("description").value;
+			var page = document.getElementById("page").value;
+			window.location = "/?page=admin_wizard_pages_getdoc&edit=<#[url.edit]#>&value="+page+"&doc="+ docid +"&name="+ name +"&description="+ description +"";
+		}
+	}
+	
 	</script>
 	<# include "_admin_footer.espx" #>
 

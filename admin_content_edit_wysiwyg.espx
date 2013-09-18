@@ -20,6 +20,19 @@ jQuery(document).ready(function(){
 	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
 	});
 });
+
+function editgdoc(){
+	document.getElementById('editgoogledoc').style.display = ''; 	
+	document.getElementById('googledocbutton').style.display = 'none'; 	
+	document.getElementById('otherformelements').style.display = 'none'; 	
+}
+
+function canceleditgdoc(){
+	document.getElementById('editgoogledoc').style.display = 'none'; 	
+	document.getElementById('googledocbutton').style.display = ''; 	
+	document.getElementById('otherformelements').style.display = ''; 	
+}
+
 </script>
 
 <p> 
@@ -37,16 +50,24 @@ when deleting redirect to "/?page=admin_content_list";
 
 #> 
 <p>Name (internal use only)<br>
-<input type="text" style="width:400px" <# content.name #> >
+<input type="text" id="name" style="width:400px" <# content.name #> >
 <p>Description (internal use only)<br>
-<input type="text" style="width:400px" <# content.description #> >
+<input type="text" id="description" style="width:400px" <# content.description #> >
+
+<span id="googledocbutton" style="display:">[<a href="javascript:editgdoc()">get Google Doc</a>]</span>
+<div id="editgoogledoc" style="display:none">
+<p>GoogleDocID (used for integration)<br>
+<input type="text" style="width:350px"  <# content.googledoc_id #> id="googledoc_id" > 
+<input type="button" value="update google doc" onclick="javascript:getgoogledoc();">
+<a href="javascript:canceleditgdoc()">[Cancel]</a>
+</div>
 
 <p>Body <a href="/?page=admin_content_edit&edit=<#[url.edit]#>&value=<#[url.value]#>">[Use TEXT Editor]</a>
 <br>
 <textarea style="width:650px;height:285px" <# content.body #> ></textarea>
 
 <p>Publish On What Page: 
-	<select <# content.page #> >
+	<select id="page" <# content.page #> >
 	    <option value="<#[url.value]#>" ><#[url.value]#></option>
 	    <option value="index" >home/index</option>    
 	    <option value="about" >about</option>    
@@ -81,6 +102,25 @@ To link to as a misc/general webpage - use the following URL:
 <input type="text" value="/?page=content&aid=<#[url.edit]#>" style="width:600px">
 <br>
 <br>
+<script type="text/javascript">
+function getgoogledoc() {
+	if ("<#[url.edit]#>" == "0"){
+		var docid = document.getElementById("googledoc_id").value;
+		var name = document.getElementById("name").value;
+		var description = document.getElementById("description").value;
+		var page = document.getElementById("page").value;
+		window.location = "/?page=admin_wizard_pages_getdoc&edit=<#[url.edit]#>&value="+page+"&doc="+ docid +"&name="+ name +"&description="+ description +"";
+	} else {
+		var docid = document.getElementById("googledoc_id").value;
+		var name = document.getElementById("name").value;
+		var description = document.getElementById("description").value;
+		var page = document.getElementById("page").value;
+		window.location = "/?page=admin_wizard_pages_getdoc&edit=<#[url.edit]#>&value="+page+"&doc="+ docid +"&name="+ name +"&description="+ description +"";
+	}
+}	
+	
+</script>
+
 <# include "_admin_footer.espx" #>
 
 <# include "_htmlfooter.espx" #>
