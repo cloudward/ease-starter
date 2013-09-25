@@ -14,6 +14,7 @@
 <hr size="1">
 
 <# start list for webuser;
+show 25 rows per page;
 //sort by webuser.last in descending order;
 #>
 

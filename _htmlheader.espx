@@ -5,6 +5,7 @@ include when webuser.setup == "new";
 // IMPORTANTANT
 // delete lines 3 - 47 of this file after completing setup wizard on your website
 // then deploy via Google App Engine Launcher
+hide pager both;
 #>
 <# start header #>
 <# end header #>

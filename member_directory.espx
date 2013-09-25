@@ -12,6 +12,7 @@
 
 <# start list for webuser;
 include when webuser.memberdirectory == "Yes";
+show 25 rows per page;
 sort by webuser.last in descending order;
 #>
 

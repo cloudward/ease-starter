@@ -4,6 +4,7 @@
 
 <# start list for content;
 include when content.page == "privacy";
+hide pager both;
 #>
 <# start header #><# end header #>
 <# start row #>

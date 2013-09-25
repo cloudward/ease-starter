@@ -16,6 +16,7 @@
 include all columns from "<#[webuser.lessonplansheet]#>";
 
 start row template at row 2;
+show 25 rows per page;
 #>
 
 <# start header #>

@@ -19,6 +19,8 @@
 <# start list for webuser;
 
 include when webuser.id == "<#[cookie.cid]#>";
+hide pager both;
+show 100 rows per page;
 
 #>
 <# start header #>

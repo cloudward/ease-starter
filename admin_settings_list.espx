@@ -7,6 +7,7 @@
 
 <# start list for settings;
 include when settings.status == "default";
+show 25 rows per page;
 #>
 
 <# start header #>

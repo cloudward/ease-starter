@@ -16,6 +16,7 @@ document.cookie=c_name + "=" + c_value;
 <# start list for webuser;
 
 include when webuser.username == "<#[url.username]#>" and webuser.password == "<#[url.pass]#>" and webuser.status == "active";
+hide pager both;
 
 #>
 <# start header #>

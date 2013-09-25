@@ -6,6 +6,8 @@
 
 <# start list for tags_links;
 include when tags_links.aid == "<#[url.aid]#>" and tags_links.name == "<#[url.tag]#>";
+show 100 rows per page;
+hide pager both;
 #>
 <# start header #>
 <# end header #>

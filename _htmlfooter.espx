@@ -15,6 +15,7 @@ when creating redirect to "/?page=confirmation&emailform=none";
 </div>
 <# start list for webstyle;
 include when webstyle.status == "on";
+hide pager both;
 #>
 <# start header #>
 <# end header #>

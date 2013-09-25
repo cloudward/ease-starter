@@ -7,6 +7,7 @@
  <description>I do what I do because I believe I should do it. Web App Dude, CTO + Founder @etelos, Writer, Pianist, Vocalist, Composer, Arranger + Blogger</description>
 <# start list for articles;
 // include when articles.status == "on";
+show 100 rows per page;
 sort by articles.created_on in descending order;
 #>
 <# start header #><# end header #>

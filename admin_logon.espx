@@ -83,6 +83,7 @@ input[type="text"]{
 
 <# start list for content;
 include when content.page == "admin_logon";
+hide pager both;
 #>
 <# start header #><# end header #>
 <# start row #>

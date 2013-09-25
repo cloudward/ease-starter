@@ -5,6 +5,7 @@
 
 <# start list for content;
 include when content.page == "member_logon";
+hide pager both;
 #>
 <# start header #><# end header #>
 <# start row #>

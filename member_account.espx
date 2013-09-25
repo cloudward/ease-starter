@@ -6,6 +6,7 @@
 
 <# start list for webuseraccount;
 include when webuseraccount.parent == "<#[cookie.cid]#>";
+show 25 rows per page;
 sort by webuseraccount.timestamp in descending order;
 #>
 

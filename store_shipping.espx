@@ -3,6 +3,8 @@
 <div style="display:none">
 <# start list for cart;
 include when cart.orderid == "<#[cookie.orderid]#>";
+show 100 rows per page;
+hide pager both;
 #>
 <# start header #> <# end header #>
 <# start row #>

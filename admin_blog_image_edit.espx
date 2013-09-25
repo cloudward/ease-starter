@@ -71,6 +71,7 @@ when deleting redirect to "/?page=admin_article_edit&edit=<#[cookie.blog_id]#>";
 <div id="imagelist">
 <# start list for blogimages;
 	include when blogimages.blog_id == "<#[cookie.blog_id]#>";
+	show 25 rows per page;
 #>
 
 <# start header #><# end header #>

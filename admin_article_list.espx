@@ -14,6 +14,7 @@
 
 <# start list for articles;
 
+show 25 rows per page;
 sort by articles.created_on in descending order;
 #>
 

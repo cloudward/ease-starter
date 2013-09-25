@@ -27,6 +27,7 @@ window.location = "/?page=store";
 <h3><#[url.message]#></h3>
 <# start list for content;
 include when content.page == "store-cart";
+hide pager both;
 #>
 <# start header #><# end header #>
 <# start row #>
@@ -40,6 +41,8 @@ include when content.page == "store-cart";
 
 <# start list for cart;
 include when cart.orderid == "<#[cookie.orderid]#>";
+show 100 rows per page;
+hide pager both;
 #>
 <# start header #>
 <table class="carttable" width="600">

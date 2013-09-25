@@ -1,5 +1,6 @@
 <# start list for webimages;
 include when webimages.banner == "yes" and webimages.status = "on";
+hide pager both;
 #>
 <# start header #>
 <# end header #>

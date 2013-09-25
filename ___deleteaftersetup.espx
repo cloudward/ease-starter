@@ -1,5 +1,6 @@
 <# start list for webuser;
 include when webuser.setup == "new";
+hide pager both;
 #>
 <# start header #>
 <# end header #>

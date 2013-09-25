@@ -12,7 +12,7 @@
 <hr>
 
 <# start list for content;
-
+show 25 rows per page;
 sort by content.created_on in descending order;
 #>
 
@@ -38,6 +38,7 @@ sort by content.created_on in descending order;
 
 
 <# start list for webstyle;
+show 25 rows per page;
 sort by webstyle.created_on in descending order;
 #>
 

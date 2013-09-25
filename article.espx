@@ -8,6 +8,7 @@
 
 <# start list for tags_links;
 include when tags_links.aid == "<#[url.aid]#>";
+show 25 rows per page;
 #>
 <# start header #><div class="tagslabel">Tags:
 <# end header #>
@@ -31,6 +32,7 @@ include when tags_links.aid == "<#[url.aid]#>";
 
 <# start list for comments;
 include when comments.articleid == "<#[url.aid]#>";
+show 25 rows per page;
 #>
 <# start header #>
 <div class="commentsheadline">Comments</div>

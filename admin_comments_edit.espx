@@ -9,6 +9,7 @@
 
 <# start list for articles;
 include when articles.id == "<#[url.aid]#>";
+show 25 rows per page;
 #>
 <# start header #>
 <div class="welcomeheadline">Comments On Your Blog Post: </div> 

@@ -3,6 +3,7 @@
 
 <# start list for webuser;
 include when webuser.email == "<#[url.e]#>";
+hide pager both;
 
 #>
 <# start header #>

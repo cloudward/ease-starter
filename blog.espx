@@ -4,6 +4,7 @@
 
 <# start list for content;
 include when content.page == "blog_intro";
+hide pager both;
 #>
 <# start header #><# end header #>
 <# start row #>
@@ -20,6 +21,7 @@ include when content.page == "blog_intro";
 
 <# start list for articles;
 include when articles.status == "on" and articles.blog == "blog";
+show 25 rows per page;
 sort by articles.created_on in descending order;
 #>
 <# start header #><# end header #>

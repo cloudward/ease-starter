@@ -16,6 +16,7 @@
 </head>
 <# start list for tags_links;
 include when tags_links.aid == "<#[url.aid]#>";
+show 10 rows per page;
 #>
 <# start header #>
 <li class="tags">Tags:</li>

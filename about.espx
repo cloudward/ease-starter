@@ -2,6 +2,7 @@
 
 <# start list for content;
 include when content.page == "about";
+hide pager both;
 #>
 <# start header #><# end header #>
 <# start row #>

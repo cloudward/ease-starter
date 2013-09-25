@@ -9,6 +9,7 @@
 
 <# start list for content;
 include when content.page == "logged_off";
+hide pager both;
 #>
 <# start header #><# end header #>
 <# start row #>

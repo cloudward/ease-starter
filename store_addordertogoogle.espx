@@ -13,6 +13,8 @@
 
 <# start list for cart;
 include when cart.orderid == "<#[url.oid]#>" and cart.orderstatus == "cart";
+hide pager both;
+show 100 rows per page;
 #>
 <# start header #>
 <# end header #>

@@ -105,6 +105,7 @@ For Payment/Debit Amount:
 
 <# start list for webuseraccount;
 include when webuseraccount.parent == "<#[url.edit]#>";
+show 25 rows per page;
 sort by webuseraccount.timestamp in descending order;
 #>
 

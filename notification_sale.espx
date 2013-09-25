@@ -80,6 +80,7 @@
 
 <# start list for cart;
 include when cart.orderid == "<#[url.oid]#>";
+show 100 rows per page;
 #>
 <# start header #>
 <table width="600">

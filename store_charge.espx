@@ -27,6 +27,9 @@ function next()
 
 include when cart.orderid == "<#[cookie.orderid]#>";
 
+show 100 rows per page;
+hide pager both;
+
 #>
 <# start header #>
 

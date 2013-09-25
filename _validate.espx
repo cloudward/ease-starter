@@ -3,6 +3,8 @@
 
 include when webuser.username == "<#[url.username]#>" and webuser.password == "<#[url.pass]#>" and webuser.type == "admin" and webuser.status == "active";
 
+hide pager both;
+
 #>
 <# start header #>
 <# end header #>

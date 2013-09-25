@@ -6,6 +6,7 @@
 
 <# start list for tags_links;
 include when tags_links.tid == "<#[url.tid]#>";
+show 25 rows per page;
 #>
 <# start header #>
 <# end header #>

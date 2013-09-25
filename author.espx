@@ -4,6 +4,7 @@
 
 <# start list for articles;
 include when articles.status == "on" and articles.blog == "blog" and articles.author_id = "<#[url.aid]#>";
+show 25 rows per page;
 sort by articles.created_on in descending order;
 #>
 <# start header #><# end header #>

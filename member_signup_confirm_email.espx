@@ -4,6 +4,7 @@
 
 <# start list for webuser;
 include when webuser.email == "<#[mid.email]#>";
+hide pager both;
 #>
 <# start header #>
 <h2>Email Validation</h2>

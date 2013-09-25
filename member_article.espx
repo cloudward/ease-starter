@@ -16,6 +16,7 @@
 
 <# start list for comments;
 include when comments.articleid == "<#[url.aid]#>";
+show 25 rows per page;
 #>
 <# start header #>
 <div class="commentsheadline">Comments</div>

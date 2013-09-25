@@ -5,6 +5,7 @@
 
 <# start list for tags;
 // include when tags.name == "<#[url.tag]#>";
+show 10 rows per page;
 #>
 <# start header #>
 <# end header #>

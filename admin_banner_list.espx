@@ -13,6 +13,7 @@
 <hr size="1">
 
 <# start list for webimages;
+show 25 rows per page;
 #>
 
 <# start header #><# end header #>

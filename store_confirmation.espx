@@ -99,6 +99,8 @@
 
 <# start list for cart;
 include when cart.orderid == "<#[url.oid]#>";
+show 100 rows per page;
+hide pager both;
 #>
 <# start header #>
 <table width="600">
