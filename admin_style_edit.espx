@@ -9,77 +9,35 @@
 </style>
 <script>
 function editstyle(){
-	if (document.getElementById('editstyle').style.display == 'none')
-	{
-		document.getElementById('editstyle').style.display = ''; 
-	}else {
-		document.getElementById('editstyle').style.display = 'none'; 	
-	}
+document.getElementById('editstyle').style.display = ''; 	
 }
 function edithtml(){
-	if (document.getElementById('edithtml').style.display == 'none')
-	{
-		document.getElementById('edithtml').style.display = ''; 
-	}else {
-		document.getElementById('edithtml').style.display = 'none'; 	
-	}	
+document.getElementById('edithtml').style.display = ''; 	
 }
 function edithtmlfooter(){
-	if (document.getElementById('edithtmlfooter').style.display == 'none')
-	{
-		document.getElementById('edithtmlfooter').style.display = ''; 
-	}else {
-		document.getElementById('edithtmlfooter').style.display = 'none'; 	
-	}	
+document.getElementById('edithtmlfooter').style.display = ''; 	
 }
 function editnavtop(){
-	if (document.getElementById('editnavtop').style.display == 'none')
-	{
-		document.getElementById('editnavtop').style.display = ''; 
-	}else {
-		document.getElementById('editnavtop').style.display = 'none'; 	
-	}	
+document.getElementById('editnavtop').style.display = ''; 	
 }
 function editnavbottom(){
-	if (document.getElementById('editnavbottom').style.display == 'none')
-	{
-		document.getElementById('editnavbottom').style.display = ''; 
-	}else {
-		document.getElementById('editnavbottom').style.display = 'none'; 	
-	}	
+document.getElementById('editnavbottom').style.display = ''; 	
 }
 function editadmin(){
-	if (document.getElementById('editadmin').style.display == 'none')
-	{
-		document.getElementById('editadmin').style.display = ''; 
-	}else {
-		document.getElementById('editadmin').style.display = 'none'; 	
-	}	
+document.getElementById('editadmin').style.display = ''; 	
 }
 function editadminfoot(){
-	if (document.getElementById('editadminfoot').style.display == 'none')
-	{
-		document.getElementById('editadminfoot').style.display = ''; 
-	}else {
-		document.getElementById('editadminfoot').style.display = 'none'; 	
-	}	
+document.getElementById('editadminfoot').style.display = ''; 	
 }
+
 function editmembers(){
-	if (document.getElementById('editmembers').style.display == 'none')
-	{
-		document.getElementById('editmembers').style.display = ''; 
-	}else {
-		document.getElementById('editmembers').style.display = 'none'; 	
-	}
+document.getElementById('editmembers').style.display = ''; 	
 }
 function editmembersfoot(){
-	if (document.getElementById('editmembersfoot').style.display == 'none')
-	{
-		document.getElementById('editmembersfoot').style.display = ''; 
-	}else {
-		document.getElementById('editmembersfoot').style.display = 'none'; 	
-	}	
+document.getElementById('editmembersfoot').style.display = ''; 	
 }
+
+
 </script>
 
 <# start form for webstyle <#[url.edit]#>; 
@@ -117,6 +75,45 @@ when deleting redirect to "/?page=admin_content_list";
 <p>Website Navigation Top <a href="javascript:editnavtop()">[edit]</a><br>
 <div id="editnavtop" style="display:none">
 <textarea style="width:650px;height:200px" <# webstyle.nav_top #> ></textarea>	
+</div>
+
+<p>Website Navigation Bottom <a href="javascript:editnavbottom()">[edit]</a><br>
+<div id="editnavbottom" style="display:none">
+<textarea style="width:650px;height:100px" <# webstyle.nav_bottom #> ></textarea>	
+</div>	
+
+<p>Admin Menu <a href="javascript:editadmin()">[edit]</a><br>
+<div id="editadmin" style="display:none">
+<textarea style="width:650px;height:200px" <# webstyle.admin_menu #> ></textarea>	
+</div>
+
+<p>Admin Footer <a href="javascript:editadminfoot()">[edit]</a><br>
+<div id="editadminfoot" style="display:none">
+<textarea style="width:650px;height:100px" <# webstyle.admin_footer #> ></textarea>	
+</div>
+
+	
+<p>Members Menu <a href="javascript:editmembers()">[edit]</a><br>
+<div id="editmembers" style="display:none">
+<textarea style="width:650px;height:200px" <# webstyle.member_menu #> ></textarea>
+</div>
+
+<p>Member Footer <a href="javascript:editmembersfoot()">[edit]</a><br>
+<div id="editmembersfoot" style="display:none">
+<textarea style="width:650px;height:100px" <# webstyle.member_footer #> ></textarea>	
+</div>	
+<br>
+	
+<input type="button" value="create" <# create button #> >
+<input type="button" value="update" <# update button #> >
+<input type="button" value="delete" <# delete button #> >
+<p>
+<# end form #> 
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
+idth:650px;height:200px" <# webstyle.nav_top #> ></textarea>	
 </div>
 
 <p>Website Navigation Bottom <a href="javascript:editnavbottom()">[edit]</a><br>
