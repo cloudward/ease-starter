@@ -6,11 +6,6 @@
  
 <script type="text/javascript">
 	jQuery(document).ready(function(){
-		var sid = "<#[easvault.gspreadsheet_email]#>";
-		var spw = "<#[easvault.gspreadsheet_password]#>";
-		if(sid == "" || spw == ""){
-			jQuery('#tokenizer').attr('href', "javascript: alert('You must enter complete the Google IDs portion of the startup wizard before you can upload files to google drive.');");
-		}else{
 			sf = "<#[webstyle.uploads_folder_id]#>";
 			if(sf == ""){
 				jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
@@ -23,8 +18,6 @@
 				}
 				jQuery('#tokenizer').show();
 			}
-		}
-			
 	});
 	
 	function readCookie(name) {

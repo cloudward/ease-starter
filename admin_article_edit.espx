@@ -35,23 +35,17 @@ jQuery(document).ready(function(){
 		jQuery('#imageLinkContainer').html('<a id="addImageLing" href="/?page=admin_image_id_cookie&bid=<#[url.edit]#>&edit=0">[+Add Image]</a>');
 	}
 	
-	var sid = "<#[easvault.gspreadsheet_email]#>";
-	var spw = "<#[easvault.gspreadsheet_password]#>";
-	if(sid == "" || spw == ""){
-		jQuery('#tokenizer').attr('href', "javascript: alert('You must enter complete the Google IDs portion of the startup wizard before you can upload files to google drive.');");
+	sf = "<#[webstyle.uploads_folder_id]#>";
+	if(sf == ""){
+		jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
 	}else{
-		sf = "<#[webstyle.uploads_folder_id]#>";
-		if(sf == ""){
-			jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
-		}else{
-			var c = readCookie('DgU00');
-			if(c == '' || c == null){
-				jQuery('#tokenizer').show();
-			}else{
-				jQuery('#tokenizer').hide();
-			}
+		var c = readCookie('DgU00');
+		if(c == '' || c == null){
 			jQuery('#tokenizer').show();
+		}else{
+			jQuery('#tokenizer').hide();
 		}
+		jQuery('#tokenizer').show();
 	}
 });
 
