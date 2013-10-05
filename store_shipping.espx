@@ -149,7 +149,7 @@ when updating redirect to "/?page=store_charge";
 		UpdateTotal();
 	</script>
 	<center>
-<input type="button" value="Next Step >>"  <# update button #> >
+<input type="button" value="Next Step &gt;&gt;"  <# update button #> >
 </table>
 </div>
 </center>
