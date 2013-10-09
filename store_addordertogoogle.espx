@@ -19,11 +19,10 @@ show 100 rows per page;
 <# start header #>
 <# end header #>
 <# start row #>
-found
-<# cart.id #><br>
 <script>
+	
 	var total = <# cart.qty #> * <# cart.price #>;
-	window.location = "/?page=store_add_frame&oid=<#[url.oid]#>&iid=<# cart.id #>&qty=<# cart.qty #>&product_name=<# cart.product_name #>&price=<# cart.price #>&sku=<# cart.sku #>&total="+total+"&hello=";
+	window.location = "/?page=store_add_frame&oid=<#[url.oid]#>&iid=<# cart.id #>&qty=<# cart.qty #>&product_name=<# cart.product_name #>&price=<# cart.price #>&sku=<# cart.sku #>&total="+total+"&hello=&contactid=<#[url.contactid]#>&accountid=<#[url.accountid]#>";
 	// loop this process
 </script>
 <# end row #>

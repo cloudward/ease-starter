@@ -31,7 +31,7 @@
 <div class="googlecontactform" style="width: 60%;">
 	<h2>Membership Approved</h>
 
-	<p>We sent an email to <#[member.email]]#> with details about your membership.</p><br>
+	<p>We sent an email to <#[member.email]#> with details about your membership.</p><br>
 	<p>Membership Charge: $<#[cookie.price]#></p><br>
 	<p>We appreciate you joining us here at <# system.domain #></p><br>
 	<p><a href="/?page=member_update_billing_id&mid=<#[cookie.cid]#>&contact_id=<#[url.contact_id]#>">[Click here to enter the member site.]</a></p><br><br>

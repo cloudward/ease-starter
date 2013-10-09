@@ -16,14 +16,12 @@ hide pager both;
 <# end no results #>
 <# end list #>
 
-
 <# start list for googlespreadsheet <#[webstyle.store_sheet_id]#>;
 
 include all columns from "Sheet1";
-// get's the data from "Sheet1" --> based on the name in the spreadsheet file
 
 start row template at row 2;
-show 25 rows per page;
+
 #>
 <# start header #>
 <div class="storeheader"></div>

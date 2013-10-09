@@ -10,6 +10,16 @@
 	update record for "cart.<#[url.iid]#>" reference as "cart";
 	set cart.orderstatus to "processed";
 	set cart.status to "processed";
+	set cart.billing_cid to "<#[url.contactid]#>";
+	
+#>
+
+<# if ("<#[cookie.cid]#>" <> "") {
+
+	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
+	set webuser.billing_cid to "<#[url.contactid]#>";
+	
+}
 	
 #>
 

@@ -973,6 +973,7 @@ function resize(){
 		<li class="admin_menu"><a href="/?page=member_directory">Directory</a></li>
 		<li class="admin_menu"><a href="/?page=member_account">Account</a></li>
 		<li class="admin_menu"><a href="/?page=member_profile">Update My Profile</a></li>
+		<li class="admin_menu"><a href="/?page=member_order_history">Order History</a></li>
 		<li class="admin_menu"><a href="/?page=loggoff&goto=member_logon">Log Off</a></li>
 	</ul>
 	<p></p>
