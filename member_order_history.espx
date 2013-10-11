@@ -1,0 +1,103 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+
+<# include "_member_menu.espx" #>
+
+<style>
+.order_item{width: 100%;float: left;margin-bottom: 20px;}
+.order_data_item{float: left;margin-left: 5px;margin-right: 5px;}
+.order_data_item_header{float: left;margin-left: 5px;margin-right: 5px;font-weight: bold;}
+.details_container{display: none;width: 100%;min-height: 125px;}
+.order_item_border{height: 2px;width: 100%;float: left;margin-bottom: 20px;border-bottom: 1px #888 dotted;}
+</style>
+
+<h3>Purchase History</h3>
+<font color="red"><#[url.message]#></font>
+<div id="order_history_container" class="order_history_container" style="width: 100%;">
+	
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+
+	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "orderHistory"},function(res){
+		$('.order_history_container').append("<div class='order_item'><div class='order_data_item_header' style='width: 30%;'>Order Number</div><div class='order_data_item_header' style='width: 20%;'>Checkout Date</div><div class='order_data_item_header' style='width: 15%;'>Order Status</div><div class='order_data_item_header' style='width: 12%;'>Order Total</div><div class='order_data_item_header' style='width: 15%;float: right;text-align: right;'>Click for Details</div></div>");
+		if($.isEmptyObject(res)){
+			// do nothing
+			$('.order_history_container').append("<div class='order_item' style='text-align: center;'>You have no orders at this time.</div>");
+			$('.order_history_container').append("<div class='order_item_border'></div>");
+		 }else{	
+			// Iterate the orders first.
+			$.each(res, function (index, value) {
+
+				// order details
+				var instance_id = res[index].instance_id;
+				var account_id = res[index].account_iid;
+				var checkout_timestamp = res[index].checkout_timestamp;
+				var company = res[index].company;
+				var contact_id = res[index].contact_id;
+				var created_on = res[index].created_on;
+				var first_name = res[index].first_name;
+				var last_name = res[index].last_name;
+				var master_acct_id = res[index].master_acct_iid;
+				var order_number = res[index].order_number;
+				var status = res[index].status;
+				var subtotal = res[index].subtotal;
+				var total = res[index].total;
+				var tax = res[index].tax;
+				var test_flag = res[index].test_flag;
+			
+				// populate DOM objects
+				$('.order_history_container').append("<div class='order_item'><div class='order_data_item' style='width: 30%;'>"+order_number+"</div><div class='order_data_item' style='width: 20%;'>"+checkout_timestamp+"</div><div class='order_data_item' style='width: 15%;'>"+status+"</div><div class='order_data_item' style='width: 5%;'>$"+subtotal+"</div><div class='order_data_item' style='width: 10%;float: right;text-align: right;'><input type='button' id='"+instance_id+"' onclick='javascript: toggleDetails(this.id);' value='Details'/></div></div>");
+				$('.order_history_container').append("<div class='details_container' id='details_container_"+instance_id+"'></div>"); 
+				$('.order_history_container').append("<div class='order_item_border'></div>"); 
+				$('.order_history_container').append("<div style='clear: both;'></div>"); 
+		 	});
+		}
+	});
+	
+});
+function toggleDetails(id){
+	if($('#details_container_'+id).is(":visible")){
+		$( "#details_container_"+id ).hide("slow", function(){
+			$('#details_container_'+id).empty();
+		});
+	}else{
+		$( "#details_container_"+id ).show("slow", function(){
+			var id = this.id;
+			var idParts = id.split("_");
+			var id = idParts[2];
+			$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", orderID: id, request: "billingItems"},function(res){
+
+				// Iterate the orders first.
+				$.each(res, function (index, value) {
+					// order details
+					var instance_id = res[index].instance_id;
+					var account_id = res[index].account_iid;
+					var checkout_timestamp = res[index].checkout_timestamp;
+					var company = res[index].company;
+					var contact_id = res[index].contact_id;
+					var created_on = res[index].created_on;
+					var first_name = res[index].first_name;
+					var last_name = res[index].last_name;
+					var description = res[index].description;
+					var master_acct_id = res[index].master_acct_iid;
+					var order_number = res[index].order_iid;
+					var status = res[index].status;
+					var qty = res[index].qty;
+					var subtotal = res[index].subtotal;
+					var total = res[index].total;
+					var tax = res[index].tax;
+					$('#details_container_'+order_number).append("<div class='order_item'><div class='order_data_item' style='width: 5%;'>"+qty+"</div><div class='order_data_item' style='width: 30%;'>"+description+"</div><div class='order_data_item' style='width: 14%;'>&nbsp;</div><div class='order_data_item' style='width: 15%;'>"+status+"</div><div class='order_data_item' style='width: 5%;'>$"+total+"</div></div>");
+				});
+			});
+		});
+	}
+		
+}
+</script>
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
