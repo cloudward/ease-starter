@@ -19,7 +19,7 @@
 
 <p>Thank you! 
 
-<p><a href="https://<# system.domain #>?page=member_payment&mid=<#[url.mid]#>">Click here</a> to complete your signup.
+<p><a href="https://<# system.domain #>/?page=member_payment&mid=<#[url.mid]#>">Click here</a> to complete your signup.
 
 <#
 	set cookie.first to "<#[mid.first]#>";
