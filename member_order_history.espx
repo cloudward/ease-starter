@@ -7,7 +7,7 @@
 
 <style>
 .order_item{width: 100%;float: left;margin-bottom: 20px;}
-.order_data_item{float: left;margin-left: 5px;margin-right: 5px;}
+.order_data_item{float: left;margin-left: 5px;margin-right: 5px;word-wrap: break-word;}
 .order_data_item_header{float: left;margin-left: 5px;margin-right: 5px;font-weight: bold;}
 .details_container{display: none;width: 100%;min-height: 125px;}
 .order_item_border{height: 2px;width: 100%;float: left;margin-bottom: 20px;border-bottom: 1px #888 dotted;}

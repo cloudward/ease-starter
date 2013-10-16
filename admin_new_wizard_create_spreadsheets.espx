@@ -1,0 +1,147 @@
+            <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
+            
+            save to "Sheet1";
+            
+            when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
+            #>
+            
+            
+            <div class="googlecontactform" class="googleContactForm"  style="display:none">
+            
+            <input type="text" <# row.Date #> >
+            <input type="text" <# row.OrderID #> >
+            <input type="text" <# row.Sold To #> >
+            <input type="text" <# row.Order Total #> >
+            <input type="text" <# row.Qty #> >
+            <input type="text" <# row.Sku #> >
+            <input type="text" <# row.Product #> >
+            <input type="text" <# row.Each #> >
+            <input type="text" <# row.Total #> >
+            <input type="text" <# row.AddressOne #> >
+            <input type="text" <# row.AddressTwo #> >
+            <input type="text" <# row.City #> >
+            <input type="text" <# row.State #> >
+            <input type="text" <# row.Zip #> >
+            <input type="text" <# row.Phone #> >
+            <input type="text" <# row.Email #> >
+            <input type="button" value="create" id="createBTNorders" <# create button #> >
+			
+            </div>
+            
+            
+            <# end form #>
+	    
+	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
+            
+            save to "Sheet1";
+            
+            when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
+            #>
+            
+            
+            <div class="googlecontactform" class="googleContactForm"  style="display:none">
+            
+            <input type="text" <# row.Product #> >
+            <input type="text" <# row.Description #> >
+            <input type="text" <# row.Image #> >
+            <input type="text" <# row.Thumbnail #> >
+            <input type="text" <# row.Big Image #> >
+            <input type="text" <# row.SKU #> >
+            <input type="text" <# row.Price #> >
+            <input type="button" value="create" id="createBTNstore" <# create button #> >
+			
+            </div>
+            
+            
+            <# end form #>
+	    
+	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
+            
+            save to "Sheet1";
+            
+            when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
+            #>
+            
+            
+            <div class="googlecontactform" class="googleContactForm"  style="display:none">
+            
+            <input type="text" <# row.Name #> >
+            <input type="text" <# row.Email #> >
+            <input type="button" value="create" id="createBTNemail" <# create button #> >
+			
+            </div>
+            
+            
+            <# end form #>
+	    
+	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
+            
+            save to "Sheet1";
+            
+            when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
+            #>
+            
+            
+            <div class="googlecontactform" class="googleContactForm"  style="display:none">
+            
+            <input type="text" <# row.First #> >
+            <input type="text" <# row.Last #> >
+	    <input type="text" <# row.Email #> >
+	    <input type="text" <# row.Phone #> >
+	    <input type="text" <# row.Comments #> >
+            <input type="button" value="create" id="createBTNcontact" <# create button #> >
+			
+            </div>
+            
+            
+            <# end form #>
+	    
+	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
+            
+            save to "Sheet1";
+            
+            when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
+            #>
+            
+            
+            <div class="googlecontactform" class="googleContactForm"  style="display:none">
+            
+            <input type="text" <# row.Name #> >
+	    <input type="text" <# row.Email #> >
+	    <input type="text" <# row.Suggestion #> >
+            <input type="button" value="create" id="createBTNsuggestions" <# create button #> >
+			
+            </div>
+            
+            
+            <# end form #>
+	    
+	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
+            
+            save to "Sheet1";
+            
+            when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
+            #>
+            
+            
+            <div class="googlecontactform" class="googleContactForm"  style="display:none">
+            
+            <input type="text" <# row.Name #> >
+	    <input type="text" <# row.Email #> >
+	    <input type="text" <# row.Experience #> >
+	    <input type="text" <# row.Recomend #> >
+	    <input type="text" <# row.Comments #> >
+            <input type="button" value="create" id="createBTNsurveys" <# create button #> >
+			
+            </div>
+            
+            
+            <# end form #>
+            <div id="pleasewait"></div>
+            <script>
+            function myClickButton(){
+                document.getElementById("pleasewait").innerHTML ="<p><B>Your spreadsheet is being created, please wait until you are redirected...</B></p>";
+                document.getElementById("createBTN<# [url.type] #>").click();
+            }
+            myClickButton();
+            </script>

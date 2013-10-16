@@ -1,0 +1,243 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+<#
+	update record for "eas_vault.<#[easvault.id]#>";
+	set gapp_client_id_local to "<#[config.gapp_client_id]#>";
+	set gapp_client_secret_local to "<#[config.gapp_client_secret]#>";
+	set gapp_client_id_live to "<#[config.gapp_client_secret]#>";
+	set gapp_client_secret_live to "<#[config.gapp_client_secret]#>";
+#>
+<# start form for webstyle <#[webstyle.id]#>; 
+when updating redirect to "/?page=admin_new_wizard_spreadsheets&t=<# system.date_time_short #>";
+when deleting redirect to "/?page=admin_new_wizard_spreadsheets&t=<# system.date_time_short #>";
+
+#>
+<div id="this_form">
+<div id="otherformelements">
+	<p id="step1" style="font-weight: bold;margin-top: 10px;">Setup your google spreadsheets for different areas of the site.  You can either select an existing spreadsheet (the column names must match the instructions) or we can auto create a spreadsheet that will have all the right columns</p>
+	<span id="step2" style="display:none">
+	We have added links next to each page for instructions on how to set the spreadsheets up as well as an option to auto create the
+	spreadsheet with the correct columns</B></span>
+	
+	<p>Store Spreadsheet <br><span style="font-size: 9px;">(spreadsheet used to manage store products)</span><br>
+	<select <# webstyle.store_sheet_id #> id="store_id"></select>
+	<span id="store_initialize1"><div id="store_initialize"><a href="#" onclick='createSpreadsheet("store")'>Initialize Store Spreadsheet</a> or</div> <span id="show_store_instructions"><a onclick='showInstructions("store");'>Show store set up instructions</a></span></span>
+		
+		<div id="store_instructions" style="display: none">
+			To set up the Spreadsheet for use with the store, you will need columns A-G configured in the following order:
+					A). Product<Br>
+	B). Description<Br>
+	C). Image<Br>
+	D). Thumbnail<Br>
+	E). Big Image<Br>
+	F). Price<Br>
+	G). SKU<Br>
+		</div>
+	</p>
+	<p>
+		<p>Orders Spreadsheet <br><span style="font-size: 9px;">(spreadsheet used to manage store orders)</span><br>
+		<select <# webstyle.orders_sheet_id #> id="orders_id"></select>
+		<span><div id="orders_initialize"><a href="#" onclick='createSpreadsheet("orders")'>Initialize Orders Spreadsheet</a> or 
+		</div><span id="show_orders_instructions"><a onclick='showInstructions("orders");'>Show column set up instructions</a></span>
+		</span>
+		
+		<div id="orders_instructions" style="display: none">
+			To set up the Spreadsheet for use with Orders, you will need columns A-P configured in the following order:
+				A). Date<br>
+				B). OrderID<br>
+				C). Sold To<br>
+				D). Order Total<br>
+				E). Qty<br>
+				F). Sku<br>
+				G). Product<br>
+				H). Each<br>
+				I). Total<br>
+				J). Address1<br>
+				K). Address2<br>
+				L). City<br>
+				M). State<br>
+				N). Zip<br>
+				O). Phone<br>
+				P). Email<br>
+		</div>
+	</p>
+	<div style="display: none">
+		<p>Uploads Folder <br><span style="font-size: 9px;">(folder used to manage Google Drive Uploads)</span><br>
+		<input type="text" style="width:650px"  <# webstyle.uploads_folder_id #> id="uploads_id">
+		NOT CURRENTLY FUNCTIONING!
+	</div>
+	<p>
+		<p>Email Sign-Up <br><span style="font-size: 9px;">(spreadsheet used to manage your list of contacts that signed up for your emails)</span><br>
+		<select <# webstyle.email_sheet_id #> id="email_id"></select>
+		<span><div id="email_initialize"><a href="#" onclick='createSpreadsheet("email")'>Initialize Email Spreadsheet</a>
+		or </div><span id="show_email_instructions"><a onclick='showInstructions("email");'>Show email set up instructions</a></span>
+		</div>
+		 
+		<div id="email_instructions" style="display: none">
+					To set up the spreadsheet for use with email signups , you will need the following columns:<br>
+		A). Name <br>
+		B). Email<br>
+		</div>
+	</p>
+	<p>
+		<p>Contact List <br><span style="font-size: 9px;">(spreadsheet used to manage the list of contacts that have used the contact us section of your site)</span><br>
+		<select <# webstyle.contact_us_id #> id="api_id"></select>
+		<span><div id="contact_initialize"><a href="#" onclick='createSpreadsheet("contact")'>Initialize Contact Spreadsheet</a> or </div><span id="show_contact_instructions"><a onclick='showInstructions("contact");'>Show contact set up instructions</a></span></span>
+		<div id="contact_instructions" style="display: none">
+					To set up the spreadsheet for use with contacts, you will need the following columns:<br>
+	A). First <br>
+	B). Last<br>
+	C). Email<br>
+	D). Phone<br>
+	E). Comments<br>
+		</div>
+	</p>
+	<p>
+		<p>Suggestions List <br><span style="font-size: 9px;">(spreadsheet used to manage the list of suggestions submitted via your suggestions form)</span><br>
+		<select <# webstyle.suggestions_id #> id="suggestions_id"></select>
+		<span><div id="suggestions_initialize"><a href="#" onclick='createSpreadsheet("suggestions")'>Initialize Contact Spreadsheet</a> or </div><span id="show_suggestions_instructions"><a onclick='showInstructions("suggestions");'>Show suggestions set up instructions</a></span></span>
+	
+		<div id="suggestions_instructions" style="display: none">
+			To set up the spreadsheet for use with Suggestions, you will need the following columns:<br>
+						A). Name <br>
+	B). Email<br>
+	C). Suggestion<br>
+		</div>
+	</p>
+	<p>
+		<p>Survey <br><span style="font-size: 9px;">(spreadsheet used to manage your surveys collected via your website)</span><br>
+		<select <# webstyle.surveys_id #> id="surveys_id"></select>
+		<span><div id="surveys_initialize"><a href="#" onclick='createSpreadsheet("surveys")'>Initialize Surveys Spreadsheet</a> or </div><span id="show_survey_instructions"><a onclick='showInstructions("survey");'>Show survey set up instructions</a></span></span>
+		
+		<div id="survey_instructions" style="display: none">
+			To set up the spreadsheet for use with Surveys, you will need the following columns:<br>
+						A). Name <br>
+	B). Email<br>
+	C). Experience<br>
+	D). Recomend<br>
+	E). Comments<br>
+		</div>
+	</p>
+
+<input type="button" value="Save" <# create button #> >
+<input type="button" id="updateBTN" value="Save" <# update button #> >
+<p>
+</div>	
+<# end form #>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
+<script type="text/javascript">
+jQuery( document ).ready(function() {
+	
+		//jQuery("#step1").css('display','none');
+		jQuery("#step2").css('display','');
+		checkSpreadsheetInitializeCap("store");
+		checkSpreadsheetInitializeCap("orders");
+		checkSpreadsheetInitializeCap("email");
+		checkSpreadsheetInitializeCap("contact");
+		checkSpreadsheetInitializeCap("suggestions");
+		checkSpreadsheetInitializeCap("surveys");
+	
+	
+	var spreadsheets = <# JSON for spreadsheets #>;
+
+var spreadsheet_dropdown = "<option value=''>Select One</option>";
+
+var select_template = "<option value='this_id'>this_name</option>";
+for (var key in spreadsheets) {
+   if (spreadsheets.hasOwnProperty(key)) {
+      var obj = spreadsheets[key];
+      for (var prop in obj) {
+         if (obj.hasOwnProperty(prop)) {
+		if(prop == "name"){
+			select_template = select_template.replace("this_name",obj[prop]);
+		}
+		
+		if(prop == "id"){
+			select_template = select_template.replace("this_id",obj[prop]);
+		}
+         }
+      }
+   }
+   spreadsheet_dropdown += select_template;
+   select_template = "<option value='this_id'>this_name</option>";
+}
+
+var selected_store_sheet = "<#[webstyle.store_sheet_id]#>";
+
+jQuery("#store_id").append( spreadsheet_dropdown );
+jQuery("#store_id").val(selected_store_sheet);
+
+var selected_orders_sheet = "<#[webstyle.orders_sheet_id]#>";
+
+jQuery("#orders_id").append( spreadsheet_dropdown );
+jQuery("#orders_id").val(selected_orders_sheet);
+
+var selected_email_sheet = "<#[webstyle.email_sheet_id]#>";
+
+jQuery("#email_id").append( spreadsheet_dropdown );
+jQuery("#email_id").val(selected_email_sheet);
+
+var selected_contact_sheet = "<#[webstyle.contact_us_id]#>";
+
+jQuery("#api_id").append( spreadsheet_dropdown );
+jQuery("#api_id").val(selected_contact_sheet);
+
+var selected_suggestions_sheet = "<#[webstyle.suggestions_id]#>";
+
+jQuery("#suggestions_id").append( spreadsheet_dropdown );
+jQuery("#suggestions_id").val(selected_suggestions_sheet);
+
+var selected_survey_sheet = "<#[webstyle.surveys_id]#>";
+
+jQuery("#surveys_id").append( spreadsheet_dropdown );
+jQuery("#surveys_id").val(selected_survey_sheet);
+
+if("<#[url.type]#>"!=""){
+	jQuery("#this_form").hide();
+	redirect_type = "<#[url.type]#>";
+	
+	if(redirect_type == "contact"){
+		redirect_type = "api";
+	}
+	jQuery("#" + redirect_type + "_id").val('<# get spreadsheet id by name "<#[url.spreadsheet_name]#>"; #>');
+	document.getElementById("updateBTN").click();
+}
+
+});
+
+function hideInstructions(){
+	jQuery("#store_initialize").hide();
+	jQuery("#orders_initialize").hide();
+	jQuery("#email_initialize").hide();
+	jQuery("#contact_initialize").hide();
+	jQuery("#suggestions_initialize").hide();
+	jQuery("#surveys_initialize").hide();
+}
+function checkSpreadsheetInitializeCap(spread_type){
+	//spreadsheet_val = jQuery("#" + spread_type + "_id").val();
+	//
+	//if(spreadsheet_val.indexOf('"') >= 0){
+	//	jQuery("#" + spread_type + "_initialize").css('display','');
+	//}else{
+	//	jQuery("#" + spread_type + "_initialize").css('display','none');
+	//}
+}
+
+function showInstructions(spread_type){
+	jQuery("#" + spread_type + "_instructions").css('display','');
+}
+function createSpreadsheet(type){
+	
+	var spreadsheet_name=prompt("Please enter the name you would like to give this spreadsheet (a-z 0-9 only, special characters will be removed)");
+	
+	spreadsheet_name = spreadsheet_name.replace(/[^A-Za-z0-9 _]/g, "");
+	
+	window.location = '/?page=admin_new_wizard_create_spreadsheets&type=' + type + '&spreadsheet_name=' + spreadsheet_name;
+}
+
+</script>

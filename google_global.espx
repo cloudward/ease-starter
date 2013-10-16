@@ -2,6 +2,16 @@
 <# include "_htmlheader.espx" #>
 
 <# include "_admin_menu.espx" #>
+<# if ( "<#[system.core]#>" == "PHP" ){
+	set cookie.display_login_credential to "display:none";
+	set cookie.set_form_values_read_only to "readonly='readonly'";
+	set cookie.set_form_values_no_editing to " - These values cannot be edited";
+}else{
+	set cookie.display_login_credential to "";
+	set cookie.set_form_values_read_only to "";
+	set cookie.set_form_values_no_editing to ";
+}
+#>
 
 <# start form for eas_vault <#[easvault.id]#>; 
 when creating set eas_vault.gappsetupdone to "true"; 
@@ -21,7 +31,7 @@ when deleting redirect to "/?page=google_global&edit=9a7ac1363ff31893fc4047a4f52
 			Please put the corresponding ID's from your Google API Console (<a href="https://code.google.com/apis/console/" target="_blank">Found Here</a>) Account into the designated<br>
 			fields below to complete integration for your spreadsheet and documents on Google Drive. 
 		</div>
-		<div class="divSpacer">
+		<div class="divSpacer" style="<#[cookie.display_login_credential]#>">
 			<div class="label">
 				Google Email<br><span style="font-size: 9px;">(Enter your gmail username here)</span><br>
 			</div>
@@ -29,7 +39,7 @@ when deleting redirect to "/?page=google_global&edit=9a7ac1363ff31893fc4047a4f52
 				<input type="text" style="width:300px;height:18px;font-size:14px"  <# eas_vault.gspreadsheet_email #> >
 			</div>
 		</div>
-		<div class="divSpacer">
+		<div class="divSpacer" style="<#[cookie.display_login_credential]#>">
 			<div class="label">
 				Google Password<br><span style="font-size: 9px;">(Enter your gmail password here)</span><br>
 			</div>
@@ -39,50 +49,50 @@ when deleting redirect to "/?page=google_global&edit=9a7ac1363ff31893fc4047a4f52
 		</div>	
 		<div class="local divSpacer">
 			<div class="label">
-				Google Client ID (localhost)<br><span style="font-size: 9px;">(Enter the google API clientID from your google API console here)</span><br>
+				Google Client ID (localhost)<br><span style="font-size: 9px;">(Enter the google API clientID from your google API console here<#[cookie.set_form_values_no_editing]#>)</span><br>
 			</div>
 			<div class="formElem">
-				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_id_local #> >
+				<input type="text" <#[cookie.set_form_values_read_only]#> style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_id_local #> >
 			</div>
 		</div>
 		<div class="live divSpacer">
 			<div class="label">
-				Google Client ID (live)<br><span style="font-size: 9px;">(Enter the google API clientID from your google API console here)</span><br>
+				Google Client ID (live)<br><span style="font-size: 9px;">(Enter the google API clientID from your google API console here<#[cookie.set_form_values_no_editing]#>)</span><br>
 			</div>
 			<div class="formElem">
-				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_id_live #> >
+				<input type="text" <#[cookie.set_form_values_read_only]#> style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_id_live #> >
 			</div>
 		</div>
 		<div class="local divSpacer">
 			<div class="label">
-				Google API Secret (localhost)<br><span style="font-size: 9px;">(Enter the google API client secret from your google API console here)</span><br>
+				Google API Secret (localhost)<br><span style="font-size: 9px;">(Enter the google API client secret from your google API console here<#[cookie.set_form_values_no_editing]#>)</span><br>
 			</div>
 			<div class="formElem">
-				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_secret_local #> >
+				<input type="text" <#[cookie.set_form_values_read_only]#> style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_secret_local #> >
 			</div>
 		</div>
 		<div class="live divSpacer">
 			<div class="label">
-				Google API Secret (live)<br><span style="font-size: 9px;">(Enter the google API client secret from your google API console here)</span><br>
+				Google API Secret (live)<br><span style="font-size: 9px;">(Enter the google API client secret from your google API console here<#[cookie.set_form_values_no_editing]#>)</span><br>
 			</div>
 			<div class="formElem">
-				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_secret_live #> >
+				<input type="text" <#[cookie.set_form_values_read_only]#> style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_client_secret_live #> >
 			</div>
 		</div>
 		<div class="local divSpacer">
 			<div class="label">
-				Google Redirect URI (localhost)<br><span style="font-size: 9px;">(Enter the google API URI redirect from your google API console here)</span><br>
+				Google Redirect URI (localhost)<br><span style="font-size: 9px;">(Enter the google API URI redirect from your google API console here<#[cookie.set_form_values_no_editing]#>)</span><br>
 			</div>
 			<div class="formElem">
-				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_redirect_uri_local #> >
+				<input type="text" <#[cookie.set_form_values_read_only]#> style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_redirect_uri_local #> >
 			</div>
 		</div>
 		<div class="live divSpacer">
 			<div class="label">
-				Google Redirect URI (live)<br><span style="font-size: 9px;">(Enter the google API URI redirect from your google API console here)</span><br>
+				Google Redirect URI (live)<br><span style="font-size: 9px;">(Enter the google API URI redirect from your google API console here<#[cookie.set_form_values_no_editing]#>)</span><br>
 			</div>
 			<div class="formElem">
-				<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_redirect_uri_live #> >
+				<input type="text" <#[cookie.set_form_values_read_only]#> style="width:650px;height:18px;font-size:14px"  <# eas_vault.gapp_redirect_uri_live #> >
 			</div>
 		</div>
 		<input type="button" value="Save" <# create button #> >

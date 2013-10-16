@@ -1,6 +1,9 @@
 <# include "_authentication_admin.espx" #>
 <# include "_htmlheader.espx" #>
-
+<# if ( "<#[system.core]#>" == "PHP" ){
+	redirect to "/?page=admin_new_wizard_spreadsheets&t=<# system.date_time_short #>";
+}
+#>
 <# include "_admin_menu.espx" #>
 
 

@@ -119,6 +119,7 @@ hide pager both;
 					<a href="/?page=forgot_login_admin">Forgot Login</a>
 				</div>
 			</div>
+	</div>
 			<# include "_htmlfooter.espx" #>
 		</div>
 	</div>
