@@ -1,5 +1,13 @@
 <# include "_authentication_admin.espx" #>
 <# include "_htmlheader.espx" #>
+<!-- 
+// If the style was previously saved then we want to use the edit theme page instead of this one.
+-->
+<# if ("<#[webstyle.status]#>" == "on") {
+	redirect to "/?page=admin_wizard_change_theme";
+}
+#>
+
 </div>
 <style>
 body,h1,h2,h3,p,quote,small,form,input,ul,li,ol,label{
