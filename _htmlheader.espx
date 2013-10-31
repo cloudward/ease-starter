@@ -53,7 +53,7 @@ hide pager both;
 <# apply eas_vault.9a7ac1363ff31893fc4047a4f5224f48 as "easvault" .#>
 <# apply webuser.<#[cookie.cid]#> as "webuser" .#>
 
-<# if ("<#[webstyle.status]#>" != "on" and "<#[url.page]#>" != "admin_wizard_style") {
+<# if ("<#[webuser.setup]#>" == "new" and "<#[webstyle.status]#>" != "on" and "<#[url.page]#>" != "admin_wizard_style" ) {
 	redirect to "/?page=admin_wizard_style&edit=0&name=STYLESHEET&desc=Stylesheet%20for%20my%20website&value=stylesheet";
 }
 #>
