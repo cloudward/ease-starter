@@ -19,14 +19,62 @@ show 100 rows per page;
 <# start header #>
 <# end header #>
 <# start row #>
-<script>
+
+
+
+
+<# if ("<#[cookie.cid]#>" <> "") {
+
+	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
+	set webuser.billing_cid to "<#[url.contactid]#>";
 	
-	var total = <# cart.qty #> * <# cart.price #>;
-	window.location = "/?page=store_add_frame&oid=<#[url.oid]#>&iid=<# cart.id #>&qty=<# cart.qty #>&product_name=<# cart.product_name #>&price=<# cart.price #>&sku=<# cart.sku #>&total="+total+"&hello=&contactid=<#[url.contactid]#>&accountid=<#[url.accountid]#>";
+}
+	
+#>
+
+<# 
+
+	create new record for googlespreadsheet <#[webstyle.orders_sheet_id]#> "Sheet1" and reference as "gorder"; 
+	set gorder.a to "<#[order.created_on]#>"; 
+	set gorder.b to "<#[order.id]#>"; 
+	set gorder.c to "<#[order.shipping_to]#>"; 
+	set gorder.d to "<#[order.ordertotal]#>";
+	set gorder.e to "<# cart.qty #>"; 
+	set gorder.f to "<# cart.sku #>";
+	set gorder.g to "<# cart.product_name #>";
+	set gorder.h to "<# cart.price #>";
+	set gorder.i to "<# cart.total #>";
+	set gorder.j to "<#[order.shipping_address1]#>";
+	set gorder.k to "<#[order.shipping_address2]#>";
+	set gorder.l to "<#[order.shipping_city]#>";
+	set gorder.m to "<#[order.shipping_state]#>";
+	set gorder.n to "<#[order.shipping_zip]#>";
+	set gorder.o to "<#[order.shipping_phone]#>";
+	set gorder.p to "<#[order.shipping_email]#>";
+	go to next record;
+		
+#>
+<#
+	update record for "cart.<# cart.id #>" reference as "cart";
+	set cart.orderstatus to "processed";
+	set cart.status to "processed";
+	set cart.billing_cid to "<#[url.contactid]#>";
+	
+#>
+
+<script>
+	//old code
+	//var total = <# cart.qty #> * <# cart.price #>;
+	//window.location = "/?page=store_add_frame&oid=<#[url.oid]#>&iid=<# cart.id #>&qty=<# cart.qty #>&product_name=<# cart.product_name #>&price=<# cart.price #>&sku=<# cart.sku #>&total="+total+"&hello=&contactid=<#[url.contactid]#>&accountid=<#[url.accountid]#>";
 	// loop this process
 </script>
 <# end row #>
 <# start footer #>
+
+<#
+	redirect to "/?page=store_confirmation&oid=<#[url.oid]#>&iid=<#[url.iid]#>";
+#>
+
 <# end footer #>
 <# no results #> 
 

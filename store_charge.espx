@@ -12,6 +12,22 @@ function next()
   {
 	window.location = "/?page=store_addordertogoogle&oid=<#[cookie.orderid]#>";
   }
+
+jQuery(document).ready(function(){
+	$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
+		console.log(res);
+		if($.isEmptyObject(res)){
+			// do nothing
+		 }else{	
+			var testMode = res[0];
+			if(testMode == "on"){ 
+				$('#testCaseLabel').append("<font size='2' face='Verdana'>Test Type:</font>"); 
+				$('#testCaseForm').append("<select id='testCase' name='testCase'><option value='Approved'>Approved</option><option value='Declined'>Declined</option><option value='Error'>Error</option></select>"); 
+			}
+		}
+	});
+
+});
 </script>
 
 <# if ("<#[url.msg]#>" == "declined") {
@@ -111,6 +127,10 @@ hide pager both;
 
 		<input type="hidden" name="paybycredit" value="1">
 		</tr>
+			<tr>
+				<td width="234" align="right" id="testCaseLabel"></td>
+				<td width="450" id="testCaseForm"></td>
+			</tr>
 		<tr>
 			<td width="234" align="right" id="savedCardsLabel"></td>
 			<td width="450" id="savedCardsForm"></td>
