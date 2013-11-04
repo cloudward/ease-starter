@@ -21,12 +21,11 @@ show 100 rows per page;
 <# start row #>
 
 
-
-
 <# if ("<#[cookie.cid]#>" <> "") {
 
 	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
 	set webuser.billing_cid to "<#[url.contactid]#>";
+	go to next record;
 	
 }
 	
@@ -54,12 +53,13 @@ show 100 rows per page;
 	go to next record;
 		
 #>
+
 <#
 	update record for "cart.<# cart.id #>" reference as "cart";
 	set cart.orderstatus to "processed";
 	set cart.status to "processed";
 	set cart.billing_cid to "<#[url.contactid]#>";
-	
+	go to next record;
 #>
 
 <script>
