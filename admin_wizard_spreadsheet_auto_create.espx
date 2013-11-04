@@ -1,0 +1,72 @@
+<# include "_authentication_admin.espx"
+#>
+
+<# apply webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1 as "webstyle" .#>
+
+
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "store"){
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Store Spreadsheet" "Sheet1" and reference as "gstore"; 
+	set gstore.Product to ""; 
+	set gstore.Description to ""; 
+	set gstore.Image to ""; 
+	set gstore.Thumbnail to "";
+	set gstore.Big Image to ""; 
+	set gstore.SKU to "";
+	set gstore.Price to "";
+}
+#>
+
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "orders"){
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Orders Spreadsheet" "Sheet1" and reference as "gorder"; 
+	set gorder.Date to ""; 
+	set gorder.OrderID to ""; 
+	set gorder.Sold To to ""; 
+	set gorder.Order Total to "";
+	set gorder.Qty to ""; 
+	set gorder.Sku to "";
+	set gorder.Product to "";
+	set gorder.Each to "";
+	set gorder.Total to "";
+	set gorder.AddressOne to "";
+	set gorder.AddressTwo to "";
+	set gorder.City to "";
+	set gorder.State to "";
+	set gorder.Zip to "";
+	set gorder.Phone to "";
+	set gorder.Email to "";
+}
+#>
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "contact"){
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Contact List Spreadsheet" "Sheet1" and reference as "gcontact"; 
+	set gcontact.First to ""; 
+	set gcontact.Last to "";
+	set gcontact.Email to ""; 
+	set gcontact.Phone to "";
+	set gcontact.Comments to ""; 
+}
+#>
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "email"){
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Email List Spreadsheet" "Sheet1" and reference as "gemail"; 
+	set gemail.Name to ""; 
+	set gemail.Email to ""; 
+}
+#>
+
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "suggestions"){
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Suggestions Spreadsheet" "Sheet1" and reference as "gsuggestion"; 
+	set gsuggestion.Name to ""; 
+	set gsuggestion.Email to ""; 
+	set gsuggestion.Suggestion to "";
+}
+#>
+
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "surveys"){
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Survey Spreadsheet" "Sheet1" and reference as "gsurvey"; 
+	set gsurvey.Name to ""; 
+	set gsurvey.Email to ""; 
+	set gsurvey.Experience to "";
+        set gsurvey.Recomend to "";
+	set gsurvey.Comments to ""; 
+}
+#>
+

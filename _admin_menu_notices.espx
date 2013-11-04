@@ -1,31 +1,3 @@
-<# start list for webstyle;
-    include when webstyle.store_sheet_id != "";
-    hide pager both;
-    #>
-    <# start header #><# end header #>
-    <# start row #>
-    
-    <# end row #>
-    <# start footer #><# end footer #>
-    <# no results #>
-    <B><a href="/?page=admin_new_wizard_spreadsheets">Notice: Your integration with Google Drive is incomplete.  Please take a moment to set up your spreadsheets</a></B>
-    <# end no results #>
-    <# end list #>
-    
-    <# start list for webstyle;
-    include when webstyle.notification_site_email != "";
-    hide pager both;
-    #>
-    <# start header #><# end header #>
-    <# start row #>
-    
-    <# end row #>
-    <# start footer #><# end footer #>
-    <# no results #>
-    <br><B><a href="/?page=admin_notifications">Notice: Your notifications need to be set up</a></B>
-    <# end no results #>
-    <# end list #>
-
     <# start list for eas_vault;
     include when eas_vault.marketplace_id != "";
     hide pager both;
@@ -36,6 +8,21 @@
     <# end row #>
     <# start footer #><# end footer #>
     <# no results #>
-    <br><B><a href="/?page=admin_wizard_billing_ids">Notice: In order for your store to work, you need to set up your billing information</a></B>
+    <br><B><a href="/?page=admin_wizard_billing_ids"><font style="color: red;"><u>Notice: In order for your store to work, you need to set up your billing information</u></font></a></B>
     <# end no results #>
     <# end list #>
+    
+    <script type="text/javascript">
+    //jQuery("ul.admin_sub_menu").find("a").attr('href').each(function(){
+    //    console.log(this.href);
+    //});
+    
+    jQuery('ul.admin_sub_menu')
+    .find('a[href]')  // only target <a>s which have a href attribute
+        .each(function() {
+            if(this.href.indexOf("page=google_global") >= 0){
+                // hides the list item for the google global item.  Since these items are all set in the backend with no way to change them, we don't need them
+                jQuery(this).parent().hide();
+            }
+        });
+    </script>

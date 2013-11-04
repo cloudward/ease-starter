@@ -28,12 +28,18 @@
 
 		function handleAuthResult(authResult) {
 	    	var authorizeButton = document.getElementById('authorizeButton');
-
+	        var authorizeDiv = document.getElementById('authorize_text');
 	    	if (authResult && !authResult.error) {
 	        	authorizeButton.style.visibility = 'hidden';
+			authorizeDiv.style.visibility = 'hidden';
+			authorizeButton.style.display = 'none';
+			authorizeDiv.style.display = 'none';
 	        	makeApiCall();
 	    	}else{
 	        	authorizeButton.style.visibility = '';
+			authorizeDiv.style.visibility = '';
+			authorizeButton.style.display = '';
+			authorizeDiv.style.display = '';
 	        	authorizeButton.onclick = handleAuthClick;
 	    	}
 		}
@@ -49,6 +55,9 @@
 
 		function makeRequest()
 		{
+			var statusDiv = document.getElementById('status');
+			statusDiv.style.display = '';
+			statusDiv.innerHTML = "Retrieving Document Information";
 	    	var request = gapi.client.request({
 			               path : '/drive/v2/files/<#[url.doc]#>',
 			               method : 'GET',
@@ -59,6 +68,7 @@
 
 	    	request.execute(function(resp) { 
 		         //console.log(resp);
+			 
 				var test = downloadFile(resp, output);
 	        
 	    	});    
@@ -71,13 +81,16 @@
 		 * @param {Function} callback Function to call when the request is complete.
 		 */
 		function downloadFile(file, callback) {
-
+			var statusDiv = document.getElementById('status');
+	            statusDiv.innerHTML = "Downloading document...";
 		    var accessToken = gapi.auth.getToken().access_token;
 		    var xhr = new XMLHttpRequest();
 		    xhr.open('GET', file.exportLinks["text/html"]);
 		    xhr.setRequestHeader('Authorization', 'Bearer ' + accessToken);
 		    xhr.onload = function() {
+			
 		      callback(xhr.responseText);
+		      statusDiv.innerHTML = "";
 		    };
 		    xhr.onerror = function() {
 		      callback(null);
@@ -93,7 +106,9 @@
   </head>
   <body>
     <!--Add a file picker for the user to start the upload process -->
-    <input type="button" name="authorizeButton" id="authorizeButton" style="display: block" value="Authorize" />
+    <div id="authorize_text" style="color:red"><B>You need to click the authorize button so we can pull content from your google drive</B></div><BR>
+    <div id="status" style="display:none"></div>
+    <input type="button" name="authorizeButton" id="authorizeButton" style="display: block;background-color: red" value="Authorize" />
 	
 	<# start form for articles <#[url.edit]#>; 
 	// when creating set articles.status to "new"; 
