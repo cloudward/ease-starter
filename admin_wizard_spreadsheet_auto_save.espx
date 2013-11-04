@@ -1,0 +1,47 @@
+<# include "_authentication_admin.espx"
+#>
+
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+<# include "_admin_footer.espx" #>
+test
+<# include "_htmlfooter.espx" #>
+<# apply webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1 as "webstyle" .#>
+
+<#
+set spreadsheets.store_id to spreadsheet id by name "EASE <#[system.domain]#> Store Spreadsheet";
+set spreadsheets.orders_id to spreadsheet id by name "EASE <#[system.domain]#> Orders Spreadsheet";
+set spreadsheets.email_id to spreadsheet id by name "EASE <#[system.domain]#> Email List Spreadsheet";
+set spreadsheets.contact_id to spreadsheet id by name "EASE <#[system.domain]#> Contact List Spreadsheet";
+set spreadsheets.suggestions_id to spreadsheet id by name "EASE <#[system.domain]#> Suggestions Spreadsheet";
+set spreadsheets.surveys_id to spreadsheet id by name "EASE <#[system.domain]#> Survey Spreadsheet";
+
+
+if ( "<#[webstyle.spreadsheets_created]#>" == ""){
+	update record for "webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1";
+	set store_sheet_id to "<#[spreadsheets.store_id]#>";
+	set orders_sheet_id to "<#[spreadsheets.orders_id]#>";
+        set email_sheet_id to "<#[spreadsheets.email_id]#>";
+	set contact_us_id to "<#[spreadsheets.contact_id]#>";
+	set suggestions_id to "<#[spreadsheets.suggestions_id]#>";
+	set surveys_id to "<#[spreadsheets.surveys_id]#>";
+	set notification_site_email to "<#[cookie.email]#>";
+        set notification_contact_signup to "<#[cookie.email]#>";
+        set notification_store_purchase to "<#[cookie.email]#>";
+        set notification_contact_us to "<#[cookie.email]#>";
+        set notification_comments to "<#[cookie.email]#>";
+        set spreadsheets_created to "finished";
+}
+#>
+
+<#
+if ( "<#[webstyle.spreadsheets_created]#>" == ""){
+create new record for "eas_vault";
+	set uuid to "9a7ac1363ff31893fc4047a4f5224f48";
+        set gapp_client_id_local to "<#[config.gapp_client_id]#>";
+        set gapp_client_secret_local to "<#[config.gapp_client_secret]#>";
+        set gapp_client_id_live to "<#[config.gapp_client_id]#>";
+        set gapp_client_secret_live to "<#[config.gapp_client_secret]#>";
+}
+#>

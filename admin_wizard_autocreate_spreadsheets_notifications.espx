@@ -1,0 +1,85 @@
+<# include "_authentication_admin.espx" #>
+<head>
+ <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+ <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+	<script src="/javascripts/jquery.js" type="text/javascript"></script>
+	<script src="/javascripts/jquery_ui.js" type="text/javascript"></script>
+	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script> 
+	<link href="/stylesheets/jquery_ui_style.css" rel="stylesheet" type="text/css">
+</head>
+<# if ( "<#[system.core]#>" != "PHP" ){
+	redirect to "/?page=admin #>";
+}
+#>
+Please wait while we create and save your spreadsheets for your site... do not leave this page, you will be redirected automatically.  (This can take a few minutes)<br>
+<div id="notifications_status"></div>
+<div id="general_status"></div>
+
+<script type="text/javascript">
+	app_id = "My Test App";
+	jQuery( document ).ready(function() {
+		jQuery("#general_status").html("Creating store spreadsheet...");
+		createSheet('store');
+		createSheet('orders');
+		createSheet('email');
+		createSheet('contact');
+		createSheet('suggestions');
+		createSheet('surveys');
+		createSheet('finished');
+	});
+	
+	function setNotifications(notification_email){
+	      if(notification_email){
+		     jQuery.ajax({
+			 type: 'POST',
+			 dataType: 'html',
+			 url: '/?page=admin_wizard_spreadsheet_auto_create&type=notifications&email=' + notification_email,
+			 async: false,
+			 success: function (data) {
+			    jQuery("#notifications_status").html("Finished saving notifications");
+			    // MyNamespace.myFunction(data); //DO ANY PROCESS HERE
+			     //console.log(data);
+			 }
+		     });
+	      }
+	}
+	
+	function createSheet(sheet_type){
+	      if(sheet_type != "finished"){
+		     jQuery("#general_status").html("Creating " + sheet_type + " spreadsheet...");
+	      }
+            jQuery.ajax({
+                type: 'POST',
+                dataType: 'html',
+                url: '/?page=admin_wizard_spreadsheet_auto_create&type=' + sheet_type,
+		async: false,
+                success: function (data) {
+	           if(sheet_type != "finished"){
+			    
+			    // MyNamespace.myFunction(data); //DO ANY PROCESS HERE
+			    //console.log(data);
+		      
+
+		  }else{
+		     jQuery("#general_status").html("Finished, now saving spreadsheet ids and notification email addresses, you will be redirected shortly");
+		     			  jQuery.ajax({
+			      type: 'POST',
+			      dataType: 'html',
+			      url: '/?page=admin_wizard_spreadsheet_auto_save',
+			      async: false,
+			      success: function (data) {
+				 //jQuery("#general_status").html("Finished saving  + " spreadsheet...");
+				 // MyNamespace.myFunction(data); //DO ANY PROCESS HERE
+				  //console.log(data);
+				  window.location = "/?page=admin_content_list";
+				  
+			      }
+			  });
+		  }
+		}
+            });
+	}
+</script>
+
+
+<# include "_admin_footer.espx" #>

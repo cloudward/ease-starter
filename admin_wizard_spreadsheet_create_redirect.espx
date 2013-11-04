@@ -1,0 +1,11 @@
+<# include "_authentication_admin.espx"
+#>
+
+
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[webstyle.nav_top]#>" != ""){ 
+#>
+	<script type="text/javascript">
+		window.location = "/?page=admin_wizard_autocreate_spreadsheets_notifications";
+	</script>
+<# } #>
+

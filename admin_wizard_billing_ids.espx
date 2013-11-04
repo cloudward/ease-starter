@@ -3,6 +3,35 @@
 
 <# include "_admin_menu.espx" #>
 
+<script>
+
+jQuery(document).ready(function(){
+	$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
+
+		var testMode = res[0];
+		var testApproved = res[1];
+		if(testApproved == "true" && testMode == "off"){
+			// do nothing 
+				$('#testCaseLabel').append("Test Mode<br><span style='font-size: 9px;'>(This will make all transaction test type transactions)</span><br>"); 
+				$('#testCaseForm').append("<select id='testCase' name='testCase' onchange='javascript: toggleTestMode();'><option value='Off'>Off</option><option value='on'>On</option></select>");
+		 }else{	
+			if(testMode == "on" && (testApproved == "" || testApproved == "false")){ 
+				$('#testCaseStatus').append("<font size='2' face='Verdana' style='font-weight: bold;color: red;'>Your account is pending approval and is in Test Mode</font><br>"); 
+				$('#testCaseLabel').append("Test Mode<br><span style='font-size: 9px;'>(This will make all transaction test type transactions)</span><br>"); 
+				$('#testCaseForm').append("<select id='testCase' name='testCase' onchange='javascript: toggleTestMode();'><option value='on'>On</option></select>"); 
+			}else if(testMode == "on" && testApproved == "true"){
+				$('#testCaseLabel').append("Test Mode<br><span style='font-size: 9px;'>(This will make all transaction test type transactions)</span><br>"); 
+				$('#testCaseForm').append("<select id='testCase' name='testCase' onchange='javascript: toggleTestMode();'><option value='on'>On</option><option value='Off'>Off</option></select>");
+			}else{
+				$('#testCaseLabel').append("Test Mode<br><span style='font-size: 9px;'>(This will make all transaction test type transactions)</span><br>"); 
+				$('#testCaseForm').append("<select id='testCase' name='testCase' onchange='javascript: toggleTestMode();'><option value='Off'>Off</option><option value='on'>On</option></select>");
+			}
+		}
+	});
+
+});
+</script>
+
 <# start form for eas_vault <#[easvault.id]#>; 
 when creating set eas_vault.gappsetupdone to "true"; 
 when creating set eas_vault.id to "9a7ac1363ff31893fc4047a4f5224f48";
@@ -21,9 +50,17 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 			Please enter the required ID's into the corresponding fields below and click the save button 
 		</div>
 		<div class="billing_link" style="width: 30%;float: right;">
-			<a href="http://billing.cloudward.com/" target="_blank" style="float: right;">[Cloudward Billing Solution]</a>
+			<a href="http://billing.cloudward.com/" target="_blank" style="float: right;">[Cloudward Billing]</a>
 		</div>
 		<div style="width: 100%;float: left;">
+		<div class="divSpacer">
+			<div class="label" id="testCaseLabel">
+				
+			</div>
+			<div class="formElem" id="testCaseForm">
+
+			</div>
+		</div>
 		<div class="divSpacer">
 			<div class="label">
 				Master Account ID<br><span style="font-size: 9px;">(Enter your Cloudward Master Account ID Here)</span><br>
@@ -80,7 +117,20 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 	</p>
 </div>
 <# end form #>
+<script>
+	
+function toggleTestMode(){
+	var testVal = $('#testCase').val();
+	$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", testMode: testVal, contactid: "<#[webuser.billing_cid]#>", request: "toggleTestMode"},function(res){
+		// Iterate the payment methods first.
+		if($.isEmptyObject(res)){
+			// do nothing
+		}else{
 
+		}
+	});
+}
+</script>
 
 <# include "_admin_footer.espx" #>
 

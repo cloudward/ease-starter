@@ -15,13 +15,14 @@ function next()
 
 jQuery(document).ready(function(){
 	$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
-		console.log(res);
 		if($.isEmptyObject(res)){
 			// do nothing
 		 }else{	
 			var testMode = res[0];
+			var testApproved = res[1];
 			if(testMode == "on"){ 
-				$('#testCaseLabel').append("<font size='2' face='Verdana'>Test Type:</font>"); 
+				$('#testCaseStatus').append("<font size='2' face='Verdana' style='font-weight: bold;color: red;'>Your account is pending approval and is in Test Mode</font>"); 
+				$('#testCaseLabel').append("<font size='2' face='Verdana'>Test Transaction Type:</font>"); 
 				$('#testCaseForm').append("<select id='testCase' name='testCase'><option value='Approved'>Approved</option><option value='Declined'>Declined</option><option value='Error'>Error</option></select>"); 
 			}
 		}
@@ -126,11 +127,12 @@ hide pager both;
 		</tr>
 
 		<input type="hidden" name="paybycredit" value="1">
+		<tr>
+			<td colspan="2" id="testCaseStatus"></td>
 		</tr>
-			<tr>
-				<td width="234" align="right" id="testCaseLabel"></td>
-				<td width="450" id="testCaseForm"></td>
-			</tr>
+		</tr>
+			<td width="234" align="right" id="testCaseLabel"></td>
+			<td width="450" id="testCaseForm"></td>
 		<tr>
 			<td width="234" align="right" id="savedCardsLabel"></td>
 			<td width="450" id="savedCardsForm"></td>
@@ -326,6 +328,8 @@ jQuery(document).ready(function(){
 		}
 	});
 });
+
+
 function toggleForm(val){
 	if(val == ""){
 		$('.tForm').show();

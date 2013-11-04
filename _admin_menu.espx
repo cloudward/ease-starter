@@ -32,4 +32,3 @@ hide pager both;
 <# if ( "<#[system.core]#>" == "PHP" ){ 
  include "_admin_menu_notices.espx" 
  } #>
-    
