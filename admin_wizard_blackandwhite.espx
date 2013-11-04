@@ -668,11 +668,11 @@ border-left: 2px dotted #c0c0c0;
 			<# start form for webstyle <#[url.edit]#>; 
 			when creating set webstyle.status to "on"; 
 			when creating set webstyle.created_on to "<# system.date_time_short #>";
-			when creating redirect to "/?page=admin_content_list";
+			when creating redirect to "/?page=style_template_updated";
 			when creating set webstyle.id to "fb7fbd7a3bed0f0c9cf0180d26a6d9c1";
 			// need to get id's passed properly in redirect
-			when updating redirect to "/?page=admin_content_list";
-			when deleting redirect to "/?page=admin_content_list";
+			when updating redirect to "/?page=style_template_updated";
+			when deleting redirect to "/?page=style_template_updated";
 
 			#> 
 			<div style="display:none">

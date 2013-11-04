@@ -1,0 +1,7 @@
+<# include "_authentication_admin.espx" #>
+
+Template Updated
+
+<script type="text/javascript">
+window.location = "/?page=admin_content_list"
+</script>
