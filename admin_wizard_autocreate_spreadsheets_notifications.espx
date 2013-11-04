@@ -20,13 +20,28 @@ Please wait while we create and save your spreadsheets for your site... do not l
 	jQuery( document ).ready(function() {
 		jQuery("#general_status").html("Creating store spreadsheet...");
 		createSheet('store');
-		createSheet('orders');
-		createSheet('email');
-		createSheet('contact');
-		createSheet('suggestions');
-		createSheet('surveys');
-		createSheet('finished');
+		window.setTimeout(function() {
+		     createSheetTimeout('orders');
+		}, 10000);
+		window.setTimeout(function() {
+		     createSheetTimeout('email');
+		}, 10000);
+		window.setTimeout(function() {
+		     createSheetTimeout('contact');
+		}, 10000);
+		window.setTimeout(function() {
+		     createSheetTimeout('suggestions');
+		}, 10000);
+		window.setTimeout(function() {
+		     createSheetTimeout('surveys');
+		}, 10000);
 	});
+	
+	function createSheetTimeout(sheet_name){
+	      
+		  createSheet(sheet_name);
+	      
+	}
 	
 	function setNotifications(notification_email){
 	      if(notification_email){
@@ -54,7 +69,7 @@ Please wait while we create and save your spreadsheets for your site... do not l
                 url: '/?page=admin_wizard_spreadsheet_auto_create&type=' + sheet_type,
 		async: false,
                 success: function (data) {
-	           if(sheet_type != "finished"){
+	           if(sheet_type != "surveys"){
 			    
 			    // MyNamespace.myFunction(data); //DO ANY PROCESS HERE
 			    //console.log(data);

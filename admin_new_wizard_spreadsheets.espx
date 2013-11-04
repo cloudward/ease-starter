@@ -6,7 +6,7 @@
 	update record for "eas_vault.<#[easvault.id]#>";
 	set gapp_client_id_local to "<#[config.gapp_client_id]#>";
 	set gapp_client_secret_local to "<#[config.gapp_client_secret]#>";
-	set gapp_client_id_live to "<#[config.gapp_client_secret]#>";
+	set gapp_client_id_live to "<#[config.gapp_client_id]#>";
 	set gapp_client_secret_live to "<#[config.gapp_client_secret]#>";
 #>
 <# start form for webstyle <#[webstyle.id]#>; 
