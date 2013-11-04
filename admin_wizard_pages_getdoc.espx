@@ -13,7 +13,7 @@
 			var clientId = '<#[easvault.gapp_client_id_live]#>';
 			var apiKey = '<#[easvault.gapp_client_secret_live]#>';
 		}
-		var scopes = 'https://www.googleapis.com/auth/drive';
+		var scopes = 'https://www.googleapis.com/auth/drive.readonly';
 
 
 		function handleClientLoad() {

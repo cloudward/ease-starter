@@ -1,10 +1,12 @@
 <# include "_htmlheader.espx" #>
 <# include "_authentication_admin.espx" #>
-
 <# include "_admin_menu.espx" #>
-
+<# if ( "<#[system.core]#>" == "PHP"){ 
+ include "admin_wizard_spreadsheet_create_redirect.espx" 
+ }
+#>
 <div class="welcomeheadline">Edit Website Content</div>
-<p>This is a content datastore editor. Add new content and pages you can link to or edit system website pages.</p>
+<p>You can use the following tools to create and manage content and custom pages for your website.</p>
 <hr size="1">
 <a href="/?page=admin_content_edit&edit=0">+Add New Content Here.</a>
 
@@ -49,10 +51,12 @@ sort by webstyle.created_on in descending order;
 <div class="blogteaser"><# webstyle.description #> <br>
 <a href="/?page=admin_style_edit&edit=<# webstyle.id #>">[Edit]</a></div>
 <div class="blogseparator"></div>
+
 <# end row #>
 
 <# start footer #>
 <p>
+
 <# end footer #>
 
 <# no results #>
@@ -66,6 +70,8 @@ jQuery(document).ready(function(){
 });
 </script>
 
+
+ 
 <# include "_admin_footer.espx" #>
 
 <# include "_htmlfooter.espx" #>
