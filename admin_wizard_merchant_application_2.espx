@@ -1,0 +1,110 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+<script>
+jQuery(document).ready(function(){
+	$(".emailsignup").hide();
+	$(".datePicker").datepicker();
+});
+</script>
+
+<# start form for billing_application <#[url.edit]#>;
+when updating set billing_application.complete to "completed"; 
+when updating redirect to "/?page=admin_wizard_merchant_application_processing&edit=04df66fee0644a1bb070b730fab29f6d";
+
+#>
+<style>
+	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
+	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+</style>
+<div id="otherformelements"> 
+		<p style="font-weight: bold;margin-top: 10px;">Merchant Application Wizard Step 2 of 2</p>
+		<div class="instructions" style="width: 65%;float: left;">
+			Almost Done! This is the last application step. Complete the form below and click finished.
+		</div>
+		<!-- left container -->
+		<div style="width: 50%;float: right;">
+			<div style="width: 100%;">Company History</div>
+			<div class="divSpacer">
+				<div class="label">
+					Date Business Started<br><span style="font-size: 9px;">(The Date your business started MM/DD/YYYY)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" class="datePicker" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_start_date #> >
+				</div>
+			</div>
+		</div>
+		
+		<!-- right container -->
+		<div style="width: 50%; float: left;">
+			<div style="width: 100%;">Owner/Partner/Officer Information</div>	
+			<div class="divSpacer">
+				<div class="label">
+					Name<br><span style="font-size: 9px;">(Name of businesses Owner, Partner or Officer)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_name #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Percentage<br><span style="font-size: 9px;">(Percentage of ownership of the business)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_percentage #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Address<br><span style="font-size: 9px;">(Owners Address)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_address #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					City<br><span style="font-size: 9px;">(Owner City)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_city #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					State<br><span style="font-size: 9px;">(Business Owners State)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_state #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Zip<br><span style="font-size: 9px;">(Business Owner Zip Code/Postal Code)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_zip #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Phone<br><span style="font-size: 9px;">(Owners Phone Number)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_phone #> >
+				</div>
+			</div>
+		</div>
+		<div style="width: 100%;float: left;text-align: right;">
+			<input type="button" style="margin-right: 40px;" value="Finished" <# update button #> >
+		</div>
+		
+	</p>
+</div>
+<# end form #>
+
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

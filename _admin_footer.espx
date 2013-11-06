@@ -51,5 +51,12 @@ jQuery(document).ready(function(){
 	if("<#[storecart.id]#>"){
 		jQuery('.cart').hide();
 	}
+	
+	if("<#[billingapplication.complete]#>" == "started"){
+		jQuery('.application').html("<a href='/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d'>Merchant Application</a>");
+	}
+	if("<#[billingapplication.complete]#>" == "completed"){
+		jQuery('.application').hide();
+	}
 });
 </script>

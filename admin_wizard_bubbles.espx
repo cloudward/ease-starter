@@ -658,11 +658,15 @@ border-left: 2px dotted #c0c0c0;
 
 			<# start form for webstyle <#[url.edit]#>; 
 			when creating set webstyle.status to "on"; 
+
 			when creating set webstyle.created_on to "<# system.date_time_short #>";
+
 			when creating redirect to "/?page=style_template_updated";
 			when creating set webstyle.id to "fb7fbd7a3bed0f0c9cf0180d26a6d9c1";
 			// need to get id's passed properly in redirect
+
 			when updating redirect to "/?page=style_template_updated";
+
 			when deleting redirect to "/?page=style_template_updated";
 
 			#> 
@@ -1389,6 +1393,13 @@ border-left: 2px dotted #c0c0c0;
 						<div class="admin_nav">
 							<ul>
 								<li class="admin_menu"><a href="/?page=admin">Admin Home</a></li>
+								<li class="admin_menu"><a href="/?page=admin_article_edit&edit=0">Add New Blog Post</a></li>
+								<li class="admin_menu"><a href="/?page=admin_article_list">Edit Blog Posts</a></li>
+								<li class="admin_menu"><a href="/?page=admin_comments_list">Edit Comments</a></li>
+								<li class="admin_menu"><a href="/?page=admin_content_list">Edit Content</a></li>
+								<li class="admin_menu"><a href="/?page=admin_member_list">Edit Members</a></li>
+								<li class="admin_menu"><a href="/?page=admin_banner_list">Edit Banners</a></li>
+								<li class="admin_menu"><a href="/?page=admin_google_list">Contact Us Form</a></li>
 								<li class="admin_menu sub_menu_trigger"><a href="javascript: void(0);">Setup Wizard</a></li>
 									<ul class="admin_sub_menu">
 										<li class="admin_sub_menu_item home"><a href="/?page=admin_wizard_pages&edit=0&iid=53c1162e146d4e0f93730dcecaa1fe63&value=index&name=HOMEPAGE&desc=Content for our homepage">1 Setup Home</a></li>
@@ -1405,17 +1416,10 @@ border-left: 2px dotted #c0c0c0;
 										<li class="admin_sub_menu_item cart"><a href="/?page=admin_wizard_pages&edit=0&iid=9bef2c1c3e544fe3856b12f4c98ea228&value=store-cart&name=Website-store-cart&desc=Content%20for%20our%20store-cart">12 Setup Store Cart</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=google_global">Google ID's</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_spreadsheets">Spreadsheets</a></li>
+										<li class="admin_sub_menu_item application"><a href="/?page=admin_wizard_merchant_application_demo">Cloud Billing Setup</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_billing_ids">Billing ID's</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_change_theme">Change Theme</a></li>
 									</ul>
-								<li class="admin_menu"><a href="/?page=admin_article_edit&edit=0">Add New Blog Post</a></li>
-								<li class="admin_menu"><a href="/?page=admin_article_list">Edit Blog Posts</a></li>
-								<li class="admin_menu"><a href="/?page=admin_comments_list">Edit Comments</a></li>
-								<li class="admin_menu"><a href="/?page=admin_content_list">Edit Content</a></li>
-								<li class="admin_menu"><a href="/?page=admin_member_list">Edit Members</a></li>
-								<li class="admin_menu"><a href="/?page=admin_banner_list">Edit Banners</a></li>
-								<li class="admin_menu"><a href="/?page=admin_google_list">Contact Us Form</a></li>
-								
 								<li class="admin_menu"><a href="/?page=admin_notifications">Notifications</a></li>
 								<li class="admin_menu"><a href="/?page=admin_profile">My Profile</a></li>
 								<li class="admin_menu"><a href="/?page=loggoff&goto=loggoff">Log Off</a></li>

@@ -49,9 +49,6 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 			These are the ID's needed to integrate with your Cloudward Billing solution.<br>
 			Please enter the required ID's into the corresponding fields below and click the save button 
 		</div>
-		<div class="billing_link" style="width: 30%;float: right;">
-			<a href="http://billing.cloudward.com/" target="_blank" style="float: right;">[Cloudward Billing]</a>
-		</div>
 		<div style="width: 100%;float: left;">
 		<div class="divSpacer">
 			<div class="label" id="testCaseLabel">

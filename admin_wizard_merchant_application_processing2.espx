@@ -1,0 +1,39 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<#
+
+update record for "eas_vault.9a7ac1363ff31893fc4047a4f5224f48" reference as "vault";
+set vault.marketplace_id to "<#[url.maid]#>";
+set vault.merchant_token to "<#[url.k]#>";
+set vault.merchant_password to "<#[url.p]#>";
+set vault.reseller_id to "<#[url.r]#>";
+	
+#>
+
+<script>
+jQuery(document).ready(function(){
+	if("<#[billingapplication.complete]#>" == "started"){
+		jQuery('#message').html("<p>Congratulations! Your Cloudward Billing account is now setup.</p><p>Your Cloudward Billing account is now in 'Test Mode' and you may currently run test transactions.</p><p>To enable live transactions, complete the 'Merchant Application' section under the 'Setup Wizard' menu option or <a href='/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d'>click Here Now</a>.</p>");
+	}else{
+		jQuery('#message').html("<p>Congratulations! Your merchant application has been submitted.</p><p>Your merchant account is under review and awaiting approval. Your account is in 'Test Mode' and you may currently run test transactions.</p><p>When you merchant application has been approved you may toggle test mode on and off (between live and test transactions) as you wish in the 'Setup Wizard->Billing ID' menu option.</p>");
+	}
+});
+</script>
+<style>
+	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
+	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+</style>
+
+
+<div id="otherformelements"> 
+	<div id="message" style="width: 60%;margin-left: auto;margin-right: auto;margin-top: 50px;min-height: 150px;text-align: center;padding-top: 5px;">
+	
+	</div>
+</div>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

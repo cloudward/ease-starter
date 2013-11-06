@@ -1,0 +1,83 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<# apply billing_application.<#[url.edit]#> as "billingapp" .#>
+
+
+<style>
+	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
+	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+</style>
+
+
+<div id="otherformelements"> 
+	<div id="message" style="width: 60%;margin-left: auto;margin-right: auto;margin-top: 100px;min-height: 150px;text-align: center;padding-top: 50px;">
+		<p>Processing Application.... Please Wait.</p>
+		
+	</div>
+</div>
+<script>
+jQuery(document).ready(function(){
+	$(".emailsignup").hide();
+	
+	/** merchant api call **/
+	$.getJSON('https://billing.cloudward.com/web_services/registration/?callback=?',{
+		demoFlag: '<#[billingapp.complete]#>',
+		masterAccountId: '<#[easvault.marketplace_id]#>',
+		businessName: '<#[billingapp.business_name]#>', 
+		businessAddress: '<#[billingapp.business_address]#>', 
+		businessAddress2: '<#[billingapp.business_address2]#>', 
+		businessCity: '<#[billingapp.business_city]#>', 
+		businessState: '<#[billingapp.business_state]#>', 
+		businessZip: '<#[billingapp.buisiness_zip]#>', 
+		businessLocationPhone: '<#[billingapp.business_location_phone]#>', 
+		businessLocationFax: '<#[billingapp.business_location_fax]#>', 
+		businessEmail: '<#[billingapp.business_email]#>', 
+		businessWebsite: '<#[billingapp.business_website]#>', 
+		businessLegalName: '<#[billingapp.business_legal_name]#>', 
+		businessBillingAddress: '<#[billingapp.business_billing_address]#>', 
+		businessBillingAddress2: '<#[billingapp.business_billing_address2]#>', 
+		businessBillingCity: '<#[billingapp.business_billing_city]#>', 
+		businessBillingState: '<#[billingapp.business_billing_state]#>', 
+		businessBillingZip: '<#[billingapp.business_billing_zip]#>', 
+		businessContactName: '<#[billingapp.business_contact_name]#>', 
+		businessContactPhone: '<#[billingapp.business_contact_phone]#>', 
+		businessContactFax: '<#[billingapp.business_contact_fax]#>', 
+		businessContactEmail: '<#[billingapp.business_contact_email]#>', 
+		businessEIN: '<#[billingapp.business_ein]#>', 
+		businessTaxName: '<#[billingapp.business_tax_name]#>', 
+		businessTaxClass: '<#[billingapp.business_tax_class]#>', 
+		businessTaxState: '<#[billingapp.business_tax_state]#>', 
+		businessStartDate: '<#[billingapp.business_start_date]#>', 
+		businessReferenceName: '<#[billingapp.vendor_reference_name]#>', 
+		businessReferenceAddress: '<#[billingapp.vendor_reference_address]#>', 
+		businessReferenceCity: '<#[billingapp.vendor_reference_city]#>', 
+		businessReferenceState: '<#[billingapp.vendor_reference_state]#>', 
+		businessReferenceZip: '<#[billingapp.vendor_reference_zip]#>', 
+		businessReferenceContact: '<#[billingapp.vendor_reference_contact]#>', 
+		businessReferencePhone: '<#[billingapp.vendor_reference_phone]#>', 
+		businessReferenceAccount: '<#[billingapp.vendor_reference_account]#>', 
+		businessOwnerName: '<#[billingapp.business_owner_name]#>', 
+		businessOwnerPercent: '<#[billingapp.business_owner_percentage]#>', 
+		businessOwnerAddress: '<#[billingapp.business_owner_address]#>', 
+		businessOwnerCity: '<#[billingapp.business_owner_city]#>', 
+		businessOwnerState: '<#[billingapp.business_owner_state]#>', 
+		businessOwnerZip: '<#[billingapp.business_owner_zip]#>', 
+		businessOwnerPhone: '<#[billingapp.business_owner_phone]#>', 
+		request: "applicationRequest"},function(res){
+		console.log(res);
+		if($.isEmptyObject(res)){
+			$('#message').html("<p>There was an error processing your application. Please contact technical support <a href='http://www.cloudward.com' target='_blank'>here</a></p>");
+		}else{	
+			window.location = '/?page=admin_wizard_merchant_application_processing2&edit=<#[url.edit]#>&k='+res['apiKey']+'&p='+res['apiPassword']+'&maid='+res['masterAccountId']+'&r='+res['resellerId'];
+		}
+	});
+
+});
+</script>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

@@ -1,0 +1,251 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+<script>
+jQuery(document).ready(function(){
+	$(".emailsignup").hide();
+});
+</script>
+
+
+
+<# start form for billing_application <#[url.edit]#>; 
+when creating set billing_application.id to "04df66fee0644a1bb070b730fab29f6d";
+when creating redirect to "/?page=admin_wizard_merchant_application_2&edit=04df66fee0644a1bb070b730fab29f6d";
+when updating redirect to "/?page=admin_wizard_merchant_application_2&edit=04df66fee0644a1bb070b730fab29f6d";
+when deleting redirect to "/?page=admin_wizard_merchant_application_2&edit=04df66fee0644a1bb070b730fab29f6d";
+#>
+<style>
+	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
+	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+</style>
+<div id="otherformelements"> 
+		<p style="font-weight: bold;margin-top: 10px;">Merchant Applicaiton Wizard Step 1 of 2</p>
+		<div class="instructions" style="width: 65%;float: left;">
+			Complete the merchant application form below to create your merchant billing account.
+		</div>
+		<div class="billing_link" style="width: 30%;float: right;">
+			<a href="http://billing.cloudward.com/" target="_blank" style="float: right;">[Cloudward Billing]</a>
+		</div>
+		<!-- left container -->
+		<div style="width: 50%;float: left;">
+			<div style="width: 100%;">Compnay Info</div>
+			<div class="divSpacer">
+				<div class="label">
+					Business Name<br><span style="font-size: 9px;">(Your Businesses Name)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_name #> >
+				</div>
+			</div>	
+			<div class="local divSpacer">
+				<div class="label">
+					Address<br><span style="font-size: 9px;">(Businesses Address)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_address #> >
+				</div>
+			</div>
+			<div class="local divSpacer">
+				<div class="label">
+					Address2<br><span style="font-size: 9px;">(Business Address line two)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_address2 #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					City<br><span style="font-size: 9px;">(Business City)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_city #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					State<br><span style="font-size: 9px;">(Business State)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_state #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					zip<br><span style="font-size: 9px;">(Business Zip Code/Postal Code)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.buisiness_zip #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Location Phone<br><span style="font-size: 9px;">(Your Business On Location Phone Number)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_location_phone #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Location Fax<br><span style="font-size: 9px;">(Your Business On Location Fax Number)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_location_fax #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Email<br><span style="font-size: 9px;">(Your Business Email Address)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_email #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Website<br><span style="font-size: 9px;">(Your Business Website)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_website #> >
+				</div>
+			</div>
+		</div>
+		
+		<!-- right container -->
+		<div style="width: 50%; float: right;">
+			<div class="divSpacer">
+				<div class="label">
+					Corporate/Legal Name<br><span style="font-size: 9px;">(Your Businesses Legal Name)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_legal_name #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Billing Address<br><span style="font-size: 9px;">(Your Businesses Billing Address)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_address #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Billing Address2<br><span style="font-size: 9px;">(Business Billing Address Line Two)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_address2 #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Billing City<br><span style="font-size: 9px;">(Business Billing City)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_city #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Billing State<br><span style="font-size: 9px;">(Business Billing State)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_state #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Billing Zip<br><span style="font-size: 9px;">(Business Billing Zip Code/Postal Code)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_zip #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Contact Name<br><span style="font-size: 9px;">(Your Businesses Main Contact Person)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_name #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Contact Phone<br><span style="font-size: 9px;">(Your Business Main Contact Phone Number)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_phone #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Contact Fax<br><span style="font-size: 9px;">(Your Business Main Contact Fax Number)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_fax #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Contact Email<br><span style="font-size: 9px;">(Your Business Main Contact Email Address)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_email #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					EIN<br><span style="font-size: 9px;">(Employee Identification Number/Tax ID)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_ein #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Business Name<br><span style="font-size: 9px;">(Your Business Name As It Appears on Tax Documents)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_tax_name #> >
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					Federal Tax Classification<br><span style="font-size: 9px;">(Your Business Federal Tax Classification)</span><br>
+				</div>
+				<div class="formElem">
+					<select style="width:300px;height:18px;font-size:14px"  <# billing_application.business_tax_class #> >
+						<option value="Individual/Sole Propietor">Individual/Sole Proprietor</option>
+						<option value="C Corporation">C Corporation</option>
+						<option value="S Corporation">S Corporation</option>
+						<option value="Partnership">Partnership</option>
+						<option value="Trust/Estate">Trust/Estate</option>
+						<option value="Limited Liability Company">Limited Liability Company</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
+			</div>
+			<div class="divSpacer">
+				<div class="label">
+					State<br><span style="font-size: 9px;">(Your Businesses Tax State)</span><br>
+				</div>
+				<div class="formElem">
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_tax_state #> >
+				</div>
+			</div>
+		</div>
+		<div style="width: 100%;float: left;text-align: right;">
+			<input type="button" value="Next Step" <# create button #> >
+			<input type="button" style="margin-right: 40px;" value="Update" <# update button #> >
+		</div>
+		
+	</p>
+</div>
+<# end form #>
+
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

@@ -11,6 +11,8 @@
 <# apply content.3a48923809754c7ca77cd72db6fcb403 as "storetop" .#>
 <# apply content.46b241a7a08b4e57a5f7e548836bc864 as "storebottom" .#>
 <# apply content.9bef2c1c3e544fe3856b12f4c98ea228 as "storecart" .#>
+<# apply billing_application.04df66fee0644a1bb070b730fab29f6d as "billingapplication" .#>
+
 
 
 <div class="welcomename">Welcome <#[cookie.first]#> <#[cookie.last]#>:</div>
@@ -29,6 +31,3 @@ hide pager both;
 <# end no results #>
 <# end list #>
 
-<# if ( "<#[system.core]#>" == "PHP" ){ 
- include "_admin_menu_notices.espx" 
- } #>
