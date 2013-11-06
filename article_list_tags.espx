@@ -16,7 +16,7 @@ show 25 rows per page;
 <div class="blogteaser"><i>Posted on <# tags_links.published_on #> by <# tags_links.author #>
 </i><br><# tags_links.teaser #>
 <br><a href="/?page=article&aid=<# tags_links.aid #>"><u>Read More...</u></a></div>
-<div class="blogseparator"></div><# end row #>
+<div class="blogseparator"></div>
 <# end row #>
 
 <# start footer #>
