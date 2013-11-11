@@ -1,0 +1,47 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+
+<# start form for eas_vault <#[easvault.id]#>; 
+when creating set eas_vault.gappsetupdone to "true"; 
+when creating set eas_vault.id to "9a7ac1363ff31893fc4047a4f5224f48";
+when creating redirect to "/?page=admin_member_setup&edit=9a7ac1363ff31893fc4047a4f5224f48";
+when updating redirect to "/?page=admin_member_setup&edit=9a7ac1363ff31893fc4047a4f5224f48";
+when deleting redirect to "/?page=admin_member_setup&edit=9a7ac1363ff31893fc4047a4f5224f48";
+#>
+<style>
+	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
+	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+</style>
+<p style="font-weight: bold;margin-top: 12px;">Member Website Setup</p>
+<div class="instructions" style="width: 65%;float: left;">
+	These are settings for your member website. If you plan on having a monthly membership fee, you will need to fill in the
+ 	fields below and click the save button.
+</div>
+<div class="divSpacer">
+	<div class="label">
+		Member Levels<br><span style="font-size: 11px;">Enter Member Names & Amounts for Your Member Website</span><br>
+	</div>
+	<div class="formElem">
+		Basic Label:<br>
+		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_label #> >
+		<br>Basic Cost:<br>
+		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_cost #> >
+		<br>Premium Label:<br>
+		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_label #> >
+		<br>Premium Cost:<br>
+		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_cost #> >
+	</div>
+</div>
+
+<input type="button" value="Save" <# create button #> >
+<input type="button" value="Update" <# update button #> >
+
+<# end form #>
+
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

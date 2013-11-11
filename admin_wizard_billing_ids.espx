@@ -91,23 +91,6 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 			</div>
 		</div>
 		
-			<div class="live divSpacer">
-				<div class="label">
-					Member Levels<br><span style="font-size: 9px;">Enter Member Names & Amounts for Your Member Website</span><br>
-				</div>
-				<div class="formElem">
-					Basic Label:<br>
-					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_label #> >
-					<br>Basic Cost:<br>
-					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_cost #> >
-					<br>Premium Label:<br>
-					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_label #> >
-					<br>Premium Cost:<br>
-					<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_cost #> >
-				</div>
-			</div>
-		
-		
 		<input type="button" value="Save" <# create button #> >
 		<input type="button" value="Update" <# update button #> >
 		</div>

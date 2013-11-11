@@ -945,6 +945,7 @@ function resize(){
 				<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_spreadsheets">Spreadsheets</a></li>
 				<li class="admin_sub_menu_item application"><a href="/?page=admin_wizard_merchant_application_demo">Cloud Billing Setup</a></li>
 				<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_billing_ids">Billing ID's</a></li>
+				<li class="admin_sub_menu_item"><a href="/?page=admin_member_setup">Member Site Setup</a></li>
 				<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_change_theme">Change Theme</a></li>
 			</ul>
 		<li class="admin_menu"><a href="/?page=admin_article_edit&edit=0">Add New Blog Post</a></li>
