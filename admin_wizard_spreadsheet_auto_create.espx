@@ -18,7 +18,7 @@
 #>
 
 <#
-    if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "store"){
+    if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "store1"){
 	create new record for googlespreadsheet "EASE <#[system.domain]#> Store Spreadsheet" "Sheet1" and reference as "gstore"; 
 	set gstore.Product to "Test Product 2"; 
 	set gstore.Description to "Test Description 2"; 

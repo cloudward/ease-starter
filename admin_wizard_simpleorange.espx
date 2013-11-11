@@ -1390,13 +1390,6 @@ border-radius: 3px;
 						<div class="admin_nav">
 							<ul>
 								<li class="admin_menu"><a href="/?page=admin">Admin Home</a></li>
-								<li class="admin_menu"><a href="/?page=admin_article_edit&edit=0">Add New Blog Post</a></li>
-								<li class="admin_menu"><a href="/?page=admin_article_list">Edit Blog Posts</a></li>
-								<li class="admin_menu"><a href="/?page=admin_comments_list">Edit Comments</a></li>
-								<li class="admin_menu"><a href="/?page=admin_content_list">Edit Content</a></li>
-								<li class="admin_menu"><a href="/?page=admin_member_list">Edit Members</a></li>
-								<li class="admin_menu"><a href="/?page=admin_banner_list">Edit Banners</a></li>
-								<li class="admin_menu"><a href="/?page=admin_google_list">Contact Us Form</a></li>
 								<li class="admin_menu sub_menu_trigger"><a href="javascript: void(0);">Setup Wizard</a></li>
 									<ul class="admin_sub_menu">
 										<li class="admin_sub_menu_item home"><a href="/?page=admin_wizard_pages&edit=0&iid=53c1162e146d4e0f93730dcecaa1fe63&value=index&name=HOMEPAGE&desc=Content for our homepage">1 Setup Home</a></li>
@@ -1417,6 +1410,13 @@ border-radius: 3px;
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_billing_ids">Billing ID's</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_change_theme">Change Theme</a></li>
 									</ul>
+								<li class="admin_menu"><a href="/?page=admin_article_edit&edit=0">Add New Blog Post</a></li>
+								<li class="admin_menu"><a href="/?page=admin_article_list">Edit Blog Posts</a></li>
+								<li class="admin_menu"><a href="/?page=admin_comments_list">Edit Comments</a></li>
+								<li class="admin_menu"><a href="/?page=admin_content_list">Edit Content</a></li>
+								<li class="admin_menu"><a href="/?page=admin_member_list">Edit Members</a></li>
+								<li class="admin_menu"><a href="/?page=admin_banner_list">Edit Banners</a></li>
+								<li class="admin_menu"><a href="/?page=admin_google_list">Contact Us Form</a></li>
 								<li class="admin_menu"><a href="/?page=admin_notifications">Notifications</a></li>
 								<li class="admin_menu"><a href="/?page=admin_profile">My Profile</a></li>
 								<li class="admin_menu"><a href="/?page=loggoff&goto=loggoff">Log Off</a></li>

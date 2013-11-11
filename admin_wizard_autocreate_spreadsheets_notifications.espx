@@ -39,11 +39,12 @@
 
 <script type="text/javascript">
         var steps = 0;
-	var total_steps = 7;
+	var total_steps = 8;
 	app_id = "My Test App";
 	jQuery( document ).ready(function() {
 	      jQuery("#general_status").html("Creating store spreadsheet...");
 	      createSheet('store');
+	      createSheet('store1');
 	      createSheetTimeout('orders');
 	      createSheetTimeout('email');
 	      createSheetTimeout('contact');
