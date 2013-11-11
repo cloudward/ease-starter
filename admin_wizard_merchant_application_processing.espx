@@ -32,10 +32,9 @@ jQuery(document).ready(function(){
 		businessCity: '<#[billingapp.business_city]#>', 
 		businessState: '<#[billingapp.business_state]#>', 
 		businessZip: '<#[billingapp.buisiness_zip]#>',
-		businessZip: '<#[billingapp.buisiness_address_years]#>', 
 		businessLocationPhone: '<#[billingapp.business_location_phone]#>', 
 		businessLocationFax: '<#[billingapp.business_location_fax]#>',
-		businessCustomerServicePhone: '<#[billingapp.]#>', 
+		businessCustomerServicePhone: '<#[billingapp.business_customer_service_phone]#>', 
 		businessEmail: '<#[billingapp.business_email]#>', 
 		businessWebsite: '<#[billingapp.business_website]#>', 
 		businessLegalName: '<#[billingapp.business_legal_name]#>', 
@@ -44,6 +43,7 @@ jQuery(document).ready(function(){
 		businessBillingCity: '<#[billingapp.business_billing_city]#>', 
 		businessBillingState: '<#[billingapp.business_billing_state]#>', 
 		businessBillingZip: '<#[billingapp.business_billing_zip]#>',
+		businessBillingAddressYears: '<#[billingapp.business_address_years]#>',
 		businessIndustry: '<#[billingapp.business_industry]#>',
 		businessSubIndustry: '<#[billingapp.business_sub_industry]#>', 
 		businessContactName: '<#[billingapp.business_contact_name]#>', 
@@ -89,11 +89,11 @@ jQuery(document).ready(function(){
 		businessOwnerPhone: '<#[billingapp.business_owner_phone]#>',
 		businessOwnerTitle: '<#[billingapp.business_owner_title]#>',
 		businessOwnerPercentage: '<#[billingapp.business_owner_percentage]#>',
-		businessOwnerSsn: '<#[billingapp.business_owner_last_ssn]#>',
-		businessOwnerDob: '<#[billingapp.business_owner_last_dob]#>',
-		businessOwnerLicense: '<#[billingapp.business_owner_last_license]#>',
+		businessOwnerSsn: '<#[billingapp.business_owner_ssn]#>',
+		businessOwnerDob: '<#[billingapp.business_owner_dob]#>',
+		businessOwnerLicense: '<#[billingapp.business_owner_license]#>',
 		request: "applicationRequest"},function(res){
-		console.log(res);
+
 		if($.isEmptyObject(res)){
 			$('#message').html("<p>There was an error processing your application. Please contact technical support <a href='http://www.cloudward.com' target='_blank'>here</a></p>");
 		}else{	
