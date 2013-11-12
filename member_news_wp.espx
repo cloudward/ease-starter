@@ -1,0 +1,10 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_member_menu_wp.espx" #>
+
+<# wordpress list of member blogs #>
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

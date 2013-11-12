@@ -1,0 +1,2 @@
+<!-- apply pages instances -->
+<# apply billing_application.04df66fee0644a1bb070b730fab29f6d as "billingapplication" .#>

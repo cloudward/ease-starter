@@ -1,0 +1,8 @@
+
+ <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+            jQuery(".googlecontactform").css("width", "100% !important");
+        });
+
+    </script>
