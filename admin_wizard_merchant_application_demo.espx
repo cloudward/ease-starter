@@ -99,7 +99,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Business Name<br><span style="font-size: 9px;">(Your Businesses Name)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_name #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_name #>  required=required>
 				</div>
 			</div>	
 			<div class="local divSpacer">
@@ -107,7 +107,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Address<br><span style="font-size: 9px;">(Businesses Address)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_address #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_address #>   required=required>
 				</div>
 			</div>
 			<div class="local divSpacer">
@@ -123,7 +123,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					City<br><span style="font-size: 9px;">(Business City)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_city #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_city #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -131,7 +131,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					State<br><span style="font-size: 9px;">(Business State)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_state #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_state #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -139,7 +139,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					zip<br><span style="font-size: 9px;">(Business Zip Code/Postal Code)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.buisiness_zip #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.buisiness_zip #>   required=required>
 				</div>
 			</div>
 		</div>
@@ -151,7 +151,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Contact Name<br><span style="font-size: 9px;">(Your Businesses Main Contact Person)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_name #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_name #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -159,7 +159,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Contact Phone<br><span style="font-size: 9px;">(Your Business Main Contact Phone Number)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_phone #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_phone #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -167,7 +167,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Contact Email<br><span style="font-size: 9px;">(Your Business Main Contact Email Address)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_email #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_contact_email #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -175,7 +175,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Billing Address<br><span style="font-size: 9px;">(Your Businesses Billing Address)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_address #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_address #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -191,7 +191,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Billing City<br><span style="font-size: 9px;">(Business Billing City)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_city #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_city #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -199,7 +199,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Billing State<br><span style="font-size: 9px;">(Business Billing State)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_state #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_state #>   required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -207,7 +207,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Billing Zip<br><span style="font-size: 9px;">(Business Billing Zip Code/Postal Code)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_zip #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_billing_zip #>   required=required>
 				</div>
 			</div>
 			

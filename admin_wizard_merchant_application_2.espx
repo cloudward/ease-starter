@@ -33,7 +33,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Industry<br><span style="font-size: 9px;">(The type of industry your business primarily caters to)</span><br>
 				</div>
 				<div class="formElem">
-					<select class="masterList" style="width:300px;height:18px;font-size:14px" <# billing_application.business_industry #> >
+					<select class="masterList" style="width:300px;height:18px;font-size:14px" <# billing_application.business_industry #> required=required>
 						<option value=" "> Select One</option>
 						<option value="Business to Business">Business to Business</option>
 						<option value="Contractors">Contractors</option>
@@ -53,7 +53,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 						<option value="Transportation">Transportation</option>
 						<option value="Utilities">Utilities</option>
 					</select>
-					<select style="width:300px;height:18px;font-size:14px" class="slaveList" <# billing_application.business_sub_industry #> >
+					<select style="width:300px;height:18px;font-size:14px" class="slaveList" <# billing_application.business_sub_industry #> required=required>
 						<option value=" "> Select Industry First</option>
 					</select>
 				</div>
@@ -63,7 +63,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					 refund policy?<br><span style="font-size: 9px;">(Your refund policy)</span><br>
 				</div>
 				<div class="formElem">
-					<select style="width:300px;height:18px;font-size:14px" <# billing_application.business_refund_policy #> >
+					<select style="width:300px;height:18px;font-size:14px" <# billing_application.business_refund_policy #> required=required>
 						<option value="Full Refund">Full Refund</option>
 						<option value="Restocking Fee">Restocking Fee</option>
 						<option value="Exchange Only">Exchange Only</option>
@@ -77,7 +77,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					 required customer deposit?<br><span style="font-size: 9px;">(are your customers required to provide a deposit)</span><br>
 				</div>
 				<div class="formElem">
-					<select style="width:300px;height:18px;font-size:14px" <# billing_application.business_required_deposit #> >
+					<select style="width:300px;height:18px;font-size:14px" <# billing_application.business_required_deposit #> required=required>
 						<option value="Yes">Yes</option>
 						<option value="No">No</option>
 					</select>
@@ -88,7 +88,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Monthly Sales Volume<br><span style="font-size: 9px;">(Your business monthly sales estimate)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_sales_volume #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_sales_volume #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -96,7 +96,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					 Estimated High Ticket<br><span style="font-size: 9px;">(Your estimated highest single sale)</span><br>
 				</div>
 				<div class="formElem">
-					<select style="width:300px;height:18px;font-size:14px" <# billing_application.business_high_ticket #> >
+					<select style="width:300px;height:18px;font-size:14px" <# billing_application.business_high_ticket #> required=required>
 						<option value="50"><50</option>
 						<option value="100">51-100</option>
 						<option value="250">101-250</option>
@@ -113,7 +113,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Average Ticket Amount<br><span style="font-size: 9px;">(Your business average single sale)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_average_ticket #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_average_ticket #> required=required>
 				</div>
 			</div>
 			<div style="width: 100%;float: left;text-align: right;">
@@ -129,7 +129,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					First Name<br><span style="font-size: 9px;">(Owner/Office First Name)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_first_name #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_first_name #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -137,7 +137,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Last Name<br><span style="font-size: 9px;">(Owner/Office Last Name)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_Last_name #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_Last_name #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -145,7 +145,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Address<br><span style="font-size: 9px;">(Owner/Office Address)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_address #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_address #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -153,7 +153,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					City<br><span style="font-size: 9px;">(Owner/Office City)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_city #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_city #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -161,7 +161,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					State<br><span style="font-size: 9px;">(Owner/Office State)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_state #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_state #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -169,7 +169,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Zip<br><span style="font-size: 9px;">(Owner/Office Zip/Postal Code)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_zip #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_zip #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -177,7 +177,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Email<br><span style="font-size: 9px;">(Owner/Office Email Address)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_email #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_email #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -185,7 +185,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Phone Number<br><span style="font-size: 9px;">(Owner/Office Phone Number)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_phone #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_phone #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -193,7 +193,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Title<br><span style="font-size: 9px;">(Owner/Office Title)</span><br>
 				</div>
 				<div class="formElem">
-					<select style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_title #> >
+					<select style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_title #> required=required>
 						<option value='Administrator'>Administrator</option>
 						<option value='CEO'>CEO</option>
 						<option value='COO'>COO</option>
@@ -215,7 +215,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					% Ownership<br><span style="font-size: 9px;">(Owner/Office Percentage of Ownership)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_percentage #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_percentage #> required=required>
 				</div>
 			</div>	
 			<div class="divSpacer">
@@ -223,7 +223,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Social Security Number<br><span style="font-size: 9px;">(Owner/Office Social Security Number, this will not be stored)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_ssn #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_ssn #> required=required>
 				</div>
 			</div>	
 			<div class="divSpacer">
@@ -231,7 +231,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Date of Birth<br><span style="font-size: 9px;">(Owner/Office Date of Birth)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" class=".datePicker" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_dob #> >
+					<input type="text" class=".datePicker" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_dob #> required=required>
 				</div>
 			</div>	
 			<div class="divSpacer">
@@ -239,7 +239,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Govt. Issued ID/License #<br><span style="font-size: 9px;">(Owner/Office ID or License Number)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" class=".datePicker" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_license #> >
+					<input type="text" class=".datePicker" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_owner_license #> required=required>
 				</div>
 			</div>	
 			
@@ -249,7 +249,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Bank Name<br><span style="font-size: 9px;">(Your business bank)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_deposit_bank #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_deposit_bank #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -257,7 +257,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Routing Number<br><span style="font-size: 9px;">(Your Bank Routing Number)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_routing_number #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_routing_number #> required=required>
 				</div>
 			</div>
 			<div class="divSpacer">
@@ -265,7 +265,7 @@ when updating redirect to "/?page=admin_wizard_merchant_application_processing&e
 					Bank Account<br><span style="font-size: 9px;">(Your Bank Account Number)</span><br>
 				</div>
 				<div class="formElem">
-					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_bank_account_number #> >
+					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.business_bank_account_number #> required=required>
 				</div>
 			</div>
 			
