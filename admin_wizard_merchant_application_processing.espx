@@ -26,6 +26,7 @@ jQuery(document).ready(function(){
 	$.getJSON('https://billing.cloudward.com/web_services/registration/?callback=?',{
 		demoFlag: '<#[billingapp.complete]#>',
 		masterAccountId: '<#[easvault.marketplace_id]#>',
+		resellerId: '<#[easvault.reseller_id]#>',
 		businessName: '<#[billingapp.business_name]#>', 
 		businessAddress: '<#[billingapp.business_address]#>', 
 		businessAddress2: '<#[billingapp.business_address2]#>', 
