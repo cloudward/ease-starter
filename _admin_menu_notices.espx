@@ -1,17 +1,7 @@
-    <# start list for eas_vault;
-    include when eas_vault.marketplace_id != "";
-    hide pager both;
-    #>
-    <# start header #><# end header #>
-    <# start row #>
-    
-    <# end row #>
-    <# start footer #><# end footer #>
-    <# no results #>
-    <br><B><a href="/?page=admin_wizard_billing_ids"><font style="color: red;"><u>Notice: In order for your store to work, you need to set up your billing information</u></font></a></B>
-    <# end no results #>
-    <# end list #>
-    
+
+    <div id="red_billing_setup">
+        <br><B><a href="/?page=admin_wizard_merchant_application_demo"><font style="color: red;"><u>Notice: In order for your store to work, you need to set up your billing information</u></font></a></B>
+    </div>
     <script type="text/javascript">
     //jQuery("ul.admin_sub_menu").find("a").attr('href').each(function(){
     //    console.log(this.href);
