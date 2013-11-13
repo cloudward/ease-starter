@@ -348,11 +348,11 @@ img{
 			<div class="image-block">
 				<div class="mainImgContainer" style="margin-bottom: 10px;">
 					<a href="/?page=admin_wizard_bluepattern" >
-						<img src="/images/Blue_pattern.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
+						<img src="/images/Blue_Pattern.png" style="width:750px;height: 400px;box-shadow: 2px 2px 7px #999;margin-top: 10px;" border="0" >
 					</a>
 				</div>
 				<div class="reflection">
-					<img src="/images/Blue_pattern.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
+					<img src="/images/Blue_Pattern.png" style="width:750px;height: 110px;box-shadow: 2px 2px 7px #999;" border="0" >
 					<div class="overlay"></div>
 				</div>
 			</div>
