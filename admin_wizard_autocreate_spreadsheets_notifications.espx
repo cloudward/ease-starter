@@ -53,9 +53,7 @@
 	});
 	
 	function createSheetTimeout(sheet_name){
-	      this_timeout = setTimeout(function(){createSheet(sheet_name);}, 5000);
-	       
-	      
+	      this_timeout = setTimeout(function(){createSheet(sheet_name);}, 5000);   
 	}
 	
 	function setNotifications(notification_email){

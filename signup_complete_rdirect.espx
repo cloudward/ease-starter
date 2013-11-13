@@ -3,7 +3,9 @@
 <#[url.signup]#>
 
 <# if ("<#[url.signup]#>" == "complete") {
-	
+        create new record for "eas_vault";
+                set reseller_id to "cdwd_5282b54e42975";
+        
 	redirect to "/?page=admin_wizard_style&edit=0&name=STYLESHEET&desc=Stylesheet for my website&value=stylesheet";
 	
 }else{
