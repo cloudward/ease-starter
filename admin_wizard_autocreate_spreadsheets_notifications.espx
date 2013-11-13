@@ -45,11 +45,11 @@
 	      jQuery("#general_status").html("Creating store spreadsheet...");
 	      createSheet('store');
 	      createSheet('store1');
-	      createSheetTimeout('orders');
-	      createSheetTimeout('email');
-	      createSheetTimeout('contact');
-	      createSheetTimeout('suggestions');
-	      createSheetTimeout('surveys');
+	      createSheet('orders');
+	      createSheet('email');
+	      createSheet('contact');
+	      createSheet('suggestions');
+	      createSheet('surveys');
 	});
 	
 	function createSheetTimeout(sheet_name){
