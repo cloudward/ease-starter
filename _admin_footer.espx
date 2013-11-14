@@ -69,12 +69,12 @@ jQuery(document).ready(function(){
 	
 	if("<#[billingapplication.complete]#>" == "started"){
 		jQuery('.application').html("<a href='/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d'>Merchant Application</a>");
-		//jQuery('#red_billing_setup').html('<br><B><a href="/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d"><font style="color: red;"><u>Notice: In order for your store to work, you need to set up your billing information</u></font></a></B>');
+		jQuery('#red_billing_setup').html('<br><B><font style="color: red;"><u>Notice: To complete your setup, please click on the Setup Wizard on the left hand side.  Make sure you click the Merchan Application link to finish your setup.</u></font></B>');
 	}
 	if("<#[billingapplication.complete]#>" == "completed"){
 		jQuery('.application').html("<a href='/?page=admin_wizard_billing_ids'>Billing ID's</a>");
 		
-		if(count_completion >= 2){
+		if(count_completion > 2){
 			jQuery('#red_billing_setup').hide();
 		}
 	}
