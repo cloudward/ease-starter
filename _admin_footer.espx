@@ -15,50 +15,68 @@ hide pager both;
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
+	
+	var count_completion = 0;
 	if("<#[homepage.id]#>"){
 		jQuery('.home').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[blog.id]#>"){
 		jQuery('.blog').hide();
+		count_completion = count_completion + 1;
+		
 	}
 	if("<#[about.id]#>"){
 		jQuery('.about').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[contactintro.id]#>"){
 		jQuery('.intro').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[contactconfirm.id]#>"){
 		jQuery('.confirm').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[members.id]#>"){
 		jQuery('.member').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[terms.id]#>"){
 		jQuery('.term').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[privacy.id]#>"){
 		jQuery('.privacy').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[logoff.id]#>"){
 		jQuery('.logoff').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[storetop.id]#>"){
 		jQuery('.top').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[storebottom.id]#>"){
 		jQuery('.bottom').hide();
+		count_completion = count_completion + 1;
 	}
 	if("<#[storecart.id]#>"){
 		jQuery('.cart').hide();
+		count_completion = count_completion + 1;
 	}
 	
 	if("<#[billingapplication.complete]#>" == "started"){
 		jQuery('.application').html("<a href='/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d'>Merchant Application</a>");
-		jQuery('#red_billing_setup').html('<br><B><a href="/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d"><font style="color: red;"><u>Notice: In order for your store to work, you need to set up your billing information</u></font></a></B>');
+		//jQuery('#red_billing_setup').html('<br><B><a href="/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d"><font style="color: red;"><u>Notice: In order for your store to work, you need to set up your billing information</u></font></a></B>');
 	}
 	if("<#[billingapplication.complete]#>" == "completed"){
 		jQuery('.application').html("<a href='/?page=admin_wizard_billing_ids'>Billing ID's</a>");
-		jQuery('#red_billing_setup').hide();
+		
+		if(count_completion >= 2){
+			jQuery('#red_billing_setup').hide();
+		}
 	}
 });
 </script>

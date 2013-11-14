@@ -5,6 +5,9 @@
  include "admin_wizard_spreadsheet_create_redirect.espx" 
  }
 #>
+    <div id="red_billing_setup">
+        <br><B><font style="color: red;"><u>Notice: To complete your setup, please click on the Setup Wizard on the left hand side.  Make sure you click the Cloud Billing Setup link to get your store setup properly.</u></font></B>
+    </div>
 <div class="welcomeheadline">Edit Website Content</div>
 <p>You can use the following tools to create and manage content and custom pages for your website.</p>
 <hr size="1">
@@ -24,7 +27,7 @@ sort by content.created_on in descending order;
 <# start row #>
 <div class="blogheadline"><a href="/?page=content&aid=<# content.id #>" target="_blank"><# content.name #></a></div>
 <div class="blogteaser"><# content.description #> <br>
-<a href="/?page=admin_content_edit&edit=<# content.id #>&value=<# content.page #>">[Edit]</a></div>
+<a href="/?page=admin_content_edit&edit=<# content.id #>&value=<# content.page #>">Default Style - Website style setup - [Edit]</a></div>
 <div class="blogseparator"></div>
 <# end row #>
 
@@ -47,8 +50,8 @@ sort by webstyle.created_on in descending order;
 <# start header #><# end header #>
 
 <# start row #>
-<div class="blogheadline"><# webstyle.name #></div>
-<div class="blogteaser"><# webstyle.description #> <br>
+<div class="blogheadline">Default Style</div>
+<div class="blogteaser">Website style setup<br>
 <a href="/?page=admin_style_edit&edit=<# webstyle.id #>">[Edit]</a></div>
 <div class="blogseparator"></div>
 
