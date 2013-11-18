@@ -30,3 +30,7 @@ hide pager both;
 <# no results #>
 <# end no results #>
 <# end list #>
+
+<# if ( "<#[system.core]#>" == "PHP" ){ 		
+33 	include "_admin_menu_notices.espx" 		
+34 	} #>

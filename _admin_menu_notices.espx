@@ -1,7 +1,4 @@
 
-    <div id="red_billing_setup">
-        <br><B><a href="/?page=admin_wizard_merchant_application_demo"><font style="color: red;"><u>Notice: In order for your store to work, you need to set up your billing information</u></font></a></B>
-    </div>
     <script type="text/javascript">
     //jQuery("ul.admin_sub_menu").find("a").attr('href').each(function(){
     //    console.log(this.href);
