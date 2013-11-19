@@ -32,5 +32,5 @@ hide pager both;
 <# end list #>
 
 <# if ( "<#[system.core]#>" == "PHP" ){ 		
-33 	include "_admin_menu_notices.espx" 		
-34 	} #>
+ 	include "_admin_menu_notices.espx" 		
+} #>
