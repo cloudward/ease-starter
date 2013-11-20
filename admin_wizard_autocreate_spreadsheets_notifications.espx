@@ -41,15 +41,22 @@
         var steps = 0;
 	var total_steps = 8;
 	app_id = "My Test App";
+	var i = 0;
+       var sheets = new Array();
+       sheets[0] = "store";
+       sheets[1] = "store1";
+       sheets[2] = "orders";
+       sheets[3] = "email";
+       sheets[4] = "contact";
+       sheets[5] = "suggestions";
+       sheets[6] = "surveys";
+       
+       setTimeout(function(){createSheet(sheets[i]);}, 5000); 
+       
 	jQuery( document ).ready(function() {
 	      jQuery("#general_status").html("Creating store spreadsheet...");
-	      createSheet('store');
-	      createSheet('store1');
-	      createSheet('orders');
-	      createSheet('email');
-	      createSheet('contact');
-	      createSheet('suggestions');
-	      createSheet('surveys');
+
+
 	});
 	
 	function createSheetTimeout(sheet_name){
@@ -83,14 +90,12 @@
                 type: 'POST',
                 dataType: 'html',
                 url: '/?page=admin_wizard_spreadsheet_auto_create&type=' + sheet_type,
-		async: false,
                 success: function (data) {
 	           if(sheet_type != "surveys"){
-			    
+			    i=i+1;
+			    createSheet(sheets[i]);
 			    // MyNamespace.myFunction(data); //DO ANY PROCESS HERE
 			    //console.log(data);
-		      
-
 		  }else{
 		     steps += 1;
 		     jQuery("#general_status").html("Finished, now saving spreadsheet ids and notification email addresses, you will be redirected shortly");
@@ -112,6 +117,7 @@
             });
 	}
 </script>
+
 
 
 <# include "_admin_footer.espx" #>
