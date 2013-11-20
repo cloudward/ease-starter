@@ -9,7 +9,7 @@
 
 <# if ("<#[url.result]#>" == "approved") {
 
-	set cookie.memberkey to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
+	set session.memberkey to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
 	redirect to "/?page=member_confirmation&mid=<#[cookie.cid]#>&contact_id=<#[url.contact_id]#>";
 
 } else {

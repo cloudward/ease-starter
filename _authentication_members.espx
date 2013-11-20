@@ -1,4 +1,4 @@
-<# if ("<#[cookie.memberkey]#>" != "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab") {
+<# if ("<#[session.memberkey]#>" != "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab") {
   redirect to "/?page=member_logon&goto=<#[url.page]#>";
 } else {
 // authenticated

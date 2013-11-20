@@ -1,6 +1,6 @@
 <# if ("<#[url.goto]#>" != "") {
-	set cookie.keypassn to "";
-	set cookie.memberkey to "";
+	set session.keypassn to "";
+	set session.memberkey to "";
 	set cookie.first to "";
 	set cookie.last to "";
 	set cookie.email to "";
@@ -8,8 +8,8 @@
 	set cookie.cid to "";
 	redirect to "/?page=<#[url.goto]#>";
 } else {
-	set cookie.keypassn to "";
-	set cookie.memberkey to "";
+	set session.keypassn to "";
+	set session.memberkey to "";
 	set cookie.first to "";
 	set cookie.last to "";
 	set cookie.email to "";

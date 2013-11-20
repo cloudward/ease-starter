@@ -9,8 +9,8 @@ hide pager both;
 <# end header #>
 <# start row #>
 <# 
-set cookie.memberkey to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
-set cookie.keypassn to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
+set session.memberkey to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
+set session.keypassn to "554bd8fc3801fd2e560M7NDSD3N9DNEE08fc3801fd2e560154e42a32670ab";
 set cookie.first to "<# webuser.first #>";
 set cookie.last to "<# webuser.last #>";
 set cookie.email to "<# webuser.email #>";
