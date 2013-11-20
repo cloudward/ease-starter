@@ -56,7 +56,7 @@ hide pager both;
 
 <# if ("<#[webstyle.status]#>" == "on") {
 	<#[webstyle.html_header]#>
-	<link rel='stylesheet' type='text/css' href='/?page=html_css' />
+	<#[webstyle.stylesheet]#>
 	<#[webstyle.nav_top]#>
 }else{
 	
