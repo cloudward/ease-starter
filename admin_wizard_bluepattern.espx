@@ -1416,7 +1416,8 @@ border-left: 2px dotted #c0c0c0;
 										<li class="admin_sub_menu_item cart"><a href="/?page=admin_wizard_pages&edit=0&iid=9bef2c1c3e544fe3856b12f4c98ea228&value=store-cart&name=Website-store-cart&desc=Content%20for%20our%20store-cart">12 Setup Store Cart</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=google_global">Google ID's</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_spreadsheets">Spreadsheets</a></li>
-										<li class="admin_sub_menu_item application"><a href="/?page=admin_wizard_merchant_application_demo">Billing Setup</a></li>
+										<li class="admin_sub_menu_item application"><a href="/?page=admin_wizard_merchant_application_demo">Cloud Billing Setup</a></li>
+										<li class="admin_sub_menu_item bids" style="display: none;"><a href='/?page=admin_wizard_billing_ids'>Billing ID's</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_member_setup">Member Site Setup</a></li>
 										<li class="admin_sub_menu_item"><a href="/?page=admin_wizard_change_theme">Change Theme</a></li>
 									</ul>

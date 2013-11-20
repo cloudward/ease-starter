@@ -91,6 +91,9 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 		<div class="instructions" style="width: 65%;float: left;">
 			Complete the Cloudward Billing form below to create your merchant billing account.
 		</div>
+		<div style="width: 30%;text-align: right;float: right;">
+			<a href="/?page=admin_wizard_billing_ids">I Already Have A Cloud Billing Account</a>
+		</div>
 		<!-- left container -->
 		<div style="width: 50%;float: left;">
 			<div style="width: 100%;">Compnay Info</div>
