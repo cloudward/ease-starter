@@ -190,7 +190,10 @@ img{
 
 </style>
 <div class="header">
-	Select Your Theme
+	Select Your Theme <# if ( "<#[system.core]#>" == "PHP" ){
+		#>
+		<div style="float:right"><a style="font-size:12px" href="/?page=admin_support_nostyle">Having trouble?  Get help here</a></div>
+		<# } #>
 </div>
 <div id="gallery">
 	<div id="slides">

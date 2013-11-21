@@ -6,17 +6,31 @@ require_once 'google/appengine/util/string_util.php';
 use google\appengine\api\log\LogService;
 use google\appengine\util as util;
 
-date_default_timezone_set('Australia/Sydney');
-session_start();
-
 require_once('ease/core.class.php');
 $ease_core = new ease_core();
 
-if($_SESSION['keypassn'] != "554bd8fc3801fd2e560154e42a32670ab554bd8fc3801fd2e560154e42a32670ab"){
+$notification_email = trim($ease_core->process_ease('<# apply webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1 as "webstyle" .#><#[webstyle.notification_site_email]#>',true));
+
+date_default_timezone_set('Australia/Sydney');
+session_start();
+$notification_email = "";
+if($_SESSION['keypassn'] != "554bd8fc3801fd2e560154e42a32670ab554bd8fc3801fd2e560154e42a32670ab" && $notification_email){
   echo "You need to login before you can access this page";
   exit;
+}else{
+  $notification_email = trim($ease_core->process_ease('<#[cookie.email]#>',true));
+  
+  if(!$notification_email){
+    $notification_email = $_POST['support_contact_email'];
+  }
+  
+  $has_style = false;
 }
 
+if(!$notification_email){
+  echo "No email address found";
+  exit;
+}
 $application_id = str_replace("~s","",$_SERVER['APPLICATION_ID']);
 
 // Get time range from querystrings
@@ -116,12 +130,11 @@ foreach ($logs as $log) {
   //var_dump(json_encode($message));
 
   $full_message_text = "Application ID: " . $application_id . "<BR>Submitted by: " . htmlspecialchars($_POST['support_contact_email']) . "<BR>Problem: " . htmlspecialchars($_POST['support_desc']) . "<BR><BR>" . $full_message_text;
-  $ease_code = '<# apply webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1 as "webstyle" .#>
-  <#
+  $ease_code = '<#
 
 		send email;
-			from_name = "<#[webstyle.notification_site_email]#>";
-			to = "lucas.simmons@etelos-inc.com";
+			from_name = "' . $notification_email . '";
+			to = "support@cloudward.com";
 			subject = "Starter App Support Email";
 			type = "html"; // text or html
 			body = "' . str_replace('"','\'',$full_message_text) . '";
@@ -129,7 +142,11 @@ foreach ($logs as $log) {
 	#>';
   $ease_core->process_ease($ease_code,true);
 
+if(!$has_style){
+header("Location: /?page=___deleteaftersetup_support_received");
+}else{
 header("Location: /?page=admin_support_received");
+}
 exit;
 //// Finish if we have read all expected messages.
 //if ($matches === $messages) {

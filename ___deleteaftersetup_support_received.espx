@@ -1,27 +1,5 @@
-<# start list for webuser;
-include when webuser.setup == "new";
-hide pager both;
-#>
-<# start header #>
-<# end header #>
-<# start row #>
-	<# 
-	redirect to "/?page=forbidden";
-	#>
-<# end row #>
-<# start footer #>
-<# end footer #>
-<# no results #>
-<# end no results #>
-<# end list #>
 
 
-<# if ("<#[url.key]#>" != "MND1AS366MNMND1AS366D1AS366") {
-	redirect to "/?page=logon&goto=<#[url.page]#>";
-} else {
-// comment
-}
-#>
 <style type="text/css">
 
 body,h1,h2,h3,p,quote,small,form,input,ul,li,ol,label{
@@ -76,8 +54,8 @@ body{
 	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
-    width:350px;
-	height: 300px;
+    width:400px;
+	height: 400px;
     overflow: hidden;
 	background-color: #FFF;
 }
@@ -115,56 +93,11 @@ input[type="text"]{
 	font-weight: bold;
 }
 </style>
-<div class="header">
-	Profile Information
-</div>
 <div id="formContainer">
 	<div id="insideContainer">
-		<# start form for webuser <#[url.edit]#>; 
-		when creating set webuser.setup to "new"; 
-		when creating set webuser.status to "active";
-		when creating set webuser.source to "first_user"; 
-		when creating set webuser.type to "admin";
-		when creating set webuser.id to "61e4c67057c8a3df76286ab89fca716a";
-		
-		when creating redirect to "/?page=_validate&goto=signup_complete_rdirect&signup=complete&username=<# form.username #>&pass=<# form.password #>&cid=<# form.id #>";
-		when updating redirect to "/?page=signup_complete_rdirect&signup=complete";
-		when deleting redirect to "/?page=signup_complete_rdirect&signup=complete";
-		#> 
-		<p>First Name<br>
-		<input type="text" style="width:200px" <# webuser.first #> >
-		<p>Last Name<br>
-		<input type="text" style="width:200px" <# webuser.last #> >
-		<p>Username<br>
-		<input type="text" style="width:200px" <# webuser.username #> >
-		<p>Password<br>
-		<input type="text" style="width:200px" <# webuser.password #> >
-		<p>Email<br>
-		<input type="text" style="width:200px" <# webuser.email #> >
-
-		<input type="hidden" style="width:200px" <# webuser.phone #> >
-		<input type="hidden" style="width:200px" <# webuser.company #> >
-		<input type="hidden" style="width:200px" <# webuser.address #> >
-		<input type="hidden" style="width:200px" <# webuser.address2 #> >
-		<input type="hidden" style="width:200px" <# webuser.city #> >
-		<input type="hidden" style="width:200px" <# webuser.state #> >
-		<input type="hidden" style="width:200px" <# webuser.zip #> >
-		<input type="hidden" style="width:200px" <# webuser.country #> >
-		<input type="hidden" style="width:200px" <# webuser.memberdirectory #> >
-		<input type="hidden" style="width:200px" <# webuser.lessonplanspreadsheet #> >
-		<input type="hidden" style="width:200px" <# webuser.lessonplansheet #> >
-		<input type="hidden" style="width:200px" <# webuser.resourcessheet #> >
-		<input type="hidden" style="width:200px" <# webuser.resourcestab #> >
-		<input type="hidden" style="width:200px" <# webuser.billing_cid #> >
-		<br><br>
-		<input type="button" value="Submit" <# create button #> >
-		<p>
-		<# end form #>
-		<# if ( "<#[system.core]#>" == "PHP" ){
-		#><br>
-		<a href="/?page=___deleteaftersetup_support">Having trouble?  Get help here</a>
-		<# } #>
+		<div class="admin_logon_form">
+			Thank you, your support request has been received.
+		</div>
 	</div>
-</div>	
-	 
+</div>
 

@@ -15,7 +15,7 @@
 #>
 
 <div align="center">
-       <div class="alert alert-info"><span class="glyphicon glyphicon-upload"></span> Please wait while we create and save your spreadsheets for your site... do not leave this page, you will be redirected automatically.  (This can take a few minutes)
+       <div class="alert alert-info"><span class="glyphicon glyphicon-upload"></span> Please wait while we create and save your spreadsheets for your site... do not leave this page, you will be redirected automatically.  (This can take a few minutes).  If you feel you are stuck on a step, go to <a target="_blank" href="/?page=admin_support">Admin Support</a> and submit a request
        <br>
        <span id="notifications_status"></span>
 	      <span id="general_status"></span>
