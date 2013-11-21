@@ -1,0 +1,11 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<h1>Support Request Received</h1>
+<br>We have received your support request and someone will be taking a look at it shortly.
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

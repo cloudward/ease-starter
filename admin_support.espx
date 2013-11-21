@@ -1,0 +1,26 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+
+<form method="post" action="logs.php">
+<div id="otherformelements">
+	<p style="font-weight: bold;margin-top: 10px;">Get Support</p>
+	
+	<p>Best Contact Email <br><br>
+		<input type="text" id="support_contact_email" name="support_contact_email" value="<#[webstyle.notification_site_email]#>">
+	</p>
+	
+	<p>Description of the problem<br><br>
+		<textarea name="support_desc" id="support_desc"></textarea>
+	</p>
+	
+		<i>When you click submit, your recent logs will be sent to Cloudward to help diagnose the issue you are experiencing</i><br><br>
+		<input type="submit" value="Submit" > 
+</div>
+	
+</form>
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
