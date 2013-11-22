@@ -4,7 +4,7 @@
 <# include "_admin_menu.espx" #>
 
 <h1>Support Request Received</h1>
-<br>We have received your support request and someone will be taking a look at it shortly.
+<br>We have received your support request and someone will be taking a look at it shortly.  <#[url.message]#>
 
 <# include "_admin_footer.espx" #>
 

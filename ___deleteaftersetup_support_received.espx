@@ -96,7 +96,7 @@ input[type="text"]{
 <div id="formContainer">
 	<div id="insideContainer">
 		<div class="admin_logon_form">
-			Thank you, your support request has been received.
+			Thank you, your support request has been received. <#[url.message]#>
 		</div>
 	</div>
 </div>

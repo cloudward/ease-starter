@@ -154,7 +154,8 @@ $context =
     array("http"=>
       array(
         "method" => "post",
-        "content" => $data
+        "content" => $data,
+        'timeout' => 60
       )
     );
 $context = stream_context_create($context);
