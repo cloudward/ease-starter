@@ -51,12 +51,9 @@
        sheets[5] = "suggestions";
        sheets[6] = "surveys";
        
-       setTimeout(function(){createSheet(sheets[i]);}, 5000); 
-       
 	jQuery( document ).ready(function() {
-	      jQuery("#general_status").html("Creating store spreadsheet...");
-
-
+	      jQuery("#notifications_status").html("Creating store spreadsheet...");
+	      createSheet(sheets[i]);
 	});
 	
 	function createSheetTimeout(sheet_name){
@@ -84,7 +81,7 @@
 	      jQuery("#progress_bar").css("width",((steps/total_steps)*100) + "%");
 	      
 	      if(sheet_type != "finished"){
-		     jQuery("#general_status").html("Step " + steps + " of " + total_steps + " - Creating " + sheet_type + " spreadsheet...");
+		     jQuery("#notifications_status").html("Step " + steps + " of " + total_steps + " - Creating " + sheet_type + " spreadsheet...");
 	      }
             jQuery.ajax({
                 type: 'POST',
@@ -98,7 +95,7 @@
 			    //console.log(data);
 		  }else{
 		     steps += 1;
-		     jQuery("#general_status").html("Finished, now saving spreadsheet ids and notification email addresses, you will be redirected shortly");
+		     jQuery("#notifications_status").html("Finished, now saving spreadsheet ids and notification email addresses, you will be redirected shortly");
 		     			  jQuery.ajax({
 			      type: 'POST',
 			      dataType: 'html',
