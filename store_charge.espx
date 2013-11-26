@@ -56,7 +56,7 @@ hide pager both;
 	<input type="hidden" name="master_account_id" value="<#[easvault.marketplace_id]#>">
 	<input type="hidden" name="api_password" value="<#[easvault.merchant_password]#>">
 	<input type="hidden" name="action" value="billing_form">
-	<input type="hidden" name="return_url" id="return_url" value='<#[easvault.merchant_gateway_url]#>'>
+	<input type="hidden" name="return_url" id="return_url" value='http://<# system.domain #>/'>
 	<input type="hidden" name="return_page" id="return_page" value='store_payment_listener'>
 	<input type="hidden" name="invoice" value="<#[cookie.orderid]#>">
 	<input type="hidden" name="order_id" value="<#[cookie.orderid]#>">
