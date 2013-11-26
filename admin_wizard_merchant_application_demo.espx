@@ -96,7 +96,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 		</div>
 		<!-- left container -->
 		<div style="width: 50%;float: left;">
-			<div style="width: 100%;">Compnay Info</div>
+			<div style="width: 100%;">Company Info</div>
 			<div class="divSpacer">
 				<div class="label">
 					Business Name<br><span style="font-size: 9px;">(Your Businesses Name)</span><br>
@@ -139,7 +139,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 			</div>
 			<div class="divSpacer">
 				<div class="label">
-					zip<br><span style="font-size: 9px;">(Business Zip Code/Postal Code)</span><br>
+					Zip<br><span style="font-size: 9px;">(Business Zip Code/Postal Code)</span><br>
 				</div>
 				<div class="formElem">
 					<input type="text" style="width:300px;height:18px;font-size:14px"  <# billing_application.buisiness_zip #>   required=required>
