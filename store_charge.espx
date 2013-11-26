@@ -194,7 +194,7 @@ hide pager both;
 		
 		<tr class="tForm">
 
-			<td width="234" align="right"><font face="Verdana" size="2">Card Billing City:
+			<td width="234" align="right"><font face="Verdana" size="2">Billing City:
 
 			</font></td>
 
@@ -218,7 +218,7 @@ hide pager both;
 		
 		<tr class="tForm">
 
-			<td width="234" align="right"><font face="Verdana" size="2">Card Billing Zipcode:
+			<td width="234" align="right"><font face="Verdana" size="2">Billing Zipcode:
 
 			</font></td>
 
