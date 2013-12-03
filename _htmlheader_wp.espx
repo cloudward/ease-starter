@@ -225,6 +225,42 @@ select {
 	min-height: 250px;
 	font-family: Arial, Helvetica, sans-serif;
 }
+.storelisting {
+display: inline-block;
+width:250px;
+height:150px;
+}
+
+.storeimagesmall {
+width:100px;
+float:left;
+padding:10px;
+}
+.storelistingname {
+height:25px;
+font-size:18px;
+font-weight:bold;
+}
+
+.storelistingdesc {
+font-size:12px;
+}
+.storelistingprice {
+font-size:18px;
+font-weight:bold;
+float:right;
+}
+.storelistingsku {
+font-size:9px;
+}
+.storeqty {
+width:20px;
+}
+.storebutton {
+color:white;
+border: 1px solid black;
+background:gray;
+}
 </style>
 <script type="text/javascript">
     var $ = jQuery;
