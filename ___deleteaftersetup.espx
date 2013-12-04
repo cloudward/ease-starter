@@ -161,9 +161,8 @@ input[type="text"]{
 		<p>
 		<# end form #>
 		<# if ( "<#[system.core]#>" == "PHP" ){
-		#><br>
-		<a href="/?page=___deleteaftersetup_support">Having trouble?  Get help here</a>
-		<# } #>
+		<br>	<a href="/?page=___deleteaftersetup_support">Having trouble?  Get help here</a>
+		 } #>
 	</div>
 </div>	
 	 
