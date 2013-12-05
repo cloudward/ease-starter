@@ -1,0 +1,134 @@
+<# include "_authentication_admin.espx" #>
+<?php
+if($_REQUEST['export']){
+	header('Content-Type: text/csv; charset=utf-8');
+	header('Content-Disposition: attachment; filename=' . $_REQUEST['table'] . '.csv');
+}
+?>
+<?php
+require_once(__DIR__ . DIRECTORY_SEPARATOR. 'core.class.php');
+          
+        $params = array();
+        $params['application_root'] = $plugin_directory;
+        $ease_core = new ease_core($params);
+	$reserved_tables = $ease_core->reserved_sql_tables;
+	$system_tables = array('eas_vault');
+	
+	$result = $ease_core->db->query("show tables");
+	$tables = array();
+	
+	$select_drop = "<select onchange='loadTable(this.value)'><option value=''>Select A Table</option>";
+	while ($row = $result->fetch(PDO::FETCH_NUM)) {
+	    if(!in_array($row[0],$reserved_tables) && !in_array($row[0],$system_tables)){
+		
+		$select_drop .= "<option value='" . $row[0] . "'>" . $row[0] . "</option>";
+		$tables[] = $row[0];
+	    };
+	}
+	
+	$select_drop .= "</select>";
+	ease_set_value("this.select_drop",$select_drop);
+if($_REQUEST['table']){
+	$columns = array();
+	if(in_array($_REQUEST['table'],$tables)){
+		$result = $ease_core->db->query("DESCRIBE " . $_REQUEST['table']);
+		while ($row = $result->fetch(PDO::FETCH_NUM)) {
+			if($row[0] != "uuid" && $row[0] != "password"){
+				$columns[] = $row[0];
+			}
+		}
+		
+		$result = $ease_core->db->query("SELECT * FROM " . $_REQUEST['table']);
+		//var_dump($result);
+		if($rows = $result->fetchAll(PDO::FETCH_ASSOC)) {
+			//var_dump($rows);
+			
+			if($_REQUEST['export']){
+				$output = fopen('php://output', 'w');
+				fputcsv($output, $columns);
+				
+				foreach($rows as $row){
+					fputcsv($output, $row);
+				}
+				exit;
+			}else{
+				$data = "<div class='wrap'><div class='inner_table'><table class='head'><tr>";
+				foreach($columns as $column){
+					$data .= "<td>" . $column . "</td>";
+				}
+				
+				$data .=  "</tr></table><table>";
+				foreach($rows as $row){
+					$data .=  "<tr>";
+					foreach($columns as $column){
+						$data .=  "<td style='vertical-align:top'>" . htmlspecialchars($row[$column]). "</td>";
+					}
+					$data .=  "</tr>";
+				}
+				
+				$data .= "</table></div></div>";
+			}
+			
+			ease_set_value('this.table_data',$data);
+		}
+	}else{
+		echo "Invalid Table";
+		exit;
+	}
+	
+	
+}
+?>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+<style>
+.wrap {
+    width: 352px;
+}
+
+.wrap table {
+    width: 300px;
+    table-layout: fixed;
+}
+
+table tr td {
+    padding: 5px;
+    border: 1px solid #eee;
+    width: 100px;
+    word-wrap: break-word;
+}
+
+table.head tr td {
+    background: #eee;
+}
+
+.inner_table {
+    width:650px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+</style>
+<?php
+echo "Database Tables:<BR>"; 
+echo ease_get_value("this.select_drop") . "<BR><BR>";
+
+if($_REQUEST['table']){
+	echo "Currently viewing data for the " . $_REQUEST['table'] . " table";
+}
+echo ease_get_value("this.table_data");
+
+if($_REQUEST['table']){
+	echo "<BR><a href='/?page=admin_show_table_data&table=" . $_REQUEST['table'] . "&export=true'>Export as CSV</a>";
+}
+?>
+
+<script type="text/javascript">
+	function loadTable(table_name){
+		window.location = "/?page=admin_show_table_data&table="  + table_name;
+	}
+</script>
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

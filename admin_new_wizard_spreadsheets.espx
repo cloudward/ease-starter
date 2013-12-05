@@ -19,7 +19,10 @@ when deleting redirect to "/?page=admin_new_wizard_spreadsheets&t=<# system.date
 	<p id="step1" style="font-weight: bold;margin-top: 10px;">Setup your google spreadsheets for different areas of the site.  You can either select an existing spreadsheet (the column names must match the instructions) or we can auto create a spreadsheet that will have all the right columns</p>
 	<span id="step2" style="display:none">
 	We have added links next to each page for instructions on how to set the spreadsheets up as well as an option to auto create the
-	spreadsheet with the correct columns</B></span>
+	spreadsheet with the correct columns</B><br><br>
+	
+	You can also view and export the data in your site's database by <a href="/?page=admin_show_table_data">clicking here</a>
+	</span>
 	
 	<p>Store Spreadsheet <br><span style="font-size: 9px;">(spreadsheet used to manage store products)</span><br>
 	<select <# webstyle.store_sheet_id #> id="store_id"></select>
