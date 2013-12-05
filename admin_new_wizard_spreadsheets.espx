@@ -66,10 +66,9 @@ when deleting redirect to "/?page=admin_new_wizard_spreadsheets&t=<# system.date
 				P). Email<br>
 		</div>
 	</p>
-	<div style="display: none">
+	<div>
 		<p>Uploads Folder <br><span style="font-size: 9px;">(folder used to manage Google Drive Uploads)</span><br>
 		<input type="text" style="width:650px"  <# webstyle.uploads_folder_id #> id="uploads_id">
-		NOT CURRENTLY FUNCTIONING!
 	</div>
 	<p>
 		<p>Email Sign-Up <br><span style="font-size: 9px;">(spreadsheet used to manage your list of contacts that signed up for your emails)</span><br>
