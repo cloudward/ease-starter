@@ -1,5 +1,5 @@
 <#
 set cookie.orderid to "<#[url.orderid]#>";
-redirect to "/?page=store_add_to_cart&orderid=<#[url.orderid]#>&qty=<#[url.qty]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
+redirect to "/?page=store_add_to_cart&orderid=<#[url.orderid]#>&qty=<#[url.qty]#>&tax_rate=<#[url.tax_rate]#>&shipping_charge=<#[url.shipping_charge]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
 #>
 

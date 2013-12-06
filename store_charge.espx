@@ -61,6 +61,7 @@ hide pager both;
 	<input type="hidden" name="invoice" value="<#[cookie.orderid]#>">
 	<input type="hidden" name="order_id" value="<#[cookie.orderid]#>">
 	<input type="hidden" name="orderTotal" value="<#[order.ordertotal]#>">
+	<input type="hidden" name="orderTax" value="<#[order.ordertax]#>">
 	<input type="hidden" name="email" value="<#[order.shipping_email]#>">
 	<input type="hidden" name="shipping_phone" value="<#[order.shipping_phone]#>">
 
@@ -71,6 +72,15 @@ hide pager both;
 	<input type="hidden" name="item[<# rownumber #>][qty]" value="<# cart.qty #>">
 	<input type="hidden" name="item[<# rownumber #>][description]" value="<# cart.product_name #>">
 	<input type="hidden" name="item[<# rownumber #>][price]" value="<# cart.price #>">
+	<script>
+		var subtotal = <# cart.qty #> * <# cart.price #>;
+		var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+		document.write( "<input type='hidden' name='item[<#rownumber #>][tax]' class='tax' value='"+tax+"'>" );
+	</script>
+	<script>
+		var shipping = <# cart.shipping_charge #>;
+		document.write( "<input type='hidden' name='item[<#rownumber #>][shipping]' class='shipping' value='"+shipping+"'>" );
+	</script>
 	<input type="hidden" name="item[<# rownumber #>][frequency]" value="1x">
 	<input type="hidden" name="item[<# rownumber #>][chargeType]" value="charge">
 
@@ -115,7 +125,7 @@ hide pager both;
 
 			<td width="234" align="right"><font size="2" face="Verdana">Amount:</font></td>
 
-			<td width="450">&nbsp; $ <#[order.ordertotal]#></td>
+			<td width="450">&nbsp; $<script> document.write(Number(<#[order.ordertotal]#>).toFixed(2)); </script> </td>
 
 		</tr>
 			

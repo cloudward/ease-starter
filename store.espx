@@ -40,6 +40,8 @@ start row template at row 2;
 	<input type="hidden" value="<# row.f #>" name="price">
 	<input type="hidden" value="<# row.g #>" name="sku">
 	<input type="hidden" value="<# row.c #>" name="img">
+	<input type="hidden" value="<# row.h #>" name="tax_rate">
+	<input type="hidden" value="<# row.i #>" name="shipping_charge">
 	</form>
 	</div>
 <div class="storelistingsku">sku <# row.g #></div>

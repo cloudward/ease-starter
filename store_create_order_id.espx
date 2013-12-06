@@ -2,13 +2,15 @@
 <# start form for orders 0; 
 when creating set orders.created_on to "<# system.date_time_short #>";
 when creating set orders.ordercid to "<#[cookie.cid]#>";
-when creating redirect to "/?page=store_create_order_id2&orderid=<# form.id #>&qty=<#[url.qty]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
+when creating redirect to "/?page=store_create_order_id2&orderid=<# form.id #>&qty=<#[url.qty]#>&tax_rate=<#[url.tax_rate]#>&shipping_charge=<#[url.shipping_charge]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
 #> 
 <p>orders<br>
 	<input type="hidden" value="" <# orders.name #> >
 	<input type="hidden" value="" <# orders.number #> >
 	<input type="hidden" value="" <# orders.ordertotal #> >
 	<input type="hidden" value="" <# orders.total #> >
+	<input type="hidden" value="" <# orders.ordertax #> >
+	<input type="hidden" value="" <# orders.ordershipping #> >
 	<input type="hidden" value="" <# orders.shipping_address1 #> >
 	<input type="hidden" value="" <# orders.shipping_address2 #> >
 	<input type="hidden" value="" <# orders.shipping_city #> >

@@ -11,8 +11,13 @@ hide pager both;
 <# cart.qty #>  <# cart.product_name #> <# cart.price #>
 <script>
 	var total = <# cart.qty #> * <# cart.price #>;
+	var tax = ((total * <# cart.tax_rate #>) / 100).toFixed(2);
+	var shipping = <# cart.shipping_charge #>;
+	total = (Number(total) + Number(tax));
+	total = (Number(total) + Number(shipping));
 	document.write( "<input type='text' class='itemTotal' value='"+total+"' style='display:none'>" );
-//	document.write(total);
+	document.write( "<input type='text' class='itemTax' value='"+tax+"' style='display:none'>" );
+	document.write( "<input type='text' class='itemShipping' value='"+shipping+"' style='display:none'>" );
 </script>
 
 <# end row #>
@@ -130,6 +135,8 @@ when updating redirect to "/?page=store_charge";
 	
 	
 	<input type="hidden" id="ordertotal"  <# orders.ordertotal #> >
+	<input type="hidden" id="ordertax"  <# orders.ordertax #> >
+	<input type="hidden" id="ordershipping"  <# orders.ordershipping #> >
 	<script type="text/javascript">
 		function UpdateTotal()
 		{
@@ -140,13 +147,42 @@ when updating redirect to "/?page=store_charge";
 			    for ( i = 0; i < oInputs.length; i++ )
 			     {
 					subject = parseFloat(oInputs[i].value);
-				//	alert(subject);
 			       	total = subject + total;
 			     }
-				//	document.write(total);
 				document.getElementById("ordertotal").value = total;
 		}
+		
+		function UpdateTax()
+		{
+		       var oInputs = new Array();
+				var total = 0;
+				var subject = 0;
+			     oInputs = document.getElementsByClassName( 'itemTax' ); // store collection of all <input/> elements
+			    for ( i = 0; i < oInputs.length; i++ )
+			     {
+					subject = parseFloat(oInputs[i].value);
+			       	total = subject + total;
+			     }
+				document.getElementById("ordertax").value = total;
+		}
+		
+		function UpdateShipping()
+		{
+		       var oInputs = new Array();
+				var total = 0;
+				var subject = 0;
+			     oInputs = document.getElementsByClassName( 'itemShipping' ); // store collection of all <input/> elements
+			    for ( i = 0; i < oInputs.length; i++ )
+			     {
+					subject = parseFloat(oInputs[i].value);
+			       	total = subject + total;
+			     }
+				document.getElementById("ordershipping").value = total;
+		}
+		
 		UpdateTotal();
+		UpdateTax();
+		UpdateShipping();
 	</script>
 	<center>
 <input type="button" value="Next Step &gt;&gt;"  <# update button #> >

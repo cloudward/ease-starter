@@ -50,21 +50,46 @@ hide pager both;
 		<td class="cartheadercell">Qty</td>
 		<td class="cartheadercell">Item</td>
 		<td class="cartheadercell" width="60">Price</td>
+		<td class="cartheadercell" width="60">Tax</td>
+		<td class="cartheadercell" width="60">Shipping</td>
 		<td class="cartheadercell" width="60">Total</td>
 		<td width="10"  class="cartheadercell">Remove</td>
 	</tr>
 <# end header #>
 <# start row #>
+
+
 	<tr class="cartrow">
 		<td class="cartrowcell"><# cart.qty #></td>
 		<td class="cartrowcell"><# cart.product_name #></td>
 		<td class="cartrowcell">$ <# cart.price #> </td>
+		<td class="cartrowcell">
+			<script>
+				/** tax **/
+				var subtotal = <# cart.qty #> * <# cart.price #>;
+				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+				document.write( "<input type='text' class='tax' value='"+tax+"' style='display:none'>" );
+				document.write(tax);
+			</script>
+		</td>
+		<td class="cartrowcell">
+			<script>
+				/** shipping **/
+				var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
+				document.write( "<input type='text' class='tax' value='"+shipping+"' style='display:none'>" );
+				document.write(shipping);
+			</script>
+		</td>
 		<td class="cartrowcell">$ 
-		<script>
-		var total = <# cart.qty #> * <# cart.price #>;
-		document.write( "<input type='text' class='itemTotal' value='"+total+"' style='display:none'>" );
-		document.write(total);
-		</script>
+			<script>
+				/** total **/
+				var total = <# cart.qty #> * <# cart.price #>;
+				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+				var shipping = <# cart.shipping_charge #>;
+				grand_total = (Number(total) + Number(tax) + Number(shipping));
+				document.write( "<input type='text' class='itemTotal' value='"+grand_total+"' style='display:none'>" );
+				document.write(Number(grand_total).toFixed(2));
+			</script>
 		</td>
 		<td width="10" class="cartrowcell">
 			<center>
@@ -90,11 +115,10 @@ hide pager both;
 		    for ( i = 0; i < oInputs.length; i++ )
 		     {
 				subject = parseFloat(oInputs[i].value);
-			//	alert(subject);
 		       	total = subject + total;
 		     }
-				document.write(total);
-			document.getElementById("tbTotal").value = total;
+				document.write(Number(total).toFixed(2));
+			document.getElementById("tbTotal").value = Number(total).toFixed(2);
 	}
 	var test = UpdateTotal();
 	function goBack()

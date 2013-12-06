@@ -108,6 +108,8 @@ hide pager both;
 		<td class="cartheadercell">Qty</td>
 		<td class="cartheadercell">Item</td>
 		<td class="cartheadercell">Price</td>
+		<td class="cartheadercell">Tax</td>
+		<td class="cartheadercell">Shipping</td>
 		<td class="cartheadercell">Total</td>
 	</tr>
 <# end header #>
@@ -117,11 +119,32 @@ hide pager both;
 		<td><# cart.product_name #></td>
 		<td>$ <# cart.price #> </td>
 		<td > $ 
-		<script>
-		var total = <# cart.qty #> * <# cart.price #>;
-		document.write( "<input type='text' class='itemTotal' value='"+total+"' style='display:none'>" );
-		document.write(total);
-		</script>
+			<script>
+				/** tax **/
+				var subtotal = <# cart.qty #> * <# cart.price #>;
+				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+				document.write( "<input type='text' class='tax' value='"+tax+"' style='display:none'>" );
+				document.write(tax);
+			</script>
+		</td>
+		<td>
+			<script>
+				/** shipping **/
+				var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
+				document.write( "<input type='text' class='tax' value='"+shipping+"' style='display:none'>" );
+				document.write(shipping);
+			</script>
+		</td>
+		<td > $ 
+			<script>
+				/** total **/
+				var total = <# cart.qty #> * <# cart.price #>;
+				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+				var shipping = <# cart.shipping_charge #>;
+				grand_total = (Number(total) + Number(tax) + Number(shipping));
+				document.write( "<input type='text' class='itemTotal' value='"+grand_total+"' style='display:none'>" );
+				document.write(Number(grand_total).toFixed(2));
+			</script>
 		</td>
 	</tr>
 
