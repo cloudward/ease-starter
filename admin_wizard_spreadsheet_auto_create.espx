@@ -11,8 +11,10 @@
 	set gstore.Image to "http://<#[system.domain]#>/images/test_product1.jpg"; 
 	set gstore.Thumbnail to "http://<#[system.domain]#>/images/test_product1.jpg";
 	set gstore.Big Image to "http://<#[system.domain]#>/images/test_product1.jpg"; 
-	set gstore.Price to "1.99";
+	set gstore.Price to "9.99";
 	set gstore.SKU to "SKU1";
+        set gstore.Tax Rate to "9%";
+        set gstore.Shipping Charge to "2.99";
     }
 
 #>
@@ -25,8 +27,10 @@
 	set gstore.Image to "http://<#[system.domain]#>/images/test_product1.jpg"; 
 	set gstore.Thumbnail to "http://<#[system.domain]#>/images/test_product1.jpg";
 	set gstore.Big Image to "http://<#[system.domain]#>/images/test_product1.jpg"; 
-	set gstore.Price to "2.99";
+	set gstore.Price to "10.99";
 	set gstore.SKU to "SKU2";
+        set gstore.Tax Rate to "9%";
+        set gstore.Shipping Charge to "2.99";
     }
 #>
 
@@ -48,6 +52,8 @@
 	set gorder.Zip to "";
 	set gorder.Phone to "";
 	set gorder.Email to "";
+        set gstore.Tax Rate to "";
+        set gstore.Shipping Charge to "";
 }
 #>
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "contact"){
