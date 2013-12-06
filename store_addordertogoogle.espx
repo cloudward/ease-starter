@@ -50,6 +50,8 @@ show 100 rows per page;
 	set gorder.n to "<#[order.shipping_zip]#>";
 	set gorder.o to "<#[order.shipping_phone]#>";
 	set gorder.p to "<#[order.shipping_email]#>";
+	set gorder.q to "<#[order.ordertax]#>";
+	set gorder.r to "<#[order.ordershipping]#>";
 	go to next record;
 		
 #>
