@@ -25,14 +25,18 @@ when creating redirect to "/?page=store_create_order_id2&orderid=<# form.id #>&q
 
 
 <input type="button" value="create" id="createBTN" <# create button #> >
+<# end form #>
 <p>
-<# end form #> 
-
+</div>
+<div style="border: 1px #CCC solid;box-shadow: 2px 2px 2px #CCC;width: 60%;border-radius: 3px;min-height: 300px;margin-left: auto;margin-right: auto;font-family: Helvetica, Arial, Tahoma;font-size: 13px;background-color: #FFF;">
+	<div style="width: 40%;margin-left: auto;margin-right: auto;margin-top: 8%;text-align: center;padding: 20px;">
+		<p>Creating Order.... Please do not refresh this page.</p>
+		<p>If this page does not redirect <a href="javascript: void(0);" onclick="javascript: myClickButton();">click here</a> to continue.</p>
+	</div>
+</div>
 <script>
 function myClickButton(){
 	document.getElementById('createBTN').click();
 }
-myClickButton();
+//myClickButton();
 </script>
-
-</div>

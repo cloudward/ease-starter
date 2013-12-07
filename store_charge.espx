@@ -174,7 +174,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="name" size="25" value=""></td>
+			<input type="text" name="name" value=""></td>
 
 		</tr>
 
@@ -186,7 +186,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="address" size="25" value=""></td>
+			<input type="text" name="address" value=""></td>
 
 		</tr>
 		
@@ -198,7 +198,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="address2" size="25" value=""></td>
+			<input type="text" name="address2" value=""></td>
 
 		</tr>
 		
@@ -210,7 +210,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="city" size="25" value=""></td>
+			<input type="text" name="city" value=""></td>
 
 		</tr>
 		
@@ -222,7 +222,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="state" size="25" value=""></td>
+			<input type="text" name="state" value=""></td>
 
 		</tr>
 		
@@ -234,7 +234,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="zip" size="10" value=""></td>
+			<input type="text" name="zip" value=""></td>
 
 		</tr>
 
@@ -244,7 +244,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="card" size="17"></td>
+			<input type="text" name="card"></td>
 
 		</tr>
 
@@ -256,7 +256,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="exp" size="4"> MMYY</td>
+			<input type="text" name="exp"> MMYY</td>
 
 		</tr>
 
@@ -270,7 +270,7 @@ hide pager both;
 
 			<td width="450">
 
-			<input type="text" name="cvv2" size="5"></td>
+			<input type="text" name="cvv2"></td>
 
 		</tr>
 

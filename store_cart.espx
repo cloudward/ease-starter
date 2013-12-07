@@ -19,6 +19,7 @@ window.location = "/?page=store";
 </script>
 
 <center>
+<div class="googlecontactform" style="min-width: 95%;">
 <table width="600">
 	<tr>
 		<td>
@@ -80,7 +81,8 @@ hide pager both;
 				document.write(shipping);
 			</script>
 		</td>
-		<td class="cartrowcell">$ 
+		<td class="cartrowcell">
+			$ 
 			<script>
 				/** total **/
 				var total = <# cart.qty #> * <# cart.price #>;
@@ -94,8 +96,8 @@ hide pager both;
 		<td width="10" class="cartrowcell">
 			<center>
 				<a href="/?page=store_delete_cart_item&cartid=<# cart.id #>&product_name=<# cart.product_name #>&orderid=<#[cookie.orderid]#>">[X]</a>
-				</center>
-			 </td>
+			</center>
+		</td>
 	</tr>
 
 <# end row #>
@@ -158,6 +160,7 @@ hide pager both;
  <# end no results #>
 <# end list #>
 </td></tr></table>
-
+<div style="clear: both;"></div>
+</div>
 <# include "_htmlfooter.espx" #>
 
