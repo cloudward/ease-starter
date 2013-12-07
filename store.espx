@@ -46,6 +46,7 @@ start row template at row 2;
 	</form>
 	</div>
 <div class="storelistingsku">sku <# row.g #></div>
+<div style="clear: both;"></div>
 </div>
 <# end row #>
 
@@ -56,7 +57,6 @@ start row template at row 2;
 <# end list #>
 <# start list for content;
 include when content.page == "store-bottom";
-hide search box;
 hide pager both;
 #>
 <# start header #><# end header #>
