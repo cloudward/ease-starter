@@ -2,6 +2,10 @@
 
 
 <style>
+table{
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
 .cartheadercell {
 	border-bottom: 1px dotted #000000;
 //	text-decoration:underline;
@@ -47,7 +51,7 @@ hide pager both;
 #>
 <# start header #>
 <table class="carttable" width="600">
-	<tr class="cartheaderrow">
+	<tr class="cartheaderrow" style="background-color: #CCC;">
 		<td class="cartheadercell">Qty</td>
 		<td class="cartheadercell">Item</td>
 		<td class="cartheadercell" width="60">Price</td>
