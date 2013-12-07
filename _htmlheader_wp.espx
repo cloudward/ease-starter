@@ -246,6 +246,7 @@ select {
 	font-family: Arial, Helvetica, sans-serif;
 	margin-right: auto;
 	margin-left: auto;
+	margin-top: 10px;
 }
 .storelisting {
 display: inline-block;
