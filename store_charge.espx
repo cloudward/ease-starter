@@ -109,9 +109,9 @@ hide pager both;
 		<tr>
 
 			<td width="692" colspan="2">
-
-			<b><font face="Verdana, Arial, Helvetica">Order Summary:</font></b></td>
-
+				<div style="width: 97%;padding: 5px;background-color: #efefef;margin-left: 3px;margin-right: 3px;margin-bottom: 10px;border: 1px #777 solid;border-radius: 3px;">
+					<b><font face="Verdana, Arial, Helvetica">Order Summary:</font></b></td>
+				</div>
 		</tr>
 
 		<tr>
@@ -132,7 +132,11 @@ hide pager both;
 
 		<tr>
 
-			<td width="692" colspan="2"><b><font face="Verdana, Arial">Credit Card Information:</font> </b></td>
+			<td width="692" colspan="2">
+				<div style="width: 97%;padding: 5px;background-color: #efefef;margin-left: 3px;margin-right: 3px;margin-bottom: 10px;margin-top: 10px;border: 1px #777 solid;border-radius: 3px;">
+					<b><font face="Verdana, Arial">Credit Card Information:</font> </b>
+				</div>
+			</td>
 
 		</tr>
 
