@@ -140,10 +140,10 @@ hide pager both;
 	</td>
 	</tr>
 </table>
-<center>&nbsp;<br>
-<input type="button" value="Keep Shopping" onclick="goBack()">
-<input type="button" value="Checkout" onclick="checkout()">
-</center>
+<div style="text-align: right;width: 99%;">
+	<input type="button" value="Keep Shopping" onclick="goBack()">
+	<input type="button" value="Checkout" onclick="checkout()">
+</div>
 <br>
 <font color="white">OrderID <#[cookie.orderid]#></font>
 <br>
