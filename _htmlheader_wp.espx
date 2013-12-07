@@ -233,7 +233,7 @@ select {
 	font-size: 14px;
 	margin-bottom: 5px;
 	margin-top: 5px;
-	min-width: 80%;
+	min-width: 40%;
 }
 .googlecontactform{
 	width:100%;
