@@ -50,7 +50,7 @@ when updating redirect to "/?page=store_charge";
 #>
 <table>
 	<tr>
-		<td>Address Type</td>
+		<td style="width: 110px;">Address Type</td>
 		<td>
 			<select  <# orders.shipping_type #> 
 				<option value="Business">Business</option>
@@ -59,43 +59,43 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td>Attention:</td>
+		<td style="width: 110px;">Attention:</td>
 		<td>
 			<input type="text" <# orders.shipping_to #> >
 		</td>
 	</tr>
 	<tr>
-		<td>Email:</td>
+		<td style="width: 110px;">Email:</td>
 		<td>
 			<input type="text"  <# orders.shipping_email #> >
 		</td>
 	</tr>
 	<tr>
-		<td>Phone:</td>
+		<td style="width: 110px;">Phone:</td>
 		<td>
 			<input type="text" <# orders.shipping_phone #> >
 		</td>
 	</tr>
 	<tr>
-		<td>Address Line 1:</td>
+		<td style="width: 110px;">Address Line 1:</td>
 		<td>
 			<input type="text" <# orders.shipping_address1 #> >
 		</td>
 	</tr>
 	<tr>
-		<td>Address Line 2:</td>
+		<td style="width: 110px;">Address Line 2:</td>
 		<td>
 			<input type="text" <# orders.shipping_address2 #> >
 		</td>
 	</tr>
 	<tr>
-		<td>City:</td>
+		<td style="width: 110px;">City:</td>
 		<td>
 			<input type="text" <# orders.shipping_city #> >
 		</td>
 	</tr>
 	<tr>
-		<td>State:</td>
+		<td style="width: 110px;">State:</td>
 		<td>
 			<select <# orders.shipping_state #> >
 				<option value="" >Select</option>
@@ -169,19 +169,20 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td>Zip Code:</td>
+		<td style="width: 110px;">Zip Code:</td>
 		<td>
 			<input type="text" <# orders.shipping_zip #> >
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" style="text-align: right;">
-			<input type="hidden" id="ordertotal"  <# orders.ordertotal #> >
-			<input type="hidden" id="ordertax"  <# orders.ordertax #> >
-			<input type="hidden" id="ordershipping"  <# orders.ordershipping #> >
-			<script type="text/javascript">
-				function UpdateTotal()
-				{
+		<td colspan="2">
+			<div style="width: 85%;text-align: right;">
+				<input type="hidden" id="ordertotal"  <# orders.ordertotal #> >
+				<input type="hidden" id="ordertax"  <# orders.ordertax #> >
+				<input type="hidden" id="ordershipping"  <# orders.ordershipping #> >
+				<script type="text/javascript">
+					function UpdateTotal()
+					{
 				       var oInputs = new Array();
 						var total = 0;
 						var subject = 0;
@@ -192,10 +193,10 @@ when updating redirect to "/?page=store_charge";
 					       	total = subject + total;
 					     }
 						document.getElementById("ordertotal").value = total;
-				}
+					}
 
-				function UpdateTax()
-				{
+					function UpdateTax()
+					{
 				       var oInputs = new Array();
 						var total = 0;
 						var subject = 0;
@@ -206,10 +207,10 @@ when updating redirect to "/?page=store_charge";
 					       	total = subject + total;
 					     }
 						document.getElementById("ordertax").value = total;
-				}
+					}
 
-				function UpdateShipping()
-				{
+					function UpdateShipping()
+					{
 				       var oInputs = new Array();
 						var total = 0;
 						var subject = 0;
@@ -220,15 +221,16 @@ when updating redirect to "/?page=store_charge";
 					       	total = subject + total;
 					     }
 						document.getElementById("ordershipping").value = total;
-				}
+					}
 
-				UpdateTotal();
-				UpdateTax();
-				UpdateShipping();
-			</script>
+					UpdateTotal();
+					UpdateTax();
+					UpdateShipping();
+				</script>
 			
 			
-			<input type="button" value="Next Step &gt;&gt;"  <# update button #> >
+				<input type="button" value="Next Step &gt;&gt;"  <# update button #> >
+			</div>
 		</td>
 	</tr>
 </table>		
