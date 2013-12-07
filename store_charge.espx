@@ -1,8 +1,13 @@
 <# include "_htmlheader.espx" #>
 
 <center>
+<# if("<#[url.page_id]#>" == "9"){
+	//do nothing
+}else{
+	<h3>Enter Payment Information</h3>
+}
+#>
 
-<h3>Enter Payment Information</h3>
 <div class="googlecontactform" style="width: 60%;">
 <# apply orders.<#[cookie.orderid]#> as "order".#>
 
