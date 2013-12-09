@@ -81,7 +81,7 @@ when creating redirect to "/?page=confirmation&first=<# form.a #>&last=<# form.b
 			</div>
 		</div>
 	</div>
-	<div style="text-align: right;">
+	<div style="text-align: right;width: 90%;">
 		<input type="button" value="Submit" <# create button #> > 
 	</div>
 </div>

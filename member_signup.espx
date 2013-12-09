@@ -3,8 +3,8 @@
 <center>
 <div class="googlecontactform" style="width: 60%;">
 
+<span class="wp_hide"><h2>New Member Signup</h2></span>	
 
-<h2>New Member Signup</h2>
 <# start form for webuser <#[url.edit]#>; 
 when creating set webuser.status to "new_request"; 
 when creating set webuser.type to "members"; 

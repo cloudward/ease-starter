@@ -25,7 +25,7 @@
 body{
 	font-family: Arial, Helvetica, sans-serif;
 }
-table{}
+
 /***************** FORM ELEMENTS **********************/
 /** BUTTONS **/
 input[type="button"]{
@@ -219,6 +219,7 @@ textarea {
 	margin-bottom: 5px;
 	margin-top: 5px;
 	min-width: 80%;
+	min-height: 190px;
 }
 select {
     border: 1px #CCC solid;
@@ -326,6 +327,15 @@ h3{
 }
 .storeqty {
     width: 20px;
+}
+.shipping_info_buttons{
+	width: 85%;
+}
+.store_charge_buttons{
+	width: 87%;
+}
+.wp_hide{
+	display: none;
 }
 </style>
 <script type="text/javascript">

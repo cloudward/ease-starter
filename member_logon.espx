@@ -13,7 +13,7 @@ hide pager both;
 <# end row #>
 <# start footer #><# end footer #>
 <# no results #>
-<h1>Members Only Access - Please Logon</h1>
+	<span class="wp_hide"><h2>Member Only Access - Please Logon</h2></span>
 <# end no results #>
 <# end list #>
 

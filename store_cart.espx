@@ -109,8 +109,8 @@ hide pager both;
 	<tr class="cartfooterrow">
 		<td colspan="2" class="cartfooterrowcell" ></td>
 		<td class="cartfooterrowcell">Total </td>
-		<td colspan="2" class="cartfooterrowcell">$ 
-<input type="text" id="tbTotal" value="" style="display:none">
+		<td colspan="4" class="cartfooterrowcell">$ 
+			<input type="text" id="tbTotal" value="" style="display:none">
 <script type="text/javascript">
 	function UpdateTotal()
 	{
@@ -153,6 +153,11 @@ hide pager both;
 <# end footer #>
 <# no results #>
 <center>&nbsp;<br>
+<div style="width: 95%:padding: 10px;margin-left: auto;margin-right: auto;margin-top: 10%;text-align: center;margin-bottom: 40px;">
+	<span>
+		You have no items in your cart at this time.<br> Click the "Keep Shopping" button to add items into your cart.
+	</span>
+</div>	
 <input type="button" value="Keep Shopping" onclick="goBack()">
 </center>
 <font color="white">OrderID <#[cookie.orderid]#></font>

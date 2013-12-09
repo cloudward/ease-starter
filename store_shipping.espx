@@ -35,12 +35,8 @@ hide pager both;
 <# end list #>
 </div>
 <center>
-<# if("<#[url.page_id]#>" == "7"){
-	//do nothing
-}else{
-	<h3>Shipping Information</h3>
-}
-#>
+
+<span class="wp_hide"><h3>Shipping Information</h3></span>
 	
 <div class="googlecontactform" class="googleContactForm">
 
@@ -50,7 +46,7 @@ when updating redirect to "/?page=store_charge";
 #>
 <table>
 	<tr>
-		<td style="width: 110px;">Address Type</td>
+		<td style="width: 112px;">Address Type</td>
 		<td>
 			<select  <# orders.shipping_type #> 
 				<option value="Business">Business</option>
@@ -59,43 +55,43 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">Attention:</td>
+		<td style="width: 112px;">Attention:</td>
 		<td>
 			<input type="text" <# orders.shipping_to #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">Email:</td>
+		<td style="width: 112px;">Email:</td>
 		<td>
 			<input type="text"  <# orders.shipping_email #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">Phone:</td>
+		<td style="width: 112px;">Phone:</td>
 		<td>
 			<input type="text" <# orders.shipping_phone #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">Address Line 1:</td>
+		<td style="width: 112px;">Address Line 1:</td>
 		<td>
 			<input type="text" <# orders.shipping_address1 #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">Address Line 2:</td>
+		<td style="width: 112px;">Address Line 2:</td>
 		<td>
 			<input type="text" <# orders.shipping_address2 #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">City:</td>
+		<td style="width: 112px;">City:</td>
 		<td>
 			<input type="text" <# orders.shipping_city #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">State:</td>
+		<td style="width: 112px;">State:</td>
 		<td>
 			<select <# orders.shipping_state #> >
 				<option value="" >Select</option>
@@ -169,14 +165,14 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 110px;">Zip Code:</td>
+		<td style="width: 112px;">Zip Code:</td>
 		<td>
 			<input type="text" <# orders.shipping_zip #> >
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<div style="width: 85%;text-align: right;">
+			<div style="text-align: right;" class="shipping_info_buttons">
 				<input type="hidden" id="ordertotal"  <# orders.ordertotal #> >
 				<input type="hidden" id="ordertax"  <# orders.ordertax #> >
 				<input type="hidden" id="ordershipping"  <# orders.ordershipping #> >
