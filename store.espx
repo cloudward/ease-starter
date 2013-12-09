@@ -1,6 +1,10 @@
 <# include "_htmlheader.espx" #>
 
-
+<div style="width: 100%;">
+	<div style="float: right;width: 30%;text-align: right;padding: 10px;">
+		<a href="/?page=store_cart&orderid=<#[cookie.orderid]#>">View My Cart</a>
+	</div>
+</div>
 
 <# start list for content;
 include when content.page == "store-top";
@@ -29,7 +33,8 @@ start row template at row 2;
 <# end header #>
 
 <# start row #>
-<div class="storelisting"><img src="<# row.c #>" border="0" class="storeimagesmall"></td>
+<div class="storelisting">
+	<img src="<# row.c #>" border="0" class="storeimagesmall"></td>
 <div class="storelistingname"><# row.a #></div>
 <div class="storelistingprice">$ <# row.f #></div>
 <div class="storelistingdesc"><# row.b #>
