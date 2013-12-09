@@ -6,6 +6,12 @@
 
 <# apply webuser.<#[url.mid]#> as "member" .#>
 
+<# 
+	update record for "webuser.<#[url.mid]#>" reference as "member";
+	set member.status to "active";
+#>
+
+
 <# if ("<#[webstyle.notification_site_email]#>" == ""){
 	set webstyle.notification_site_email to "<#[webuser.email]#>";
 }
