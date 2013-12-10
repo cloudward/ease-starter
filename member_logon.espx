@@ -18,27 +18,27 @@ hide pager both;
 <# end list #>
 
 
-<div style="padding:20px;">
-<h3><font color="red"><#[url.message]#></font></h3>
-<form name="input" action="/" method="get"> 
-<p>Username:<br>
-<input type="text"  style="display:" name="username" >
-<br>Password:<br>
-<input type="password"  style="display:" name="pass" >
-<br>
-<input type="submit" style="display:" value="Logon" > 
+<div class="memberLogin" style="padding:20px;">
+	<h3><font color="red"><#[url.message]#></font></h3>
+	<form name="input" action="/" method="get"> 
+		<p>Username:<br>
+		<input type="text"  style="display:" name="username" >
+		<br>Password:<br>
+		<input type="password"  style="display:" name="pass" >
+		<br>
+		<input type="submit" style="display:" value="Logon" > 
 
-<input type="hidden" value="_validate_members" name="page">
-<input type="hidden" value="<#[url.goto]#>" name="goto">
-</form>
+		<input type="hidden" value="_validate_members" name="page">
+		<input type="hidden" value="<#[url.goto]#>" name="goto">
+	</form>
 
-<br><br>
-<a href="/?page=member_signup&edit=0">Click here for New Member Signup</a>
-
+	<br><br>
+	<a href="/?page=member_signup&edit=0">Click here for New Member Signup</a>
+</div>
 <style>
 .warning {display:none};
 </style>
 
 <# include "_htmlfooter.espx" #>
 
-</div>
+

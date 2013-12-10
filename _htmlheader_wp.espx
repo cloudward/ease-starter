@@ -337,6 +337,16 @@ h3{
 .wp_hide{
 	display: none;
 }
+.storelistingdesc input[type="text"] {
+    min-width: 20px;
+	max-width: 20px;
+}
+.memberLogin input[type="text"] {
+    min-width: 40%;
+}
+.memberLogin input[type="password"] {
+    min-width: 40px;
+}
 
 </style>
 <script type="text/javascript">
