@@ -80,6 +80,7 @@
 <# start list for cart;
 include when cart.orderid == "<#[url.oid]#>";
 show 100 rows per page;
+set overall_total to total of grand_total;
 #>
 <# start header #>
 <table width="600">
@@ -93,16 +94,29 @@ show 100 rows per page;
 	</tr>
 <# end header #>
 <# start row #>
+<# 
+update record for "<# cart.<#[url.oid]#> #>" reference as "cart";
+set cart.qty_total to <# cart.qty #> * <# cart.price #>; 
+set cart.shipping_charge_total to <# cart.shipping_charge #> * 1;
+set cart.tax_rate_times to <# cart.tax_rate #> * .01;
+set cart.tax_rate_total to <# cart.tax_rate_times #> * <# cart.qty_total #>;
+set cart.grand_total to <# cart.qty_total #> + <# cart.tax_rate_total #>;
+set cart.grand_total to <# cart.grand_total #> + <# cart.shipping_charge_total #>;
+round cart.grand_total to 2 decimals;
+round cart.shipping_charge_total to 2 decimals;
+round cart.tax_rate_total to 2 decimals;
+#>
 	<tr>
 		<td><# cart.qty #></td>
 		<td><# cart.product_name #></td>
 		<td>$ <# cart.price #> </td>
-		<td > $ 
-		<script>
-		var total = <# cart.qty #> * <# cart.price #>;
-		document.write( "<input type='text' class='itemTotal' value='"+total+"' style='display:none'>" );
-		document.write(total);
-		</script>
+		<td><# cart.tax_rate_total #>
+			
+		</td>
+		<td>$<# cart.shipping_charge_total #>
+		</td>
+		<td>
+			$<# cart.grand_total #>
 		</td>
 	</tr>
 
@@ -110,30 +124,13 @@ show 100 rows per page;
 <# start footer #>
 	<tr>
 		<td class="cartfooterrowcell"></td>
-		<td class="cartfooterrowcell">Total</td>
 		<td class="cartfooterrowcell"></td>
-		<td class="cartfooterrowcell" id="tbTotal"></td>
+		<td class="cartfooterrowcell"></td>
+		<td class="cartfooterrowcell"><td class="cartfooterrowcell" id="tbTotal"><# set <# total #> to total of <# cart.grand_total #>;
+round <# total #> to 2 decimals;
+print "Your order total is $<# total #>"; #></td></td>
 	</tr>
 </table>
-<script type="text/javascript">
-
-	function UpdateTotal()
-	{
-	       var oInputs = new Array();
-			var total = 0;
-			var subject = 0;
-		     oInputs = document.getElementsByClassName( 'itemTotal' ); // store collection of all <input/> elements
-		    for ( i = 0; i < oInputs.length; i++ )
-		     {
-				subject = parseFloat(oInputs[i].value);
-			//	alert(subject);
-		       	total = subject + total;
-		     }
-			document.getElementById('tbTotal').innerHTML = total;
-	}
-	var test = UpdateTotal();
-
-</script>
 <# end footer #>
 <# no results #> <# end no results #>
 <# end list #>
