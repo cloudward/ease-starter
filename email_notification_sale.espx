@@ -87,6 +87,8 @@ show 100 rows per page;
 		<td class="cartheadercell">Qty</td>
 		<td class="cartheadercell">Item</td>
 		<td class="cartheadercell">Price</td>
+		<td class="cartheadercell" width="60">Tax</td>
+		<td class="cartheadercell" width="60">Shipping</td>
 		<td class="cartheadercell">Total</td>
 	</tr>
 <# end header #>
