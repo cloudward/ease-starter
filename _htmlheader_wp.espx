@@ -347,7 +347,25 @@ h3{
 .memberLogin input[type="password"] {
     min-width: 40px;
 }
+.memberEdit input[type="text"] {
+    min-width: 200px;
+}
+.memberEdit input[type="password"] {
+    min-width: 200px;
+}
+.memberEdit select{
+    max-width: 200px;
+}
 
+.applicationDemo input[type="text"]{
+    max-width: 200px;
+}
+.applicationDemo input[type="password"]{
+    max-width: 200px;
+}
+.applicationDemo select{
+    max-width: 200px;
+}
 </style>
 <script type="text/javascript">
     var $ = jQuery;

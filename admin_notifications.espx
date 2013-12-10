@@ -8,8 +8,18 @@
 when updating redirect to "/?page=admin_notifications&t=<# system.date_time_short #>";
 
 #>
-
-<div id="otherformelements">
+<style>
+	.applicationDemo input[type="text"]{
+	    max-width: 200px;
+	}
+	.applicationDemo input[type="password"]{
+	    max-width: 200px;
+	}
+	.applicationDemo select{
+	    max-width: 200px;
+	}
+</style>
+<div id="otherformelements" class="applicationDemo">
 	<p style="font-weight: bold;margin-top: 10px;">Email Notification Addresses</p>
 	
 	<p>Website Email <br><span style="font-size: 9px;">(Enter the email address you wish all outgoing emails are from. This must be a valid gmail address i.e. mysite@gmail.com)</span><br>

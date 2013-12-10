@@ -6,10 +6,11 @@
 }
 </style>
 
-<div style="width: 100%;">
-	<div style="float: right;width: 30%;text-align: right;padding: 10px;">
+<div style="width: 100%;text-align: right;">
+	<div style="width: 30%;text-align: right;padding: 10px;">
 		<a href="/?page=store_cart&orderid=<#[cookie.orderid]#>">View My Cart</a>
 	</div>
+	<div style="clear: both;"></div>
 </div>
 
 <# start list for content;

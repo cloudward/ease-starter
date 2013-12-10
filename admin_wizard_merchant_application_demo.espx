@@ -85,8 +85,18 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 <style>
 	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
 	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
+	
+	.applicationDemo input[type="text"]{
+	    max-width: 200px;
+	}
+	.applicationDemo input[type="password"]{
+	    max-width: 200px;
+	}
+	.applicationDemo select{
+	    max-width: 200px;
+	}
 </style>
-<div id="otherformelements"> 
+<div id="otherformelements" class="applicationDemo"> 
 		<p style="font-weight: bold;margin-top: 10px;">Cloudward Billing Setup</p>
 		<div class="instructions" style="width: 65%;float: left;">
 			Complete the Cloudward Billing form below to create your merchant billing account.
@@ -216,7 +226,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 			
 
 		</div>
-		<div style="width: 100%;float: left;text-align: right;">
+		<div style="width: 85%;float: left;text-align: right;">
 			<input type="button" value="Submit" <# create button #> >
 			<input type="button" style="margin-right: 40px;" value="Submit" <# update button #> >
 		</div>

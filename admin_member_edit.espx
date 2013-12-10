@@ -3,8 +3,8 @@
 
 
 <# include "_admin_menu.espx" #>
-
-<p style="font-weight: bold;margin-top: 12px;">Member Details</p>
+<div class="memberEdit">
+<h2>Member Details</h2>
 <# start form for webuser <#[url.edit]#>; 
 when creating set webuser.source to "admin_user"; 
 when creating redirect to "/?page=admin_member_list";
@@ -14,58 +14,90 @@ when deleting redirect to "/?page=admin_member_list";
 <table>
 	<tr>
 		<td valign="top">
-<p>First<br>
-<input type="text" style="width:200px" <# webuser.first #> >
-<p>Last<br>
-<input type="text" style="width:200px" <# webuser.last #> >
-<p>Company<br>
-<input type="text" style="width:200px" <# webuser.company #> >
-<p>Email<br>
-<input type="text" style="width:200px" <# webuser.email #> >
-<br>&nbsp;
-
-</td>
+			<table>
+				<tr>
+					<td>First</td>
+					<td><input type="text" style="width:200px" <# webuser.first #> ></td>
+				</tr>
+				<tr>
+					<td>Last</td>
+					<td><input type="text" style="width:200px" <# webuser.last #> ></td>
+				</tr>
+				<tr>
+					<td>Company</td>
+					<td><input type="text" style="width:200px" <# webuser.company #> ></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="text" style="width:200px" <# webuser.email #> ></td>
+				</tr>
+			</table>
+		</td>
 		<td valign="top">
-<p>Phone<br>
-<input type="text" style="width:200px" <# webuser.phone #> >
-<p>Username<br>
-<input type="text" style="width:200px" <# webuser.username #> >
-<p>Password<br>
-<input type="password" style="width:200px" <# webuser.password #> >
-<input type="hidden" style="width:200px" <# webuser.address #> >
-<input type="hidden" style="width:200px" <# webuser.address2 #> >
-<input type="hidden" style="width:200px" <# webuser.city #> >
-<input type="hidden" style="width:200px" <# webuser.state #> >
-<input type="hidden" style="width:200px" <# webuser.zip #> >
-<input type="hidden" style="width:200px" <# webuser.country #> >
-<p>Status: &nbsp;<br>
-	<select <# webuser.status #> >
-	    <option value="active" >active</option>
-	    <option value="deactive" >deactive</option>
-	    <option value="declined" >declined</option>
-	    <option value="new_request" >new_request</option>
-	</select>
-<br>Access:<br>
-		<select <# webuser.type #> >
-		    <option value="members" >members</option>
-		    <option value="admin" >admin + members</option>
-		</select>
-<br>Select Member Level: <br>
-		<select <# webuser.member_level #> >
-		    <option value="<#[easvault.basic_label]#>" ><#[easvault.basic_label]#> ($ <#[easvault.basic_cost]#> )</option>
-		    <option value="<#[easvault.premium_label]#>" ><#[easvault.premium_label]#> ($ <#[easvault.premium_cost]#> )</option>
-		</select>
-<br> 
-	<input type="checkbox" value="Yes" <# webuser.memberdirectory #> > 
- Show in Member Directory
-</td>
-</tr>
-
+			<table>
+				<tr>
+					<td>Phone</td>
+					<td><input type="text" style="width:200px" <# webuser.phone #> ></td>
+				</tr>
+				<tr>
+					<td>Username</td>
+					<td><input type="text" style="width:200px" <# webuser.username #> ></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td>
+						<input type="password" style="width:200px" <# webuser.password #> >
+						<input type="hidden" style="width:200px" <# webuser.address #> >
+						<input type="hidden" style="width:200px" <# webuser.address2 #> >
+						<input type="hidden" style="width:200px" <# webuser.city #> >
+						<input type="hidden" style="width:200px" <# webuser.state #> >
+						<input type="hidden" style="width:200px" <# webuser.zip #> >
+						<input type="hidden" style="width:200px" <# webuser.country #> >
+					</td>
+				</tr>
+				<tr>
+					<td>Status</td>
+					<td>
+						<select <# webuser.status #> >
+				    		<option value="active" >active</option>
+				    		<option value="deactive" >deactive</option>
+				    		<option value="declined" >declined</option>
+				    		<option value="new_request" >new_request</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Access</td>
+					<td>
+						<select <# webuser.type #> >
+					    	<option value="members" >members</option>
+					    	<option value="admin" >admin + members</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Select Member Level:</td>
+					<td>
+						<select <# webuser.member_level #> >
+					    	<option value="<#[easvault.basic_label]#>" ><#[easvault.basic_label]#> ($ <#[easvault.basic_cost]#> )</option>
+					    	<option value="<#[easvault.premium_label]#>" ><#[easvault.premium_label]#> ($ <#[easvault.premium_cost]#> )</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="checkbox" value="Yes" <# webuser.memberdirectory #> > Show in Member Directory</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="Create" <# create button #> >
+			<input type="button" value="Save Changes" <# update button #> >
+			<input type="button" value="Delete" <# delete button #> >
+		</td>
+	</tr>
 </table>
-<input type="button" value="Create" <# create button #> >
-<input type="button" value="Save Changes" <# update button #> >
-<input type="button" value="Delete" <# delete button #> >
-<p>
 <# end form #> 
 
 <hr>
@@ -81,11 +113,11 @@ when deleting redirect to "/?page=admin_member_edit&edit=<#[url.edit]#>&editacco
 <table style="width: 50%;">
 	<tr>
 		<td>Lable:</td>
-		<td><input type="text" style="width:100px" <# webuseraccount.label #> ></td>
+		<td><input type="text" style="width:200px" <# webuseraccount.label #> ></td>
 	</tr>
 	<tr>
 		<td>Note:</td>
-		<td><input type="text" style="width:355px" <# webuseraccount.note #> ></td>
+		<td><input type="text" style="width:200px" <# webuseraccount.note #> ></td>
 	</tr>
 	<tr>
 		<td>Type:</td>
@@ -178,7 +210,7 @@ sort by webuseraccount.timestamp in descending order;
 
 <# end list #>
 
-
+</div>
 
 <# include "_admin_footer.espx" #>
 

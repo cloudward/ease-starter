@@ -20,8 +20,17 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_2&edit=04df6
 	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
 	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
 	.subHeader{font-weight: bold;border-bottom: 1px #CCC dotted;}
+	.applicationDemo input[type="text"]{
+	    max-width: 200px;
+	}
+	.applicationDemo input[type="password"]{
+	    max-width: 200px;
+	}
+	.applicationDemo select{
+	    max-width: 200px;
+	}
 </style>
-<div id="otherformelements"> 
+<div id="otherformelements" class="applicationDemo"> 
 		<p style="font-weight: bold;margin-top: 10px;">Merchant Applicaiton Wizard Step 1 of 2</p>
 		<div class="instructions" style="width: 65%;float: left;">
 			Complete the merchant application form below to create your merchant billing account.
@@ -225,7 +234,7 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_2&edit=04df6
 				</div>
 			</div>
 		</div>
-		<div style="width: 100%;float: left;text-align: right;">
+		<div style="width: 85%;float: left;text-align: right;">
 			<input type="button" value="Next Step" <# create button #> >
 			<input type="button" style="margin-right: 40px;" value="Next Step" <# update button #> >
 		</div>
