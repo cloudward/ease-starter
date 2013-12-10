@@ -12,31 +12,34 @@
 
 
 <hr size="1">
-
+<table>
+<tr><td><B>Name</B></td><td><B>Email</B></td><td><B>Phone</B></td><td><B>Company</B></td><td><B>Status</B></td><td><B>Type</B></td></tr>
 <# start list for webuser;
 show 25 rows per page;
 //sort by webuser.last in descending order;
 #>
 
-<# start header #><# end header #>
+<# start header #>
+<# end header #>
 
 <# start row #>
-<div class="blogheadline"><a href="/?page=admin_member_edit&edit=<# webuser.id #>&editaccount=0" ><# webuser.last #>, <# webuser.first #> </a></div>
-<div class="blogteaser"><# webuser.email #> <# webuser.phone #> <# webuser.company #>
-Status = <# webuser.status #> <# webuser.type #>
- </div>
-<div class="blogseparator"></div>
+
+<tr>
+<td><a href="/?page=admin_member_edit&edit=<# webuser.id #>&editaccount=0" ><# webuser.last #>, <# webuser.first #> </a></td>
+<td><# webuser.email #></td> <td><# webuser.phone #></td> <td><# webuser.company #></td>
+<td><# webuser.status #></td> <td><# webuser.type #></td>
+
+</tr>
 <# end row #>
 <# start footer #>
-<p>
 <# end footer #>
 
 <# no results #>
-	<h2>There are no members in your list.</h2>
+	<tr><td colspan="6">There are no members in your list.</td></tr>
 <# end no results #>
 
 <# end list #>
-
+</table>
 
 <# include "_admin_footer.espx" #>
 
