@@ -4,7 +4,7 @@
 
 <# include "_admin_menu.espx" #>
 
-<h2>Edit Member Information</h2>
+<h2>Member Details</h2>
 <# start form for webuser <#[url.edit]#>; 
 when creating set webuser.source to "admin_user"; 
 when creating redirect to "/?page=admin_member_list";
@@ -62,7 +62,7 @@ when deleting redirect to "/?page=admin_member_list";
 </tr>
 
 </table>
-<input type="button" value="Submit" <# create button #> >
+<input type="button" value="Create" <# create button #> >
 <input type="button" value="Update" <# update button #> >
 <input type="button" value="Delete" <# delete button #> >
 <p>
