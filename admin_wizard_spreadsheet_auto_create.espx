@@ -52,8 +52,8 @@
 	set gorder.Zip to "";
 	set gorder.Phone to "";
 	set gorder.Email to "";
-        set gstore.Tax Percent to "";
-        set gstore.Shipping Charge to "";
+        set gorder.Tax Percent to "";
+        set gorder.Shipping Charge to "";
 }
 #>
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "contact"){
