@@ -99,7 +99,6 @@
 
 <# start list for cart;
 include when cart.orderid == "<#[url.oid]#>";
-hide search box;
 show 100 rows per page;
 hide pager both;
 #>
