@@ -9,7 +9,7 @@
 <div class="welcomeheadline">Member Directory</div>
 
 <hr size="1">
-
+<table style="border-spacing:8px">
 <# start list for webuser;
 include when webuser.memberdirectory == "Yes";
 show 25 rows per page;
@@ -17,22 +17,26 @@ sort by webuser.last in descending order;
 #>
 
 <# start header #><# end header #>
-
+<tr><td><B>Name</B></td><td><B>Email</B></td><td><B>Phone</B></td><td><B>Company</B></td></tr>
 <# start row #>
-<div class="blogheadline"><# webuser.last #>, <# webuser.first #> </a></div>
-<div class="blogteaser"><# webuser.email #> <# webuser.phone #> <# webuser.company #>
- </div>
-<div class="blogseparator"></div>
+<tr>
+ <td><# webuser.last #>, <# webuser.first #></td>
+ <td><# webuser.email #></td>
+ <td><# webuser.phone #></td>
+ <td><# webuser.company #></td>
+
+</tr>
 <# end row #>
 <# start footer #>
 <p>
 <# end footer #>
 
 <# no results #>
-	<h2>There are no members in this list yet.</h2>
+<tr><td colspan="4">There are no members in this list yet.</td></tr>
 <# end no results #>
 
 <# end list #>
+</table>
 <# include "_member_footer.espx" #>
 
 <# include "_htmlfooter.espx" #>
