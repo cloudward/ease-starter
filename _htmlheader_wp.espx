@@ -337,6 +337,7 @@ h3{
 .wp_hide{
 	display: none;
 }
+
 </style>
 <script type="text/javascript">
     var $ = jQuery;

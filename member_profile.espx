@@ -13,7 +13,7 @@
 .method_item_border{height: 2px;width: 100%;float: left;margin-bottom: 20px;border-bottom: 1px #888 dotted;}
 </style>
 
-<h3>Edit Member Information</h3>
+<h3 class=".wp_hide">Edit Member Information</h3>
 <font color="red"><#[url.message]#></font>
 <# start form for webuser <#[cookie.cid]#>; 
 when updating redirect to "/?page=member_profile&message=Changes Saved";
@@ -56,21 +56,21 @@ when updating redirect to "/?page=member_profile&message=Changes Saved";
 </table>
 <# end form #>
 
-<h3>Payment Methods</h3>
-<font color="red"><#[url.message]#></font>
-<div id="payment_methods_container" class="payment_methods_container" style="width: 100%;margin-bottom: 90px;border-bottom: 1px #888 dotted;">
-	
+<div id="paymentMethodsContainer" style="width: 100%;min-height: 100px;">
+	<h3>Payment Methods</h3>
+	<font color="red"><#[url.message]#></font>
+	<div id="payment_methods_container" class="payment_methods_container" style="width: 100%;margin-bottom: 90px;border-bottom: 1px #888 dotted;"></div>
+<div style="clear: both;"></div>
 </div>
-
 <script type="text/javascript">
 jQuery(document).ready(function(){
 
 	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
 
 		// Iterate the payment methods first.
-		console.log(res);
 		if($.isEmptyObject(res)){
 			// do nothing
+			$('#paymentMethodsContainer').hide();
 		 }else{
 
 			// populate DOM objects
@@ -103,9 +103,9 @@ function paymentMethodDetails(id){
 		$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", instance_id: id, request: "paymentMethodDetails"},function(res){
 			
 			// Iterate the payment methods first.
-			console.log(res);
 			if($.isEmptyObject(res)){
 				// do nothing
+				
 			}else{
 				
 				// populate DOM objects

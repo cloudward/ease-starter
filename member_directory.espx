@@ -6,7 +6,7 @@
 <# include "_member_menu.espx" #>
 
 
-<div class="welcomeheadline">Member Directory</div>
+<div class="welcomeheadline wp_hide">Member Directory</div>
 
 <hr size="1">
 <table style="border-spacing:8px">

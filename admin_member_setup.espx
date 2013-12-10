@@ -15,7 +15,7 @@ when deleting redirect to "/?page=admin_member_setup&edit=9a7ac1363ff31893fc4047
 	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
 	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
 </style>
-<p style="font-weight: bold;margin-top: 12px;font-size:20px;">Member Website Setup</p>
+<p style="font-weight: bold;margin-top: 12px;">Member Website Setup</p>
 <div class="instructions" style="width: 65%;float: left;">
 	These are settings for your member website. If you plan on having a monthly membership fee, you will need to fill in the
  	fields below and click the save button.

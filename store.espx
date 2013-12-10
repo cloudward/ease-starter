@@ -1,5 +1,11 @@
 <# include "_htmlheader.espx" #>
 
+<style>
+.storeqty{
+	width: 20px;
+}
+</style>
+
 <div style="width: 100%;">
 	<div style="float: right;width: 30%;text-align: right;padding: 10px;">
 		<a href="/?page=store_cart&orderid=<#[cookie.orderid]#>">View My Cart</a>
@@ -40,7 +46,7 @@ start row template at row 2;
 <div class="storelistingdesc"><# row.b #>
 	<form name="addtocart" action="/" method="get"> 
 	<input type="hidden" value="store_add_to_cart" name="page">
-	<input type="text" value="1" name="qty" class="storeqty" style="width: 20px;" >
+	Qty:<input type="text" value="1" name="qty" class="storeqty" style="width: 20px;">
 	<input type="submit" value="Add to Cart" class="storebutton">
 	<input type="hidden" value="<# row.a #>" name="product_name">
 	<input type="hidden" value="<# row.f #>" name="price">

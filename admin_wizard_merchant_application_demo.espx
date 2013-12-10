@@ -217,8 +217,8 @@ when deleting redirect to "/?page=admin_wizard_merchant_application_processing&e
 
 		</div>
 		<div style="width: 100%;float: left;text-align: right;">
-			<input type="button" value="Finished" <# create button #> >
-			<input type="button" style="margin-right: 40px;" value="Finished" <# update button #> >
+			<input type="button" value="Submit" <# create button #> >
+			<input type="button" style="margin-right: 40px;" value="Submit" <# update button #> >
 		</div>
 		
 	</p>

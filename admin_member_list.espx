@@ -5,10 +5,11 @@
 <# include "_admin_menu.espx" #>
 
 
-<div class="welcomeheadline">Member Admin</div>
+<p style="font-weight: bold;margin-top: 12px;">Member Admin</p>
 <p>You can create and edit members here, or members can sign up on your website and they will show up on this list for you to manage</p>
 <hr size="1">
 <a href="/?page=admin_member_edit&edit=0">+Add New Member</a>
+
 
 
 <hr size="1">

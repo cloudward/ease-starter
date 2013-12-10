@@ -4,7 +4,7 @@
 
 <# include "_admin_menu.espx" #>
 
-<h2>Member Details</h2>
+<p style="font-weight: bold;margin-top: 12px;">Member Details</p>
 <# start form for webuser <#[url.edit]#>; 
 when creating set webuser.source to "admin_user"; 
 when creating redirect to "/?page=admin_member_list";
@@ -78,25 +78,39 @@ when creating redirect to "/?page=admin_member_edit&edit=<#[url.edit]#>&editacco
 when updating redirect to "/?page=admin_member_edit&edit=<#[url.edit]#>&editaccount=0";
 when deleting redirect to "/?page=admin_member_edit&edit=<#[url.edit]#>&editaccount=0";
 #> 
-<p>Label 
-<input type="text" style="width:100px" <# webuseraccount.label #> >
-<br>Note&nbsp;
-<input type="text" style="width:355px" <# webuseraccount.note #> >
-<br>
-Type: 
-		<select <# webuseraccount.type #> >
-		    <option value="note" >note</option>
-		    <option value="payment" >payment</option>
-		    <option value="debit" >debit</option>
-</select>
-
-For Payment/Debit Amount: 
-<input type="text" style="width:100px" <# webuseraccount.amount #> >
-<br><br>
-<input type="button" value="Create" <# create button #> >
-<input type="button" value="Update" <# update button #> >
-<input type="button" value="Delete" <# delete button #> >
-<p>
+<table style="width: 50%;">
+	<tr>
+		<td>Lable:</td>
+		<td><input type="text" style="width:100px" <# webuseraccount.label #> ></td>
+	</tr>
+	<tr>
+		<td>Note:</td>
+		<td><input type="text" style="width:355px" <# webuseraccount.note #> ></td>
+	</tr>
+	<tr>
+		<td>Type:</td>
+		<td>
+			<select <# webuseraccount.type #> >
+			    <option value="note" >note</option>
+			    <option value="payment" >payment</option>
+			    <option value="debit" >debit</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Payment/Debit Amount:</td>
+		<td>
+			<input type="text" style="width:100px" <# webuseraccount.amount #> >
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="Create" <# create button #> >
+			<input type="button" value="Update" <# update button #> >
+			<input type="button" value="Delete" <# delete button #> >
+		</td>
+	</tr>
+</table>
 <# end form #> 
 
 <hr size="1">
