@@ -15,7 +15,7 @@ when deleting redirect to "/?page=admin_member_setup&edit=9a7ac1363ff31893fc4047
 	.divSpacer{margin-top: 5px;margin-bottom: 15px;}
 	.instructions{font-size: 10px;margin-top: 10px;margin-bottom: 15px;}
 </style>
-<p style="font-weight: bold;margin-top: 12px;">Member Website Setup</p>
+<p style="font-weight: bold;margin-top: 12px;font-size:20px;">Member Website Setup</p>
 <div class="instructions" style="width: 65%;float: left;">
 	These are settings for your member website. If you plan on having a monthly membership fee, you will need to fill in the
  	fields below and click the save button.
@@ -26,14 +26,28 @@ when deleting redirect to "/?page=admin_member_setup&edit=9a7ac1363ff31893fc4047
 		Member Levels<br><span style="font-size: 11px;">Enter Member Names & Amounts for Your Member Website</span><br>
 	</div>
 	<div class="formElem">
-		Basic Label:<br>
-		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_label #> >
-		<br>Basic Cost:<br>
-		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_cost #> >
-		<br>Premium Label:<br>
-		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_label #> >
-		<br>Premium Cost:<br>
-		<input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_cost #> >
+		<table>		
+			<tr>
+				<td>Free Label Name:</td>
+				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.free_label #> ></td>
+			</tr>
+			<tr>
+				<td>Basic Label:</td>
+				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_label #> ></td>
+			</tr>
+			<tr>
+				<td>Cost:</td>
+				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_cost #> ></td>
+			</tr>
+			<tr>
+				<td>Premium Label:</td>
+				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_label #> ></td>
+			</tr>
+			<tr>
+				<td>Cost:</td>
+				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_cost #> ></td>
+			</tr>
+		</table>
 	</div>
 </div>
 
