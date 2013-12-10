@@ -40,7 +40,7 @@ start row template at row 2;
 <# end header #>
 
 <# start row #>
-<div class="storelisting">
+<div class="storelisting" style="width: 100%;">
 	<img src="<# row.c #>" border="0" class="storeimagesmall"></td>
 <div class="storelistingname"><# row.a #></div>
 <div class="storelistingprice">$ <# row.f #></div>
