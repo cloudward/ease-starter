@@ -79,6 +79,7 @@ when deleting redirect to "/?page=admin_member_list";
 					<td>Select Member Level:</td>
 					<td>
 						<select <# webuser.member_level #> >
+						<option value="<#[easvault.free_label]#>" ><#[easvault.free_label]#></option>
 					    	<option value="<#[easvault.basic_label]#>" ><#[easvault.basic_label]#> ($ <#[easvault.basic_cost]#> )</option>
 					    	<option value="<#[easvault.premium_label]#>" ><#[easvault.premium_label]#> ($ <#[easvault.premium_cost]#> )</option>
 						</select>

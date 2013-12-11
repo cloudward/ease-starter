@@ -1,0 +1,12 @@
+<# include "_authentication_members.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+
+<# include "_member_menu.espx" #>
+
+<# WORDPRESS.MEMBERS_HOMEPAGE_BLOG_LIST #>
+
+<# include "_member_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
