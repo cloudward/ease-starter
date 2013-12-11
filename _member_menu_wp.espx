@@ -108,7 +108,7 @@ text-shadow: 1px 1px 1px #FFF;
 }
 </style>
 <div class="welcomename">Welcome <#[cookie.first]#> <#[cookie.last]#>:</div>
-<div class="welcometime">It is now <# system.date_time_short #>.</div>
+<div class="welcometime"></div>
 						<div class="admin_nav">
 							<ul>
 								<li class="admin_menu"><a href="/?page=members">Member Home</a></li>
