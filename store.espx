@@ -31,7 +31,7 @@ hide pager both;
 
 <# start list for googlespreadsheet <#[webstyle.store_sheet_id]#>;
 
-include all columns from "Sheet1";
+include all columns from "Sheet1" where row.a != "" and row.f != "";
 
 start row template at row 2;
 
@@ -48,7 +48,7 @@ start row template at row 2;
 <div class="storelistingdesc"><# row.b #>
 	<form name="addtocart" action="/" method="get"> 
 	<input type="hidden" value="store_add_to_cart" name="page">
-	Qty:<input type="text" value="1" name="qty" class="storeqty">
+	Qty:<input type="text" value="1" name="qty" maxlength="5" class="storeqty">
 	<input type="submit" value="Add to Cart" class="storebutton">
 	<input type="hidden" value="<# row.a #>" name="product_name">
 	<input type="hidden" value="<# row.f #>" name="price">

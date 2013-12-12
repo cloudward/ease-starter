@@ -47,12 +47,6 @@ when deleting redirect to "/?page=admin_member_list";
 					<td>Password</td>
 					<td>
 						<input type="password" style="width:200px" <# webuser.password #> >
-						<input type="hidden" style="width:200px" <# webuser.address #> >
-						<input type="hidden" style="width:200px" <# webuser.address2 #> >
-						<input type="hidden" style="width:200px" <# webuser.city #> >
-						<input type="hidden" style="width:200px" <# webuser.state #> >
-						<input type="hidden" style="width:200px" <# webuser.zip #> >
-						<input type="hidden" style="width:200px" <# webuser.country #> >
 					</td>
 				</tr>
 				<tr>
@@ -90,6 +84,48 @@ when deleting redirect to "/?page=admin_member_list";
 				</tr>
 			</table>
 		</td>
+	</tr>
+	<tr>
+		<td><table>
+		<tr>
+			<td colspan="2"><B>Address Info</B></td>
+		</tr>
+			<tr>
+				<td>
+					Address1
+				</td>
+				<td>
+						<input type="text" <# webuser.address #> >
+				</td>
+			</tr>
+			<tr>
+				<td>Address2</td>
+				<td>
+						<input type="text" style="width:200px" <# webuser.address2 #> ></td>
+			</tr>
+			<tr>
+				<td>City</td>
+				<td>
+						<input type="text" style="width:200px" <# webuser.city #> ></td>
+			</tr>
+			<tr>
+				<td>State</td>
+				<td>
+						<input type="text" style="width:200px" <# webuser.state #> ></td>
+			</tr>
+			<tr>
+				<td>Zip</td>
+				<td>
+						<input type="text" style="width:200px" <# webuser.zip #> ></td>
+			</tr>
+			<tr>
+				<td>Country</td>
+				<td>
+						<input type="text" style="width:200px" <# webuser.country #> ></td>
+			</tr>
+			
+		</table></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td colspan="2">

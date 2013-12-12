@@ -38,12 +38,18 @@ when updating redirect to "/?page=member_profile&message=Changes Saved";
 <p>Password<br>
 <input type="password" style="width:200px" <# webuser.password #> >
 
-<input type="hidden" style="width:200px" <# webuser.address #> >
-<input type="hidden" style="width:200px" <# webuser.address2 #> >
-<input type="hidden" style="width:200px" <# webuser.city #> >
-<input type="hidden" style="width:200px" <# webuser.state #> >
-<input type="hidden" style="width:200px" <# webuser.zip #> >
-<input type="hidden" style="width:200px" <# webuser.country #> >
+<p>Address<br>
+<input type="text" style="width:200px" <# webuser.address #> >
+<p>Address2<br>
+<input type="text" style="width:200px" <# webuser.address2 #> >
+<p>City<br>
+<input type="text" style="width:200px" <# webuser.city #> >
+<p>State<br>
+<input type="text" style="width:200px" <# webuser.state #> >
+<p>Zip<br>
+<input type="text" style="width:200px" <# webuser.zip #> >
+<p>Country<br>
+<input type="text" style="width:200px" <# webuser.country #> >
 
 <p> 
 <input type="checkbox" value="Yes" <# webuser.memberdirectory #> > 
