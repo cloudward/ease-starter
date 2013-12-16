@@ -1,8 +1,6 @@
 <# include "_htmlheader.espx" #>
 
 
-
-
 <# start list for content;
 include when content.page == "member_logon";
 hide pager both;
@@ -13,11 +11,59 @@ hide pager both;
 <# end row #>
 <# start footer #><# end footer #>
 <# no results #>
-	<span class="wp_hide"><h2>Member Only Access - Please Logon</h2></span>
+	<!-- do nothing -->
 <# end no results #>
 <# end list #>
-
-
+<div style="" class="loginContainer">
+<span class="wp_hide"><h2>Member Only Access - Please Logon</h2></span>
+<form name="input" action="/" method="get"> 
+<table class="loginTable">
+	<tr class="loginHeader">
+		<td colspan="2" class="loginHeaderCell">Login to Your Account</td>
+	</tr>
+	<tr class="loginrow">
+		<td class="logincell">
+			<table style="margin-left: 20px;">
+				<tr>
+					<td style="width: 50%;">
+						<span class="label">Username:</span><br>
+						<input type="text" name="username" >
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="label">Password:</span><br>
+						<input type="password" name="pass" >
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" value="Logon" > 
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td class="loginInfoTd">
+			<table>
+				<tr>
+					<td>
+						Don't have an account?<br>
+						<a href="/?page=member_signup&edit=0">Register Now</a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="loginrow">
+		<td colspan="2">
+			<input type="hidden" value="_validate_members" name="page">
+			<input type="hidden" value="<#[url.goto]#>" name="goto">
+		</td>
+	</tr>
+</table>
+</div>
+</form>
+<!--
 <div class="memberLogin" style="padding:20px;">
 	<h3><font color="red"><#[url.message]#></font></h3>
 	<form name="input" action="/" method="get"> 
@@ -35,6 +81,7 @@ hide pager both;
 	<br><br>
 	<a href="/?page=member_signup&edit=0">Click here for New Member Signup</a>
 </div>
+-->
 <style>
 .warning {display:none};
 </style>

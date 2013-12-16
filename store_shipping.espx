@@ -1,5 +1,6 @@
 <# include "_htmlheader.espx" #>
 
+
 <div style="display:none">
 <# start list for cart;
 include when cart.orderid == "<#[cookie.orderid]#>";
@@ -23,6 +24,7 @@ hide pager both;
 
 <# end row #>
 <# start footer #>
+<table>
 	<tr>
 		<td></td>
 		<td>Total</td>
@@ -35,8 +37,6 @@ hide pager both;
 <# end list #>
 </div>
 <center>
-
-<span class="wp_hide"><h3>Shipping Information</h3></span>
 	
 <div class="googlecontactform" class="googleContactForm">
 
@@ -44,55 +44,60 @@ hide pager both;
 
 when updating redirect to "/?page=store_charge";
 #>
-<table>
+<table class="shippingtable">
+	<tr class="shippingHeader">
+		<td class="shippingHeaderCell" colspan="2">
+			Shipping Information
+		</td>
+	</tr>
 	<tr>
-		<td style="width: 112px;">Address Type</td>
-		<td>
-			<select  <# orders.shipping_type #> 
-				<option value="Business">Business</option>
+		<td class="shippingForm label" style="width: 112px;">Address Type</td>
+		<td class="shippingForm">
+			<select <# orders.shipping_type #> 
 				<option value="Home">Home</option>
+				<option value="Business">Business</option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">Attention:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">Attention:</td>
+		<td class="shippingForm">
 			<input type="text" <# orders.shipping_to #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">Email:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">Email:</td>
+		<td class="shippingForm">
 			<input type="text"  <# orders.shipping_email #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">Phone:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">Phone:</td>
+		<td class="shippingForm">
 			<input type="text" <# orders.shipping_phone #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">Address Line 1:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">Address Line 1:</td>
+		<td class="shippingForm">
 			<input type="text" <# orders.shipping_address1 #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">Address Line 2:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">Address Line 2:</td>
+		<td class="shippingForm">
 			<input type="text" <# orders.shipping_address2 #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">City:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">City:</td>
+		<td class="shippingForm">
 			<input type="text" <# orders.shipping_city #> >
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">State:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">State:</td>
+		<td class="shippingForm">
 			<select <# orders.shipping_state #> >
 				<option value="" >Select</option>
 				<option value="WA">Washington</option>
@@ -165,13 +170,13 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td style="width: 112px;">Zip Code:</td>
-		<td>
+		<td class="shippingForm label" style="width: 112px;">Zip Code:</td>
+		<td class="shippingForm">
 			<input type="text" <# orders.shipping_zip #> >
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2">
+		<td class="shippingForm" colspan="2">
 			<div style="text-align: right;" class="shipping_info_buttons">
 				<input type="hidden" id="ordertotal"  <# orders.ordertotal #> >
 				<input type="hidden" id="ordertax"  <# orders.ordertax #> >
@@ -225,7 +230,7 @@ when updating redirect to "/?page=store_charge";
 				</script>
 			
 			
-				<input type="button" value="Next Step &gt;&gt;"  <# update button #> >
+				<input type="button" value="Continue Checkout"  <# update button #> >
 			</div>
 		</td>
 	</tr>
