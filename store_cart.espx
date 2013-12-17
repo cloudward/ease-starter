@@ -1,5 +1,11 @@
 <# include "_htmlheader.espx" #>
 
+<style>
+.single-page-title{
+	margin-bottom: 35px;
+}	
+</style>
+
 <script>
 function goBack()
 {
@@ -37,8 +43,8 @@ hide pager both;
 <# start header #>
 <div>
 	<div class="secureHeader">
-		<div style="width: 50px;display: inline-block;" class="wp_hide"><img src="/images/store_shoppingCart.jpg" style="margin-right: 3px;"></div>
-		<div style="width: auto;display: inline-block;" class="wp_hide"><span>Your order is <br>safe and secure</span></div>
+		<div class="wp_hide sa_show_icon"><img src="/images/store_shoppingCart.jpg" style="margin-right: 3px;"></div>
+		<div class="wp_hide sa_show"><span>Your order is <br>safe and secure</span></div>
 		<div style="clear: both;"></div>
 	</div>
 </div>
@@ -108,7 +114,7 @@ hide pager both;
 	<tr class="cartfooterrow">
 		<td colspan="5" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 		<td class="cartfooterrowcell" style="background-color: #FFF;">
-			<input type="button" value="Clear Cart" class="cartbutton" onclick="javascript: window.location='/?page=store_clear_cart&orderid=<#[cookie.orderid]#>';">
+			<input type="button" value="Clear Cart" style="width: 120px;" onclick="javascript: window.location='/?page=store_clear_cart&orderid=<#[cookie.orderid]#>';">
 		</td>
 		<td colspan="" class="cartfooterrowcell" >Tax</td>
 		<td colspan="" class="cartfooterrowcell" style="text-align: center;">
@@ -136,7 +142,7 @@ hide pager both;
 	<tr class="cartfooterrow">
 		<td colspan="5" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 		<td class="cartfooterrowcell" style="background-color: #FFF;">
-			<input type="button" value="Keep Shopping" class="cartbutton" onclick="goBack()">
+			<input type="button" value="Keep Shopping" style="width: 120px;" onclick="goBack()">
 		</td>
 		<td colspan="" class="cartfooterrowcell" >Shipping</td>
 		<td colspan="" class="cartfooterrowcell" style="text-align: center;">
@@ -164,7 +170,7 @@ hide pager both;
 	<tr class="cartfooterrow">
 		<td colspan="5" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 		<td class="cartfooterrowcell" style="background-color: #FFF;">
-			<input type="button" value="Checkout" style="width: 100px;" onclick="checkout()">
+			<input type="button" value="Checkout" style="width: 120px;" onclick="checkout()">
 		</td>
 		<td class="cartfooterrowcell">Total </td>
 		<td class="cartfooterrowcell" style="text-align: center;">
