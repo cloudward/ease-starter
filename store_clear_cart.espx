@@ -1,0 +1,34 @@
+<# start list for cart;
+include when cart.orderid == "<#[url.orderid]#>";
+show 100 rows per page;
+hide pager both;
+#>
+<# start header #>
+	//do nothing
+<# end header #>
+<# start row #>
+	<#
+		delete record for "cart.<# cart.id #>";
+
+	#>
+	<# cart.id #><b>
+<# end row #>
+<# start footer #>
+	//redirect
+	<#
+		redirect to "/?page=store_cart&time=123&orderid=<#[url.orderid]#>";
+	#>
+<# end footer #>
+<# no results #>
+	//redirect
+	<#
+		redirect to "/?page=store_cart&time=123&orderid=<#[url.orderid]#>";
+	#>
+ <# end no results #>
+<# end list #>
+
+
+
+
+
+
