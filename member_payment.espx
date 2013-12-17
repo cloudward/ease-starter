@@ -4,7 +4,7 @@
 <# apply webuser.<#[url.mid]#> as "mid" .#>
 
 <h3>Enter Payment Information</h3>
-<div class="googlecontactform" style="width: 60%;">
+<div style="width: 80%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px; box-shadow: 2px 2px 2px #999999; font-family: Arial,Helvetica,sans-serif; margin-left: auto; margin-right: auto; margin-top: 10px; min-height: 250px; padding: 10px;">
 
 <script>
 	//deprecated
@@ -48,7 +48,7 @@ show 100 rows per page;
 
 #>
 <# start header #>
-<div style="width: 100%%;" id="chargeForm">
+<div style="width: 100%;" id="chargeForm">
 <form name="cloudBillingForm" id="cloudBillingForm" action="https://billing.cloudward.com/web_services/billing/" method="post" autocomplete="off">
 	<input type="hidden" name="submit" value="1">
 	<input type="hidden" name="cid" value="<#[cookie.cid]#>">
