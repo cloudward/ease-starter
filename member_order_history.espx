@@ -20,9 +20,9 @@
 </div>
 <script type="text/javascript">
 jQuery(document).ready(function(){
-
+	$('.admin_body').css("width", "79%");
 	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "orderHistory"},function(res){
-		$('.order_history_container').append("<div class='order_item'><div class='order_data_item_header' style='width: 30%;'>Order Number</div><div class='order_data_item_header' style='width: 20%;'>Checkout Date</div><div class='order_data_item_header' style='width: 15%;'>Order Status</div><div class='order_data_item_header' style='width: 12%;'>Order Total</div><div class='order_data_item_header' style='width: 15%;float: right;text-align: right;'>Click for Details</div></div>");
+		$('.order_history_container').append("<div class='order_item'><div class='order_data_item_header' style='width: 25%;'>Order Number</div><div class='order_data_item_header' style='width: 17%;'>Checkout Date</div><div class='order_data_item_header' style='width: 15%;'>Order Status</div><div class='order_data_item_header' style='width: 12%;'>Order Total</div><div class='order_data_item_header' style='width: 15%;float: right;text-align: right;'>Details</div></div>");
 		if($.isEmptyObject(res)){
 			// do nothing
 			$('.order_history_container').append("<div class='order_item' style='text-align: center;'>You have no orders at this time.</div>");
@@ -49,7 +49,7 @@ jQuery(document).ready(function(){
 				var test_flag = res[index].test_flag;
 			
 				// populate DOM objects
-				$('.order_history_container').append("<div class='order_item'><div class='order_data_item' style='width: 30%;'>"+order_number+"</div><div class='order_data_item' style='width: 20%;'>"+checkout_timestamp+"</div><div class='order_data_item' style='width: 15%;'>"+status+"</div><div class='order_data_item' style='width: 5%;'>$"+subtotal+"</div><div class='order_data_item' style='width: 10%;float: right;text-align: right;'><input type='button' id='"+instance_id+"' onclick='javascript: toggleDetails(this.id);' value='Details'/></div></div>");
+				$('.order_history_container').append("<div class='order_item'><div class='order_data_item' style='width: 25%;'>"+order_number+"</div><div class='order_data_item' style='width: 17%;'>"+checkout_timestamp+"</div><div class='order_data_item' style='width: 15%;'>"+status+"</div><div class='order_data_item' style='width: 5%;'>$"+subtotal+"</div><div class='order_data_item' style='width: 10%;float: right;text-align: right;'><input type='button' id='"+instance_id+"' onclick='javascript: toggleDetails(this.id);' value='Details'/></div></div>");
 				$('.order_history_container').append("<div class='details_container' id='details_container_"+instance_id+"'></div>"); 
 				$('.order_history_container').append("<div class='order_item_border'></div>"); 
 				$('.order_history_container').append("<div style='clear: both;'></div>"); 
