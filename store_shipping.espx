@@ -38,7 +38,7 @@ hide pager both;
 </div>
 <center>
 	
-<div class="googlecontactform" class="googleContactForm">
+<div>
 
 <# start form for orders <#[cookie.orderid]#>; 
 
@@ -51,7 +51,7 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">Address Type</td>
+		<td class="shippingForm easelabel">Address Type</td>
 		<td class="shippingForm">
 			<select <# orders.shipping_type #> 
 				<option value="Home">Home</option>
@@ -60,43 +60,43 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">Attention:</td>
+		<td class="shippingForm easelabel">Attention:</td>
 		<td class="shippingForm">
 			<input type="text" <# orders.shipping_to #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">Email:</td>
+		<td class="shippingForm easelabel">Email:</td>
 		<td class="shippingForm">
 			<input type="text"  <# orders.shipping_email #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">Phone:</td>
+		<td class="shippingForm easelabel">Phone:</td>
 		<td class="shippingForm">
 			<input type="text" <# orders.shipping_phone #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">Address Line 1:</td>
+		<td class="shippingForm easelabel">Address Line 1:</td>
 		<td class="shippingForm">
 			<input type="text" <# orders.shipping_address1 #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">Address Line 2:</td>
+		<td class="shippingForm easelabel">Address Line 2:</td>
 		<td class="shippingForm">
 			<input type="text" <# orders.shipping_address2 #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">City:</td>
+		<td class="shippingForm easelabel">City:</td>
 		<td class="shippingForm">
 			<input type="text" <# orders.shipping_city #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">State:</td>
+		<td class="shippingForm easelabel">State:</td>
 		<td class="shippingForm">
 			<select <# orders.shipping_state #> >
 				<option value="" >Select</option>
@@ -170,7 +170,7 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm label" style="width: 112px;">Zip Code:</td>
+		<td class="shippingForm easelabel">Zip Code:</td>
 		<td class="shippingForm">
 			<input type="text" <# orders.shipping_zip #> >
 		</td>

@@ -22,17 +22,17 @@ hide pager both;
 		<td colspan="2" class="loginHeaderCell">Login to Your Account</td>
 	</tr>
 	<tr class="loginrow">
-		<td class="logincell">
+		<td class="logincell" style="border-right: 1px #ccc dotted;">
 			<table style="margin-left: 20px;">
 				<tr>
 					<td style="width: 50%;">
-						<span class="label">Username:</span><br>
+						<span class="easelabel">Username:</span><br>
 						<input type="text" name="username" >
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<span class="label">Password:</span><br>
+						<span class="easelabel">Password:</span><br>
 						<input type="password" name="pass" >
 					</td>
 				</tr>

@@ -16,6 +16,7 @@ function next()
   }
 
 jQuery(document).ready(function(){
+	
 	$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
 		if($.isEmptyObject(res)){
 			// do nothing
@@ -24,7 +25,7 @@ jQuery(document).ready(function(){
 			var testApproved = res[1];
 			if(testMode == "on"){ 
 				$('#testCaseStatus').append("<font size='2' face='Verdana' style='font-weight: bold;color: red;'>Your account is pending approval and is in Test Mode</font><br><span style='font-size: 9px;'>The test transaction type drop down will not be shown after your account is completely approved and test mode is turned off.</span>"); 
-				$('#testCaseForm').append("<font size='2' face='Verdana'>Test Transaction Type:</font><br><select id='testCase' name='testCase'><option value='Approved'>Approved</option><option value='Declined'>Declined</option><option value='Error'>Error</option></select>"); 
+				$('#testCaseForm').append("<font size='2' face='Verdana'>Test Transaction Type:</font><br><select id='testCase' name='testCase' size='1'><option value='Approved'>Approved</option><option value='Declined'>Declined</option><option value='Error'>Error</option></select>"); 
 			}
 		}
 	});
@@ -150,7 +151,7 @@ hide pager both;
 				<tr class="tForm" class="chargeForm">
 					<td class="chargeForm">
 						<font face="Verdana" size="2">State:</font><br>
-						<select name="state">
+						<select name="state" size="1">
 							<option value="" >Select</option>
 							<option value="WA">Washington</option>
 							<option value="AL">Alabama</option>
@@ -465,6 +466,8 @@ hide pager both;
 </center>
 <script type="text/javascript">
 jQuery(document).ready(function(){
+	$("#sidebar-right").hide();
+	$(".span8").css("width", "97%");
 	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
 
 		// Iterate the payment methods first.

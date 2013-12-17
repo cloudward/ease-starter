@@ -1,8 +1,8 @@
 <# include "_htmlheader.espx" #>
 
 
-<div style="width: 100%;text-align: right;">
-	<div style="width: 30%;text-align: right;float: right;">
+<div class="cartButtonContainer">
+	<div class="cartButtonInnerContainer">
 		<input type="button" onclick="javascript: window.location='/?page=store_cart&orderid=<#[cookie.orderid]#>';" value="View My Cart">
 	</div>
 	<div style="clear: both;"></div>
