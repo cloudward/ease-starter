@@ -34,13 +34,13 @@
 
 
 <center>
-<div class="googlecontactform" style="width: 60%;">
+<div style="width: 94%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px; box-shadow: 2px 2px 2px #999999; font-family: Arial,Helvetica,sans-serif; margin-left: auto; margin-right: auto; margin-top: 10px; min-height: 250px; padding: 10px;">
 	<h2>Membership Approved</h2>
 
-	<p>We sent an email to <#[member.email]#> with details about your membership.</p><br>
-	<p>Membership Charge: $<#[cookie.price]#></p><br>
-	<p>We appreciate you joining us here at <# system.domain #></p><br>
-	<p><a href="/?page=member_update_billing_id&mid=<#[cookie.cid]#>&contact_id=<#[url.contact_id]#>">[Click here to enter the member site.]</a></p><br><br>
+	<p style="font-size: 12px;">We sent an email to <#[member.email]#> with details about your membership.</p><br>
+	<p style="font-size: 12px;">Membership Charge: $<#[cookie.price]#></p><br>
+	<p style="font-size: 12px;">We appreciate you joining us here at <# system.domain #></p><br>
+	<p style="font-size: 12px;"><a href="/?page=member_update_billing_id&mid=<#[cookie.cid]#>&contact_id=<#[url.contact_id]#>">[Click here to enter the member site.]</a></p><br><br>
 </div>
 </center>
 
