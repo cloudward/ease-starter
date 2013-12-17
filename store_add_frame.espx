@@ -14,12 +14,10 @@
 	
 #>
 
-<# if ("<#[cookie.cid]#>" <> "") {
+<#
 
 	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
 	set webuser.billing_cid to "<#[url.contactid]#>";
-	
-}
 	
 #>
 
@@ -42,7 +40,9 @@
 	set gorder.n to "<#[order.shipping_zip]#>";
 	set gorder.o to "<#[order.shipping_phone]#>";
 	set gorder.p to "<#[order.shipping_email]#>";
-	redirect to "/?page=store_addordertogoogle&oid=<#[url.oid]#>&iid=<#[url.iid]#>";
+	set gorder.q to "<#[order.ordertax]#>";
+	set gorder.r to "<#[order.ordershipping]#>";
+	redirect to "/?page=store_addordertogoogle&oid=<#[url.oid]#>&iid=<#[url.iid]#>&contactid=<#[url.contactid]#>";
 	
 #>
 

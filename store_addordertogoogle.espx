@@ -11,6 +11,16 @@
 <# apply orders.<#[cookie.orderid]#> as "order".#>
 
 
+<# if ("<#[cookie.cid]#>" <> "") {
+
+	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
+	set webuser.billing_cid to "<#[url.contactid]#>";
+	go to next record;
+	
+}
+	
+#>
+
 <# start list for cart;
 include when cart.orderid == "<#[url.oid]#>" and cart.orderstatus == "cart";
 hide pager both;
@@ -21,15 +31,16 @@ show 100 rows per page;
 <# start row #>
 
 
-<# if ("<#[cookie.cid]#>" <> "") {
+<# if ("<#[url.contactid]#>" <> "") {
 
-	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
-	set webuser.billing_cid to "<#[url.contactid]#>";
+	update record for “cart.<# cart.id #>" reference as “cart";
+	set cart.billing_cid to "<#[url.contactid]#>";
 	go to next record;
 	
 }
 	
 #>
+
 
 <# 
 
