@@ -76,8 +76,8 @@ when creating redirect to "/?page=confirmation&first=<# form.a #>&last=<# form.b
 			</td>
 		</tr>
 		<tr class="contactrow">
-			<td colspan="2">
-				<span class="easelabel">Comments</span><br>
+			<td class="easelabel">Comments</td>
+			<td>
 				<textarea <# row.e #> ></textarea>
 			</td>
 		</tr>
