@@ -128,7 +128,7 @@ round cart.tax_rate_total to 2 decimals;
 		<td class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell"><td class="cartfooterrowcell" id="tbTotal"><# set <# total #> to total of <# cart.grand_total #>;
 round <# total #> to 2 decimals;
-print "Your order total is $<# total #>"; #></td></td>
+print "Your order total is $<#[order.ordertotal]#>"; #></td></td>
 	</tr>
 </table>
 <# end footer #>
