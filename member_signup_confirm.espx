@@ -4,32 +4,31 @@
 <center>
 <div style="width: 94%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px; box-shadow: 2px 2px 2px #999999; font-family: Arial,Helvetica,sans-serif; margin-left: auto; margin-right: auto; margin-top: 10px; min-height: 250px; padding: 10px;">
 
-<h2>Please Check Your Email</h>
+	<h2>Please Check Your Email</h>
 
-<p>We sent an email to <#[mid.email]#> to validate your email address for your account.
+		<p style="font-size: 14px;">We sent an email to <#[mid.email]#> to validate your email address for your account.</p>
 
-<# apply webuser.61e4c67057c8a3df76286ab89fca716a as "webuser" .#>
+		<# apply webuser.61e4c67057c8a3df76286ab89fca716a as "webuser" .#>
 
-<# if ("<#[webstyle.notification_site_email]#>" == ""){
-	set webstyle.notification_site_email to "<#[webuser.email]#>";
-}
-#>
+		<# if ("<#[webstyle.notification_site_email]#>" == ""){
+			set webstyle.notification_site_email to "<#[webuser.email]#>";
+		}
+		#>
 
-<# if ("<#[webstyle.notification_comments]#>" == ""){
-	set webstyle.notification_store_purchase to "<#[webuser.email]#>";
-}
-#>
+		<# if ("<#[webstyle.notification_comments]#>" == ""){
+			set webstyle.notification_store_purchase to "<#[webuser.email]#>";
+		}
+		#>
 
-<# if ( "<#[url.mid]#>" <> "" ) {
-	send email;
-		from_name = "<#[webstyle.notification_site_email]#>";
-		to = "<#[mid.email]#>";
-		subject = "Membership Confirmation";
-		type = "html"; // text or html
-		bodypage = "email_member_confirmation?mid=<#[url.mid]#>";
-}
-#>
-
+		<# if ( "<#[url.mid]#>" <> "" ) {
+			send email;
+				from_name = "<#[webstyle.notification_site_email]#>";
+				to = "<#[mid.email]#>";
+				subject = "Membership Confirmation";
+				type = "html"; // text or html
+				bodypage = "email_member_confirmation?mid=<#[url.mid]#>";
+			}
+			#>
 
 </div>
 </center>
