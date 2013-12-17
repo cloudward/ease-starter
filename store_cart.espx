@@ -112,7 +112,7 @@ hide pager both;
 	<tr class="cartfooterrow">
 		<td colspan="5" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 		<td class="cartfooterrowcell" style="background-color: #FFF;">
-			<input type="button" value="Clear Cart" style="width: 120px;" onclick="javascript: window.location='/?page=store_clear_cart&orderid=<#[cookie.orderid]#>';">
+			<input type="button" value="Clear Cart" style="width: 120px;display: none;" onclick="javascript: window.location='/?page=store_clear_cart&orderid=<#[cookie.orderid]#>';">
 		</td>
 		<td colspan="" class="cartfooterrowcell" >Tax</td>
 		<td colspan="" class="cartfooterrowcell" style="text-align: center;">
