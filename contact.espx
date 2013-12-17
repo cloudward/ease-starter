@@ -81,7 +81,7 @@ when creating redirect to "/?page=confirmation&first=<# form.a #>&last=<# form.b
 				<textarea <# row.e #> ></textarea>
 			</td>
 		</tr>
-		<tr>
+		<tr class="contactrow">
 			<td colspan="2">
 				<input type="button" value="Submit" <# create button #> > 
 			</td>
