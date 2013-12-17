@@ -312,7 +312,7 @@ hide pager both;
 					/** tax **/
 					var subtotal = <# cart.qty #> * <# cart.price #>;
 					var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
-					document.write( "<input type='text' class='tax' value='"+tax+"' style='display:none'>" );
+					document.write( "<input type='text' class='tax2' value='"+tax+"' style='display:none'>" );
 					document.write(tax);
 				</script>
 			</td>
@@ -320,7 +320,7 @@ hide pager both;
 				<script>
 					/** shipping **/
 					var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
-					document.write( "<input type='text' class='shipping' value='"+shipping+"' style='display:none'>" );
+					document.write( "<input type='text' class='shipping2' value='"+shipping+"' style='display:none'>" );
 					document.write(shipping);
 				</script>
 			</td>
@@ -332,7 +332,7 @@ hide pager both;
 					var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
 					var shipping = <# cart.shipping_charge #>;
 					grand_total = (Number(total) + Number(tax) + Number(shipping));
-					document.write( "<input type='text' class='itemTotal' value='"+grand_total+"' style='display:none'>" );
+					document.write( "<input type='text' class='itemTotal2' value='"+grand_total+"' style='display:none'>" );
 					document.write(Number(grand_total).toFixed(2));
 				</script>
 			</td>
@@ -356,7 +356,7 @@ hide pager both;
 	       				var oInputs = new Array();
 						var tax = 0;
 						var subject = 0;
-		     			oInputs = document.getElementsByClassName( 'tax' ); // store collection of all <input/> elements
+		     			oInputs = document.getElementsByClassName('tax2'); // store collection of all <input/> elements
 		    			for ( i = 0; i < oInputs.length; i++ )
 		     			{
 							subject = parseFloat(oInputs[i].value);
@@ -383,7 +383,7 @@ hide pager both;
 	       				var oInputs = new Array();
 						var shipping = 0;
 						var subject = 0;
-		     			oInputs = document.getElementsByClassName( 'shipping' ); // store collection of all <input/> elements
+		     			oInputs = document.getElementsByClassName('shipping2'); // store collection of all <input/> elements
 		    			for ( i = 0; i < oInputs.length; i++ )
 		     			{
 							subject = parseFloat(oInputs[i].value);
@@ -410,7 +410,7 @@ hide pager both;
 		       			var oInputs = new Array();
 						var total = 0;
 						var subject = 0;
-			     		oInputs = document.getElementsByClassName( 'itemTotal' ); // store collection of all <input/> elements
+			     		oInputs = document.getElementsByClassName('itemTotal2'); // store collection of all <input/> elements
 			    		for ( i = 0; i < oInputs.length; i++ )
 			     		{
 							subject = parseFloat(oInputs[i].value);

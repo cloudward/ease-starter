@@ -43,8 +43,6 @@ hide pager both;
 <# start header #>
 <div>
 	<div class="secureHeader">
-		<div class="wp_hide sa_show_icon"><img src="/images/store_shoppingCart.jpg" style="margin-right: 3px;"></div>
-		<div class="wp_hide sa_show"><span>Your order is <br>safe and secure</span></div>
 		<div style="clear: both;"></div>
 	</div>
 </div>

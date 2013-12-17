@@ -35,7 +35,7 @@
 
 <center>
 <div class="googlecontactform" style="width: 60%;">
-	<h2>Membership Approved</h>
+	<h2>Membership Approved</h2>
 
 	<p>We sent an email to <#[member.email]#> with details about your membership.</p><br>
 	<p>Membership Charge: $<#[cookie.price]#></p><br>
