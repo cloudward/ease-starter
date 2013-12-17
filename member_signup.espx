@@ -83,8 +83,18 @@ when creating redirect to "/?page=member_signup_confirm_email&mid=<# form.id #>"
 					<td class="logincell">
 						<span class="easelabel">Select Member Level:</span><br>
 						<select <# webuser.member_level #> >
-				    		<option value="<#[easvault.basic_label]#>" ><#[easvault.basic_label]#> ($ <#[easvault.basic_cost]#> )</option>
-				    		<option value="<#[easvault.premium_label]#>" ><#[easvault.premium_label]#> ($ <#[easvault.premium_cost]#> )</option>
+						<# if ("<#[easvault.free_label_checkbox]#>" == "Yes") {
+						<option value="<#[easvault.free_label]#>" ><#[easvault.free_label]#></option>
+						}
+						#>
+						<# if ("<#[easvault.basic_label_checkbox]#>" == "Yes") {
+					    	<option value="<#[easvault.basic_label]#>" ><#[easvault.basic_label]#> ($ <#[easvault.basic_cost]#> )</option>
+						}
+						#>
+						<# if ("<#[easvault.premium_label_checkbox]#>" == "Yes") {
+					    	<option value="<#[easvault.premium_label]#>" ><#[easvault.premium_label]#> ($ <#[easvault.premium_cost]#> )</option>
+						}
+						#>
 						</select>
 					</td>
 				</tr>
