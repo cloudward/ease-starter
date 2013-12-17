@@ -35,7 +35,7 @@
 
 <center>
 <div style="width: 94%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px; box-shadow: 2px 2px 2px #999999; font-family: Arial,Helvetica,sans-serif; margin-left: auto; margin-right: auto; margin-top: 10px; min-height: 250px; padding: 10px;">
-	<h2>Membership Approved</h2>
+	<h2 class="wp_hide">Membership Approved</h2>
 
 	<p style="font-size: 12px;">We sent an email to <#[member.email]#> with details about your membership.</p><br>
 	<p style="font-size: 12px;">Membership Charge: $<#[cookie.price]#></p><br>

@@ -15,7 +15,7 @@
 }
 #>
 
-<h2>Email Address Validated</h2>
+<h2 class="wp_hide">Email Address Validated</h2>
 
 <p style="font-size: 14px;">Thank you!</p>
 

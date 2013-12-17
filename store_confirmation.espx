@@ -105,12 +105,12 @@ hide pager both;
 <# start header #>
 <table width="600">
 	<tr>
-		<td class="cartheadercell">Qty</td>
-		<td class="cartheadercell">Item</td>
-		<td class="cartheadercell">Price</td>
-		<td class="cartheadercell">Tax</td>
-		<td class="cartheadercell">Shipping</td>
-		<td class="cartheadercell">Total</td>
+		<td class="cartheadercell2">Qty</td>
+		<td class="cartheadercell2">Item</td>
+		<td class="cartheadercell2">Price</td>
+		<td class="cartheadercell2">Tax</td>
+		<td class="cartheadercell2">Shipping</td>
+		<td class="cartheadercell2">Total</td>
 	</tr>
 <# end header #>
 <# start row #>

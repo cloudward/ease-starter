@@ -3,7 +3,7 @@
 <center>
 <# apply webuser.<#[url.mid]#> as "mid" .#>
 
-<h3>Enter Payment Information</h3>
+<h3 class="wp_hide">Enter Payment Information</h3>
 <div style="width: 80%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px; box-shadow: 2px 2px 2px #999999; font-family: Arial,Helvetica,sans-serif; margin-left: auto; margin-right: auto; margin-top: 10px; min-height: 250px; padding: 10px;">
 
 <script>
@@ -83,7 +83,7 @@ show 100 rows per page;
 <div align="center">
 	<table border="0" width="100%" cellpadding="4" cellspacing="0" style="border: 1px #CCC solid;">
 		<tr class="chargeHeader">
-			<td>Payment Information</td>
+			<td>Billing/Payment Info</td>
 		</tr>
 		<tr>
 			<td class="chargeForm" style="text-align: center;">
