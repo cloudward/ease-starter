@@ -80,7 +80,6 @@ when creating redirect to "/?page=confirmation&first=<# form.a #>&last=<# form.b
 				<span class="easelabel">Comments</span><br>
 				<textarea <# row.e #> ></textarea>
 			</td>
-			<td>Comments</td
 		</tr>
 		<tr>
 			<td colspan="2">
