@@ -49,7 +49,7 @@ when creating redirect to "/?page=confirmation&first=<# form.a #>&last=<# form.b
 <div class="contactcontainer">
 	<table class="contacttable">
 		<tr class="contactheaderrow">
-			<td colspan="2" class="contactheadercell"><td>
+			<td colspan="2" class="contactheadercell"></td>
 		</tr>
 		<tr class="contactrow">
 			<td class=easelabel>First Name</td>
