@@ -428,6 +428,12 @@ h3{
 	font-size: 14px;
 	font-weight: bold;
 }
+.cartheadercell2 {
+	padding: 5px;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+}
 .cartfooterrowcell {
 	padding: 5px;
 	background-color: #efefef;
@@ -659,12 +665,13 @@ h3{
 	margin-left: auto;
 	margin-right: auto;
 }
-.signupTable{
+.signuptable{
 	width: 100%;
 	height: 330px;
 	border: 1px #CCC solid;
+	min-width: 100%;
 }
-.signupTable a{
+.signuptable a{
 	font-size: 12px;
 	color: #13836B;
 	text-decoration: underline;

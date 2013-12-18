@@ -10,7 +10,7 @@
     margin:10px  !important;
 }
 .admin_nav{
-    margin-left:-50px;
+    margin-left:-30px;
 }
 .admin_body{
     width: 70% !important;
@@ -503,10 +503,7 @@ h3{
 	color: #FFFFFF;
 	font-weight: bold;
 }
-.easelabel{
-	color: #34495E;
-	font-size: 14px;
-}
+
 
 /***** store_charge page ******/
 #chargeForm input[type="text"]{
@@ -634,6 +631,7 @@ h3{
 .easelabel{
 	color: #13836B;
 	font-size: 14px;
+	padding-left: 15px;
 }
 
 /****** contact us form page *********/
@@ -700,10 +698,7 @@ h3{
 	padding-top: 60px;
 	padding-left: 50px;
 }
-.easelabel{
-	color: #13836B;
-	font-size: 14px;
-}
+
 
 /** for starter app only **/
 .sa_show{
@@ -714,6 +709,7 @@ h3{
 	width: 50px;
 	display: inline-block;
 }
+
 </style>
 <script type="text/javascript">
     var $ = jQuery;
