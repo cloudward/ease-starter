@@ -53,7 +53,7 @@ show 100 rows per page;
 	set gorder.f to "<# cart.sku #>";
 	set gorder.g to "<# cart.product_name #>";
 	set gorder.h to "<# cart.price #>";
-	set gorder.i to "<# cart.total #>";
+	set gorder.i to "<# cart.sub_total #>";
 	set gorder.j to "<#[order.shipping_address1]#>";
 	set gorder.k to "<#[order.shipping_address2]#>";
 	set gorder.l to "<#[order.shipping_city]#>";
@@ -72,6 +72,7 @@ show 100 rows per page;
 	set cart.orderstatus to "processed";
 	set cart.status to "processed";
 	set cart.billing_cid to "<#[url.contactid]#>";
+	set cart.total to <# cart.subtotal #> + <# cart.tax #>
 	go to next record;
 #>
 

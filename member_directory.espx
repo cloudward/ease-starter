@@ -17,7 +17,20 @@ sort by webuser.last in descending order;
 #>
 
 <# start header #><# end header #>
-<tr><td><B>Name</B></td><td><B>Email</B></td><td><B>Phone</B></td><td><B>Company</B></td></tr>
+<tr>
+	<td>
+		<B>Name</B>
+	</td>
+	<td>
+		<B>Email</B>
+	</td>
+	<td>
+		<B>Phone</B>
+	</td>
+	<td>
+		<B>Company</B>
+	</td>
+</tr>
 <# start row #>
 <tr>
  <td><# webuser.last #>, <# webuser.first #></td>
