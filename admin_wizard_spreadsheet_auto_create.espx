@@ -15,6 +15,12 @@
 	set gstore.SKU to "SKU1";
         set gstore.Tax Percent to "9";
         set gstore.Shipping Charge to "2.99";
+        set gstore.Shipping Required to "yes";
+        set gstore.Setup Fee to "";
+        set gstore.Frequency to "";
+        set gstore.Free Trial Days to "";
+        set gstore.Bill Date to "";
+        set gstore.Prorate to "";
     }
 
 #>
@@ -31,6 +37,12 @@
 	set gstore.SKU to "SKU2";
         set gstore.Tax Percent to "9";
         set gstore.Shipping Charge to "2.99";
+        set gstore.Shipping Required to "yes";
+        set gstore.Setup Fee to "";
+        set gstore.Frequency to "";
+        set gstore.Free Trial Days to "";
+        set gstore.Bill Date to "";
+        set gstore.Prorate to "";
     }
 #>
 
@@ -54,6 +66,12 @@
 	set gorder.Email to "";
         set gorder.Tax Percent to "";
         set gorder.Shipping Charge to "";
+        set gorder.Shipping Required to "";
+        set gorder.Setup Fee to "";
+        set gorder.Frequency to "";
+        set gorder.Free Trial Days to "";
+        set gorder.Bill Date to "";
+        set gorder.Prorate to "";
 }
 #>
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "contact"){
