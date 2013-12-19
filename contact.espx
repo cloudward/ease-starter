@@ -46,10 +46,10 @@ save to "Sheet1";
 when creating redirect to "/?page=confirmation&first=<# form.a #>&last=<# form.b #>&email=<# form.c #>";
 #>
 
-<div class="contactcontainer">
+<div class="googleContactForm">
 	<table class="contacttable">
 		<tr class="contactheaderrow">
-			<td colspan="2" class="contactheadercell"></td>
+			<td colspan="2" class="contactheadercell">Contact Us</td>
 		</tr>
 		<tr class="contactrow">
 			<td class=easelabel>First Name</td>

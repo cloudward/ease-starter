@@ -14,7 +14,7 @@ hide pager both;
 	<!-- do nothing -->
 <# end no results #>
 <# end list #>
-<div style="" class="loginContainer">
+<div class="googleContactForm">
 <span class="wp_hide"><h2>Member Only Access - Please Logon</h2></span>
 <form name="input" action="/" method="get"> 
 <table class="loginTable">

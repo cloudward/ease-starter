@@ -38,7 +38,7 @@ hide pager both;
 </div>
 <center>
 	
-<div>
+<div class="googleContactForm">
 
 <# start form for orders <#[cookie.orderid]#>; 
 
