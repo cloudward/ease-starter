@@ -54,15 +54,22 @@ hide pager both;
 <div style="width: 30%;float: left;" id="chargeForm">
 	<form name="cloudBillingForm" id="cloudBillingForm" action="https://billing.cloudward.com/web_services/billing/" method="post" autocomplete="off">
 		<input type="hidden" name="submit" value="1">
+		<!--<input type="hidden" name="cid" value="<#[webuser.billing_cid]#>">-->
 		<input type="hidden" name="cid" value="<#[webuser.billing_cid]#>">
+		<input type="hidden" name="appcid" value="<#[cookie.cid]#>">
 		<input type="hidden" name="master_account_id" value="<#[easvault.marketplace_id]#>">
 		<input type="hidden" name="api_password" value="<#[easvault.merchant_password]#>">
 		<input type="hidden" name="action" value="billing_form">
-		<input type="hidden" name="return_url" id="return_url" value='http://<# system.domain #>/'>
+		<input type="hidden" name="return_url" id="return_url" value='https://<# system.domain #>/'>
 		<input type="hidden" name="return_page" id="return_page" value='store_payment_listener'>
 		<input type="hidden" name="invoice" value="<#[cookie.orderid]#>">
 		<input type="hidden" name="order_id" value="<#[cookie.orderid]#>">
-		<input type="hidden" name="orderTotal" value="<#[order.ordertotal]#>">
+		<script>
+			var ordTotal =  <#[order.ordertotal]#>;
+			ordTotal = ordTotal.toFixed(2);
+			document.write("<input type='hidden' name='orderTotal' value='"+ordTotal+"'>");
+		</script>
+		
 		<input type="hidden" name="orderTax" value="<#[order.ordertax]#>">
 		<input type="hidden" name="email" value="<#[order.shipping_email]#>">
 		<input type="hidden" name="shipping_phone" value="<#[order.shipping_phone]#>">

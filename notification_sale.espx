@@ -38,7 +38,13 @@
 	</tr>
 	<tr>
 		<td>Order Total: </td>
-		<td>$ <#[order.ordertotal]#></td>
+		<td>$
+			<script>
+				var ordTotal =  <#[order.ordertotal]#>;
+				ordTotal = ordTotal.toFixed(2);
+				document.write(ordTotal);
+			</script> 
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2"  class="cartfooterrowcell"></td>
@@ -126,6 +132,7 @@ show 100 rows per page;
 			//	alert(subject);
 		       	total = subject + total;
 		     }
+				total = total.toFixed(2);
 				document.write(total);
 			document.getElementById("tbTotal").value = total;
 	}

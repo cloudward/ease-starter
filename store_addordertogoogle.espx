@@ -10,13 +10,10 @@
 
 <# apply orders.<#[cookie.orderid]#> as "order".#>
 
-
 <# if ("<#[cookie.cid]#>" <> "") {
-
+	
 	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
 	set webuser.billing_cid to "<#[url.contactid]#>";
-	go to next record;
-	
 }
 	
 #>
@@ -30,12 +27,10 @@ show 100 rows per page;
 <# end header #>
 <# start row #>
 
-
 <# if ("<#[url.contactid]#>" <> "") {
 
 	update record for “cart.<# cart.id #>" reference as “cart";
 	set cart.billing_cid to "<#[url.contactid]#>";
-	go to next record;
 	
 }
 	

@@ -37,12 +37,12 @@
 		from_name = "<#[webstyle.notification_site_email]#>";
 		to = "<#[order.shipping_email]#>";
 		cc = "<#[webstyle.notification_store_purchase]#>";
-		subject = "Purchase Details";
+		subject = "Purchase Details Notification";
 		type = "html"; // text or html
 		bodypage = "email_notification_sale?oid=<#[cookie.orderid]#>";
 }
 #>
-
+<#[webuser.billing_cid]#>
 <table width="600">
 	<tr>
 		<td colspan="2"  class="cartheadercell"></td>
@@ -57,7 +57,13 @@
 	</tr>
 	<tr>
 		<td>Order Total: </td>
-		<td>$ <#[order.ordertotal]#></td>
+		<td>$ 
+			<script>
+				var ordTotal =  <#[order.ordertotal]#>;
+				ordTotal = ordTotal.toFixed(2);
+				document.write(ordTotal);
+			</script>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2"  class="cartfooterrowcell"></td>
@@ -142,6 +148,7 @@ hide pager both;
 				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
 				var shipping = <# cart.shipping_charge #>;
 				grand_total = (Number(total) + Number(tax) + Number(shipping));
+				grand_total = grand_total.toFixed(2);
 				document.write( "<input type='text' class='itemTotal' value='"+grand_total+"' style='display:none'>" );
 				document.write(Number(grand_total).toFixed(2));
 			</script>
@@ -169,6 +176,7 @@ hide pager both;
 			//	alert(subject);
 		       	total = subject + total;
 		     }
+				total = total.toFixed(2);
 				document.write(total);
 			document.getElementById("tbTotal").value = total;
 	}
