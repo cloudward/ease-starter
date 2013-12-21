@@ -5,11 +5,25 @@
 <div style="width: 94%; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px; box-shadow: 2px 2px 2px #999999; font-family: Arial,Helvetica,sans-serif; margin-left: auto; margin-right: auto; margin-top: 10px; min-height: 250px; padding: 10px;">
 
 
+
+
+
+<# if ("<#[mid.member_level]#>" == "<#[easvault.free_label]#>") {
+	
+	set cookie.price to "<#[easvault.free_cost]#>";
+	set cookie.sku to "<#[easvault.free_label]#>";
+}
+#>
+
 <# if ("<#[mid.member_level]#>" == "<#[easvault.basic_label]#>") {
 	
 	set cookie.price to "<#[easvault.basic_cost]#>";
 	set cookie.sku to "<#[easvault.basic_label]#>";
-} else {
+}
+#>
+
+<# if ("<#[mid.member_level]#>" == "<#[easvault.premium_label]#>") {
+	
 	set cookie.price to "<#[easvault.premium_cost]#>";
 	set cookie.sku to "<#[easvault.premium_label]#>";
 }
@@ -19,7 +33,14 @@
 
 <p style="font-size: 14px;">Thank you!</p>
 
-<p style="font-size: 14px;"><a href="https://<# system.domain #>/?page=member_payment&mid=<#[url.mid]#>">Click here</a> to complete your signup.</p>
+<# if ("<#[mid.member_level]#>" == "<#[easvault.free_label]#>") {
+	
+	<p style="font-size: 14px;"><a href="https://<# system.domain #>/?page=member_payment_listener&mid=<#[url.mid]#>&result=approved">Click here</a> to complete your signup.</p>
+	
+} else {
+	<p style="font-size: 14px;"><a href="https://<# system.domain #>/?page=member_payment&mid=<#[url.mid]#>">Click here</a> to complete your signup.</p>
+}
+#>
 
 <#
 	set cookie.first to "<#[mid.first]#>";
