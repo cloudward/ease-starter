@@ -13,7 +13,7 @@
 <# if ("<#[cookie.cid]#>" <> "") {
 	
 	update record for "webuser.<#[cookie.cid]#>" reference as "webuser";
-	set webuser.billing_cid to "<#[url.contactid]#>";
+	set webuser.billing_cid to "<#[url.billing_cid]#>";
 }
 	
 #>
@@ -30,7 +30,7 @@ show 100 rows per page;
 <# if ("<#[url.contactid]#>" <> "") {
 
 	update record for “cart.<# cart.id #>" reference as “cart";
-	set cart.billing_cid to "<#[url.contactid]#>";
+	set cart.billing_cid to "<#[url.billing_cid]#>";
 	
 }
 	
