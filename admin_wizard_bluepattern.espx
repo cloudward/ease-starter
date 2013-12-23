@@ -347,6 +347,17 @@ padding-top:3px;
 	border-radius: 3px;
 	box-shadow: 1px 1px 3px #CCC;
 	padding: 10px;
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-8 */
+	
 }
 
 .welcomeheadline {
@@ -510,12 +521,13 @@ text-shadow: 1px 1px 1px #FFF;
 }
 
 .googleContactForm{
-width: 50%;
+width: 80%;
 margin-left: auto;
 margin-right: auto;
 padding: 20px;
 border: 1px #CCC solid;
 border-radius: 3px;
+background-color: #FFF;
 }
 
 .googleContactForm input[type="text"]{
@@ -757,12 +769,10 @@ border-left: 2px dotted #c0c0c0;
 	padding: 3px;
 	line-height: 12px;
 }
-.cartheaderrow{
-	background-color: #13836B;
-}
+
 .secureHeader{
 	width: 99%;
-	border-bottom: 1px #13836B solid;
+	border-bottom: 1px #003366 solid;
 	padding: 5px;
 	margin-bottom: 20px;
 	font-size: 10px;
@@ -771,7 +781,7 @@ border-left: 2px dotted #c0c0c0;
 /***** store_shipping page ******/
 
 .shippingtable{
-	width: 50%;
+	width: 60%;
 	border-spacing: 1px;
 	border: 1px #CCC solid;
 }
@@ -779,7 +789,17 @@ border-left: 2px dotted #c0c0c0;
 	padding: 5px;
 }
 .shippingHeader{
-	background-color: #34495E;
+	background: rgb(0,104,153); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNjg5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYjQzNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(0,104,153,1) 0%, rgba(27,67,102,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,104,153,1)), color-stop(100%,rgba(27,67,102,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006899', endColorstr='#1b4366',GradientType=0 ); /* IE6-8 */
+	
 }
 .shippingForm{
 	background-color: #efefef;
@@ -787,10 +807,6 @@ border-left: 2px dotted #c0c0c0;
 .shippingHeaderCell{
 	color: #FFFFFF;
 	font-weight: bold;
-}
-.easelabel{
-	color: #34495E;
-	font-size: 14px;
 }
 
 /***** store_charge page ******/
@@ -801,7 +817,16 @@ border-left: 2px dotted #c0c0c0;
 
 
 .chargeHeader{
-	background-color: #34495E;
+	background: rgb(0,104,153); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNjg5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYjQzNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(0,104,153,1) 0%, rgba(27,67,102,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,104,153,1)), color-stop(100%,rgba(27,67,102,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006899', endColorstr='#1b4366',GradientType=0 ); /* IE6-8 */
 	padding: 5px;
 	color: #FFF;
 }
@@ -872,11 +897,26 @@ border-left: 2px dotted #c0c0c0;
 }
 
 .cartheaderrow{
-	background-color: #13836B;
+	min-width: 32%;
+	height: 15px;
+	padding: 5px;
+	background: #7abcff; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdhYmNmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iIzYwYWJmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MDk2ZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-8 */
+
+
+	
 }
 .secureHeader{
 	width: 99%;
-	border-bottom: 1px #13836B solid;
+	border-bottom: 1px #003366 solid;
 	padding: 5px;
 	margin-bottom: 20px;
 	font-size: 10px;
@@ -916,10 +956,7 @@ border-left: 2px dotted #c0c0c0;
 	padding-top: 60px;
 	padding-left: 50px;
 }
-.easelabel{
-	color: #13836B;
-	font-size: 14px;
-}
+
 
 /****** contact us form page *********/
 .contactcontainer{
@@ -986,7 +1023,7 @@ border-left: 2px dotted #c0c0c0;
 	padding-left: 50px;
 }
 .easelabel{
-	color: #13836B;
+	color: #585858;
 	font-size: 14px;
 }
 
@@ -1422,6 +1459,17 @@ border-left: 2px dotted #c0c0c0;
 					border-radius: 3px;
 					box-shadow: 1px 1px 3px #CCC;
 					padding: 10px;
+					background: rgb(255,255,255); /* Old browsers */
+					/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+					background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+					background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+					background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+					background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+					background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* IE10+ */
+					background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%); /* W3C */
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-8 */
+					
 					}
 
 					.welcomeheadline {
@@ -1585,12 +1633,13 @@ border-left: 2px dotted #c0c0c0;
 					}
 					
 					.googleContactForm{
-					width: 50%;
+					width: 80%;
 					margin-left: auto;
 					margin-right: auto;
 					padding: 20px;
 					border: 1px #CCC solid;
 					border-radius: 3px;
+					background-color: #FFF;
 					}
 
 					.googleContactForm input[type="text"]{
@@ -1707,6 +1756,7 @@ border-left: 2px dotted #c0c0c0;
 					margin-left: 15%;
 					border: 1px #000 solid;
 					}
+					
 					/******************************************  new style  ***************************************/
 					/******* new theme style ********/
 					/**** store.espx *****/
@@ -1844,11 +1894,24 @@ border-left: 2px dotted #c0c0c0;
 						line-height: 12px;
 					}
 					.cartheaderrow{
-						background-color: #13836B;
+						min-width: 32%;
+						height: 15px;
+						padding: 5px;
+						background: #7abcff; /* Old browsers */
+						/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+						background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzdhYmNmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ0JSIgc3RvcC1jb2xvcj0iIzYwYWJmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0MDk2ZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+						background: -moz-linear-gradient(top,  #7abcff 0%, #60abf8 44%, #4096ee 100%); /* FF3.6+ */
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7abcff), color-stop(44%,#60abf8), color-stop(100%,#4096ee)); /* Chrome,Safari4+ */
+						background: -webkit-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Chrome10+,Safari5.1+ */
+						background: -o-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* Opera 11.10+ */
+						background: -ms-linear-gradient(top,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* IE10+ */
+						background: linear-gradient(to bottom,  #7abcff 0%,#60abf8 44%,#4096ee 100%); /* W3C */
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee',GradientType=0 ); /* IE6-8 */
+						
 					}
 					.secureHeader{
 						width: 99%;
-						border-bottom: 1px #13836B solid;
+						border-bottom: 1px #003366 solid;
 						padding: 5px;
 						margin-bottom: 20px;
 						font-size: 10px;
@@ -1857,7 +1920,7 @@ border-left: 2px dotted #c0c0c0;
 					/***** store_shipping page ******/
 
 					.shippingtable{
-						width: 50%;
+						width: 60%;
 						border-spacing: 1px;
 						border: 1px #CCC solid;
 					}
@@ -1865,7 +1928,17 @@ border-left: 2px dotted #c0c0c0;
 						padding: 5px;
 					}
 					.shippingHeader{
-						background-color: #34495E;
+						background: rgb(0,104,153); /* Old browsers */
+						/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+						background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNjg5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYjQzNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+						background: -moz-linear-gradient(top,  rgba(0,104,153,1) 0%, rgba(27,67,102,1) 100%); /* FF3.6+ */
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,104,153,1)), color-stop(100%,rgba(27,67,102,1))); /* Chrome,Safari4+ */
+						background: -webkit-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Chrome10+,Safari5.1+ */
+						background: -o-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Opera 11.10+ */
+						background: -ms-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* IE10+ */
+						background: linear-gradient(to bottom,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* W3C */
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006899', endColorstr='#1b4366',GradientType=0 ); /* IE6-8 */
+						
 					}
 					.shippingForm{
 						background-color: #efefef;
@@ -1873,10 +1946,6 @@ border-left: 2px dotted #c0c0c0;
 					.shippingHeaderCell{
 						color: #FFFFFF;
 						font-weight: bold;
-					}
-					.easelabel{
-						color: #34495E;
-						font-size: 14px;
 					}
 
 					/***** store_charge page ******/
@@ -1887,7 +1956,16 @@ border-left: 2px dotted #c0c0c0;
 
 
 					.chargeHeader{
-						background-color: #34495E;
+						background: rgb(0,104,153); /* Old browsers */
+						/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+						background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNjg5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxYjQzNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+						background: -moz-linear-gradient(top,  rgba(0,104,153,1) 0%, rgba(27,67,102,1) 100%); /* FF3.6+ */
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,104,153,1)), color-stop(100%,rgba(27,67,102,1))); /* Chrome,Safari4+ */
+						background: -webkit-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Chrome10+,Safari5.1+ */
+						background: -o-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* Opera 11.10+ */
+						background: -ms-linear-gradient(top,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* IE10+ */
+						background: linear-gradient(to bottom,  rgba(0,104,153,1) 0%,rgba(27,67,102,1) 100%); /* W3C */
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006899', endColorstr='#1b4366',GradientType=0 ); /* IE6-8 */
 						padding: 5px;
 						color: #FFF;
 					}
@@ -1957,12 +2035,9 @@ border-left: 2px dotted #c0c0c0;
 						display: inline-block;
 					}
 
-					.cartheaderrow{
-						background-color: #13836B;
-					}
 					.secureHeader{
 						width: 99%;
-						border-bottom: 1px #13836B solid;
+						border-bottom: 1px #003366 solid;
 						padding: 5px;
 						margin-bottom: 20px;
 						font-size: 10px;
@@ -2002,10 +2077,7 @@ border-left: 2px dotted #c0c0c0;
 						padding-top: 60px;
 						padding-left: 50px;
 					}
-					.easelabel{
-						color: #13836B;
-						font-size: 14px;
-					}
+
 
 					/****** contact us form page *********/
 					.contactcontainer{
@@ -2072,7 +2144,7 @@ border-left: 2px dotted #c0c0c0;
 						padding-left: 50px;
 					}
 					.easelabel{
-						color: #13836B;
+						color: #585858;
 						font-size: 14px;
 					}
 

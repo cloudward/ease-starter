@@ -2,7 +2,7 @@
 
 
 <center>
-<div class="signupContainer">
+<div class="googleContactForm">
 
 <span class="wp_hide"><h2>New Member Signup</h2></span>	
 
@@ -10,9 +10,9 @@
 when creating set webuser.status to "new_request"; 
 when creating set webuser.type to "members"; 
 when creating set webuser.source to "websignup";
-when creating set webuser.billing_cid to ""; 
+when creating set webuser.billing_cid to "<#[cookie.cid]#>";
 when creating redirect to "/?page=member_signup_confirm_email&mid=<# form.id #>";
-#> 
+#>
 <table class="signuptable" cellpadding="10">
 	<tr class="signupHeader">
 		<td colspan="2" class="signupHeaderCell">Members Signup</td>

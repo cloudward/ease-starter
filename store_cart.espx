@@ -14,7 +14,7 @@ window.location = "/?page=store";
 </script>
 
 <center>
-<div style="width: 100%;">
+<div class="googleContactForm">
 <table>
 	<tr>
 		<td>

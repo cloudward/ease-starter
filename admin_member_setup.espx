@@ -30,27 +30,27 @@ when deleting redirect to "/?page=admin_member_setup&edit=9a7ac1363ff31893fc4047
 			<tr>
 				<td><input type="checkbox" <# eas_vault.free_label_checkbox #> ></td>
 				<td>Free Label Name:</td>
-				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.free_label #> ></td>
+				<td><input type="text" style="width:450px;height:18px;font-size:14px"  <# eas_vault.free_label #> ></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" <# eas_vault.basic_label_checkbox #> ></td>
 				<td>Basic Label:</td>
-				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_label #> ></td>
+				<td><input type="text" style="width:450px;height:18px;font-size:14px"  <# eas_vault.basic_label #> ></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>Cost:</td>
-				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.basic_cost #> ></td>
+				<td><input type="text" style="width:450px;height:18px;font-size:14px"  <# eas_vault.basic_cost #> ></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" <# eas_vault.premium_label_checkbox #> ></td>
 				<td>Premium Label:</td>
-				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_label #> ></td>
+				<td><input type="text" style="width:450px;height:18px;font-size:14px"  <# eas_vault.premium_label #> ></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>Cost:</td>
-				<td><input type="text" style="width:650px;height:18px;font-size:14px"  <# eas_vault.premium_cost #> ></td>
+				<td><input type="text" style="width:450px;height:18px;font-size:14px"  <# eas_vault.premium_cost #> ></td>
 			</tr>
 		</table>
 	</div>
