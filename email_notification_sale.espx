@@ -19,10 +19,6 @@
 
 <# apply orders.<#[url.oid]#> as "order".#>
 
-
-
-
-
 <table width="600">
 	<tr>
 		<td colspan="2"  class="cartheadercell"></td>

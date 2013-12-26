@@ -10,6 +10,7 @@
 	
 	set cookie.cid to "<#[url.appcid]#>";
 	set cookie.orderid to "<#[url.orderid]#>";
+	set cookie.billingemail to "<#[url.email]#>";
 }
 #>
 

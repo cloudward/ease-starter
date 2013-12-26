@@ -235,6 +235,12 @@ hide pager both;
 						<input type="text" name="zip" value="">
 					</td>
 				</tr>
+				<tr class="tForm emailForm">
+					<td class="chargeForm">
+						<font face="Verdana" size="2">Email:</font><br>
+						<input type="text" name="billingEmail" value="">
+					</td>
+				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
 						<font face="Verdana" size="2">Card Number:</font><br>
@@ -473,6 +479,13 @@ hide pager both;
 </center>
 <script type="text/javascript">
 jQuery(document).ready(function(){
+	if("<#[order.shipping_email]#>" == ""){
+		$('.emailForm').show();
+	}else{
+		$('.emailForm').hide();
+	}
+	
+	
 	$("#sidebar-right").hide();
 	$(".span8").css("width", "97%");
 	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
