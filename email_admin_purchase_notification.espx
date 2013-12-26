@@ -1,0 +1,147 @@
+
+<br>
+<div>
+	<p style="font-weight: bold;">
+		This is a notification of a new purchase made on <#[system.domain]#>.
+	</p>
+</div>
+<center>
+<table width="600">
+	<tr>
+		<td>
+			
+<h3>Order Complete</h3>
+<style>
+.cartheadercell {
+	border-bottom: 1px dotted #000000;
+//	text-decoration:underline;
+}
+.cartfooterrowcell {
+	border-top: 1px dotted #000000;
+//	text-decoration:underline;
+}
+</style>
+
+<# apply orders.<#[url.oid]#> as "order".#>
+
+<table width="600">
+	<tr>
+		<td colspan="2"  class="cartheadercell"></td>
+	</tr>
+	<tr>
+		<td>Order Date:</td>
+		<td><#[order.created_on]#></td>
+	</tr>
+	<tr>
+		<td>Order ID:</td>
+		<td><#[order.id]#></td>
+	</tr>
+	<tr>
+		<td>Order Total: </td>
+		<td>$
+			<script>
+				var ordTotal =  <#[order.ordertotal]#>;
+				ordTotal = ordTotal.toFixed(2);
+				document.write(ordTotal);
+			</script>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"  class="cartfooterrowcell"></td>
+	</tr>
+</table>
+<h3>Deliver To:</h3>
+<table width="600">
+	<tr>
+		<td colspan="2"  class="cartheadercell"></td>
+	</tr>
+
+	<tr>
+		<td>Attention:</td>
+		<td><#[order.shipping_to]#></td>
+	</tr>
+	<tr>
+		<td valign="top">Address:</td>
+		<td> <#[order.shipping_address1]#> <#[order.shipping_address2]#><br>
+<#[order.shipping_city]#>, 
+<#[order.shipping_state]#>
+<#[order.shipping_zip]#>
+		</td>
+	</tr>
+	<tr>
+		<td>Phone</td>
+		<td><#[order.shipping_phone]#></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><#[order.shipping_email]#></td>
+	</tr>
+	<tr>
+		<td colspan="2"  class="cartfooterrowcell"></td>
+	</tr>
+</table>
+
+
+<h3>Items Ordered:</h3>
+
+<# start list for cart;
+include when cart.orderid == "<#[url.oid]#>";
+show 100 rows per page;
+set overall_total to total of grand_total;
+#>
+<# start header #>
+<table width="600">
+	<tr>
+		<td class="cartheadercell">Qty</td>
+		<td class="cartheadercell">Item</td>
+		<td class="cartheadercell">Price</td>
+		<td class="cartheadercell" width="60">Tax</td>
+		<td class="cartheadercell" width="60">Shipping</td>
+		<td class="cartheadercell">Total</td>
+	</tr>
+<# end header #>
+<# start row #>
+
+	<tr>
+		<td><# cart.qty #></td>
+		<td><# cart.product_name #></td>
+		<td>$ <# cart.price #> </td>
+		<td><# cart.tax_rate_total #>
+			
+		</td>
+		<td>$<# cart.shipping_charge_total #>
+		</td>
+		<td>
+			$<# cart.grand_total #>
+		</td>
+	</tr>
+
+<# end row #>
+<# start footer #>
+	<tr>
+		<td class="cartfooterrowcell"></td>
+		<td class="cartfooterrowcell"></td>
+		<td class="cartfooterrowcell"></td>
+		<td class="cartfooterrowcell">
+			<td class="cartfooterrowcell" id="tbTotal">
+			<# 
+				set <# total #> to total of <# cart.grand_total #>;
+				round <# total #> to 2 decimals;
+				print "Your order total is $<# total #>"; 
+			#>
+			</td>
+		</td>
+	</tr>
+</table>
+<# end footer #>
+<# no results #> <# end no results #>
+<# end list #>
+<br>
+<br>
+<br>&nbsp;
+
+
+</td></tr></table>
+</center>
+
+
