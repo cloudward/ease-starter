@@ -130,7 +130,7 @@ hide pager both;
 				/** tax **/
 				var setupfee = "<# cart.setup_fee #>";
 				setupfee = setupfee.toUpperCase();
-				if(seupfee == "" || setupfee == "NO"){
+				if(setupfee == "" || setupfee == "NO"){
 					setupfee = "no";
 				}else{
 					setupfee = (setup).toFixed(2);
@@ -162,7 +162,7 @@ hide pager both;
 				var setupfee = "<# cart.setup_fee #>";
 				setupfee = setupfee.toUpperCase();
 				var total = <# cart.qty #> * <# cart.price #>;
-				if(seupfee == "" || setupfee == "NO"){
+				if(setupfee == "" || setupfee == "NO"){
 					total = total;
 				}else{
 					total = <# cart.setup_fee #> + total;
@@ -181,10 +181,10 @@ hide pager both;
 <# end row #>
 <# start footer #>
 	<tr>
+		<td colspan="4" class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell">Total</td>
-		<td class="cartfooterrowcell"></td>
-		<td colspan="5" class="cartfooterrowcell">$ 
+		<td class="cartfooterrowcell">$ 
 			<input type="text" id="tbTotal" value="" style="display:none">
 <script type="text/javascript">
 	function UpdateTotal()
@@ -196,11 +196,11 @@ hide pager both;
 		    for ( i = 0; i < oInputs.length; i++ )
 		     {
 				subject = parseFloat(oInputs[i].value);
-			//	alert(subject);
+				//alert(subject);
 		       	total = subject + total;
 		     }
-				total = total.toFixed(2);
-				document.write(total);
+			total = total.toFixed(2);
+			document.write(total);
 			document.getElementById("tbTotal").value = total;
 	}
 	var test = UpdateTotal();
