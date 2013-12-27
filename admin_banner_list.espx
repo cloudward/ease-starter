@@ -5,7 +5,7 @@
 <# include "_admin_menu.espx" #>
 
 <div class="welcomeheadline">Edit Banners</div>
-<p>Insert instructions here.</p>
+<p>You can add and edit banners for your homepage that will rotate automatically using the following tool.</p>
 <hr size="1">
 <a href="/?page=admin_banner_edit&edit=0">+Add New Banner</a>
 
@@ -19,12 +19,21 @@ show 25 rows per page;
 <# start header #><# end header #>
 
 <# start row #>
-<div class="blogheadline"><a href="<# webimages.file #>"  target="_blank"><img src="<# webimages.image1 #>" style="width:200;float:left"><# webimages.name #></a></div>
-<div class="blogteaser"> Display Order: <# webimages.showorder #>  Displayed Next: <# webimages.shownext #> 
-<br><a href="/?page=admin_banner_edit&edit=<# webimages.id #>">[Edit this Banner]</a> Status = <# webimages.status #>
-<br>Link to: <# webimages.link #>
- </div>
-<div class="blogseparator"></div>
+<div style="width: 100%:">
+	<div class="blogheadline" style="display: inline-block;">
+		<a href="<# webimages.file #>"  target="_blank"><img src="<# webimages.image1 #>" style="width:200;float:left"></a>
+		<div style="clear: both;"></div>
+	</div>
+	<div class="blogteaser" style="display: inline-block;vertical-align: top;"> 
+			<a href="<# webimages.file #>" target="_blank" style="font-size: 25px;font-weight: bold;"><# webimages.name #></a><br>
+			Display Order: <# webimages.showorder #>  Displayed Next: <# webimages.shownext #> 
+			<br><a href="/?page=admin_banner_edit&edit=<# webimages.id #>">[Edit this Banner]</a> Status = <# webimages.status #>
+			<br>Link to: <# webimages.link #>
+			<div style="clear: both;"></div>
+	</div>
+	<div class="blogseparator"></div>
+	<div style="clear: both;"></div>
+</div>
 <# end row #>
 <# start footer #>
 <p>

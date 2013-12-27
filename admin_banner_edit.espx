@@ -6,37 +6,13 @@
  
 <script type="text/javascript">
 	jQuery(document).ready(function(){
-			sf = "<#[webstyle.uploads_folder_id]#>";
-			if(sf == ""){
-				jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
-			}else{
-				var c = readCookie('DgU00');
-				if(c == '' || c == null){
-					jQuery('#tokenizer').show();
-				}else{
-					jQuery('#tokenizer').hide();
-				}
-				jQuery('#tokenizer').show();
-			}
+		if( "<#[webstyle.uploads_folder_id]#>" == ""){
+			window.alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.')
+			window.location.href='/?page=admin_new_wizard_spreadsheets';
+		}
 	});
-	
-	function readCookie(name) {
-	    var nameEQ = name + "=";
-	    var ca = document.cookie.split(';');
-	    for(var i=0;i < ca.length;i++) {
-	        var c = ca[i];
-	        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-	        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-	    }
-	    return null;
-	}
 </script>
 
-
-<# if ("<#[cookie.DgU00]#>" == ""){
-	set var.display to "";
-}
-#>
 
 
 <# start form for webimages <#[url.edit]#>; 
@@ -53,8 +29,10 @@ when deleting redirect to "/?page=admin_banner_list";
 <p>Image<br>
 
 <div>Trouble uploading? <a href="/genrateAccessToken?redirectURL=http://<# system.domain #>/?page=admin_banner_edit&t=true" id="tokenizer">Generate Access Token</a></div>
-<input type="text" style="width:400px"  <# articles.image1 #> >
-<input type="file" <# upload file to googledrive "/<#[webstyle.uploads_folder_id]#>" for articles.image1 #> >
+<input type="text" style="width:400px"  <# webimages.image1 #> />
+<input type="file" <# upload file to googledrive "/<#[webstyle.uploads_folder_id]#>" for webimages.image1 #> />
+
+
 
 <p>Link<br>
 <input type="text" style="width:400px"  <# webimages.link #> >

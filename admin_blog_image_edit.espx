@@ -2,35 +2,16 @@
 <# include "_htmlheader.espx" #>
 
 <# include "_admin_menu.espx" #>
+<# apply blogimages.<#[url.edit]#> as "blogimages" .#>
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
 	
-
-	sf = "<#[webstyle.uploads_folder_id]#>";
-	if(sf == ""){
-		jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
-	}else{
-		var c = readCookie('DgU00');
-		if(c == '' || c == null){
-			jQuery('#tokenizer').show();
-		}else{
-			jQuery('#tokenizer').hide();
-		}
-		jQuery('#tokenizer').show();
-	}
+	if( "<#[webstyle.uploads_folder_id]#>" == ""){
+		window.alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.')
+		window.location.href='/?page=admin_new_wizard_spreadsheets';
+	 }
 });
-
-function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
 
 </script>
 
@@ -53,8 +34,8 @@ when deleting redirect to "/?page=admin_article_edit&edit=<#[cookie.blog_id]#>";
 </div>
 <div id="googleDriveImage" style="margin-top: 15px;">
 	<span style="float: right;">Trouble uploading? <a href="/genrateAccessToken?redirectURL=http://<# system.domain #>/?page=admin_blog_image_edit" id="tokenizer">[Generate Access Token]</a></span>
-	<input type="text" style="width:100%"  <# blogimages.thumb #> >
-	<input type="file" <# upload file to googledrive "/<#[webstyle.uploads_folder_id]#>" for blogimages.thumb #> >
+	<input type="text" style="width:100%"  value="<# blogimages.thumb #>" >
+	<input type="file" <# upload file to googledrive "/<#[webstyle.uploads_folder_id]#>" for blogimages.thumb #> />
 </div>
 
 <input type="button" value="create" <# create button #> >
@@ -72,16 +53,22 @@ when deleting redirect to "/?page=admin_article_edit&edit=<#[cookie.blog_id]#>";
 <# start header #><# end header #>
 
 <# start row #>
-<div class="imagedetails">
-	<div id="imagecontainer" style="width: 30%;float:left;">
-		<img src="<# blogimages.thumb #>" width="70" height="50"/>
+<div style="width: 100%:">
+	<div class="imagedetails">
+		<div id="imagecontainer" style="display: inline-block;">
+			<img src="<# blogimages.thumb #>" width="70" height="50"/>
+			<div style="clear: both;"></div>
+		</div>
+		<div id="imageDetails"  style="display: inline-block;vertical-align: top;">
+			<div><# blogimages.name #></div>
+			<div><a href="/?page=admin_image_id_cookie&bid=<#[url.bid]#>&edit=<# blogimages.id #>">[Edit]</a></div>
+			<div style="clear: both;"></div>
+		</div>
+		<div style="clear: both;"></div>
 	</div>
-	<div id="imageDetails" style="width: 60%;float: left;">
-		<div><# blogimages.name #></div>
-		<div><a href="/?page=admin_image_id_cookie&bid=<#[url.bid]#>&edit=<# blogimages.id #>">[Edit]</a></div>
-	</div>
+	<div class="blogseparator"></div>
+	<div style="clear: both;"></div>
 </div>
-<div class="blogseparator"></div>
 <# end row #>
 <# start footer #>
 <p>
