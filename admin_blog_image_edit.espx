@@ -7,12 +7,30 @@
 <script type="text/javascript">
 jQuery(document).ready(function(){
 	
+	sf = "<#[webstyle.uploads_folder_id]#>";
+	
+	if(sf == ""){
+			if("<#[system.core]#>" == "PHP"){
+				window.alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.')
+				window.location.href='/?page=admin_new_wizard_spreadsheets';
+			}else{
+				window.location.href='/?page=admin_wizard_spreadsheets';
+				jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
+			}
+	}else{ 		
+		var c = readCookie('DgU00'); 		
+		if(c == '' || c == null){ 		
+			jQuery('#tokenizer').show(); 		
+		}else{ 		
+			jQuery('#tokenizer').hide(); 		
+		} 		
+		jQuery('#tokenizer').show(); 		
+	}
+	
 	if( "<#[webstyle.uploads_folder_id]#>" == ""){
-		window.alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.')
-		window.location.href='/?page=admin_new_wizard_spreadsheets';
-	 }
+		
+	}
 });
-
 </script>
 
 <# start form for blogimages <#[cookie.image_id]#>; 
@@ -33,7 +51,14 @@ when deleting redirect to "/?page=admin_article_edit&edit=<#[cookie.blog_id]#>";
 	<input type="text" style="width:100%"  <# blogimages.name #> >
 </div>
 <div id="googleDriveImage" style="margin-top: 15px;">
-	<span style="float: right;">Trouble uploading? <a href="/genrateAccessToken?redirectURL=http://<# system.domain #>/?page=admin_blog_image_edit" id="tokenizer">[Generate Access Token]</a></span>
+	<script type="text/javascript">
+	if("<#[system.core]#>" == "PHP"){
+		//do nothing
+	}else{
+		document.write("<span style='float: right;'>Trouble uploading? <a href='/genrateAccessToken?redirectURL=http://<# system.domain #>/?page=admin_blog_image_edit' id='tokenizer'>[Generate Access Token]</a></span>");
+	}
+	</script>
+	
 	<input type="text" style="width:100%"  value="<# blogimages.thumb #>" >
 	<input type="file" <# upload file to googledrive "/<#[webstyle.uploads_folder_id]#>" for blogimages.thumb #> />
 </div>
