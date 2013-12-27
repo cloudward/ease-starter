@@ -54,7 +54,6 @@ hide pager both;
 <div style="width: 30%;float: left;" id="chargeForm">
 	<form name="cloudBillingForm" id="cloudBillingForm" action="https://billing.cloudward.com/web_services/billing/" method="post" autocomplete="off">
 		<input type="hidden" name="submit" value="1">
-		<!--<input type="hidden" name="cid" value="<#[webuser.billing_cid]#>">-->
 		<input type="hidden" name="cid" value="<#[webuser.billing_cid]#>">
 		<input type="hidden" name="appcid" value="<#[cookie.cid]#>">
 		<input type="hidden" name="master_account_id" value="<#[easvault.marketplace_id]#>">
@@ -74,11 +73,79 @@ hide pager both;
 		<input type="hidden" name="email" value="<#[order.shipping_email]#>">
 		<input type="hidden" name="shipping_phone" value="<#[order.shipping_phone]#>">
 		<input type="hidden" name="paybycredit" value="1">
+		
 
 <# end header #>
 
 <# start row #>
 
+		<!-- new shipping and frequency flags -->
+		<script type="text/javascript">
+			var shipping_required = "<# cart.shipping_required #>";
+			shipping_required = shipping_required.toUpperCase();
+			if(shipping_required == "" || shipping_required == "NO"){
+				shipping_required = "no";
+				document.write("<input type='hidden' name='item[<# rownumber #>][shipping_required]' value='"+shipping_required+"'>");
+			}else{
+				shipping_required = "<# cart.shipping_required #>";
+				document.write("<input type='hidden' name='item[<# rownumber #>][shipping_required]' value='"+shipping_required+"'>");
+			}
+		</script>
+		<script type="text/javascript">
+			var setup_fee = "<# cart.setup_fee #>";
+			setup_fee = setup_fee.toUpperCase();
+			if(setup_fee == "" || setup_fee == "NO"){
+				setup_fee = "no";
+				document.write("<input type='hidden' name='item[<# rownumber #>][setup_fee]' value='"+setup_fee+"'>");
+			}else{
+				setup_fee = "<# cart.setup_fee #>";
+				document.write("<input type='hidden' name='item[<# rownumber #>][setup_fee]' value='"+setup_fee+"'>");
+			}
+		</script>
+		<script type="text/javascript">
+			var frequency = "<# cart.frequency #>";
+			frequency = frequency.toUpperCase();
+			if(frequency == "" || frequency == "1X"){
+				frequency = "1x";
+				document.write("<input type='hidden' name='item[<# rownumber #>][frequency]' value='"+frequency+"'>");
+			}else{
+				frequency = "Monthly";
+				document.write("<input type='hidden' name='item[<# rownumber #>][frequency]' value='"+frequency+"'>");
+			}
+		</script>
+		<script type="text/javascript">
+			var trialdays = "<# cart.free_trial_days #>";
+			trialdays = trialdays.toUpperCase();
+			if(trialdays == "" || trialdays == "NO"){
+				trialdays = "no";
+				document.write("<input type='hidden' name='item[<# rownumber #>][trialdays]' value='"+trialdays+"'>");
+			}else{
+				trialdays = "<# cart.free_trial_days #>";
+				document.write("<input type='hidden' name='item[<# rownumber #>][trialdays]' value='"+trialdays+"'>");
+			}
+		</script>
+		<script type="text/javascript">
+			var billdate = "<# cart.billing_date #>";
+			billdate = billdate.toUpperCase();
+			if(billdate == "" || billdate == "NO"){
+				billdate = "no";
+				document.write("<input type='hidden' name='item[<# rownumber #>][billdate]' value='"+billdate+"'>");
+			}else{
+				billdate = "<# cart.billing_date #>";
+				document.write("<input type='hidden' name='item[<# rownumber #>][billdate]' value='"+billdate+"'>");
+			}
+		</script>
+		<script type="text/javascript">
+			var prorate = "<# cart.prorate #>";
+			prorate = prorate.toUpperCase();
+			if(prorate == "" || prorate == "NO"){
+				prorate = "no";
+				document.write("<input type='hidden' name='item[<# rownumber #>][prorate]' value='"+prorate+"'>");
+			}else{
+				prorate = "<# cart.prorate #>";
+				document.write("<input type='hidden' name='item[<# rownumber #>][prorate]' value='"+prorate+"'>");
+			}
+		</script>
 		<input type="hidden" name="item[<# rownumber #>][qty]" value="<# cart.qty #>">
 		<input type="hidden" name="item[<# rownumber #>][description]" value="<# cart.product_name #>">
 		<input type="hidden" name="item[<# rownumber #>][price]" value="<# cart.price #>">
@@ -91,7 +158,7 @@ hide pager both;
 			var shipping = <# cart.shipping_charge #>;
 			document.write( "<input type='hidden' name='item[<#rownumber #>][shipping]' class='shipping' value='"+shipping+"'>" );
 		</script>
-		<input type="hidden" name="item[<# rownumber #>][frequency]" value="1x">
+		
 		<input type="hidden" name="item[<# rownumber #>][chargeType]" value="charge">
 
 <# end row #>

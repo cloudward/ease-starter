@@ -32,30 +32,16 @@
 }
 #>
 
-
 <# if ( "<#[cookie.orderid]#>" == "<#[order.id]#>" ) {
 	send email;
 		from_name = "<#[webstyle.notification_site_email]#>";
-		to = "<#[cookie.billingemail]#>";
+		to = "<#[order.shipping_email]#>";
 		cc = "<#[webstyle.notification_store_purchase]#>";
-		subject = "Purchase Details";
+		subject = "Purchase Details Notification";
 		type = "html"; // text or html
 		bodypage = "email_notification_sale?oid=<#[cookie.orderid]#>";
 }
 #>
-
-
-<# if ( "<#[cookie.orderid]#>" == "<#[order.id]#>" ) {
-	send email;
-		from_name = "<#[webstyle.notification_site_email]#>";
-		to = "<#[webstyle.notification_site_email]#>";
-		subject = "Purchase Details Notification";
-		type = "html"; // text or html
-		bodypage = "email_admin_purchase_notification?oid=<#[cookie.orderid]#>";
-}
-#>
-
-
 <#[webuser.billing_cid]#>
 <table width="600">
 	<tr>
@@ -128,6 +114,7 @@ hide pager both;
 		<td class="cartheadercell2">Qty</td>
 		<td class="cartheadercell2">Item</td>
 		<td class="cartheadercell2">Price</td>
+		<td class="cartheadercell2">Setup</td>
 		<td class="cartheadercell2">Tax</td>
 		<td class="cartheadercell2">Shipping</td>
 		<td class="cartheadercell2">Total</td>
@@ -138,7 +125,21 @@ hide pager both;
 		<td><# cart.qty #></td>
 		<td><# cart.product_name #></td>
 		<td>$ <# cart.price #> </td>
-		<td > $ 
+		<td> $ 
+			<script>
+				/** tax **/
+				var setupfee = "<# cart.setup_fee #>";
+				setupfee = setupfee.toUpperCase();
+				if(seupfee == "" || setupfee == "NO"){
+					setupfee = "no";
+				}else{
+					setupfee = (setup).toFixed(2);
+				}
+				document.write( "<input type='text' class='setup' value='"+setup+"' style='display:none'>" );
+				document.write(setupfee);
+			</script>
+		</td>
+		<td> $ 
 			<script>
 				/** tax **/
 				var subtotal = <# cart.qty #> * <# cart.price #>;
@@ -155,11 +156,19 @@ hide pager both;
 				document.write(shipping);
 			</script>
 		</td>
-		<td > $ 
+		<td> $ 
 			<script>
 				/** total **/
+				var setupfee = "<# cart.setup_fee #>";
+				setupfee = setupfee.toUpperCase();
 				var total = <# cart.qty #> * <# cart.price #>;
-				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+				if(seupfee == "" || setupfee == "NO"){
+					total = total;
+				}else{
+					total = <# cart.setup_fee #> + total;
+				}
+				
+				var tax = ((total * <# cart.tax_rate #>) / 100).toFixed(2);
 				var shipping = <# cart.shipping_charge #>;
 				grand_total = (Number(total) + Number(tax) + Number(shipping));
 				grand_total = grand_total.toFixed(2);
@@ -175,7 +184,7 @@ hide pager both;
 		<td class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell">Total</td>
 		<td class="cartfooterrowcell"></td>
-		<td colspan="3" class="cartfooterrowcell">$ 
+		<td colspan="5" class="cartfooterrowcell">$ 
 			<input type="text" id="tbTotal" value="" style="display:none">
 <script type="text/javascript">
 	function UpdateTotal()

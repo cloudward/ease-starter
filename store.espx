@@ -59,6 +59,14 @@
 						<input type="hidden" value="<# row.c #>" name="img">
 						<input type="hidden" value="<# row.h #>" name="tax_rate">
 						<input type="hidden" value="<# row.i #>" name="shipping_charge">
+						
+						<!-- new shipping and frequency variables -->
+						<input type="hidden" value="<# row.j #>" name="shipping_required">
+						<input type="hidden" value="<# row.k #>" name="setup_fee">
+						<input type="hidden" value="<# row.l #>" name="frequency">
+						<input type="hidden" value="<# row.m #>" name="free_trial_days">
+						<input type="hidden" value="<# row.n #>" name="billing_date">
+						<input type="hidden" value="<# row.o #>" name="prorate">
 					</form>
 				</div>
 				<div style="clear: both;"></div>

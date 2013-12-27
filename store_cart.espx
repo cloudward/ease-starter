@@ -52,6 +52,7 @@ hide pager both;
 		<td class="cartheadercell" colspan="2">Item</td>
 		<td class="cartheadercell" style="text-align: center;">Qty</td>
 		<td class="cartheadercell" width="80" style="text-align: center;">Price</td>
+		<td class="cartheadercell" width="80" style="text-align: center;">Setup</td>
 		<td class="cartheadercell" width="80" style="text-align: center;">Tax</td>
 		<td class="cartheadercell" width="80" style="text-align: center;">Shipping</td>
 		<td class="cartheadercell" width="80" style="text-align: center;">Total</td>
@@ -75,6 +76,20 @@ hide pager both;
 		</td>
 		<td class="cartrowcell"  style="text-align: center;"><# cart.qty #></td>
 		<td class="cartrowcell"  style="text-align: center;">$ <# cart.price #> </td>
+		<td class="cartrowcell"  style="text-align: center;">
+			<script>
+				/** setup fee **/
+				var setup = "<# cart.setup_fee #>";
+				setup = setup.toUpperCase();
+				if(setup == "" || setup == "NO"){
+					setup = 0;
+				}else{
+					setup = setup;
+				}
+				document.write( "<input type='text' class='setup' value='"+setup+"' style='display:none'>" );
+				document.write(setup);
+			</script>
+		</td>
 		<td class="cartrowcell"  style="text-align: center;">
 			<script>
 				/** tax **/
