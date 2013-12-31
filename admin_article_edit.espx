@@ -74,7 +74,7 @@ when creating set articles.created_on to "<# system.date_time_short #>";
 when creating set articles.author_id to "<#[cookie.cid]#>";
 when creating set articles.author to "<#[cookie.first]#> <#[cookie.last]#>";
 
-when creating redirect to "/?page=admin_article_edit?edit=<# form.id #>";
+when creating redirect to "/?page=admin_article_edit&edit=<# form.id #>";
 
 when updating redirect to "/?page=admin_article_list";
 
