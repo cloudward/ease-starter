@@ -64,7 +64,7 @@
 	set gorder.Zip to "";
 	set gorder.Phone to "";
 	set gorder.Email to "";
-        set gorder.Tax Percent to "";
+        set gorder.Actual Tax to "";
         set gorder.Shipping Charge to "";
         set gorder.Shipping Required to "";
         set gorder.Setup Fee to "";
