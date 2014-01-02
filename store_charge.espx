@@ -121,7 +121,7 @@ hide pager both;
 			var trialdays = "<# cart.free_trial_days #>";
 			trialdays = trialdays.toUpperCase();
 			if(trialdays == "" || trialdays == "NO"){
-				trialdays = "no";
+				trialdays = 0;
 				document.write("<input type='hidden' name='item[<# rownumber #>][trialdays]' value='"+trialdays+"'>");
 			}else{
 				trialdays = "<# cart.free_trial_days #>";
