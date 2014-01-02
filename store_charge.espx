@@ -102,6 +102,10 @@ hide pager both;
 				document.write("<input type='hidden' name='item[<# rownumber #>][setup_fee]' value='"+setup_fee+"'>");
 			}
 		</script>
+		<script>
+			var setup_fee_tax = ((Number(<# cart.setup_fee #>) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
+			document.write( "<input type='hidden' name='item[<#rownumber #>][setup_fee_tax]' class='setup_fee_tax' value='"+setup_fee_tax+"'>" );
+		</script>
 		<script type="text/javascript">
 			var frequency = "<# cart.frequency #>";
 			frequency = frequency.toUpperCase();
@@ -357,13 +361,14 @@ hide pager both;
 	<# start header #>
 	<table class="carttable">
 		<tr class="chargeHeader">
-			<td colspan="8">Order Summary</td>
+			<td colspan="10">Order Summary</td>
 		</tr>
 		<tr class="cartheaderrow">
 			<td width="10" class="cartheadercell"></td>
 			<td class="cartheadercell" colspan="2">Item</td>
 			<td class="cartheadercell" style="text-align: center;">Qty</td>
 			<td class="cartheadercell" width="80" style="text-align: center;">Price</td>
+			<td class="cartheadercell" width="80" style="text-align: center;">setup</td>
 			<td class="cartheadercell" width="80" style="text-align: center;">Tax</td>
 			<td class="cartheadercell" width="80" style="text-align: center;">Shipping</td>
 			<td class="cartheadercell" width="80" style="text-align: center;">Total</td>
@@ -388,15 +393,31 @@ hide pager both;
 			<td class="cartrowcell"  style="text-align: center;"><# cart.qty #></td>
 			<td class="cartrowcell"  style="text-align: center;">$ <# cart.price #> </td>
 			<td class="cartrowcell"  style="text-align: center;">
+				$
+				<script>
+					/** setup fee **/
+					var setupTax = ((Number(<# cart.setup_fee #>) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
+					var setup = (Number(<# cart.setup_fee #>) + Number(setupTax));
+					setup = (Number(setup)).toFixed(2);
+					if(setup == ""){
+						setup = 0;
+					}
+					document.write( "<input type='text' class='setup_fee2' value='"+setup+"' style='display:none'>" );
+					document.write(setup);
+				</script>
+			</td>
+			<td class="cartrowcell"  style="text-align: center;">
+				$
 				<script>
 					/** tax **/
-					var subtotal = <# cart.qty #> * <# cart.price #>;
-					var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+					var subtotal = (Number(<# cart.qty #>) * Number(<# cart.price #>));
+					var tax = ((Number(subtotal) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
 					document.write( "<input type='text' class='tax2' value='"+tax+"' style='display:none'>" );
 					document.write(tax);
 				</script>
 			</td>
 			<td class="cartrowcell"  style="text-align: center;">
+				$
 				<script>
 					/** shipping **/
 					var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
@@ -408,10 +429,13 @@ hide pager both;
 				$ 
 				<script>
 					/** total **/
-					var total = <# cart.qty #> * <# cart.price #>;
-					var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
-					var shipping = <# cart.shipping_charge #>;
-					grand_total = (Number(total) + Number(tax) + Number(shipping));
+					var total = Number(<# cart.qty #>) * Number(<# cart.price #>);
+					var tax = ((Number(subtotal) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
+					var setupTax = ((Number(<# cart.setup_fee #>) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
+					var setup = (Number(<# cart.setup_fee #>) + Number(setupTax));
+					setup = (Number(setup)).toFixed(2);
+					var shipping = Number(<# cart.shipping_charge #>);
+					grand_total = (Number(total) + Number(tax) + Number(shipping) + Number(setup));
 					document.write( "<input type='text' class='itemTotal2' value='"+grand_total+"' style='display:none'>" );
 					document.write(Number(grand_total).toFixed(2));
 				</script>
@@ -422,7 +446,7 @@ hide pager both;
 	<# end row #>
 	<# start footer #>
 		<tr class="cartfooterrow">
-			<td colspan="5" class="cartfooterrowcell" style="background-color: #FFF;"></td>
+			<td colspan="6" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 			<td class="cartfooterrowcell" style="background-color: #FFF;">
 			
 			</td>
@@ -440,7 +464,7 @@ hide pager both;
 		    			for ( i = 0; i < oInputs.length; i++ )
 		     			{
 							subject = parseFloat(oInputs[i].value);
-		       				tax = subject + tax;
+		       				tax = (Number(subject) + Number(tax));
 		     			}
 						document.write(Number(tax).toFixed(2));
 						document.getElementById("tbTax").value = Number(tax).toFixed(2);
@@ -450,7 +474,35 @@ hide pager both;
 			</td>
 		</tr>
 		<tr class="cartfooterrow">
-			<td colspan="5" class="cartfooterrowcell" style="background-color: #FFF;"></td>
+			<td colspan="6" class="cartfooterrowcell" style="background-color: #FFF;"></td>
+			<td class="cartfooterrowcell" style="background-color: #FFF;">
+			
+			</td>
+			<td colspan="" class="cartfooterrowcell" >Setup Fee</td>
+			<td colspan="" class="cartfooterrowcell" style="text-align: center;">
+				$
+				<input type="text" id="tbSetupFee" value="" style="display:none">
+				<script type="text/javascript">
+					function UpdateSetupFee()
+					{
+	       				var oInputs = new Array();
+						var setup_fee = 0;
+						var subject = 0;
+		     			oInputs = document.getElementsByClassName('setup_fee2'); // store collection of all <input/> elements
+		    			for ( i = 0; i < oInputs.length; i++ )
+		     			{
+							subject = parseFloat(oInputs[i].value);
+		       				setup_fee = (Number(subject) + Number(setup_fee));
+		     			}
+						document.write(Number(setup_fee).toFixed(2));
+						document.getElementById("tbSetupFee").value = Number(setup_fee).toFixed(2);
+					}
+					var runsetupfee = UpdateSetupFee();
+				</script>
+			</td>
+		</tr>
+		<tr class="cartfooterrow">
+			<td colspan="6" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 			<td class="cartfooterrowcell" style="background-color: #FFF;">
 			</td>
 			<td colspan="" class="cartfooterrowcell" >Shipping</td>
@@ -467,7 +519,7 @@ hide pager both;
 		    			for ( i = 0; i < oInputs.length; i++ )
 		     			{
 							subject = parseFloat(oInputs[i].value);
-		       				shipping = subject + shipping;
+		       				shipping = (Number(subject) + Number(shipping));
 		     			}
 						document.write(Number(shipping).toFixed(2));
 						document.getElementById("tbShipping").value = Number(shipping).toFixed(2);
@@ -477,7 +529,7 @@ hide pager both;
 			</td>
 		</tr>
 		<tr class="cartfooterrow">
-			<td colspan="5" class="cartfooterrowcell" style="background-color: #FFF;"></td>
+			<td colspan="6" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 			<td class="cartfooterrowcell" style="background-color: #FFF;">
 			</td>
 			<td class="cartfooterrowcell">Total </td>
@@ -494,7 +546,7 @@ hide pager both;
 			    		for ( i = 0; i < oInputs.length; i++ )
 			     		{
 							subject = parseFloat(oInputs[i].value);
-			       			total = subject + total;
+			       			total = (Number(subject) + Number(total));
 			     		}
 						document.write(Number(total).toFixed(2));
 						document.getElementById("tbTotal").value = Number(total).toFixed(2);

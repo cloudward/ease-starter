@@ -12,14 +12,18 @@ hide pager both;
 <# start row #>
 <# cart.qty #>  <# cart.product_name #> <# cart.price #>
 <script>
-	var total = <# cart.qty #> * <# cart.price #>;
-	var tax = ((total * <# cart.tax_rate #>) / 100).toFixed(2);
-	var shipping = <# cart.shipping_charge #>;
-	total = (Number(total) + Number(tax));
-	total = (Number(total) + Number(shipping));
+	var total = (Number(<# cart.qty #>) * Number(<# cart.price #>));
+	var tax = ((Number(total) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
+	var shipping = Number(<# cart.shipping_charge #>);
+	var setupTax = ((Number(<# cart.setup_Fee #>) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
+	var setup = (Number(<# cart.setup_fee #>) + Number(setupTax));
+	setup = (Number(setup)).toFixed(2);
+	total = (Number(total) + Number(tax) + Number(shipping) +  Number(setup));
+
 	document.write( "<input type='text' class='itemTotal' value='"+total+"' style='display:none'>" );
 	document.write( "<input type='text' class='itemTax' value='"+tax+"' style='display:none'>" );
 	document.write( "<input type='text' class='itemShipping' value='"+shipping+"' style='display:none'>" );
+	document.write( "<input type='text' class='itemSetup' value='"+setup+"' style='display:none'>" );
 </script>
 
 <# end row #>
@@ -181,6 +185,7 @@ when updating redirect to "/?page=store_charge";
 				<input type="hidden" id="ordertotal"  <# orders.ordertotal #> >
 				<input type="hidden" id="ordertax"  <# orders.ordertax #> >
 				<input type="hidden" id="ordershipping"  <# orders.ordershipping #> >
+				<input type="hidden" id="ordersetup"  <# orders.setupfee #> >
 				<script type="text/javascript">
 					function UpdateTotal()
 					{
@@ -191,8 +196,9 @@ when updating redirect to "/?page=store_charge";
 					    for ( i = 0; i < oInputs.length; i++ )
 					     {
 							subject = parseFloat(oInputs[i].value);
-					       	total = subject + total;
+					       	total = (Number(subject) + Number(total));
 					     }
+						total = total.toFixed(2);
 						document.getElementById("ordertotal").value = total;
 					}
 
@@ -205,8 +211,9 @@ when updating redirect to "/?page=store_charge";
 					    for ( i = 0; i < oInputs.length; i++ )
 					     {
 							subject = parseFloat(oInputs[i].value);
-					       	total = subject + total;
+					       	total = (Number(subject) + Number(total));
 					     }
+						total = total.toFixed(2);
 						document.getElementById("ordertax").value = total;
 					}
 
@@ -219,14 +226,31 @@ when updating redirect to "/?page=store_charge";
 					    for ( i = 0; i < oInputs.length; i++ )
 					     {
 							subject = parseFloat(oInputs[i].value);
-					       	total = subject + total;
+					       	total = (Number(subject) + Number(total));
 					     }
+						total = total.toFixed(2);
 						document.getElementById("ordershipping").value = total;
+					}
+					
+					function UpdateSetup()
+					{
+				       var oInputs = new Array();
+						var total = 0;
+						var subject = 0;
+					     oInputs = document.getElementsByClassName( 'itemSetup' ); // store collection of all <input/> elements
+					    for ( i = 0; i < oInputs.length; i++ )
+					     {
+							subject = parseFloat(oInputs[i].value);
+					       	total = (Number(subject) + Number(total));
+					     }
+						total = total.toFixed(2);
+						document.getElementById("ordersetup").value = total;
 					}
 
 					UpdateTotal();
 					UpdateTax();
 					UpdateShipping();
+					UpdateSetup();
 				</script>
 			
 			

@@ -22,7 +22,7 @@ set currentcart.prorate to "<#[url.prorate]#>";
 
 redirect to "/?page=store_cart&message=<#[url.product_name]#>Added&time=<#[cookie.cartid]#>&orderid=<#[url.orderid]#>";
 } else {
-redirect to "/?page=store_create_order_id&qty=<#[url.qty]#>&tax_rate=<#[url.tax_rate]#>&shipping_charge=<#[url.shipping_charge]#>&shipping_required=<#[url.shipping_required]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
+redirect to "/?page=store_create_order_id&qty=<#[url.qty]#>&tax_rate=<#[url.tax_rate]#>&setup_fee=<#[url.setup_fee]#>&shipping_charge=<#[url.shipping_charge]#>&shipping_required=<#[url.shipping_required]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
 }
 #>
 

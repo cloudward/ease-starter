@@ -77,6 +77,7 @@ hide pager both;
 		<td class="cartrowcell"  style="text-align: center;"><# cart.qty #></td>
 		<td class="cartrowcell"  style="text-align: center;">$ <# cart.price #> </td>
 		<td class="cartrowcell"  style="text-align: center;">
+			$
 			<script>
 				/** setup fee **/
 				var setup = "<# cart.setup_fee #>";
@@ -91,6 +92,7 @@ hide pager both;
 			</script>
 		</td>
 		<td class="cartrowcell"  style="text-align: center;">
+			$
 			<script>
 				/** tax **/
 				var subtotal = <# cart.qty #> * <# cart.price #>;
@@ -100,6 +102,7 @@ hide pager both;
 			</script>
 		</td>
 		<td class="cartrowcell"  style="text-align: center;">
+			$
 			<script>
 				/** shipping **/
 				var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
@@ -113,22 +116,51 @@ hide pager both;
 				/** total **/
 				var total = <# cart.qty #> * <# cart.price #>;
 				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
-				var shipping = <# cart.shipping_charge #>;
-				grand_total = (Number(total) + Number(tax) + Number(shipping));
+				var setup = Number(<# cart.setup_fee #>);
+				var shipping = Number(<# cart.shipping_charge #>);
+				grand_total = (Number(total) + Number(tax) + Number(shipping) + Number(setup));
 				document.write( "<input type='text' class='itemTotal' value='"+grand_total+"' style='display:none'>" );
 				document.write(Number(grand_total).toFixed(2));
 			</script>
 		</td>
+
 	</tr>
+
 <# end row #>
 <# start footer #>
+	<tr class="cartfooterrow">
+		<td colspan="6" class="cartfooterrowcell" style="background-color: #FFF;"></td>
+		<td class="cartfooterrowcell" style="background-color: #FFF;"></td>
+		<td class="cartfooterrowcell" >Setup</td>
+		<td class="cartfooterrowcell" style="text-align: center;">
+			$
+			<input type="text" id="tbSetup" value="" style="display:none">
+			<script type="text/javascript">
+				function UpdateSetup()
+				{
+       				var oInputs = new Array();
+					var setup = 0;
+					var subject = 0;
+	     			oInputs = document.getElementsByClassName( 'setup' ); // store collection of all <input/> elements
+	    			for ( i = 0; i < oInputs.length; i++ )
+	     			{
+						subject = parseFloat(oInputs[i].value);
+	       				setup = subject + setup;
+	     			}
+					document.write(Number(setup).toFixed(2));
+					document.getElementById("tbSetup").value = Number(setup).toFixed(2);
+				}
+				var runsetup = UpdateSetup();
+			</script>
+		</td>
+	</tr>
 	<tr class="cartfooterrow">
 		<td colspan="6" class="cartfooterrowcell" style="background-color: #FFF;"></td>
 		<td class="cartfooterrowcell" style="background-color: #FFF;">
 			<input type="button" value="Clear Cart" style="width: 120px;display: none;" onclick="javascript: window.location='/?page=store_clear_cart&orderid=<#[cookie.orderid]#>';">
 		</td>
-		<td class="cartfooterrowcell" >Tax</td>
-		<td class="cartfooterrowcell" style="text-align: center;">
+		<td colspan="" class="cartfooterrowcell" >Tax</td>
+		<td colspan="" class="cartfooterrowcell" style="text-align: center;">
 			$
 			<input type="text" id="tbTax" value="" style="display:none">
 			<script type="text/javascript">
