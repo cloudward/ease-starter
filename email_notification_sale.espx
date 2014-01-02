@@ -34,8 +34,9 @@
 	<tr>
 		<td>Order Total: </td>
 		<td>$
+			<#[order.ordertotal]#>
 			<script>
-				var ordTotal =  <#[order.ordertotal]#>;
+				var ordTotal =  Number(<#[order.ordertotal]#>);
 				ordTotal = ordTotal.toFixed(2);
 				document.write(ordTotal);
 			</script>

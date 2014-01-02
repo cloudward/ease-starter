@@ -36,10 +36,19 @@
 	send email;
 		from_name = "<#[webstyle.notification_site_email]#>";
 		to = "<#[order.shipping_email]#>";
-		cc = "<#[webstyle.notification_store_purchase]#>";
 		subject = "Purchase Details Notification";
 		type = "html"; // text or html
 		bodypage = "email_notification_sale?oid=<#[cookie.orderid]#>";
+}
+#>
+
+<# if ( "<#[cookie.orderid]#>" == "<#[order.id]#>" ) {
+	send email;
+		from_name = "<#[webstyle.notification_site_email]#>";
+		to = "<#[webstyle.notification_store_purchase]#>";
+		subject = "A new purchase was made";
+		type = "html"; // text or html
+		bodypage = "email_admin_purchase_notification?oid=<#[cookie.orderid]#>";
 }
 #>
 
