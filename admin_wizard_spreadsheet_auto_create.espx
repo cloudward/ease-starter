@@ -74,6 +74,14 @@
         set gorder.Prorate to "";
 }
 #>
+
+<# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "folder"){
+    set myautocreatedfolder.folder_id to google drive folder id by name "<#[system.domain]#> EASE File Uploads";
+    update record for "webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1";
+    set uploads_folder_id to "<#[myautocreatedfolder.folder_id]#>";
+}
+#>
+
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "contact"){
 	create new record for googlespreadsheet "EASE <#[system.domain]#> Contact List Spreadsheet" "Sheet1" and reference as "gcontact"; 
 	set gcontact.First to ""; 

@@ -15,7 +15,7 @@
 #>
 
 <div align="center">
-       <div class="alert alert-info"><span class="glyphicon glyphicon-upload"></span> Please wait while we create and save your spreadsheets for your site... do not leave this page, you will be redirected automatically.  (This can take a few minutes).  If you feel you are stuck on a step, go to <a target="_blank" href="/?page=admin_support">Admin Support</a> and submit a request
+       <div class="alert alert-info"><span class="glyphicon glyphicon-upload"></span> Please wait while we create and save your spreadsheets for your site... do not leave this page, you will be redirected automatically.  (This can take a few minutes).  If you feel you are stuck on a step, go to <a target="_blank" href="/?page=admin_support">Admin Support</a> and submit a request or <a href="javascript:location.reload();">click here to reload</a> the process.
        <br>
        <span id="notifications_status"></span>
 	      <span id="general_status"></span>
@@ -39,7 +39,7 @@
 
 <script type="text/javascript">
         var steps = 0;
-	var total_steps = 8;
+	var total_steps = 9;
 	app_id = "My Test App";
 	var i = 0;
        var sheets = new Array();
@@ -49,7 +49,8 @@
        sheets[3] = "email";
        sheets[4] = "contact";
        sheets[5] = "suggestions";
-       sheets[6] = "surveys";
+       sheets[6] = "folder";
+       sheets[7] = "surveys";
        
 	jQuery( document ).ready(function() {
 	      jQuery("#notifications_status").html("Creating store spreadsheet...");
@@ -82,6 +83,10 @@
 	      
 	      if(sheet_type != "finished"){
 		     jQuery("#notifications_status").html("Step " + steps + " of " + total_steps + " - Creating " + sheet_type + " spreadsheet...");
+	      }
+	      
+	      if (sheet_type == "folder") {
+		     jQuery("#notifications_status").html("Step " + steps + " of " + total_steps + " - Creating upload folder");
 	      }
             jQuery.ajax({
                 type: 'POST',
