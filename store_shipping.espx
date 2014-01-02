@@ -57,7 +57,7 @@ when updating redirect to "/?page=store_charge";
 	<tr>
 		<td class="shippingForm easelabel">Address Type</td>
 		<td class="shippingForm">
-			<select <# orders.shipping_type #> 
+			<select <# orders.shipping_type #>> 
 				<option value="Home">Home</option>
 				<option value="Business">Business</option>
 			</select>
