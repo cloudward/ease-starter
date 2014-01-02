@@ -60,7 +60,6 @@
 		<td>$ 
 			<script>
 				var ordTotal =  Number(<#[order.ordertotal]#>);
-				alert(ordTotal);
 				ordTotal = ordTotal.toFixed(2);
 				document.write(ordTotal);
 			</script>
