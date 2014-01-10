@@ -117,7 +117,7 @@
 		  }
 		},error: function(data){
                                     jQuery("#notifications_status").html("<B>There was an error creating the " + sheet_type + " spreadsheet, please reload the page</B>");
-		     }
+	       }
             });
 	}
 </script>
