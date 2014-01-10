@@ -78,7 +78,7 @@ hide pager both;
 <# end header #>
 
 <# start row #>
-
+		<input type="hidden" name="item[<# rownumber #>][item_id]" value="<# cart.id #>">
 		<!-- new shipping and frequency flags -->
 		<script type="text/javascript">
 			var shipping_required = "<# cart.shipping_required #>";
