@@ -14,7 +14,8 @@
 <# start form for orders 0; 
 when creating set orders.created_on to "<# system.date_time_short #>";
 when creating set orders.ordercid to "<#[cookie.cid]#>";
-when creating redirect to "/?page=member_create_order_id2&mid=<#[url.mid]#>&orderid=<# form.id #>&qty=<#[url.qty]#>&product_name=<#[mid.member_level]#>&price=<#[cookie.price]#>&sku=<#[cookie.sku]#>&img=";
+when creating set cookie.orderid to "<# form.id #>";
+when creating redirect to "/?page=store_add_to_cart&mid=<#[url.mid]#>&orderid=<# form.id #>&qty=<#[url.qty]#>&product_name=<#[mid.member_level]#>&price=<#[cookie.price]#>&sku=<#[cookie.sku]#>&img=";
 #> 
 <p>orders<br>
 	<input type="hidden" value="" <# orders.name #> >
