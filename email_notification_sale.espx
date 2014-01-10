@@ -129,8 +129,7 @@ round cart.tax_rate_total to 2 decimals;
 		<td class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell"></td>
-		<td class="cartfooterrowcell"></td>
-		<td class="cartfooterrowcell" id="tbTotal">
+		<td colspan="2" class="cartfooterrowcell" id="tbTotal">
 			<# 
 				set <# total #> to total of <# cart.grand_total #>;
 				round <# total #> to 2 decimals;

@@ -118,14 +118,9 @@
 			<td><# cart.qty #></td>
 			<td><# cart.product_name #></td>
 			<td>$ <# cart.price #> </td>
-			<td><# cart.tax_rate_total #>
-
-			</td>
-			<td>$<# cart.shipping_charge_total #>
-			</td>
-			<td>
-				$<# cart.grand_total #>
-			</td>
+			<td><# cart.tax_rate_total #></td>
+			<td>$<# cart.shipping_charge_total #></td>
+			<td>$<# cart.grand_total #></td>
 		</tr>
 
 	<# end row #>
@@ -134,14 +129,13 @@
 			<td class="cartfooterrowcell"></td>
 			<td class="cartfooterrowcell"></td>
 			<td class="cartfooterrowcell"></td>
-			<td class="cartfooterrowcell">
-				<td class="cartfooterrowcell" id="tbTotal">
+			<td class="cartfooterrowcell"></td>
+			<td colspan="2" class="cartfooterrowcell" id="tbTotal">
 				<# 
 					set <# total #> to total of <# cart.grand_total #>;
 					round <# total #> to 2 decimals;
 					print "Your order total is $<# total #>"; 
 				#>
-				</td>
 			</td>
 		</tr>
 	</table>
