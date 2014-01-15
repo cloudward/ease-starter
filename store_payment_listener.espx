@@ -23,9 +23,9 @@ foreach($_GET['cartitem'] AS $item){
 
 <# if ("<#[url.result]#>" == "approved") {
 	
-	//redirect to "/?page=store_addordertogoogle&oid=<#[url.orderid]#>&contactid=<#[url.appcid]#>&billing_cid=<#[url.contact_id]#>&accountid=<#[url.account_id]#>";
+	redirect to "/?page=store_addordertogoogle&oid=<#[url.orderid]#>&contactid=<#[url.appcid]#>&billing_cid=<#[url.contact_id]#>&accountid=<#[url.account_id]#>";
 } else {
 	
-	//redirect to "/?page=store_charge&msg=declined";
+	redirect to "/?page=store_charge&msg=declined";
 }
 #>
