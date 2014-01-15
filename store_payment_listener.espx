@@ -1,9 +1,15 @@
 
-<#[url.result]#>
+<?php
 
-<br>
+foreach($_GET['cartitem'] AS $item){
 
-<#[url.message]#>
+		$query = "UPDATE cart SET price=:price, qty_total=:qty, total=:total, sub_total=:subtotal, grand_total=:grandtotal WHERE uuid=:item_id";
+		$params = array(':price'=>$item['retail'], ':qty'=>$item['qty'], ':total' => $item['total'], ':subtotal' => $item['subtotal'], ':grandtotal' => $item['grandtotal'], ':itemid' => $item['item_id']);
+		$result = ease_db_query_params($query, $params);
+}
+	
+?>
+
 
 <br>
 <# if ("<#[url.appcid]#>" <> "") {
@@ -17,9 +23,9 @@
 
 <# if ("<#[url.result]#>" == "approved") {
 	
-	redirect to "/?page=store_addordertogoogle&oid=<#[url.orderid]#>&contactid=<#[url.appcid]#>&billing_cid=<#[url.contact_id]#>&accountid=<#[url.account_id]#>";
+	//redirect to "/?page=store_addordertogoogle&oid=<#[url.orderid]#>&contactid=<#[url.appcid]#>&billing_cid=<#[url.contact_id]#>&accountid=<#[url.account_id]#>";
 } else {
 	
-	redirect to "/?page=store_charge&msg=declined";
+	//redirect to "/?page=store_charge&msg=declined";
 }
 #>
