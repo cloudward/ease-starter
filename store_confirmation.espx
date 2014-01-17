@@ -17,42 +17,7 @@
 //	text-decoration:underline;
 }
 </style>
-<script type="text/javascript">
-	function daysInMonth(month, year) {
-	    return new Date(year, month, 0).getDate();
-	}
 
-	function prorateCharges(price, frequency, duedate, billdate, qty){
-		
-		frequency = frequency.toLowerCase();
-		var now = new Date();
-		var dd = new Date(duedate);
-		var bd = new Date(billdate);
-		var month = now.getMonth();
-		month = month + 1;
-		var year = now.getFullYear();
-		dd = dd.getTime();
-		bd = bd.getTime();
-
-		if( frequency == 'monthly' ){
-			var month_offset = 1;
-		}
-
-		// get number of days between bill date and due date;
-		var timeDiff = Math.abs(bd - dd);
-		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-		
-		
-		//get number of days in month
-		var days_in_month = daysInMonth(month, year);
-		
-		//divide price by number of days in the month multiplied by days left in billing period.
-		proCharge = (price / days_in_month) * diffDays;
-		proCharge = proCharge.toFixed(2);
-
-		return proCharge;
-	}
-</script>
 <# apply orders.<#[url.oid]#> as "order".#>
 
 <# apply webuser.61e4c67057c8a3df76286ab89fca716a as "webuser" .#>
@@ -101,15 +66,7 @@
 	</tr>
 	<tr>
 		<td>Order Total: </td>
-		<td id="orderTotal">$ 
-			<script>
-				/**
-				var ordTotal =  Number(<#[order.ordertotal]#>);
-				ordTotal = ordTotal.toFixed(2);
-				document.write(ordTotal);
-				**/
-			</script>
-		</td>
+		<td id="orderTotal">$ <#[order.ordertotal]#></td>
 	</tr>
 	<tr>
 		<td colspan="2"  class="cartfooterrowcell"></td>
@@ -170,203 +127,14 @@ hide pager both;
 	<tr>
 		<td><# cart.qty #></td>
 		<td><# cart.product_name #></td>
-		<td>$
-			<script type="text/javascript">
-				/** prorate display **/
-				var billdate = "<# cart.billing_date #>";
-				var compdate = billdate;
-				var prorate = "<# cart.prorate #>"
-				var prorate = prorate.toUpperCase();
-				var d = new Date();
-				var current_date = d.getDate();
-				var month = d.getMonth();
-				switch(month){
-					case 0:
-						month = 01;
-						break;
-					case 1:
-						month = 02;
-						break;
-					case 2:
-						month = 03;
-						break;
-					case 3:
-						month = 04;
-						break;
-					case 4:
-						month = 05;
-						break;
-					case 5:
-						month = 06;
-						break;
-					case 6:
-						month = 07;
-						break;
-					case 7:
-						month = 08;
-						break;
-					case 8:
-						month = 09;
-						break;
-					case 9:
-						month = 10;
-						break;
-					case 10:
-						month = 11;
-						break;
-					case 11:
-						month = 12;
-						break;
-				}
-				if(billdate){
-					var day = "<# cart.billing_date #>";
-				}else{
-					var day = d.getDate();
-				}
-				var bd_month = month;
-				if(bd_month == 0){
-					bd_month = 12;
-				}
-				var year = d.getFullYear();
-				var duedate = month + "/" + current_date + "/" + year;
-				var billdate = bd_month + "/" + billdate + "/" + year;
-				var qty = "<# cart.qty #>"; 
-				
-				if(prorate == "YES" && compdate > current_date){
-					
-					var proratedCharge = prorateCharges('<# cart.price #>', '<# cart.frequency #>', duedate, billdate, qty);
-				}
-				
-				if(prorate == "YES" && proratedCharge){
-					document.write(<# cart.price #> + " prorated to $" + proratedCharge);
-				}else{
-					document.write(<# cart.price #>);
-				}
-			</script> 
-		</td>
-		<td> $ 
+		<td>$ <# cart.price #></td>
+		<td> $ <# cart.setup_fee #></td>
+		<td> $ <# cart.tax_rate_total #></td>
+		<td>$ <# cart.shipping_charge #></td>
+		<td> $
 			<script>
-				/** setup fee **/
-				var setupfee = "<# cart.setup_fee #>";
-				setupfee = setupfee.toUpperCase(setupfee);
-				if(setupfee == "" || setupfee == "NO"){
-					setupfee = 0;
-				}else{
-					setupfee = (Number(setupfee)).toFixed(2);
-				}
-				document.write( "<input type='text' class='setup' value='"+setupfee+"' style='display:none'>" );
-				document.write(setupfee);
-			</script>
-		</td>
-		<td> $ 
-			<script>
-				/** tax **/
-				var subtotal = (Number(<# cart.qty #>) * Number(<# cart.price #>));
-				var tax = ((Number(subtotal) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
-				document.write( "<input type='text' class='tax' value='"+tax+"' style='display:none'>" );
-				document.write(tax);
-			</script>
-		</td>
-		<td>
-			<script>
-				/** shipping **/
-				var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
-				document.write( "<input type='text' class='tax' value='"+shipping+"' style='display:none'>" );
-				document.write(shipping);
-			</script>
-		</td>
-		<td> $ 
-			<script>
-				
-				/** total **/
-				var setupfee = "<# cart.setup_fee #>";
-				setupfee = setupfee.toUpperCase(setupfee);
-				
-				/** prorate display **/
-				var billdate = "<# cart.billing_date #>";
-				var compdate = billdate;
-				var prorate = "<# cart.prorate #>"
-				var prorate = prorate.toUpperCase();
-				var d = new Date();
-				var current_date = d.getDate();
-				var month = d.getMonth();
-				switch(month){
-					case 0:
-						month = 01;
-						break;
-					case 1:
-						month = 02;
-						break;
-					case 2:
-						month = 03;
-						break;
-					case 3:
-						month = 04;
-						break;
-					case 4:
-						month = 05;
-						break;
-					case 5:
-						month = 06;
-						break;
-					case 6:
-						month = 07;
-						break;
-					case 7:
-						month = 08;
-						break;
-					case 8:
-						month = 09;
-						break;
-					case 9:
-						month = 10;
-						break;
-					case 10:
-						month = 11;
-						break;
-					case 11:
-						month = 12;
-						break;
-				}
-				if(billdate){
-					var day = "<# cart.billing_date #>";
-				}else{
-					var day = d.getDate();
-				}
-				var bd_month = month;
-				if(bd_month == 0){
-					bd_month = 12;
-				}
-				var year = d.getFullYear();
-				var duedate = month + "/" + current_date + "/" + year;
-				var billdate = bd_month + "/" + billdate + "/" + year;
-				var qty = "<# cart.qty #>"; 
-				
-				if(prorate == "YES" && compdate > current_date){
-					var proratedCharge = prorateCharges('<# cart.price #>', '<# cart.frequency #>', duedate, billdate, qty);
-				}
-				if(prorate == "YES" && proratedCharge){
-					var total = (Number(<# cart.qty #>) * Number(proratedCharge));
-				}else{
-					var total = (Number(<# cart.qty #>) * Number(<# cart.price #>));
-				}
-				
-				
-				if(setupfee == "" || setupfee == "NO"){
-					total = total;
-				}else{
-					total = (Number(<# cart.setup_fee #>) + Number(total));
-				}
-				
-				var tax = ((Number(total) * Number(<# cart.tax_rate #>)) / 100).toFixed(2);
-				var shipping = Number(<# cart.shipping_charge #>);
-				grand_total = (Number(total) + Number(tax) + Number(shipping));
-				grand_total = grand_total.toFixed(2);
-				document.write( "<input type='text' class='itemTotal' value='"+grand_total+"' style='display:none'>" );
-				document.write(Number(grand_total).toFixed(2));
-				
-				
-				
+				var subtotal = (Number(<# cart.sub_total #>) + Number(<# cart.shipping_charge #>) + Number(<# cart.setup_fee #>) + Number(<# cart.tax_rate_total #>)).toFixed(2);
+				document.write(subtotal);
 			</script>
 		</td>
 	</tr>
@@ -377,39 +145,7 @@ hide pager both;
 		<td colspan="4" class="cartfooterrowcell">&nbsp;</td>
 		<td class="cartfooterrowcell">&nbsp;</td>
 		<td class="cartfooterrowcell">Total</td>
-		<td class="cartfooterrowcell">$ 
-			<input type="text" id="tbTotal" value="" style="display:none">
-<script type="text/javascript">
-	function UpdateTotal()
-	{
-	       var oInputs = new Array();
-			var total = 0;
-			var subject = 0;
-		     oInputs = document.getElementsByClassName( 'itemTotal' ); // store collection of all <input/> elements
-		    for ( i = 0; i < oInputs.length; i++ )
-		     {
-				subject = parseFloat(oInputs[i].value);
-		       	total = (Number(subject) + Number(total));
-		     }
-			total = total.toFixed(2);
-			document.write(total);
-			document.getElementById("tbTotal").value = total;
-			document.getElementById("orderTotal").innerHTML = "$"+total;
-	}
-	var test = UpdateTotal();
-	function goBack()
-	  {
-	  window.history.back()
-	  }
-	function checkout()
-	  {
-		var tbTotal = document.getElementById("tbTotal").value;
-		window.location = "/?page=store_shipping";
-	  }
-	
-
-</script>
-	</td>
+		<td class="cartfooterrowcell">$ <#[order.ordertotal]#></td>
 	</tr>
 </table>
 <# end footer #>
