@@ -10,11 +10,11 @@ foreach($_GET['cartitem'] AS $item){
 		if($item['is_setup'] <> "On"){
 			
 			/** update item totals **/
-			$query = "UPDATE cart SET price=:price, qty=:qty, tax_rate_total=:tax_rate_total, total=:total, sub_total=:subtotal WHERE uuid=:itemid";
-			$params = array(':price'=>$item['retail'], ':qty'=>$item['qty'], ':tax_rate_total'=>$item['tax'], ':total'=>$item['grandtotal'], ':subtotal'=>$item['subtotal'], ':itemid'=>$item['id']);
+			$query = "UPDATE cart SET price=:price, qty=:qty, tax_rate_total=:tax_rate_total, total=:total, sub_total=:subtotal, grand_total=:grandtotal WHERE uuid=:itemid";
+			$params = array(':price'=>$item['retail'], ':qty'=>$item['qty'], ':tax_rate_total'=>$item['tax'], ':total'=>$item['grandtotal'], ':subtotal'=>$item['subtotal'], ':grandtotal'=>$item['grandtotal'], ':itemid'=>$item['id']);
 			$result = ease_db_query_params($query, $params);
 		}else{
-
+			
 			/** update item with setup fee tax and total **/
 			$query2 = "UPDATE cart SET setup_fee=:setupfee WHERE uuid=:itemid";
 			$params2 = array(':setupfee'=>$item['grandtotal'], ':itemid'=>$item['id']);
