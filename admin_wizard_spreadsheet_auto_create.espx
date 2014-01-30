@@ -111,7 +111,7 @@
 	set gsurvey.Name to ""; 
 	set gsurvey.Email to ""; 
 	set gsurvey.Experience to "";
-        set gsurvey.Recomend to "";
+        set gsurvey.Recommend to "";
 	set gsurvey.Comments to ""; 
 }
 #>
