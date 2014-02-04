@@ -7,37 +7,79 @@
 <style>
 .warning { display:none;}
 </style>
-<script>
+<script type="text/javascript">
 function editstyle(){
-document.getElementById('editstyle').style.display = ''; 	
+	if (document.getElementById('editstyle').style.display == 'none')
+	{
+		document.getElementById('editstyle').style.display = ''; 
+	}else {
+		document.getElementById('editstyle').style.display = 'none'; 	
+	}
 }
 function edithtml(){
-document.getElementById('edithtml').style.display = ''; 	
+	if (document.getElementById('edithtml').style.display == 'none')
+	{
+		document.getElementById('edithtml').style.display = ''; 
+	}else {
+		document.getElementById('edithtml').style.display = 'none'; 	
+	}	
 }
 function edithtmlfooter(){
-document.getElementById('edithtmlfooter').style.display = ''; 	
+	if (document.getElementById('edithtmlfooter').style.display == 'none')
+	{
+		document.getElementById('edithtmlfooter').style.display = ''; 
+	}else {
+		document.getElementById('edithtmlfooter').style.display = 'none'; 	
+	}	
 }
 function editnavtop(){
-document.getElementById('editnavtop').style.display = ''; 	
+	if (document.getElementById('editnavtop').style.display == 'none')
+	{
+		document.getElementById('editnavtop').style.display = ''; 
+	}else {
+		document.getElementById('editnavtop').style.display = 'none'; 	
+	}	
 }
 function editnavbottom(){
-document.getElementById('editnavbottom').style.display = ''; 	
+	if (document.getElementById('editnavbottom').style.display == 'none')
+	{
+		document.getElementById('editnavbottom').style.display = ''; 
+	}else {
+		document.getElementById('editnavbottom').style.display = 'none'; 	
+	}	
 }
 function editadmin(){
-document.getElementById('editadmin').style.display = ''; 	
+	if (document.getElementById('editadmin').style.display == 'none')
+	{
+		document.getElementById('editadmin').style.display = ''; 
+	}else {
+		document.getElementById('editadmin').style.display = 'none'; 	
+	}	
 }
 function editadminfoot(){
-document.getElementById('editadminfoot').style.display = ''; 	
+	if (document.getElementById('editadminfoot').style.display == 'none')
+	{
+		document.getElementById('editadminfoot').style.display = ''; 
+	}else {
+		document.getElementById('editadminfoot').style.display = 'none'; 	
+	}	
 }
-
 function editmembers(){
-document.getElementById('editmembers').style.display = ''; 	
+	if (document.getElementById('editmembers').style.display == 'none')
+	{
+		document.getElementById('editmembers').style.display = ''; 
+	}else {
+		document.getElementById('editmembers').style.display = 'none'; 	
+	}
 }
 function editmembersfoot(){
-document.getElementById('editmembersfoot').style.display = ''; 	
+	if (document.getElementById('editmembersfoot').style.display == 'none')
+	{
+		document.getElementById('editmembersfoot').style.display = ''; 
+	}else {
+		document.getElementById('editmembersfoot').style.display = 'none'; 	
+	}	
 }
-
-
 </script>
 
 <# start form for webstyle <#[url.edit]#>; 
