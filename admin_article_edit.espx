@@ -78,6 +78,7 @@ when creating redirect to "/?page=admin_article_edit&edit=<# form.id #>";
 
 when updating redirect to "/?page=admin_article_list";
 
+when deleting call confirm("Are you sure you want to delete this article?");
 when deleting redirect to "/?page=admin_article_list";
 
 #> 

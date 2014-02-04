@@ -8,13 +8,18 @@
 <# start form for articles <#[url.edit]#>; 
 // when creating set articles.status to "new"; 
 
+when creating call fixImportedHtml();
 when creating set articles.created_on to "<# system.date_time_short #>";
+when creating set articles.author_id to "<#[cookie.cid]#>";
+when creating set articles.author to "<#[cookie.first]#> <#[cookie.last]#>";
 
 when creating redirect to "/?page=admin_article_list";
 // need to get id's passed properly in redirect
 
+when updating call fixImportedHtml();
 when updating redirect to "/?page=admin_article_list";
 
+when deleting call confirm("Are you sure you want to delete this article?");
 when deleting redirect to "/?page=admin_article_list";
 
 #> 
@@ -27,7 +32,7 @@ when deleting redirect to "/?page=admin_article_list";
 	<p style="float: left;">Body</p> 
 	<p style="float: right;"><a href="/?page=admin_article_edit&edit=<#[url.edit]#>">[Editor On]</a></p>
 </div>
-<textarea style="width:100%;height:285px" <# articles.body #> ></textarea>
+<textarea style="width:100%;height:285px" id="bodytext" <# articles.body #> ></textarea>
 
 <p>Status (on / off)
 	<input type="text" style="width:50px" <# articles.status #> >
@@ -53,6 +58,33 @@ when deleting redirect to "/?page=admin_article_list";
 <input type="button" value="delete" <# delete button #> >
 <p>
 <# end form #> 
+
+<script type="text/javascript">
+function fixImportedHtml()
+{
+var cleanval = document.getElementById("bodytext").value;
+//take out the top html, head and meta tags.
+var stringElems = cleanval.split("<style", 2);
+cleanval = "<style" + stringElems['1'];
+//remove the ending head and body tag
+var stringElems2 = cleanval.split("</head>", 2);
+var part2  = stringElems2['1'];
+if (part2)
+{
+	//get the parts after the body tag
+	var stringElems3 = part2.split("><");
+	parts = stringElems3.slice(1, stringElems3.length);
+	// Join the results together
+	part3 = parts.join("><");
+	//add this back to the <style> section
+	cleanval = stringElems2['0'] + "<" + part3;
+	//finally, remove the end body and end html
+	var stringElems4 = cleanval.split("</body>", 2);
+	cleanval = stringElems4['0'];
+}
+document.getElementById("bodytext").value = cleanval;
+}
+</script>
 
 <# include "_admin_footer.espx" #>
 
