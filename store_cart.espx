@@ -67,7 +67,11 @@ hide pager both;
 		</td>
 		<td width="50" class="cartrowcell">
 			<div class="imgcontainer">
-				<img src="<# cart.img #>" width="100%" style="box-shadow: 2px 2px 2px #CCC;border: 1px #CCC solid;"/>
+				<script>
+					if("<# cart.img #>" != ""){
+						document.write('<img src="<# cart.img #>" width="100%" style="box-shadow: 2px 2px 2px #CCC;border: 1px #CCC solid;"/>');
+					}
+				</script>
 			</div>
 		</td>
 		<td class="cartrowcell">
@@ -95,8 +99,14 @@ hide pager both;
 			$
 			<script>
 				/** tax **/
+				var taxrate = "<# cart.tax_rate #>";
+				if(taxrate == ""){
+					taxrate = 0;
+				}else{
+					taxrate = Number(taxrate);
+				}
 				var subtotal = <# cart.qty #> * <# cart.price #>;
-				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+				var tax = ((subtotal * taxrate) / 100).toFixed(2);
 				document.write( "<input type='text' class='tax' value='"+tax+"' style='display:none'>" );
 				document.write(tax);
 			</script>
@@ -114,8 +124,14 @@ hide pager both;
 			$ 
 			<script>
 				/** total **/
+				var taxrate = "<# cart.tax_rate #>";
+				if(taxrate == ""){
+					taxrate = 0;
+				}else{
+					taxrate = Number(taxrate);
+				}
 				var total = <# cart.qty #> * <# cart.price #>;
-				var tax = ((subtotal * <# cart.tax_rate #>) / 100).toFixed(2);
+				var tax = ((subtotal * taxrate) / 100).toFixed(2);
 				var setup = Number(<# cart.setup_fee #>);
 				var shipping = Number(<# cart.shipping_charge #>);
 				grand_total = (Number(total) + Number(tax) + Number(shipping) + Number(setup));

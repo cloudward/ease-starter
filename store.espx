@@ -37,7 +37,7 @@
 	<# start row #>
 		<div class="storelisting2">
 			<div class="storelistingpricecontainer">
-				<div class="storelistingprice">$ <# row.f #></div>
+				<div class="storelistingprice" id="pricedisplay_<# row.t #>">$ <# row.f #></div>
 				<div class="triangle"></div>
 				<div style="clear: both;"></div>
 			</div>
@@ -51,10 +51,21 @@
 				<div class="storelistingsku">sku <# row.g #></div>
 					<form name="addtocart" action="/" method="get" class="storelistingform"> 
 						<input type="hidden" value="store_add_to_cart" name="page">
-						<input type="text" value="1" name="qty" maxlength="5" class="storeqty">
+						<script>
+							var chargeType = "<# row.p #>";
+							chargeType = chargeType.toLowerCase();
+							if(chargeType == "donation with qty" || chargeType == "donation"){
+								document.write("Amount: <input type='text' id='<# row.t #>'  onkeyup='javascript: priceChange(this.value,this.id);' value='<# row.f #>' name='userprice' style='width: 50px;'>");
+							}
+							if(chargeType == "donation"){
+								document.write("<input type='text' value='1' name='qty' maxlength='5' class='storeqty' style='display: none;' readonly>");
+							}else{
+								document.write("<input type='text' value='1' name='qty' maxlength='5' class='storeqty'>");
+							}
+						</script>
 						<input type="submit" value="Add to Cart" class="storebutton">
 						<input type="hidden" value="<# row.a #>" name="product_name">
-						<input type="hidden" value="<# row.f #>" name="price">
+						<input type="hidden" value="<# row.f #>" id="pricehidden_<# row.t #>" name="price">
 						<input type="hidden" value="<# row.g #>" name="sku">
 						<input type="hidden" value="<# row.c #>" name="img">
 						<input type="hidden" value="<# row.h #>" name="tax_rate">
@@ -96,6 +107,11 @@
 	<# end list #>
 	<div style="clear: both;"></div>
 </div>
-
+<script type="text/javascript">
+function priceChange(price,id){
+	document.getElementById('pricehidden_'+id).value = price;
+	document.getElementById('pricedisplay_'+id).innerHTML = "$ "+price;
+}
+</script>
 
 <# include "_htmlfooter.espx" #>
