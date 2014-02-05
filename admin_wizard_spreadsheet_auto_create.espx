@@ -21,6 +21,7 @@
         set gstore.Free Trial Days to "";
         set gstore.Bill Date to "";
         set gstore.Prorate to "";
+        set gstore.Charge Type to "";
     }
 
 #>
