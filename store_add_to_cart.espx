@@ -19,6 +19,8 @@ set currentcart.frequency to "<#[url.frequency]#>";
 set currentcart.free_trial_days to "<#[url.free_trial_days]#>";
 set currentcart.billing_date to "<#[url.billing_date]#>";
 set currentcart.prorate to "<#[url.prorate]#>";
+set currentcart.tax_rate_total to "0.00";
+set currentcart.grand_total to "0.00";
 
 redirect to "/?page=store_cart&message=<#[url.product_name]#>Added&time=<#[cookie.cartid]#>&orderid=<#[url.orderid]#>";
 } else {

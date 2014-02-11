@@ -16,9 +16,13 @@
 //	text-decoration:underline;
 }
 </style>
-
+<# apply webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1 as "webstyle" .#>
 <# apply orders.<#[url.oid]#> as "order".#>
 
+<div style="width: 100%;">
+    <!-- custom message goes here -->
+	<#[webstyle.purchase_body]#>
+</div>
 <table width="600">
 	<tr>
 		<td colspan="2"  class="cartheadercell"></td>
@@ -33,14 +37,7 @@
 	</tr>
 	<tr>
 		<td>Order Total: </td>
-		<td>$
-			<#[order.ordertotal]#>
-			<script>
-				var ordTotal =  Number(<#[order.ordertotal]#>);
-				ordTotal = ordTotal.toFixed(2);
-				document.write(ordTotal);
-			</script>
-		</td>
+		<td>$ <#[order.ordertotal]#></td>
 	</tr>
 	<tr>
 		<td colspan="2"  class="cartfooterrowcell"></td>
@@ -103,14 +100,9 @@ set overall_total to total of grand_total;
 		<td><# cart.product_name #></td>
 		<td>$ <# cart.price #> </td>
 		<td>$ <# cart.setup_fee #> </td>
-		<td><# cart.tax_rate_total #></td>
-		<td>$<# cart.shipping_charge #></td>
-		<td>$
-			<# 
-				set <# itemtotal #> to <# cart.grand_total #> + <# cart.setup_fee #>;
-			#>
-			<# itemtotal #>
-		</td>
+		<td>$ <# cart.tax_rate_total #></td>
+		<td>$ <# cart.shipping_charge #></td>
+		<td>$ <# cart.grand_total #></td>
 	</tr>
 
 <# end row #>
@@ -121,12 +113,9 @@ set overall_total to total of grand_total;
 		<td class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell"></td>
 		<td class="cartfooterrowcell"></td>
-		<td colspan="2" class="cartfooterrowcell" id="tbTotal">
-			<# 
-				set <# total #> to total of <# cart.grand_total #>;
-				round <# total #> to 2 decimals;
-				print "Your order total is $<# total #>"; 
-			#>
+		<td class="cartfooterrowcell"></td>
+		<td class="cartfooterrowcell" id="tbTotal">
+			<#[order.ordertotal]#>
 		</td>
 	</tr>
 </table>
@@ -139,6 +128,7 @@ set overall_total to total of grand_total;
 
 
 </td></tr></table>
+
 </center>
 
 

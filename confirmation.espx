@@ -12,6 +12,11 @@
 }
 #>
 
+<# if ("<#[webstyle.contacts_subject]#>" == ""){
+	set webstyle.contacts_subject to "New Contact";
+}
+#>
+
 <# start list for content;
 include when content.page == "confirmation";
 hide pager both;
@@ -25,16 +30,9 @@ hide pager both;
 	send email;
 		from_name = "<#[webstyle.notification_site_email]#>";
 		to = "<#[webstyle.notification_contact_us]#>";
-		subject = "New Contact";
+		subject = "<#[webstyle.contacts_subject]#>";
 		type = "html"; // text or html
-		body = """ You have a new contact.<br>
-	
-	Go to your contacts spreadsheets to view details and comments<br><br>
-
-	Sincerely,<br>
-	<# system.domain #> Technical Support<br><br>
-
-	 """;
+		body = "<#[webstyle.contacts_body]#>";
 	
 #>
 

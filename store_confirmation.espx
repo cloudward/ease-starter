@@ -1,8 +1,8 @@
 
 <# include "_htmlheader.espx" #>
 <br>
-<center>
-<table width="600">
+
+<table width="100%">
 	<tr>
 		<td>
 			
@@ -32,11 +32,16 @@
 }
 #>
 
+<# if ("<#[webstyle.purchase_subject]#>" == ""){
+	set webstyle.purchase_subject to "Purchase Details Notification";
+}
+#>
+
 <# if ( "<#[cookie.orderid]#>" == "<#[order.id]#>" ) {
 	send email;
 		from_name = "<#[webstyle.notification_site_email]#>";
 		to = "<#[order.shipping_email]#>";
-		subject = "Purchase Details Notification";
+		subject = "<#[webstyle.purchase_subject]#>";
 		type = "html"; // text or html
 		bodypage = "email_notification_sale?oid=<#[cookie.orderid]#>";
 }
@@ -46,13 +51,13 @@
 	send email;
 		from_name = "<#[webstyle.notification_site_email]#>";
 		to = "<#[webstyle.notification_store_purchase]#>";
-		subject = "A new purchase was made";
+		subject = "<#[webstyle.purchase_subject]#>";
 		type = "html"; // text or html
 		bodypage = "email_admin_purchase_notification?oid=<#[cookie.orderid]#>";
 }
 #>
 
-<table width="600">
+<table width="100%">
 	<tr>
 		<td colspan="2"  class="cartheadercell"></td>
 	</tr>
@@ -66,14 +71,18 @@
 	</tr>
 	<tr>
 		<td>Order Total: </td>
-		<td id="orderTotal">$ <#[order.ordertotal]#></td>
+		<td id="orderTotal">$ 
+		    <script>
+				document.write(Number(<#[order.ordertotal]#>).toFixed(2));
+			</script>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2"  class="cartfooterrowcell"></td>
 	</tr>
 </table>
 <h3>Deliver To:</h3>
-<table width="600">
+<table width="100%">
 	<tr>
 		<td colspan="2"  class="cartheadercell"></td>
 	</tr>
@@ -112,7 +121,7 @@ show 100 rows per page;
 hide pager both;
 #>
 <# start header #>
-<table width="600">
+<table width="100%">
 	<tr>
 		<td class="cartheadercell2">Qty</td>
 		<td class="cartheadercell2">Item</td>
@@ -127,14 +136,29 @@ hide pager both;
 	<tr>
 		<td><# cart.qty #></td>
 		<td><# cart.product_name #></td>
-		<td>$ <# cart.price #></td>
-		<td> $ <# cart.setup_fee #></td>
-		<td> $ <# cart.tax_rate_total #></td>
-		<td>$ <# cart.shipping_charge #></td>
+		<td>$
+			<script>
+				document.write(Number(<# cart.price #>).toFixed(2));
+			</script>
+		</td>
 		<td> $
 			<script>
-				var subtotal = (Number(<# cart.sub_total #>) + Number(<# cart.shipping_charge #>) + Number(<# cart.setup_fee #>) + Number(<# cart.tax_rate_total #>)).toFixed(2);
-				document.write(subtotal);
+				document.write(Number(<# cart.setup_fee #>).toFixed(2));
+			</script>
+		</td>
+		<td> $
+			<script>
+				document.write(Number(<# cart.tax_rate_total #>).toFixed(2));
+			</script> 
+		</td>
+		<td>$
+			<script>
+				document.write(Number(<# cart.shipping_charge #>).toFixed(2));
+			</script> 
+		</td>
+		<td> $
+			<script>
+				document.write(Number(<# cart.grand_total #>).toFixed(2));
 			</script>
 		</td>
 	</tr>
@@ -145,7 +169,11 @@ hide pager both;
 		<td colspan="4" class="cartfooterrowcell">&nbsp;</td>
 		<td class="cartfooterrowcell">&nbsp;</td>
 		<td class="cartfooterrowcell">Total</td>
-		<td class="cartfooterrowcell">$ <#[order.ordertotal]#></td>
+		<td class="cartfooterrowcell">$ 
+		   <script>
+				document.write(Number(<#[order.ordertotal]#>).toFixed(2));
+			</script>
+		</td>
 	</tr>
 </table>
 <# end footer #>
@@ -160,8 +188,14 @@ set cookie.orderid to "";
 // kills cookie for orderid
 #>
 
-</td></tr></table>
-</center>
-<# include "_htmlfooter.espx" #>
+<script>
+$(document).ready(function(){
+    $('.insidepage').css('background-color', '#FFF');
+});
+</script>
 
+</td></tr></table>
+<div class="footer_include_container">
+<# include "_htmlfooter.espx" #>
+</div>
 

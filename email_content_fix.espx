@@ -1,0 +1,179 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+<# include "_admin_menu.espx" #>
+<script>
+function editgdoc(){
+document.getElementById('editgoogledoc').style.display = ''; 	
+document.getElementById('googledocbutton').style.display = 'none'; 	
+document.getElementById('otherformelements').style.display = 'none'; 	
+}
+function canceleditgdoc(){
+document.getElementById('editgoogledoc').style.display = 'none'; 	
+document.getElementById('googledocbutton').style.display = ''; 	
+document.getElementById('otherformelements').style.display = ''; 	
+}
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	
+	var sid = "<#[easvault.gspreadsheet_email]#>";
+	var spw = "<#[easvault.gspreadsheet_password]#>";
+	if(sid == "" || spw == ""){
+		jQuery('#tokenizer').attr('href', "javascript: alert('You must enter complete the Google IDs portion of the startup wizard before you can upload files to google drive.');");
+	}else{
+		sf = "<#[webstyle.uploads_folder_id]#>";
+		if(sf == ""){
+			jQuery('#tokenizer').attr('href', "javascript: alert('You must supply a valid google drive folder id for uploads in the spreadsheets portion of the startup wizard.');");
+		}else{
+			var c = readCookie('DgU00');
+			if(c == '' || c == null){
+				jQuery('#tokenizer').show();
+			}else{
+				jQuery('#tokenizer').hide();
+			}
+			jQuery('#tokenizer').show();
+		}
+	}
+});
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+</script>
+
+<# start form for webstyle <#[url.edit]#>;
+
+when creating redirect to "/?page=email_content_fix&edit=<#[url.edit]#>&content=<#[url.content]#>";
+
+when updating redirect to "/?page=email_content_fix&edit=<#[url.edit]#>&content=<#[url.content]#>";
+
+when deleting redirect to "/?page=email_content_fix&edit=<#[url.edit]#>&content=<#[url.content]#>";
+
+#> 
+
+<div id="contacts_form" style="display: none;">
+	<p>Contacts Notification Email Content</p>
+	<p style="float: left;">Subject</p>
+	<input type="text" style="width:100%;font-size: 26px;height: auto;" maxlength="200" <# webstyle.contacts_subject #> id="subject" >
+	<div style="width: 100%;">
+		<p style="float: left;">Body</p> 
+		<p style="float: right;"><a href="/?page=email_content&edit=<#[url.edit]#>&content=<#[url.content]#>">[Editor On]</a></p>
+	</div>
+	<div style="width: 100%;float: left;">
+		<textarea style="width:650px;height:285px" <# webstyle.contacts_body #> ></textarea>
+	</div>
+	
+</div>
+<div id="purchase_form" style="display: none;">
+	<p>Purchase Notification Email Content</p>
+	<p style="float: left;">Subject</p>
+	<input type="text" style="width:100%;font-size: 26px;height: auto;" maxlength="200" <# webstyle.purchase_subject #> id="subject" >
+	<div style="width: 100%;">
+		<p style="float: left;">Body</p> 
+		<p style="float: right;"><a href="/?page=email_content&edit=<#[url.edit]#>&content=<#[url.content]#>">[Editor On]</a></p>
+	</div>
+	<div style="width: 100%;float: left;">
+		<textarea style="width:650px;height:285px" <# webstyle.purchase_body #> ></textarea>
+	</div>
+
+</div>
+<div id="contact_form" style="display: none;">
+	<p>Contact Us Email Content</p>
+	<p style="float: left;">Subject</p>
+	<input type="text" style="width:100%;font-size: 26px;height: auto;" maxlength="200" <# webstyle.contact_subject #> id="subject" >
+	<div style="width: 100%;">
+		<p style="float: left;">Body</p> 
+		<p style="float: right;"><a href="/?page=email_content&edit=<#[url.edit]#>&content=<#[url.content]#>">[Editor On]</a></p>
+	</div>
+	<div style="width: 100%;float: left;">
+		<textarea style="width:650px;height:285px" <# webstyle.contact_body #> ></textarea>
+	</div>
+
+</div>
+<div id="blog_form" style="display: none;">
+	<p>Blog Post Notification Email Content</p>
+	<p style="float: left;">Subject</p>
+	<input type="text" style="width:100%;font-size: 26px;height: auto;" maxlength="200" <# webstyle.blog_subject #> id="subject" >
+	<div style="width: 100%;">
+		<p style="float: left;">Body</p> 
+		<p style="float: right;"><a href="/?page=email_content&edit=<#[url.edit]#>&content=<#[url.content]#>">[Editor On]</a></p>
+	</div>
+	<div style="width: 100%;float: left;">
+		<textarea style="width:650px;height:285px" <# webstyle.blog_body #> ></textarea>
+	</div>
+
+</div>
+<div style="width: 100%;float: left;">
+	<p>
+		<input type="button" value="create" <# create button #> >
+		<input type="button" value="update" <# update button #> >
+		<input type="button" value="delete" <# delete button #> >
+	<p>
+</div>
+<# end form #> 
+
+<script>
+jQuery(document).ready(function(){
+
+	jQuery('#googleDocToggle').click(function(){
+		jQuery('#googleDriveImage').slideToggle('fast');
+	});
+	
+	switch("<#[url.content]#>"){
+		case "contacts":
+			$('#contacts_form').show();
+			$('#purchase_form').hide();
+			$('#contact_form').hide();
+			$('#blog_form').hide();
+			break;
+		case "purchase":
+			$('#contacts_form').hide();
+			$('#purchase_form').show();
+			$('#contact_form').hide();
+			$('#blog_form').hide();
+			break;
+		case "contact":
+			$('#contacts_form').hide();
+			$('#purchase_form').hide();
+			$('#contact_form').show();
+			$('#blog_form').hide();
+			break;
+		case "blog":
+			$('#contacts_form').hide();
+			$('#purchase_form').hide();
+			$('#contact_form').hide();
+			$('#blog_form').show();
+			break;
+	}
+	
+});
+
+if ("<#[url.edit]#>" == "0"){
+document.getElementById("taglist").style.visibility = "hidden";
+} 
+function getgoogledoc() {
+	if ("<#[url.edit]#>" == "0"){
+		var docid = document.getElementById("googledoc_id").value;
+		var head = document.getElementById("headline").value;
+		var teaser = document.getElementById("teaser").value;
+		window.location = "/?page=admin_article_getdoc&edit=<#[url.edit]#>&doc="+ docid +"&head="+ head +"&tease="+ teaser +"";
+	} else {
+		var docid = document.getElementById("googledoc_id").value;
+		window.location = "/?page=admin_article_getdoc&edit=<#[url.edit]#>&doc="+ docid +"";
+	}
+}
+</script> 
+</div>
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>

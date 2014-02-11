@@ -6,10 +6,12 @@
 <script>
 
 jQuery(document).ready(function(){
+
 	$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
 
-		var testMode = res[0];
-		var testApproved = res[1];
+		console.log(res);
+		var testMode = res[0];//on or off
+		var testApproved = res[1];//true or false
 		if(testApproved == "true" && testMode == "off"){
 			// do nothing 
 				$('#testCaseLabel').append("Test Mode<br><span style='font-size: 9px;'>(This will make all transaction test type transactions)</span><br>"); 
@@ -30,6 +32,7 @@ jQuery(document).ready(function(){
 	});
 
 });
+
 </script>
 
 <# start form for eas_vault <#[easvault.id]#>; 
@@ -102,6 +105,7 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 function toggleTestMode(){
 	var testVal = $('#testCase').val();
 	$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", testMode: testVal, contactid: "<#[webuser.billing_cid]#>", request: "toggleTestMode"},function(res){
+		console.log(res);
 		// Iterate the payment methods first.
 		if($.isEmptyObject(res)){
 			// do nothing

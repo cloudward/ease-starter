@@ -68,20 +68,9 @@ when creating set comments.articleid to "<#[url.aid]#>";
 when creating send email;
 	from_name = "<#[webstyle.notification_site_email]#>";
 	to = "<#[webstyle.notification_comments]#>";
-	subject = "Blog Comment Alert";
+	subject = "<#[webstyle.blog_subject]#>";
 	type = "html"; // text or html
-	body = """There has been a new comment on your blog post, see details below...<br><br>
-
-Name: <# form.name #> <br>
-Email: <# form.email #> <br>
-Comment: <# form.message #> <br><br><br>
-
-Link to post: <a href='<# system.domain #>/?page=article&aid=<#[url.aid]#>'>Click Here</a> <br><br>
-
-Sincerely,<br>
-<# system.domain #> Technical Support<br><br>
-
- """;
+	body = "<#[webstyle.blog_body]#>";
  
 when creating set comments.created_on to "<# system.date_time_short #>";
 when creating redirect to "/?page=article&aid=<#[url.aid]#>";

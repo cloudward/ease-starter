@@ -27,19 +27,19 @@ when updating redirect to "/?page=admin_notifications&t=<# system.date_time_shor
 	</p>
 	
 	<p>Contact Sign-Up <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications that a user has signed up in your contact sign up form)</span><br>
-		<input type="text" style="width:350px"  <# webstyle.notification_contact_signup #> id="store_id">
+		<input type="text" style="width:350px"  <# webstyle.notification_contact_signup #> id="store_id"><a href="/?page=email_content&edit=<#[webstyle.id]#>&content=contacts" style="font-size: 11px;margin-left: 5px;">[Edit Email Content]</a>
 	</p>
 	<p>
 		<p>Store Purchase <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications that a user has purchased an item through the store)</span><br>
-		<input type="text" style="width:350px"  <# webstyle.notification_store_purchase #> id="orders_id">
+		<input type="text" style="width:350px"  <# webstyle.notification_store_purchase #> id="orders_id"><a href="/?page=email_content&edit=<#[webstyle.id]#>&content=purchase" style="font-size: 11px;margin-left: 5px;">[Edit Email Content]</a>
 	</p>
 	<p>
 		<p>Contact Us <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications when a user corresponds via the contact us form )</span><br>
-		<input type="text" style="width:350px"  <# webstyle.notification_contact_us #> id="uploads_id">
+		<input type="text" style="width:350px"  <# webstyle.notification_contact_us #> id="uploads_id"><a href="/?page=email_content&edit=<#[webstyle.id]#>&content=contact" style="font-size: 11px;margin-left: 5px;">[Edit Email Content]</a>
 	</p>
 	<p>
 		<p>Blog Comments <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications that a user has commented on a blog post)</span><br>
-		<input type="text" style="width:350px"  <# webstyle.notification_comments #> id="email_id">
+		<input type="text" style="width:350px"  <# webstyle.notification_comments #> id="email_id"><a href="/?page=email_content&edit=<#[webstyle.id]#>&content=blog" style="font-size: 11px;margin-left: 5px;">[Edit Email Content]</a>
 	</p>
 
 <input type="button" value="create" <# create button #> >
