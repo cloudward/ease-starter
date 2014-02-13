@@ -1,9 +1,0 @@
-<html>
-<head>
-<title>Generate Token</title>
-</head>
-
-<body>
-<a href="/genrateAccessToken">Generate Access Token</a>
-</body>
-</html>

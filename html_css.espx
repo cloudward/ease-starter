@@ -1,2 +1,0 @@
-<# apply webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1 as "webstyle" .#>
-<#[webstyle.stylesheet]#>
