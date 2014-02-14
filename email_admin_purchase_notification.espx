@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<td>Order ID:</td>
-		<td><#[order.id]#></td>
+		<td><a href="https://docs.google.com/spreadsheet/ccc?key=<#[webstyle.orders_sheet_id]#>&usp=drive_web#gid=0" target="_blank" title="click here to process this order"><#[order.id]#></a></td>
 	</tr>
 	<tr>
 		<td>Order Total: </td>

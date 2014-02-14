@@ -1139,15 +1139,6 @@ border-left: 2px dotted #c0c0c0;
 
 			when creating set webstyle.created_on to "<# system.date_time_short #>";
 
-			when creating set webstyle.contacts_subject to "You have a new contact";
-			when creating set webstyle.contacts_body to "You have a new contact.<br>Go to your contacts spreadsheets to view details and comments<br><br>Sincerely,<br><#[system.domain]#> Technical Support<br><br>";
-			when creating set webstyle.purchase_subject to "A new purchase was made";
-			when creating set webstyle.purchase_body to "";
-			when creating set webstyle.contact_subject to "A new contact request";
-			when creating set webstyle.contact_body to "";
-			when creating set webstyle.blog_subject to "Blog Comment Alert";
-			when creating set webstyle.blog_body to "There has been a new comment on your blog post, see details below...<br><br>Name: <# form.name #> <br>Email: <# form.email #> <br>Comment: <# form.message #> <br><br><br>Link to post: <a href='<# system.domain #>/?page=article&aid=<#[url.aid]#>'>Click Here</a> <br><br>Sincerely,<br><# system.domain #> Technical Support<br><br>";
-			
 			when creating redirect to "/?page=style_template_updated";
 			when creating set webstyle.id to "fb7fbd7a3bed0f0c9cf0180d26a6d9c1";
 			// need to get id's passed properly in redirect

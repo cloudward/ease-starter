@@ -51,7 +51,7 @@
 	send email;
 		from_name = "<#[webstyle.notification_site_email]#>";
 		to = "<#[webstyle.notification_store_purchase]#>";
-		subject = "<#[webstyle.purchase_subject]#>";
+		subject = "<#[webstyle.admin_purchase_subject]#>";
 		type = "html"; // text or html
 		bodypage = "email_admin_purchase_notification?oid=<#[cookie.orderid]#>";
 }

@@ -37,6 +37,16 @@ set notification_contact_signup to "<#[cookie.email]#>";
 set notification_store_purchase to "<#[cookie.email]#>";
 set notification_contact_us to "<#[cookie.email]#>";
 set notification_comments to "<#[cookie.email]#>";
+set contacts_subject to "You have a new contact";
+set contacts_body to "You have a new contact.<br>Go to your contacts spreadsheets to view details and comments<br><br>Sincerely,<br><#[system.domain]#> Technical Support<br><br>";
+set purchase_subject to "Your <#[system.domain]#> purchase confirmation";
+set purchase_body to "";
+set admin_purchase_subject to "Notification of new purchase on <#[system.domain]#>";
+set admin_purchase_body to "";
+set contact_subject to "A new contact request";
+set contact_body to "";
+set blog_subject to "Blog Comment Alert";
+set blog_body to "There has been a new comment on your blog post, see details below...<br><br>Name: <# form.name #> <br>Email: <# form.email #> <br>Comment: <# form.message #> <br><br><br>Link to post: <a href='<# system.domain #>/?page=article&aid=<#[url.aid]#>'>Click Here</a> <br><br>Sincerely,<br><# system.domain #> Technical Support<br><br>";
 set spreadsheets_created to "finished";
 
 #>
