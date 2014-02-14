@@ -70,7 +70,7 @@ jQuery(document).ready(function(){
 	if("<#[billingapplication.complete]#>" == "started"){
 		jQuery('.application').html("<a href='/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d'>Merchant Application</a>");
 		jQuery('.bids').show();
-		jQuery('#red_billing_setup').html('<br><B><font style="color: red;"><u>Notice: To complete your setup, please click on the Setup Wizard on the left hand side. Make sure you click the Merchant Application link to finish your setup.</u></font></B>');
+		jQuery('#red_billing_setup').html('<br><B><font style="color: red;"><u><a href="/?page=admin_wizard_merchant_application&edit=04df66fee0644a1bb070b730fab29f6d">Notice: To complete your setup, please click on the Setup Wizard on the left hand side. Make sure you click the Merchant Application link to finish your setup.</a></u></font></B>');
 	}
 	if("<#[billingapplication.complete]#>" == "completed"){
 		jQuery('.application').html("<a href='/?page=admin_wizard_billing_ids'>Billing ID's</a>");
