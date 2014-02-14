@@ -97,6 +97,19 @@ when deleting redirect to "/?page=email_content&edit=<#[url.edit]#>&content=<#[u
 	</div>
 
 </div>
+<div id="admin_purchase_form" style="display: none;">
+	<p>Admin Purchase Notification Email Content</p>
+	<p style="float: left;">Subject</p>
+	<input type="text" style="width:100%;font-size: 26px;height: auto;" maxlength="200" <# webstyle.admin_purchase_subject #> id="subject" >
+	<div style="width: 100%;">
+		<p style="float: left;">Body</p> 
+		<p style="float: right;"><a href="/?page=email_content_fix&edit=<#[url.edit]#>&content=<#[url.content]#>">[Editor Off]</a></p>
+	</div>
+	<div style="width: 100%;float: left;">
+		<textarea style="width:650px;height:285px" <# webstyle.admin_purchase_body #> ></textarea>
+	</div>
+
+</div>
 <div id="contact_form" style="display: none;">
 	<p>Contact Us Email Content</p>
 	<p style="float: left;">Subject</p>
@@ -143,24 +156,35 @@ jQuery(document).ready(function(){
 		case "contacts":
 			$('#contacts_form').show();
 			$('#purchase_form').hide();
+			$('#admin_purchase_form').hide();
 			$('#contact_form').hide();
 			$('#blog_form').hide();
 			break;
 		case "purchase":
 			$('#contacts_form').hide();
 			$('#purchase_form').show();
+			$('#admin_purchase_form').hide();
+			$('#contact_form').hide();
+			$('#blog_form').hide();
+			break;
+		case "purchase":
+			$('#contacts_form').hide();
+			$('#purchase_form').hide();
+			$('#admin_purchase_form').show();
 			$('#contact_form').hide();
 			$('#blog_form').hide();
 			break;
 		case "contact":
 			$('#contacts_form').hide();
 			$('#purchase_form').hide();
+			$('#admin_purchase_form').hide();
 			$('#contact_form').show();
 			$('#blog_form').hide();
 			break;
 		case "blog":
 			$('#contacts_form').hide();
 			$('#purchase_form').hide();
+			$('#admin_purchase_form').hide();
 			$('#contact_form').hide();
 			$('#blog_form').show();
 			break;

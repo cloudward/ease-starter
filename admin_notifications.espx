@@ -31,7 +31,7 @@ when updating redirect to "/?page=admin_notifications&t=<# system.date_time_shor
 	</p>
 	<p>
 		<p>Store Purchase <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications that a user has purchased an item through the store)</span><br>
-		<input type="text" style="width:350px"  <# webstyle.notification_store_purchase #> id="orders_id"><a href="/?page=email_content&edit=<#[webstyle.id]#>&content=purchase" style="font-size: 11px;margin-left: 5px;">[Edit Email Content]</a>
+		<input type="text" style="width:350px"  <# webstyle.notification_store_purchase #> id="orders_id"><a href="/?page=email_content&edit=<#[webstyle.id]#>&content=purchase" style="font-size: 11px;margin-left: 5px;">[Edit Customer Email Content]</a> | <a href="/?page=email_content&edit=<#[webstyle.id]#>&content=admin_purchase" style="font-size: 11px;margin-left: 5px;">[Edit Admin Email Content]</a>
 	</p>
 	<p>
 		<p>Contact Us <br><span style="font-size: 9px;">(Enter the email address you wish to receive notifications when a user corresponds via the contact us form )</span><br>
