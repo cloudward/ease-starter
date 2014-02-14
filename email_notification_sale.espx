@@ -4,7 +4,10 @@
 <table width="600">
 	<tr>
 		<td>
-			
+			<div style="width: 100%;margin-bottom: 20px;">
+			    <!-- custom message goes here -->
+				<#[webstyle.purchase_body]#>
+			</div>
 <h3>Order Complete</h3>
 <style>
 .cartheadercell {
@@ -16,13 +19,11 @@
 //	text-decoration:underline;
 }
 </style>
+
 <# apply webstyle.fb7fbd7a3bed0f0c9cf0180d26a6d9c1 as "webstyle" .#>
 <# apply orders.<#[url.oid]#> as "order".#>
 
-<div style="width: 100%;">
-    <!-- custom message goes here -->
-	<#[webstyle.purchase_body]#>
-</div>
+
 <table width="600">
 	<tr>
 		<td colspan="2"  class="cartheadercell"></td>
@@ -79,6 +80,7 @@
 
 <# start list for cart;
 include when cart.orderid == "<#[url.oid]#>";
+show 100 rows per page;
 set overall_total to total of grand_total;
 #>
 <# start header #>

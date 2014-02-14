@@ -167,7 +167,7 @@ jQuery(document).ready(function(){
 			$('#contact_form').hide();
 			$('#blog_form').hide();
 			break;
-		case "purchase":
+		case "admin_purchase":
 			$('#contacts_form').hide();
 			$('#purchase_form').hide();
 			$('#admin_purchase_form').show();
