@@ -6,7 +6,7 @@
 		<td>
 			<div>
 				<p>
-					This is a notificaiton that a new sale was made on <# system.domain #>
+					This is a notification that a new sale was made on <# system.domain #>
 				</p>
 			</div>
 <h3>Order Complete</h3>
