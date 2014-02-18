@@ -205,14 +205,14 @@ hide pager both;
 				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">Name as on Card:</font><br>
-						<input type="text" name="name" value="">
+						<font face="Verdana" size="2" id="cardnamelabel">Name as on Card:</font><br>
+						<input type="text" id="cardName" name="name" value="">
 					</td>
 				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">Address:</font><br>
-						<input type="text" name="address" value="">
+						<font face="Verdana" size="2" id="addresslabel">Address:</font><br>
+						<input type="text" id="billingAddress" name="address" value="">
 					</td>
 				</tr>
 				<tr class="tForm">
@@ -223,14 +223,14 @@ hide pager both;
 				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">City:</font><br>
-						<input type="text" name="city" value="">
+						<font face="Verdana" size="2" id="citylabel">City:</font><br>
+						<input type="text" id="billingCity" name="city" value="">
 					</td>
 				</tr>
 				<tr class="tForm" class="chargeForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">State:</font><br>
-						<select name="state" size="1">
+						<font face="Verdana" size="2" id="statelabel">State:</font><br>
+						<select name="state" id="billingState" size="1">
 							<option value="" >Select</option>
 							<option value="WA">Washington</option>
 							<option value="AL">Alabama</option>
@@ -303,36 +303,36 @@ hide pager both;
 				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">Zipcode:</font><br>
-						<input type="text" name="zip" value="">
+						<font face="Verdana" size="2" id="ziplabel">Zipcode:</font><br>
+						<input type="text" id="billingZip" name="zip" value="">
 					</td>
 				</tr>
 				<tr class="tForm emailForm">
 					<td class="chargeForm">
 						<font face="Verdana" size="2">Email:</font><br>
-						<input type="text" name="billingEmail" value="">
+						<input type="text" id="email" name="billingEmail" value="">
 					</td>
 				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">Card Number:</font><br>
-						<input type="text" name="card">
+						<font face="Verdana" size="2" id="cardnumberlabel">Card Number:</font><br>
+						<input type="text" id="cardNumber" name="card">
 					</td>
 				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">Expiration: </font><br>
+						<font face="Verdana" size="2" id="expirationlabel">Expiration: </font><br>
 						<span style="font-size: 8px;">(MMYY)</span><br>
-						<input type="text" name="exp" style="width: 50px;">
+						<input type="text" id="expiration" name="exp" style="width: 50px;">
 					</td>
 				</tr>
 				<tr class="tForm">
 					<td class="chargeForm">
-						<font face="Verdana" size="2">
+						<font face="Verdana" size="2" id="cvvlabel">
 							CVV <br>
 							<span style="font-size: 8px;">(Three digit number on back of card)</span><br>
 						</font>
-						<input type="text" name="cvv2" style="width: 50px;">
+						<input type="text" id="cvv" name="cvv2" style="width: 50px;">
 					</td>
 				</tr>
 				<tr>
@@ -599,6 +599,79 @@ hide pager both;
 </center>
 <script type="text/javascript">
 jQuery(document).ready(function(){
+	//validation
+	$('form').submit(function(event){
+		//get form values
+		var name = $('#cardName').val();
+		var address = $('#billingAddress').val();
+		var city = $('#billingCity').val();
+		var state = $('#billingState').val();
+		var zip = $('#billingZip').val();
+		var cardNumber = $('#cardNumber').val();
+		var expiration = $('#expiration').val();
+		var cvv = $('#cvv').val();
+		
+		//regex patterns to test
+		var pattern = /^\d{4}$/;
+
+		//required
+		if(name == ""){
+			event.preventDefault();
+			$('#cardnamelabel').css('color', '#FF0000');
+		}else{
+			$('#cardnamelabel').css('color', '');
+		}
+		if(address == ""){
+			event.preventDefault();
+			$('#addresslabel').css('color', '#FF0000');
+		}else{
+			$('#addresslabel').css('color', '');
+		}
+		if(city == ""){
+			event.preventDefault();
+			$('#citylabel').css('color', '#FF0000');
+		}else{
+			$('#citylabel').css('color', '');
+		}
+		if(state == ""){
+			event.preventDefault();
+			$('#statelabel').css('color', '#FF0000');
+		}else{
+			$('#statelabel').css('color', '');
+		}
+		if(zip == ""){
+			event.preventDefault();
+			$('#ziplabel').css('color', '#FF0000');
+		}else{
+			$('#ziplabel').css('color', '');
+		}
+		if(cardNumber == ""){
+			event.preventDefault();
+			$('#cardnumberlabel').css('color', '#FF0000');
+		}else{
+			$('#cardnumberlabel').css('color', '');
+		}
+		if(expiration == ""){
+			event.preventDefault();
+			$('#expirationlabel').css('color', '#FF0000');
+		}else{
+			$('#expirationlabel').css('color', '');
+		}
+		if(cvv == ""){
+			event.preventDefault();
+			$('#cvvlabel').css('color', '#FF0000');
+		}else{
+			$('#cvvlabel').css('color', '');
+		}
+		
+		//invalid format
+		if(!pattern.test(expiration)){
+			event.preventDefault();
+			$('#expirationlabel').css('color', '#FF0000');
+		}
+	});
+	
+	
 	if("<#[order.shipping_email]#>" == ""){
 		$('.emailForm').show();
 	}else{

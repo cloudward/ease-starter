@@ -64,45 +64,45 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm easelabel">Attention:</td>
+		<td class="shippingForm easelabel" id="attentionlabel">Attention:</td>
 		<td class="shippingForm">
-			<input type="text" <# orders.shipping_to #> >
+			<input type="text" id="name" <# orders.shipping_to #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm easelabel">Email:</td>
+		<td class="shippingForm easelabel" id="emaillabel">Email:</td>
 		<td class="shippingForm">
-			<input type="text"  <# orders.shipping_email #> >
+			<input type="text" id="email" <# orders.shipping_email #> >
 		</td>
 	</tr>
 	<tr>
 		<td class="shippingForm easelabel">Phone:</td>
 		<td class="shippingForm">
-			<input type="text" <# orders.shipping_phone #> >
+			<input type="text" id="phone" <# orders.shipping_phone #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm easelabel">Address Line 1:</td>
+		<td class="shippingForm easelabel" id="addresslabel">Address Line 1:</td>
 		<td class="shippingForm">
-			<input type="text" <# orders.shipping_address1 #> >
+			<input type="text" id="address" <# orders.shipping_address1 #> >
 		</td>
 	</tr>
 	<tr>
 		<td class="shippingForm easelabel">Address Line 2:</td>
 		<td class="shippingForm">
-			<input type="text" <# orders.shipping_address2 #> >
+			<input type="text" id="address2" <# orders.shipping_address2 #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm easelabel">City:</td>
+		<td class="shippingForm easelabel" id="citylabel">City:</td>
 		<td class="shippingForm">
-			<input type="text" <# orders.shipping_city #> >
+			<input type="text" id="city" <# orders.shipping_city #> >
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm easelabel">State:</td>
+		<td class="shippingForm easelabel" id="statelabel">State:</td>
 		<td class="shippingForm">
-			<select <# orders.shipping_state #> >
+			<select id="state" <# orders.shipping_state #> >
 				<option value="" >Select</option>
 				<option value="WA">Washington</option>
 				<option value="AL">Alabama</option>
@@ -174,9 +174,9 @@ when updating redirect to "/?page=store_charge";
 		</td>
 	</tr>
 	<tr>
-		<td class="shippingForm easelabel">Zip Code:</td>
+		<td class="shippingForm easelabel" id="ziplabel">Zip Code:</td>
 		<td class="shippingForm">
-			<input type="text" <# orders.shipping_zip #> >
+			<input type="text" id="zip" <# orders.shipping_zip #> >
 		</td>
 	</tr>
 	<tr>
@@ -263,7 +263,66 @@ when updating redirect to "/?page=store_charge";
 
 </div>
 </center>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('form').submit(function(event){
+		
+		//get form values
+		var name = $('#name').val();
+		var email = $('#email').val();
+		var address = $('#address').val();
+		var city = $('#city').val();
+		var state = $('#state').val();
+		var zip = $('#zip').val();
+		
+		//regex patterns to test
+		var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
 
+		//required
+		if(name == ""){
+			event.preventDefault();
+			$('#attentionlabel').css('color', '#FF0000');
+		}else{
+			$('#attentionlabel').css('color', '');
+		}
+		if(email == ""){
+			event.preventDefault();
+			$('#emaillabel').css('color', '#FF0000');
+		}else{
+			$('#emaillabel').css('color', '');
+		}
+		if(address == ""){
+			event.preventDefault();
+			$('#addresslabel').css('color', '#FF0000');
+		}else{
+			$('#addresslabel').css('color', '');
+		}
+		if(city == ""){
+			event.preventDefault();
+			$('#citylabel').css('color', '#FF0000');
+		}else{
+			$('#citylabel').css('color', '');
+		}
+		if(state == ""){
+			event.preventDefault();
+			$('#statelabel').css('color', '#FF0000');
+		}else{
+			$('#statelabel').css('color', '');
+		}
+		if(zip == ""){
+			event.preventDefault();
+			$('#ziplabel').css('color', '#FF0000');
+		}else{
+			$('#ziplabel').css('color', '');
+		}
+		//invalid format
+		if(!pattern.test(email)){
+			event.preventDefault();
+			$('#emaillabel').css('color', '#FF0000');
+		}
+	});
+});
+</script>
 
 
 <# include "_htmlfooter.espx" #>
