@@ -276,7 +276,7 @@ $(document).ready(function(){
 		var zip = $('#zip').val();
 		
 		//regex patterns to test
-		var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+		var pattern = /^([a-zA-Z0-9_.-+])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
 
 		//required
 		if(name == ""){
