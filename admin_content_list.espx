@@ -6,7 +6,7 @@
  }
 #>
     <div id="red_billing_setup">
-        <br><B><font style="color: red;"><u><a href='<a href="/?page=admin_wizard_merchant_application_demo">'>Notice: To complete your setup, please click on the Setup Wizard on the left hand side.  Make sure you click the Cloud Billing Setup link to get your store setup properly.</a></u></font></B>
+        <br><B><font style="color: red;"><u><a href='/?page=admin_wizard_merchant_application_demo'>Notice: To complete your setup, please click on the Setup Wizard on the left hand side.  Make sure you click the Cloud Billing Setup link to get your store setup properly.</a></u></font></B>
     </div>
 <div class="welcomeheadline">Edit Website Content</div>
 <p>You can use the following tools to create and manage content and custom pages for your website.</p>
