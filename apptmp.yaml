@@ -8,6 +8,11 @@ handlers:
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
+  
+- url: /(.+\.(htm$|html$|css$|js$|txt$|xml$|rss$|ico$|jpg$|png$|gif$|pdf$|jpeg$))
+  static_files: \1
+  upload: (.+\.(htm$|html$|css$|js$|txt$|xml$|rss$|ico$|jpg$|png$|gif$|pdf$|jpeg$))
+  application_readable: true
 
 - url: /stylesheets
   static_dir: stylesheets
