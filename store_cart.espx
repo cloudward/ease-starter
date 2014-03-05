@@ -21,6 +21,7 @@ window.location = "/?page=store";
 			
 
 <h3><#[url.message]#></h3>
+
 <# start list for content;
 include when content.page == "store-cart";
 hide pager both;
@@ -112,12 +113,18 @@ hide pager both;
 			</script>
 		</td>
 		<td class="cartrowcell"  style="text-align: center;">
-			$
 			<script>
 				/** shipping **/
-				var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
-				document.write( "<input type='text' class='shipping' value='"+shipping+"' style='display:none'>" );
-				document.write(shipping);
+				if("<# cart.order_shipping_flag #>" == 'TRUE'){
+					var shipping = 0;
+					document.write( "<input type='text' class='shipping' value='"+shipping+"' style='display:none'>" );
+					document.write("<span style='font-size: 9px;text-align: center;'>Flat Rate <br> See shipping total</span>");
+				}else{
+					var shipping = (Number(<# cart.shipping_charge #>)).toFixed(2);
+					document.write( "<input type='text' class='shipping' value='"+shipping+"' style='display:none'>" );
+					document.write("$" + shipping);
+				}
+				
 			</script>
 		</td>
 		<td class="cartrowcell"  style="text-align: center;">
@@ -133,9 +140,13 @@ hide pager both;
 				var total = <# cart.qty #> * <# cart.price #>;
 				var tax = ((subtotal * taxrate) / 100).toFixed(2);
 				var setup = Number(<# cart.setup_fee #>);
-				var shipping = Number(<# cart.shipping_charge #>);
+				if("<# cart.order_shipping_flag #>"){
+					var shipping = 0;
+				}else{
+					var shipping = Number(<# cart.shipping_charge #>);
+				}	
 				grand_total = (Number(total) + Number(tax) + Number(shipping) + Number(setup));
-				document.write( "<input type='text' class='itemTotal' value='"+grand_total+"' style='display:none'>" );
+				document.write( "<input type='hidden' class='itemTotal' value='"+grand_total+"'>" );
 				document.write(Number(grand_total).toFixed(2));
 			</script>
 		</td>
@@ -150,7 +161,7 @@ hide pager both;
 		<td class="cartfooterrowcell" >Setup</td>
 		<td class="cartfooterrowcell" style="text-align: center;">
 			$
-			<input type="text" id="tbSetup" value="" style="display:none">
+			<input type="hidden" id="tbSetup" value="">
 			<script type="text/javascript">
 				function UpdateSetup()
 				{
@@ -178,7 +189,7 @@ hide pager both;
 		<td colspan="" class="cartfooterrowcell" >Tax</td>
 		<td colspan="" class="cartfooterrowcell" style="text-align: center;">
 			$
-			<input type="text" id="tbTax" value="" style="display:none">
+			<input type="hidden" id="tbTax" value="">
 			<script type="text/javascript">
 				function UpdateTax()
 				{
@@ -204,9 +215,9 @@ hide pager both;
 			<input type="button" value="Keep Shopping" style="width: 120px;" onclick="goBack()">
 		</td>
 		<td colspan="" class="cartfooterrowcell" >Shipping</td>
-		<td colspan="" class="cartfooterrowcell" style="text-align: center;">
+		<td colspan="" class="cartfooterrowcell" id="shippingTotalCell" style="text-align: center;">
 			$
-			<input type="text" id="tbShipping" value="" style="display:none">
+			<input type="hidden" id="tbShipping" value="">
 			<script type="text/javascript">
 				function UpdateShipping()
 				{
@@ -219,7 +230,7 @@ hide pager both;
 						subject = parseFloat(oInputs[i].value);
 	       				shipping = subject + shipping;
 	     			}
-					document.write(Number(shipping).toFixed(2));
+					document.write("<span id='shippingText'>"+Number(shipping).toFixed(2)+"</div>");
 					document.getElementById("tbShipping").value = Number(shipping).toFixed(2);
 				}
 				var runshipping = UpdateShipping();
@@ -234,7 +245,7 @@ hide pager both;
 		<td class="cartfooterrowcell">Total </td>
 		<td class="cartfooterrowcell" style="text-align: center;">
 			$ 
-			<input type="text" id="tbTotal" value="" style="display:none">
+			<input type="hidden" id="tbTotal" value="">
 			<script type="text/javascript">
 				function UpdateTotal()
 				{
@@ -247,7 +258,7 @@ hide pager both;
 						subject = parseFloat(oInputs[i].value);
 		       			total = subject + total;
 		     		}
-					document.write(Number(total).toFixed(2));
+					document.write("<span id='grandTotalText'>"+Number(total).toFixed(2)+"</span>");
 					document.getElementById("tbTotal").value = Number(total).toFixed(2);
 				}
 				var test = UpdateTotal();
@@ -257,8 +268,11 @@ hide pager both;
 	  			}
 				function checkout()
 	  			{
+					var tbSetup = document.getElementById("tbSetup").value;
+					var tbTax = document.getElementById("tbTax").value;
+					var tbShipping = document.getElementById("tbShipping").value;
 					var tbTotal = document.getElementById("tbTotal").value;
-					window.location = "https://<# system.domain #>/?page=store_shipping";
+					window.location = "https://<# system.domain #>/?page=store_shipping&tbs="+tbSetup+"&tbt="+tbTax+"&tbsh="+tbShipping+"&tbto="+tbTotal;
 	  			}
 			</script>
 		</td>
@@ -291,6 +305,51 @@ hide pager both;
 
  <# end no results #>
 <# end list #>
+
+<?php
+/** calculate per order flat rate shipping charges **/
+$cookie = $_COOKIE['orderid'];
+$sql = "SELECT order_shipping_charge FROM cart WHERE orderid=:orderid AND order_shipping_flag = 'TRUE' GROUP BY order_shipping_charge ORDER BY order_shipping_charge DESC";
+$sqlParams = array(':orderid'=>$cookie);
+$query = ease_db_query_params($sql, $sqlParams);
+while($row = ease_db_fetch($query)){
+	$flatShippingRate += $row['order_shipping_charge'];
+}
+if(!empty($flatShippingRate)){
+	echo "<script type='text/javascript'>
+	function UpdateTotalShipping(){ 
+		$('#tbShipping').val('".$flatShippingRate."');
+		var oInputs = new Array();
+		var shipping = Number(".$flatShippingRate.");
+		var subject = 0;
+		oInputs = document.getElementsByClassName( 'shipping' ); // store collection of all <input/> elements
+		for ( i = 0; i < oInputs.length; i++ )
+		{
+			subject = parseFloat(oInputs[i].value);
+			shipping = subject + shipping;
+		}
+		$('#shippingText').html(Number(shipping).toFixed(2));
+		document.getElementById('tbShipping').value = Number(shipping).toFixed(2);
+		
+		var oInputs = new Array();
+		var total = 0;
+		var subject = 0;
+ 		oInputs = document.getElementsByClassName( 'itemTotal' ); // store collection of all <input/> elements
+		for ( i = 0; i < oInputs.length; i++ )
+ 		{
+			subject = parseFloat(oInputs[i].value);
+   			total = subject + total;
+ 		}
+		total = total + ".$flatShippingRate.";
+		$('#grandTotalText').html(Number(total).toFixed(2));
+		document.getElementById('tbTotal').value = Number(total).toFixed(2);
+	} 
+	var updateShipping = UpdateTotalShipping();
+	
+	</script>";
+}
+
+?>
 </td></tr></table>
 <div style="clear: both;"></div>
 </div>

@@ -78,6 +78,8 @@
 						<input type="hidden" value="<# row.m #>" name="free_trial_days">
 						<input type="hidden" value="<# row.n #>" name="billing_date">
 						<input type="hidden" value="<# row.o #>" name="prorate">
+						<input type="hidden" value="<# row.q #>" name="per_order_shipping_charge">
+						<input type="hidden" value="<# row.r #>" name="order_shipping_flag">
 					</form>
 				</div>
 				<div style="clear: both;"></div>
