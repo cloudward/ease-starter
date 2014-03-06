@@ -22,6 +22,8 @@
         set gstore.Bill Date to "";
         set gstore.Prorate to "";
         set gstore.Charge Type to "";
+        set gstore.Per Order Shipping Charge to "";
+        set gstore.Use Per Order Shipping Charge Type to "";
     }
 
 #>
@@ -44,6 +46,8 @@
         set gstore.Free Trial Days to "";
         set gstore.Bill Date to "";
         set gstore.Prorate to "";
+        set gstore.Per Order Shipping Charge to "";
+        set gstore.Use Per Order Shipping Charge Type to "";
     }
 #>
 
