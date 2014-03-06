@@ -160,7 +160,11 @@ hide pager both;
 			document.write( "<input type='hidden' name='item[<#rownumber #>][tax]' class='tax' value='"+tax+"'>" );
 		</script>
 		<script>
-			var shipping = <# cart.shipping_charge #>;
+			if("<# cart.order_shipping_flag #>"){
+				var shipping = 0;
+			}else{
+				var shipping = Number(<# cart.shipping_charge #>);
+			}
 			document.write( "<input type='hidden' name='item[<#rownumber #>][shipping]' class='shipping' value='"+shipping+"'>" );
 		</script>
 		
