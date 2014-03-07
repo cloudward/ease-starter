@@ -11,7 +11,6 @@
 jQuery(document).ready(function(){
 	tinymce.init({
 	    selector: "textarea",
-		content_css : "/style_test.css",
 	    plugins: [
 	        "advlist autolink lists link image charmap print preview anchor",
 	        "searchreplace visualblocks code fullscreen",
