@@ -13,7 +13,7 @@ hide pager both;
 <# start footer #><# end footer #>
 <# no results #>
 <div class="warning">Contact Us Intro Content Not Setup <br>
-<a href="/?page=admin_wizard_pages&edit=0&value=contact_intro&name=Contact%20Page%20Intro&desc=Introduction content before contact form.">Click here</a>.
+<a href="/?page=admin_wizard_pages&edit=0&&iid=f98f771efcba4aa99e179f3b3aa19bf4&value=contact_intro&name=Contact%20Page%20Intro&desc=Introduction content before contact form.">Click here</a>.
 </div>
 <# end no results #>
 <# end list #>
@@ -28,7 +28,7 @@ hide pager both;
 <# start footer #><# end footer #>
 <# no results #>
 <div class="warning">Contact Confirmation Page Not Setup  <br>
-<a href="/?page=admin_wizard_pages&edit=0&iid=f98f771efcba4aa99e179f3b3aa19bf4&value=confirmation&name=Contact%20Form%20Confirmation%20Page&desc=Page shown after visitor submits contact form.">Click here</a>.
+<a href="/?page=admin_wizard_pages&edit=0&iid=3ed7fe928ebb434e9fcec985aafb655b&value=confirmation&name=Contact%20Form%20Confirmation%20Page&desc=Page shown after visitor submits contact form.">Click here</a>.
 </div>
 
 <# end no results #>
