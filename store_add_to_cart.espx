@@ -26,7 +26,7 @@ set currentcart.order_shipping_flag to "<#[url.order_shipping_flag]#>";
 
 redirect to "/?page=store_cart&message=<#[url.product_name]#>Added&time=<#[cookie.cartid]#>&orderid=<#[url.orderid]#>";
 } else {
-redirect to "/?page=store_create_order_id&qty=<#[url.qty]#>&tax_rate=<#[url.tax_rate]#>&order_shipping_flag=<#[url.order_shipping_flag]#>&order_shipping_charge=<#[url.per_order_shipping_charge]#>&prorate=<#[url.prorate]#>&frequency=<#[url.frequency]#>&setup_fee=<#[url.setup_fee]#>&billing_date=<#[url.billing_date]#>&free_trial_days=<#[url.free_trial_days]#>&shipping_charge=<#[url.shipping_charge]#>&shipping_required=<#[url.shipping_required]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
+redirect to "/?page=store_create_order_id&qty=<#[url.qty]#>&tax_rate=<#[url.tax_rate]#>&order_shipping_flag=<#[url.order_shipping_flag]#>&per_order_shipping_charge=<#[url.per_order_shipping_charge]#>&prorate=<#[url.prorate]#>&frequency=<#[url.frequency]#>&setup_fee=<#[url.setup_fee]#>&billing_date=<#[url.billing_date]#>&free_trial_days=<#[url.free_trial_days]#>&shipping_charge=<#[url.shipping_charge]#>&shipping_required=<#[url.shipping_required]#>&product_name=<#[url.product_name]#>&price=<#[url.price]#>&sku=<#[url.sku]#>&img=<#[url.img]#>";
 }
 #>
 
