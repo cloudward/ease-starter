@@ -51,7 +51,8 @@ show 100 rows per page;
 <div style="width: 100%;" id="chargeForm">
 <form name="cloudBillingForm" id="cloudBillingForm" action="https://billing.cloudward.com/web_services/billing/" method="post" autocomplete="off">
 	<input type="hidden" name="submit" value="1">
-	<input type="hidden" name="cid" value="<#[cookie.cid]#>">
+	<input type="hidden" name="contactid" value="<#[webuser.billing_cid]#>">
+	<input type="hidden" name="appcid" value="<#[cookie.cid]#>">
 	<input type="hidden" name="master_account_id" value="<#[easvault.marketplace_id]#>">
 	<input type="hidden" name="api_password" value="<#[easvault.merchant_password]#>">
 	<input type="hidden" name="action" value="billing_form">
@@ -59,7 +60,11 @@ show 100 rows per page;
 	<input type="hidden" name="return_page" id="return_page" value='member_payment_listener'>
 	<input type="hidden" name="invoice" value="<#[cookie.cid]#>">
 	<input type="hidden" name="order_id" value="<#[cookie.cid]#>">
-	<input type="hidden" name="orderTotal" value="<#[cookie.price]#>">
+	<script>
+		var ordTotal =  <#[cookie.price]#>;
+		ordTotal = ordTotal.toFixed(2);
+		document.write("<input type='hidden' name='orderTotal' value='"+ordTotal+"'>");
+	</script>
 	<input type="hidden" name="orderTax" value="">
 	<input type="hidden" name="email" value="<#[cookie.email]#>">
 	<input type="hidden" name="shipping_phone" value="<# webuser.phone #>">
@@ -67,15 +72,92 @@ show 100 rows per page;
 <# end header #>
 
 <# start row #>
-
+	<input type="hidden" name="item[<# rownumber #>][item_id]" value="<# cart.id #>">
+	<!-- new shipping and frequency flags -->
+	<script type="text/javascript">
+		var shipping_required = "NO";
+		shipping_required = shipping_required.toUpperCase();
+		if(shipping_required == "" || shipping_required == "NO"){
+			shipping_required = "no";
+			document.write("<input type='hidden' name='item[<# rownumber #>][shipping_required]' value='"+shipping_required+"'>");
+		}else{
+			shipping_required = "<# cart.shipping_required #>";
+			document.write("<input type='hidden' name='item[<# rownumber #>][shipping_required]' value='"+shipping_required+"'>");
+		}
+	</script>
+	<script type="text/javascript">
+		var setup_fee = "NO";
+		setup_fee = setup_fee.toUpperCase();
+		if(setup_fee == "" || setup_fee == "NO"){
+			setup_fee = "no";
+			document.write("<input type='hidden' name='item[<# rownumber #>][setup_fee]' value='"+setup_fee+"'>");
+		}else{
+			setup_fee = "<# cart.setup_fee #>";
+			document.write("<input type='hidden' name='item[<# rownumber #>][setup_fee]' value='"+setup_fee+"'>");
+		}
+	</script>
+	<script>
+		var setup_fee_tax = 0.00;
+		document.write( "<input type='hidden' name='item[<#rownumber #>][setup_fee_tax]' class='setup_fee_tax' value='"+setup_fee_tax+"'>" );
+	</script>
+	<script type="text/javascript">
+		var frequency = "Monthly";
+		frequency = frequency.toUpperCase();
+		if(frequency == "" || frequency == "1X"){
+			frequency = "1x";
+			document.write("<input type='hidden' name='item[<# rownumber #>][frequency]' value='"+frequency+"'>");
+		}else{
+			frequency = "Monthly";
+			document.write("<input type='hidden' name='item[<# rownumber #>][frequency]' value='"+frequency+"'>");
+		}
+	</script>
+	<script type="text/javascript">
+		var trialdays = "NO";
+		trialdays = trialdays.toUpperCase();
+		if(trialdays == "" || trialdays == "NO"){
+			trialdays = 0;
+			document.write("<input type='hidden' name='item[<# rownumber #>][trialdays]' value='"+trialdays+"'>");
+		}else{
+			trialdays = "<# cart.free_trial_days #>";
+			document.write("<input type='hidden' name='item[<# rownumber #>][trialdays]' value='"+trialdays+"'>");
+		}
+	</script>
+	<script type="text/javascript">
+		var billdate = "NO";
+		billdate = billdate.toUpperCase();
+		if(billdate == "" || billdate == "NO"){
+			billdate = "no";
+			document.write("<input type='hidden' name='item[<# rownumber #>][billdate]' value='"+billdate+"'>");
+		}else{
+			billdate = "<# cart.billing_date #>";
+			document.write("<input type='hidden' name='item[<# rownumber #>][billdate]' value='"+billdate+"'>");
+		}
+	</script>
+	<script type="text/javascript">
+		var prorate = "NO";
+		prorate = prorate.toUpperCase();
+		if(prorate == "" || prorate == "NO"){
+			prorate = "no";
+			document.write("<input type='hidden' name='item[<# rownumber #>][prorate]' value='"+prorate+"'>");
+		}else{
+			prorate = "<# cart.prorate #>";
+			document.write("<input type='hidden' name='item[<# rownumber #>][prorate]' value='"+prorate+"'>");
+		}
+	</script>
 	<input type="hidden" name="item[<# rownumber #>][qty]" value="1">
 	<input type="hidden" name="item[<# rownumber #>][description]" value="<#[cookie.sku]#>">
 	<input type="hidden" name="item[<# rownumber #>][price]" value="<#[cookie.price]#>">
-	<input type='hidden' name='item[<# rownumber #>][tax]' class='tax' value="0">
-	<input type='hidden' name='item[<#rownumber #>][shipping]' class='shipping' value="0">
-	<input type="hidden" name="item[<# rownumber #>][frequency]" value="Monthly">
+	<script>
+		var subtotal = 1 * <#[cookie.price]#>;
+		var tax = ((subtotal * 0) / 100).toFixed(2);
+		document.write( "<input type='hidden' name='item[<#rownumber #>][tax]' class='tax' value='"+tax+"'>" );
+	</script>
+	<script>
+		var shipping = 0;
+		document.write( "<input type='hidden' name='item[<#rownumber #>][shipping]' class='shipping' value='"+shipping+"'>" );
+	</script>
+	
 	<input type="hidden" name="item[<# rownumber #>][chargeType]" value="charge">
-
 <# end row #>
 
 <# start footer #>
