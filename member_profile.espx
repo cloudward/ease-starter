@@ -71,8 +71,7 @@ when updating redirect to "/?page=member_profile&message=Changes Saved";
 <script type="text/javascript">
 jQuery(document).ready(function(){
 
-	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
-
+	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
 		// Iterate the payment methods first.
 		if($.isEmptyObject(res)){
 			// do nothing
@@ -83,9 +82,41 @@ jQuery(document).ready(function(){
 			$('.payment_methods_container').append("<div class='method_item'><div class='method_data_item_header' style='width: 30%;'>Name</div><div class='method_data_item_header' style='width: 20%;'>description</div><div class='method_data_item_header' style='width: 15%;'>Saved On</div></div>");
 			$.each(res, function(index, value){
 				var created_on = res[index].created_on;
-				var instance_id = res[index].instance_id;
-				var description = res[index].description;
-				var name = res[index].name;
+				var instance_id = res[index].uuid;
+				switch(res[index].description){
+				    case "V":
+				        var description = "My Visa";
+				        break;
+				    case "MC":
+				        var description = "My Mastercard";
+				        break;
+				    case "AM":
+				        var description = "My American Express";
+				        break;
+				    case "D":
+				        var description = "My Discover";
+				        break;
+				    default:
+				        var description = res[index].description;
+				        break;
+				}
+                switch(res[index].name){
+				    case "V":
+				        var name = "My Visa";
+				        break;
+				    case "MC":
+				        var name = "My Mastercard";
+				        break;
+				    case "AM":
+				        var name = "My American Express";
+				        break;
+				    case "D":
+				        var name = "My Discover";
+				        break;
+				    default:
+				        var name = res[index].name;
+				        break;
+				}
 				var payment_type = res[index].payment_type;
 				var token = res[index].token;
 				$('#payment_methods_container').append("<div class='method_item'><div class='method_data_item' style='width: 30%;'>"+name+"</div><div class='method_data_item' style='width: 20%;'>"+description+"</div><div class='method_data_item' style='width: 25%;'>"+created_on+"</div><div class='method_data_item' style='width: 5%;'><input id='"+instance_id+"' type='button' onclick='javascript: paymentMethodDetails(this.id);' value='Edit'/></div></div>");
@@ -106,7 +137,7 @@ function paymentMethodDetails(id){
 		});
 	}else{
 		
-		$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", instance_id: id, request: "paymentMethodDetails"},function(res){
+		$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", instance_id: id, request: "paymentMethodDetails"},function(res){
 			
 			// Iterate the payment methods first.
 			if($.isEmptyObject(res)){
@@ -115,61 +146,43 @@ function paymentMethodDetails(id){
 			}else{
 				
 				// populate DOM objects
-				switch(res.merchantProvider){
-					case "ePay":
-						var name = res.MethodName;
-						switch(res.CreditCardData.CardType){
-							case "M":
-								var card_type = "Mastercard";
-								break
-							case "A":
-								var card_type = "Amex";
-								break;
-							case "D":
-								var card_type = "Discover";
-								break;
-							case "V":
-								var card_type = "Visa";
-								break;
-						}
-						var card = res.CreditCardData.CardNumber;
-						var exp = res.Expires;
-						var exp = exp.split("-");
-						var exp_mo = exp[1];
-						var exp_yr = exp[0];
-						var expiration = exp_mo+exp_yr;
-						var street = res.CreditCardData.AvsStreet;
-						var zip = res.CreditCardData.AvsZip;
-						var city = "<#[webuser.city]#>";
-						var state = "<#[webuser.state]#>";
+				
+				switch(res.GetVaultAccountResult.CARDTYPE){
+				    case "MC":
+					    var card_type = "Mastercard";
+						break
+					case "AX":
+					    var card_type = "Amex";
 						break;
-					case "SecureNet":
-						var name = res.MethodName;
-						switch(res.GetVaultAccountResult.CARDTYPE){
-							case "MC":
-								var card_type = "Mastercard";
-								break
-							case "AX":
-								var card_type = "Amex";
-								break;
-							case "DS":
-								var card_type = "Discover";
-								break;
-							case "VI":
-								var card_type = "Visa";
-								break;
-						}
-						var card = res.GetVaultAccountResult.CARD.CARDNUMBER;
-						var exp = res.GetVaultAccountResult.CARD.EXPDATE;
-						var exp_mo = exp.substring(1, 3);
-						var exp_yr = exp.substring(3);
-						var expiration = exp_mo+exp_yr;
-						var street = "<#[webuser.address]#>";
-						var zip = "<#[webuser.zip]#>";
-						var city = "<#[webuser.city]#>";
-						var state = "<#[webuser.state]#>";
+					case "DS":
+						var card_type = "Discover";
 						break;
-					}
+					case "VI":
+						var card_type = "Visa";
+						break;
+				}
+				if(res.descname){
+				    var name = res.descname;
+				}else{
+				    var name = res.GetVaultAccountResult.CUSTOMER_BILL.FIRSTNAME +" "+res.GetVaultAccountResult.CUSTOMER_BILL.LASTNAME +" - "+card_type;
+				}
+				if(res.description){
+				    var description = res.description;
+				}else{
+				    var description = res.GetVaultAccountResult.CUSTOMER_BILL.FIRSTNAME +" "+res.GetVaultAccountResult.CUSTOMER_BILL.LASTNAME +" - "+card_type;
+				}
+				    
+				var cardname = res.GetVaultAccountResult.CUSTOMER_BILL.FIRSTNAME +" "+res.GetVaultAccountResult.CUSTOMER_BILL.LASTNAME;
+				var card = res.GetVaultAccountResult.CARD.CARDNUMBER;
+				var exp = res.GetVaultAccountResult.CARD.EXPDATE;
+				var exp_mo = exp.substring(0, 3);
+				var exp_yr = exp.substring(3);
+				var expiration = exp_mo+exp_yr;
+				var street = res.GetVaultAccountResult.CUSTOMER_BILL.ADDRESS;
+				var zip = res.GetVaultAccountResult.CUSTOMER_BILL.ZIP;
+				var city = res.GetVaultAccountResult.CUSTOMER_BILL.CITY;
+				var state = res.GetVaultAccountResult.CUSTOMER_BILL.STATE;
+
 					
 
 				$( "#details_container_"+id ).show("slow", function(){
@@ -177,10 +190,10 @@ function paymentMethodDetails(id){
 					$('#details_container_'+id).append("<div class='formBox'><input type='text' style='width: 200px;' name='payment_name' id='payment_name' value='"+name+"'/></div>");
 
 					$('#details_container_'+id).append("<div class='formLabel'>Description:</div>");
-					$('#details_container_'+id).append("<div class='formBox'><input type='text' style='width: 200px;' name='payment_description' id='payment_description' value='"+name+"'/></div>");
+					$('#details_container_'+id).append("<div class='formBox'><input type='text' style='width: 200px;' name='payment_description' id='payment_description' value='"+description+"'/></div>");
 
 					$('#details_container_'+id).append("<div class='formLabel'>Name on Card:</div>");
-					$('#details_container_'+id).append("<div class='formBox'><input type='text' style='width: 200px;' name='name_on_card' id='name_on_card' value='<#[webuser.first]#> <#[webuser.last]#>'/></div>");
+					$('#details_container_'+id).append("<div class='formBox'><input type='text' style='width: 200px;' name='name_on_card' id='name_on_card' value='"+cardname+"'/></div>");
 
 					$('#details_container_'+id).append("<div class='formLabel'>Card Type:</div>");
 					$('#details_container_'+id).append("<div class='formBox'><input type='text' style='width: 200px;' name='card_type' id='card_type' value='"+card_type+"'/></div>");
@@ -241,8 +254,9 @@ function updateMethod(id, request){
 	var state = jQuery('#state').val();
 	var zip = jQuery('#zip').val();
 	var payment_type = 'creditCard';
-	
-	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: master_acct_id, apiPassword: "<#[easvault.merchant_password]#>", instance_id: instance_id, contactid: contactid, instance_id: id, request: request,payment_name: payment_name, description: description, card_name: card_name, card_type: card_type, card: card, exp: exp, cvv2: cvv2, street: street, city: city, state: state, zip: zip, payment_type: payment_type},function(res){
+
+	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: master_acct_id, apiPassword: "<#[easvault.merchant_password]#>", instance_id: instance_id, contactid: contactid, instance_id: id, request: request,payment_name: payment_name, description: description, card_name: card_name, card_type: card_type, card: card, exp: exp, cvv2: cvv2, street: street, city: city, state: state, zip: zip, payment_type: payment_type},function(res){
+
 		window.location = window.location.href;
 	});
 	

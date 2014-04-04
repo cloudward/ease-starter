@@ -23,7 +23,7 @@ jQuery(document).ready(function(){
 	$(".emailsignup").hide();
 	
 	/** merchant api call **/
-	$.getJSON('https://billing.cloudward.com/web_services/registration/?callback=?',{
+	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/registration/?callback=?',{
 		demoFlag: '<#[billingapp.complete]#>',
 		masterAccountId: '<#[easvault.marketplace_id]#>',
 		resellerId: '<#[easvault.reseller_id]#>',

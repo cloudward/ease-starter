@@ -22,7 +22,7 @@
 jQuery(document).ready(function(){
 	$('.admin_body').css("width", "79%");
 	$("#sidebar-right").hide();
-	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", contactEmail: "<#[webuser.email]#>", request: "orderHistory"},function(res){
+	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", contactEmail: "<#[webuser.email]#>", request: "orderHistory"},function(res){
 		$('.order_history_container').append("<div class='order_item'><div class='order_data_item_header' style='width: 25%;'>Order Number</div><div class='order_data_item_header' style='width: 17%;'>Checkout Date</div><div class='order_data_item_header' style='width: 15%;'>Order Status</div><div class='order_data_item_header' style='width: 12%;'>Order Total</div><div class='order_data_item_header' style='width: 15%;float: right;text-align: right;'>Details</div></div>");
 		console.log(res);
 		if($.isEmptyObject(res)){
@@ -70,7 +70,7 @@ function toggleDetails(id){
 			var id = this.id;
 			var idParts = id.split("_");
 			var id = idParts[2];
-			$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", orderID: id, request: "billingItems"},function(res){
+			$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", orderID: id, request: "billingItems"},function(res){
 
 				// Iterate the orders first.
 				$.each(res, function (index, value) {

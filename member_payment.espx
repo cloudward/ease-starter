@@ -14,7 +14,7 @@
 	  }
 
 	jQuery(document).ready(function(){
-		$.getJSON('https://billing.cloudward.com/web_services/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
+		$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
 			if($.isEmptyObject(res)){
 				// do nothing
 			 }else{	
@@ -49,7 +49,7 @@ show 100 rows per page;
 #>
 <# start header #>
 <div style="width: 100%;" id="chargeForm">
-<form name="cloudBillingForm" id="cloudBillingForm" action="https://billing.cloudward.com/web_services/billing/" method="post" autocomplete="off">
+<form name="cloudBillingForm" id="cloudBillingForm" action="https://zeta-envoy-503.appspot.com/billing/webservices/billing/" method="post" autocomplete="off">
 	<input type="hidden" name="submit" value="1">
 	<input type="hidden" name="contactid" value="<#[webuser.billing_cid]#>">
 	<input type="hidden" name="appcid" value="<#[cookie.cid]#>">
@@ -352,7 +352,7 @@ show 100 rows per page;
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
-	$.getJSON('https://billing.cloudward.com/web_services/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
+	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
 
 		// Iterate the payment methods first.
 		if($.isEmptyObject(res)){
