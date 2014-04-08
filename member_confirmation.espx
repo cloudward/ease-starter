@@ -9,6 +9,7 @@
 <# 
 	update record for "webuser.<#[url.mid]#>" reference as "member";
 	set member.status to "active";
+	set member.billing_cid to "<#[url.contact_id]#>";
 #>
 
 
