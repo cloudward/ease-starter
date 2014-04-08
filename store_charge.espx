@@ -71,7 +71,7 @@ hide pager both;
 		</script>
 		
 		<input type="hidden" name="orderTax" value="<#[order.ordertax]#>">
-		<input type="hidden" name="email" value="<#[order.shipping_email]#>">
+		<input type="hidden" name="customer_email" value="<#[order.shipping_email]#>">
 		<input type="hidden" name="shipping_phone" value="<#[order.shipping_phone]#>">
 		<input type="hidden" name="paybycredit" value="1">
 
