@@ -125,7 +125,7 @@
 		     <?php $try_count = intval($_GET['try']);
 		     if($try_count <= 5){
 			    $try_count++;
-			    echo 'window.location = "/?page=admin_wizard_autocreate_spreadsheets_notifications&try=' . $try_count . ';
+			    echo 'window.location = "/?page=admin_wizard_autocreate_spreadsheets_notifications&try=' . $try_count . '";
 			    ';
 			    }else{ 
 			    echo 'jQuery("#notifications_status").html("<B>There was an error creating the " + sheet_type + " spreadsheet, please reload the page</B>");
