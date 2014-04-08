@@ -23,7 +23,7 @@
 
 <# 
 
-	create new record for googlespreadsheet <#[webstyle.orders_sheet_id]#> "Sheet1" and reference as "gorder"; 
+	create new record for googlespreadsheet <#[webstyle.orders_sheet_id]#> and reference as "gorder"; 
 	set gorder.a to "<#[order.created_on]#>"; 
 	set gorder.b to "<#[order.id]#>"; 
 	set gorder.c to "<#[order.shipping_to]#>"; 

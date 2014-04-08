@@ -5,7 +5,7 @@
 
 <#
     if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "store"){
-        create new record for googlespreadsheet "EASE <#[system.domain]#> Store Spreadsheet" "Sheet1" and reference as "gstore"; 
+        create new record for googlespreadsheet "EASE <#[system.domain]#> Store Spreadsheet" and reference as "gstore"; 
 	set gstore.Product to "Test Product 1"; 
 	set gstore.Description to "Test Description"; 
 	set gstore.Image to "http://<#[system.domain]#>/images/test_product1.jpg"; 
@@ -30,7 +30,7 @@
 
 <#
     if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "store1"){
-	create new record for googlespreadsheet "EASE <#[system.domain]#> Store Spreadsheet" "Sheet1" and reference as "gstore"; 
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Store Spreadsheet" and reference as "gstore"; 
 	set gstore.Product to "Test Product 2"; 
 	set gstore.Description to "Test Description 2"; 
 	set gstore.Image to "http://<#[system.domain]#>/images/test_product1.jpg"; 
@@ -52,7 +52,7 @@
 #>
 
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "orders"){
-	create new record for googlespreadsheet "EASE <#[system.domain]#> Orders Spreadsheet" "Sheet1" and reference as "gorder"; 
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Orders Spreadsheet" and reference as "gorder"; 
 	set gorder.Date to ""; 
 	set gorder.OrderID to ""; 
 	set gorder.Sold To to ""; 
@@ -88,7 +88,7 @@
 #>
 
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "contact"){
-	create new record for googlespreadsheet "EASE <#[system.domain]#> Contact List Spreadsheet" "Sheet1" and reference as "gcontact"; 
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Contact List Spreadsheet" and reference as "gcontact"; 
 	set gcontact.First to ""; 
 	set gcontact.Last to "";
 	set gcontact.Email to ""; 
@@ -97,14 +97,14 @@
 }
 #>
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "email"){
-	create new record for googlespreadsheet "EASE <#[system.domain]#> Email List Spreadsheet" "Sheet1" and reference as "gemail"; 
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Email List Spreadsheet" and reference as "gemail"; 
 	set gemail.Name to ""; 
 	set gemail.Email to ""; 
 }
 #>
 
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "suggestions"){
-	create new record for googlespreadsheet "EASE <#[system.domain]#> Suggestions Spreadsheet" "Sheet1" and reference as "gsuggestion"; 
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Suggestions Spreadsheet" and reference as "gsuggestion"; 
 	set gsuggestion.Name to ""; 
 	set gsuggestion.Email to ""; 
 	set gsuggestion.Suggestion to "";
@@ -112,7 +112,7 @@
 #>
 
 <# if ( "<#[webstyle.spreadsheets_created]#>" == "" and "<#[url.type]#>" == "surveys"){
-	create new record for googlespreadsheet "EASE <#[system.domain]#> Survey Spreadsheet" "Sheet1" and reference as "gsurvey"; 
+	create new record for googlespreadsheet "EASE <#[system.domain]#> Survey Spreadsheet" and reference as "gsurvey"; 
 	set gsurvey.Name to ""; 
 	set gsurvey.Email to ""; 
 	set gsurvey.Experience to "";

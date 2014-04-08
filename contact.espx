@@ -40,7 +40,6 @@ hide pager both;
 // use "find and replace in project" for gmailpassword and username@gmail.com 
 // set to your username and password to save to your account
 
-save to "Sheet1";
 // specifies what sheet to save results to
 
 when creating redirect to "/?page=confirmation&first=<# form.a #>&last=<# form.b #>&email=<# form.c #>";

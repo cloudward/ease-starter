@@ -25,7 +25,7 @@
 
 	<# start list for googlespreadsheet <#[webstyle.store_sheet_id]#>;
 
-		include all columns from "Sheet1" where row.a != "" and row.f != "";
+		include all columns where row.a != "" and row.f != "";
 
 		start row template at row 2;
 

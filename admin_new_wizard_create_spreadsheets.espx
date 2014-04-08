@@ -1,7 +1,4 @@
             <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
-            
-            save to "Sheet1";
-            
             when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
             #>
             
@@ -32,9 +29,6 @@
             <# end form #>
 	    
 	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
-            
-            save to "Sheet1";
-            
             when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
             #>
             
@@ -56,9 +50,6 @@
             <# end form #>
 	    
 	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
-            
-            save to "Sheet1";
-            
             when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
             #>
             
@@ -75,9 +66,6 @@
             <# end form #>
 	    
 	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
-            
-            save to "Sheet1";
-            
             when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
             #>
             
@@ -97,9 +85,6 @@
             <# end form #>
 	    
 	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
-            
-            save to "Sheet1";
-            
             when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
             #>
             
@@ -117,9 +102,6 @@
             <# end form #>
 	    
 	    <# start form for googlespreadsheet "<# [url.spreadsheet_name] #>";
-            
-            save to "Sheet1";
-            
             when creating redirect to "/?page=admin_new_wizard_spreadsheets&create_redirect=true&spreadsheet_name=<# [url.spreadsheet_name] #>&type=<# [url.type] #>";
             #>
             

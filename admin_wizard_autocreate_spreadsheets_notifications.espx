@@ -72,6 +72,8 @@
 			    jQuery("#notifications_status").html("Finished saving notifications");
 			    // MyNamespace.myFunction(data); //DO ANY PROCESS HERE
 			     //console.log(data);
+			 },error: function(data){
+			    jQuery("#notifications_status").html("<B>There was an error saving your data, please reload the page</B>");
 			 }
 		     });
 	      }
@@ -90,6 +92,7 @@
 	      }
             jQuery.ajax({
                 type: 'POST',
+		timeout: 30000,
                 dataType: 'html',
                 url: '/?page=admin_wizard_spreadsheet_auto_create&type=' + sheet_type,
                 success: function (data) {
@@ -116,7 +119,19 @@
 			  });
 		  }
 		},error: function(data){
-                                    jQuery("#notifications_status").html("<B>There was an error creating the " + sheet_type + " spreadsheet, please reload the page</B>");
+		     
+		     //admin_wizard_autocreate_spreadsheets_notifications
+		     
+		     <?php $try_count = intval($_GET['try']);
+		     if($try_count <= 5){
+			    $try_count++;
+			    echo 'window.location = "/?page=admin_wizard_autocreate_spreadsheets_notifications&try=' . $try_count . ';
+			    ';
+			    }else{ 
+			    echo 'jQuery("#notifications_status").html("<B>There was an error creating the " + sheet_type + " spreadsheet, please reload the page</B>");
+			    ';
+		     
+		     } ?>
 	       }
             });
 	}

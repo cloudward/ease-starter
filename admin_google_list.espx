@@ -12,8 +12,8 @@
 // for googlespreadsheet means we are getting data from google spreadsheet
 // the id after the spreadsheet is the id we get from the google URL/key
 
-include all columns from "Sheet1";
-// get's the data from "Sheet1" --> based on the name in the spreadsheet file
+include all columns;
+// get's the data from "Sheet 1" --> based on the name in the spreadsheet file
 
 start row template at row 2;
 // tells us where to start the row template from

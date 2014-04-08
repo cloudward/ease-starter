@@ -4,8 +4,6 @@
 <hr>
 
 <# start form for googlespreadsheet <#[webstyle.surveys_id]#>;
-
-save to "Sheet1";
 // specifies what sheet to save results to
 
 // insert at row 2;

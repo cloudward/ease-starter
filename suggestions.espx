@@ -5,9 +5,6 @@
 
 <# start form for googlespreadsheet <#[webstyle.suggestions_id]#>;
 
-save to "Sheet1";
-// specifies what sheet to save results to
-
 // insert at row 2;
 // inserts the new record at row two and shifts the rest of the records down
 
