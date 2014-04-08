@@ -67,7 +67,7 @@ show 100 rows per page;
 		document.write("<input type='hidden' name='orderTotal' value='"+ordTotal+"'>");
 	</script>
 	<input type="hidden" name="orderTax" value="">
-	<input type="hidden" name="email" value="<#[cookie.email]#>">
+	<input type="hidden" name="customer_email" value="<#[cookie.email]#>">
 	<input type="hidden" name="shipping_phone" value="<# webuser.phone #>">
 
 <# end header #>
