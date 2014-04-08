@@ -69,7 +69,7 @@ function toggleDetails(id){
 			var id = this.id;
 			var idParts = id.split("_");
 			var id = idParts[2];
-			$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", orderID: id, request: "billingItems"},function(res){
+			$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", contactEmail: "<#[webuser.email]#>", orderID: id, request: "billingItems"},function(res){
 				// Iterate the orders first.
 				$.each(res, function (index, value) {
 					// order details
