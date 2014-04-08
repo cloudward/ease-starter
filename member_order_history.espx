@@ -12,7 +12,7 @@
 .details_container{display: none;width: 100%;min-height: 125px;}
 .order_item_border{height: 2px;width: 100%;float: left;margin-bottom: 20px;border-bottom: 1px #888 dotted;}
 </style>
-
+<#[webuser.email]#>
 <h3>Purchase History</h3>
 <font color="red"><#[url.message]#></font>
 <div id="order_history_container" class="order_history_container" style="width: 100%;">
@@ -24,7 +24,6 @@ jQuery(document).ready(function(){
 	$("#sidebar-right").hide();
 	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", contactEmail: "<#[webuser.email]#>", request: "orderHistory"},function(res){
 		$('.order_history_container').append("<div class='order_item'><div class='order_data_item_header' style='width: 25%;'>Order Number</div><div class='order_data_item_header' style='width: 17%;'>Checkout Date</div><div class='order_data_item_header' style='width: 15%;'>Order Status</div><div class='order_data_item_header' style='width: 12%;'>Order Total</div><div class='order_data_item_header' style='width: 15%;float: right;text-align: right;'>Details</div></div>");
-		console.log(res);
 		if($.isEmptyObject(res)){
 			// do nothing
 			$('.order_history_container').append("<div class='order_item' style='text-align: center;'>You have no orders at this time.</div>");
@@ -34,7 +33,7 @@ jQuery(document).ready(function(){
 			$.each(res, function (index, value) {
 
 				// order details
-				var instance_id = res[index].instance_id;
+				var instance_id = res[index].uuid;
 				var account_id = res[index].account_iid;
 				var checkout_timestamp = res[index].checkout_timestamp;
 				var company = res[index].company;
@@ -71,11 +70,10 @@ function toggleDetails(id){
 			var idParts = id.split("_");
 			var id = idParts[2];
 			$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", orderID: id, request: "billingItems"},function(res){
-
 				// Iterate the orders first.
 				$.each(res, function (index, value) {
 					// order details
-					var instance_id = res[index].instance_id;
+					var instance_id = res[index].uuid;
 					var account_id = res[index].account_iid;
 					var checkout_timestamp = res[index].checkout_timestamp;
 					var company = res[index].company;
