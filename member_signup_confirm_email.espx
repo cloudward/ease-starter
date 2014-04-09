@@ -3,7 +3,7 @@
 <# apply webuser.<#[url.mid]#> as "mid".#>
 
 <# start list for webuser;
-include when webuser.email == "<#[mid.email]#>";
+include when webuser.uuid == "<#[mid.uuid]#>";
 hide pager both;
 #>
 <# start header #>
