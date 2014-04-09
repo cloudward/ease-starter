@@ -5,8 +5,6 @@
 <# include "_admin_menu.espx" #>
 
 <# start list for comments;
-// use to show only comments for a particular article
-// include when comments.articleid == "<#[url.aid]#>";
 show 25 rows per page;
 #>
 <# start header #>
