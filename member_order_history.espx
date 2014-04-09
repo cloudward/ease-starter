@@ -89,7 +89,7 @@ function toggleDetails(id){
 					var subtotal = res[index].subtotal;
 					var total = res[index].total;
 					var tax = res[index].tax;
-					$('#details_container_'+order_number).append("<div class='order_item'><div class='order_data_item' style='width: 5%;'>"+qty+"</div><div class='order_data_item' style='width: 30%;'>"+description+"</div><div class='order_data_item' style='width: 14%;'>&nbsp;</div><div class='order_data_item' style='width: 15%;'>"+status+"</div><div class='order_data_item' style='width: 5%;'>$"+total+"</div></div>");
+					$('#details_container_'+order_number).append("<div class='order_item'><div class='order_data_item' style='width: 5%;'>"+qty+"</div><div class='order_data_item' style='width: 30%;'>"+description+"</div><div class='order_data_item' style='width: 15%;'>"+status+"</div><div class='order_data_item' style='width: 5%;'>$"+total+"</div></div>");
 				});
 			});
 		});
