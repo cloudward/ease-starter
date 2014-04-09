@@ -53,8 +53,8 @@ show 100 rows per page;
 	<input type="hidden" name="submit" value="1">
 	<input type="hidden" name="contactid" value="<#[webuser.billing_cid]#>">
 	<input type="hidden" name="appcid" value="<#[cookie.cid]#>">
-	<input type="hidden" name="master_account_id" value="<#[easvault.marketplace_id]#>">
-	<input type="hidden" name="api_password" value="<#[easvault.merchant_password]#>">
+	<input type="hidden" name="masterAccountId" value="<#[easvault.marketplace_id]#>">
+	<input type="hidden" name="apiPassword" value="<#[easvault.merchant_password]#>">
 	<input type="hidden" name="action" value="billing_form">
 	<input type="hidden" name="paymentForm" value="member">
 	<input type="hidden" name="return_url" id="return_url" value='http://<# system.domain #>/'>
