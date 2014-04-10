@@ -126,6 +126,7 @@ input[type="text"]{
 		when creating set webuser.source to "first_user"; 
 		when creating set webuser.type to "admin";
 		when creating set webuser.id to "61e4c67057c8a3df76286ab89fca716a";
+		when creating set webuser.secret to "";
 		
 		when creating redirect to "/?page=_validate&goto=signup_complete_rdirect&signup=complete&username=<# form.username #>&pass=<# form.password #>&cid=<# form.id #>";
 		when updating redirect to "/?page=signup_complete_rdirect&signup=complete";
