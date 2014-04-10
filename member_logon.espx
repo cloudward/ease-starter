@@ -41,6 +41,12 @@ hide pager both;
 						<input type="submit" value="Logon" > 
 					</td>
 				</tr>
+				<tr>
+					<td>
+						Having trouble?<br>
+						<a href="/?page=password_recovery">Forgot Password</a>
+					</td>
+				</tr>
 			</table>
 		</td>
 		<td class="loginInfoTd">
