@@ -170,7 +170,7 @@ margin-top: 0px;
 margin-left: 0px;
 margin-right: 0px;
 margin-bottom: 0px;
-}
+}   
 p {
 font-size: 13px;
 }
@@ -194,7 +194,7 @@ text-decoration:none;
 margin-top: 0px;
 padding-bottom:20px;
 width:100%;
-min-height:450px;
+min-height:800px;
 text-align:left;
 background-color: #FFF;
 border-bottom: 1px #000 solid;
@@ -1293,7 +1293,7 @@ border-left: 2px dotted #c0c0c0;
 			margin-top: 0px;
 			padding-bottom:20px;
 			width:100%;
-			min-height:450px;
+			min-height:800px;
 			text-align:left;
 			background-color: #FFF;
 			border-bottom: 1px #000 solid;
@@ -2492,7 +2492,7 @@ border-left: 2px dotted #c0c0c0;
 					margin-top: 0px;
 					padding-bottom:20px;
 					width:100%;
-					min-height:450px;
+					min-height:800px;
 					text-align:left;
 					background-color: #FFF;
 					border-bottom: 1px #000 solid;
