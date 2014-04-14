@@ -162,7 +162,7 @@ select {
 
 body {
 border-top: 5px #469BDD solid;
-background: #FFF;
+background: #A6C9E2;
 font-family: Helvetica, Arial, Tahoma;
 color: #585858;
 padding: 0px;
@@ -196,6 +196,8 @@ padding-bottom:20px;
 width:100%;
 min-height:450px;
 text-align:left;
+background-color: #FFF;
+border-bottom: 1px #000 solid;
 }
 .websitetitlebar {
 margin-top:0px;
@@ -540,11 +542,9 @@ background-color: #FFF;
 
 /************************** FOOTER ELEMENTS **************************/
 .footermenu {
-position: absolute;
+position: relative;
 font-size:14px;
 font-weight:bold;
-background: #A6C9E2;
-border-top: 1px #333 solid;
 width:100%;
 padding:5px;
 text-align:center;
@@ -1261,7 +1261,7 @@ border-left: 2px dotted #c0c0c0;
 
 			body {
 			border-top: 5px #469BDD solid;
-			background: #FFF;
+			background: #A6C9E2;
 			font-family: Helvetica, Arial, Tahoma;
 			color: #585858;
 			padding: 0px;
@@ -1295,6 +1295,8 @@ border-left: 2px dotted #c0c0c0;
 			width:100%;
 			min-height:450px;
 			text-align:left;
+			background-color: #FFF;
+			border-bottom: 1px #000 solid;
 			}
 			.websitetitlebar {
 			margin-top:0px;
@@ -1639,11 +1641,9 @@ border-left: 2px dotted #c0c0c0;
 			
 			/************************** FOOTER ELEMENTS **************************/
 			.footermenu {
-			position: absolute;
+			position: relative;
 			font-size:14px;
 			font-weight:bold;
-			background: #A6C9E2;
-			border-top: 1px #333 solid;
 			width:100%;
 			padding:5px;
 			text-align:center;
@@ -2217,27 +2217,12 @@ border-left: 2px dotted #c0c0c0;
 	</body>
 	<script type="text/javascript">
 	jQuery(document).ready(function(){
-		setTimeout("resize()", 1000);
-		jQuery(window).resize(function(){
-			var containerHeight = jQuery(".body").height();
-			containerHeight = containerHeight + 5;
-			jQuery(".footermenu").css("top", containerHeight);
-		});
-		jQuery("a").bind('click', function(e) {
-			// all your magic resize mojo goes here
-			setTimeout("resize()", 1000);
-		});
 		jQuery('.sub_menu_trigger').click(function() {
 		  jQuery('.admin_sub_menu').slideToggle('fast', function() {
 		    // Animation complete.
 		  });
 		});
 	});
-	function resize(){
-		var containerHeight = jQuery(".body").height();
-		containerHeight = containerHeight + 5;
-		jQuery(".footermenu").css("top", containerHeight);
-	}
 	</script>";
 			when updating set webstyle.nav_top to "<body class="body">
 			<div class="mainpage">
@@ -2475,7 +2460,7 @@ border-left: 2px dotted #c0c0c0;
 
 					body {
 					border-top: 5px #469BDD solid;
-					background: #FFF;
+					background: #A6C9E2;
 					font-family: Helvetica, Arial, Tahoma;
 					color: #585858;
 					padding: 0px;
@@ -2509,6 +2494,8 @@ border-left: 2px dotted #c0c0c0;
 					width:100%;
 					min-height:450px;
 					text-align:left;
+					background-color: #FFF;
+					border-bottom: 1px #000 solid;
 					}
 					.websitetitlebar {
 					margin-top:0px;
@@ -2853,11 +2840,9 @@ border-left: 2px dotted #c0c0c0;
 					
 					/************************** FOOTER ELEMENTS **************************/
 					.footermenu {
-					position: absolute;
+					position: relative;
 					font-size:14px;
 					font-weight:bold;
-					background: #A6C9E2;
-					border-top: 1px #333 solid;
 					width:100%;
 					padding:5px;
 					text-align:center;
@@ -3439,27 +3424,12 @@ border-left: 2px dotted #c0c0c0;
 						</body>
 						<script type="text/javascript">
 						jQuery(document).ready(function(){
-							setTimeout("resize()", 1000);
-							jQuery(window).resize(function(){
-								var containerHeight = jQuery(".body").height();
-								containerHeight = containerHeight + 5;
-								jQuery(".footermenu").css("top", containerHeight);
-							});
-							jQuery("a").bind('click', function(e) {
-								// all your magic resize mojo goes here
-								setTimeout("resize()", 1000);
-							});
 							jQuery('.sub_menu_trigger').click(function() {
 							  jQuery('.admin_sub_menu').slideToggle('fast', function() {
 							    // Animation complete.
 							  });
 							});
 						});
-						function resize(){
-							var containerHeight = jQuery(".body").height();
-							containerHeight = containerHeight + 5;
-							jQuery(".footermenu").css("top", containerHeight);
-						}
 						</script>
 				</textarea>
 
@@ -3604,26 +3574,11 @@ border-left: 2px dotted #c0c0c0;
 </body>
 <script type="text/javascript">
 jQuery(document).ready(function(){
-	setTimeout("resize()", 1000);
-	jQuery(window).resize(function(){
-		var containerHeight = jQuery(".body").height();
-		containerHeight = containerHeight + 5;
-		jQuery(".footermenu").css("top", containerHeight);
-	});
-	jQuery("a").bind('click', function(e) {
-		// all your magic resize mojo goes here
-		setTimeout("resize()", 1000);
-	});
 	jQuery('.sub_menu_trigger').click(function() {
 	  jQuery('.admin_sub_menu').slideToggle('fast', function() {
 	    // Animation complete.
 	  });
 	});
 });
-function resize(){
-	var containerHeight = jQuery(".body").height();
-	containerHeight = containerHeight + 5;
-	jQuery(".footermenu").css("top", containerHeight);
-}
 </script>
 
