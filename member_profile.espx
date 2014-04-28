@@ -71,7 +71,7 @@ when updating redirect to "/?page=member_profile&message=Changes Saved";
 <script type="text/javascript">
 jQuery(document).ready(function(){
 
-	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
+	$.getJSON('https://secure.cloudward.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
 		// Iterate the payment methods first.
 		if($.isEmptyObject(res)){
 			// do nothing
@@ -137,7 +137,7 @@ function paymentMethodDetails(id){
 		});
 	}else{
 		
-		$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", instance_id: id, request: "paymentMethodDetails"},function(res){
+		$.getJSON('https://secure.cloudward.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", instance_id: id, request: "paymentMethodDetails"},function(res){
 			
 			// Iterate the payment methods first.
 			if($.isEmptyObject(res)){
@@ -255,7 +255,7 @@ function updateMethod(id, request){
 	var zip = jQuery('#zip').val();
 	var payment_type = 'creditCard';
 
-	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/users/?callback=?',{masterAccountId: master_acct_id, apiPassword: "<#[easvault.merchant_password]#>", instance_id: instance_id, contactid: contactid, instance_id: id, request: request,payment_name: payment_name, description: description, card_name: card_name, card_type: card_type, card: card, exp: exp, cvv2: cvv2, street: street, city: city, state: state, zip: zip, payment_type: payment_type},function(res){
+	$.getJSON('https://secure.cloudward.com/billing/webservices/users/?callback=?',{masterAccountId: master_acct_id, apiPassword: "<#[easvault.merchant_password]#>", instance_id: instance_id, contactid: contactid, instance_id: id, request: request,payment_name: payment_name, description: description, card_name: card_name, card_type: card_type, card: card, exp: exp, cvv2: cvv2, street: street, city: city, state: state, zip: zip, payment_type: payment_type},function(res){
 
 		window.location = window.location.href;
 	});

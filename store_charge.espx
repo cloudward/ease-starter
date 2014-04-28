@@ -17,7 +17,7 @@ function next()
 
 jQuery(document).ready(function(){
 
-	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
+	$.getJSON('https://secure.cloudward.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
 		console.log(res);
 		if($.isEmptyObject(res)){
 			// do nothing
@@ -53,7 +53,7 @@ hide pager both;
 #>
 <# start header #>
 <div style="width: 30%;float: left;" id="chargeForm">
-	<form name="cloudBillingForm" id="cloudBillingForm" action="https://zeta-envoy-503.appspot.com/billing/webservices/billing/" method="post" autocomplete="off">
+	<form name="cloudBillingForm" id="cloudBillingForm" action="https://secure.cloudward.com/billing/webservices/billing/" method="post" autocomplete="off">
 		<input type="hidden" name="submit" value="1">
 		<input type="hidden" name="contactid" value="<#[webuser.billing_cid]#>">
 		<input type="hidden" name="appcid" value="<#[cookie.cid]#>">
@@ -769,7 +769,7 @@ jQuery(document).ready(function(){
 	
 	$("#sidebar-right").hide();
 	$(".span8").css("width", "97%");
-	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
+	$.getJSON('https://secure.cloudward.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
 
 		// Iterate the payment methods first.
 		if($.isEmptyObject(res)){

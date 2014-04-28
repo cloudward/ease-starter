@@ -7,7 +7,7 @@
 
 jQuery(document).ready(function(){
 
-	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
+	$.getJSON('https://secure.cloudward.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
 
 		console.log(res);
 		var testMode = res[0];//on or off
@@ -104,7 +104,7 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 	
 function toggleTestMode(){
 	var testVal = $('#testCase').val();
-	$.getJSON('https://zeta-envoy-503.appspot.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", testMode: testVal, contactid: "<#[webuser.billing_cid]#>", request: "toggleTestMode"},function(res){
+	$.getJSON('https://secure.cloudward.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", testMode: testVal, contactid: "<#[webuser.billing_cid]#>", request: "toggleTestMode"},function(res){
 		console.log(res);
 		// Iterate the payment methods first.
 		if($.isEmptyObject(res)){
