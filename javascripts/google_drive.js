@@ -115,7 +115,7 @@ function insertFile(fileData, callback) {
 		
       	if (!callback){
         	callback = function(file) {
-          		console.log(file)
+          		//console.log(file)
         	};
       	}
 
