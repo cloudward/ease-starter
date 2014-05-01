@@ -79,6 +79,7 @@ hide pager both;
 
 <# start row #>
 		<input type="hidden" name="item[<# rownumber #>][item_id]" value="<# cart.id #>">
+		<input type="hidden" name="item[<# rownumber #>][projectid]" value="<#[easvault.projectid]#>">
 		<input type="hidden" name="item[<# rownumber #>][sku]" value="<# cart.sku #>">
 		<!-- new shipping and frequency flags -->
 		<script type="text/javascript">
