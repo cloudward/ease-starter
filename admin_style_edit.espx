@@ -148,7 +148,7 @@ when deleting redirect to "/?page=admin_content_list";
 	
 <input type="button" value="create" <# create button #> >
 <input type="button" value="update" <# update button #> >
-<input type="button" value="delete" <# delete button #> >
+<input type="button" value="delete" onclick="return confirm('Are you sure you want to remove this style?');" <# delete button #> >
 <p>
 <# end form #> 
 
