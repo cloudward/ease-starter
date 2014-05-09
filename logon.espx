@@ -1,3 +1,12 @@
+<?php
+/** force HTTPS logon **/
+if($_SERVER["HTTPS"] != "on")
+{
+    header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+    exit();
+}
+
+?>
 <# include "header.espx" #>
 
 <h3>These Pages are "For Admin Only..." </h3>
