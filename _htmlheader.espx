@@ -54,7 +54,7 @@ hide pager both;
 
 <# apply webuser.<#[cookie.cid]#> as "webuser" .#>
 
-<# if ("<#[webuser.setup]#>" == "new" and "<#[webstyle.status]#>" != "on" and "<#[url.page]#>" != "admin_wizard_style" ) { 		
+<# if ("<#[webuser.setup]#>" == "new" and "<#[webstyle.status]#>" != "on" and "<#[url.page]#>" != "admin_wizard_style" and "<#[url.page]#>" != "admin_logon" ) { 		
 	redirect to "/?page=admin_wizard_style&edit=0&name=STYLESHEET&desc=Stylesheet%20for%20my%20website&value=stylesheet"; 		
 } 		
 #>
