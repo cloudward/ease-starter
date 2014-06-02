@@ -2317,7 +2317,6 @@ border: 1px #000 solid;
 						<div class="copyright">copyright 2013 My Company Name - All rights reserved.</div>
 					</div>
 				</div>
-			</body>
 			<script type="text/javascript"></script>";
 			when updating set webstyle.nav_top to "<body class="body">
 			<div class="mainpage">
@@ -3531,8 +3530,7 @@ border: 1px #000 solid;
 				</textarea>
 
 				<p>HTML Header</p><br>
-				<textarea style="width:650px;height:285px;display:none" <# webstyle.html_header #> >
-						<html> 
+				<textarea style="width:650px;height:285px;display:none" <# webstyle.html_header #> > 
 						<head> 
 							<title>Website Title</title> 
 							<link rel="shortcut icon" href="/favicon.ico"> 
@@ -3566,16 +3564,6 @@ border: 1px #000 solid;
 										<div class="copyright">copyright 2013 My Company Name - All rights reserved.</div>
 									</div>
 								</div>
-								</body>
-								<script type="text/javascript">
-								jQuery(document).ready(function(){
-									jQuery('.sub_menu_trigger').click(function() {
-									  jQuery('.admin_sub_menu').slideToggle('fast', function() {
-									    // Animation complete.
-									  });
-									});
-								});
-								</script>
 								
 				</textarea>
 

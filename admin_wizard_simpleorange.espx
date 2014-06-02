@@ -2212,8 +2212,7 @@ border-radius: 3px;
 				float: right;
 			}
 			</style>";
-			when updating set webstyle.html_header to "<html> 
-			<head> 
+			when updating set webstyle.html_header to "<head> 
 				<title>Website Title</title> 
 				<link rel="shortcut icon" href="/favicon.ico"> 
 				<link rel="icon" href="/favicon.ico"> 
@@ -2239,32 +2238,7 @@ border-radius: 3px;
 				</ul>
 				<div class="copyright">Copyright 2013 My Company Name - All rights reserved.</div>
 			</div>
-		</div>
-		</body>
-		<script type="text/javascript">
-		jQuery(document).ready(function(){
-			setTimeout("resize()", 1000);
-			jQuery(window).resize(function(){
-				var containerHeight = jQuery(".body").height();
-				containerHeight = containerHeight + 5;
-				jQuery(".footermenu").css("top", containerHeight);
-			});
-			jQuery("a").bind('click', function(e) {
-				// all your magic resize mojo goes here
-				setTimeout("resize()", 1000);
-			});
-			jQuery('.sub_menu_trigger').click(function() {
-			  jQuery('.admin_sub_menu').slideToggle('fast', function() {
-			    // Animation complete.
-			  });
-			});
-		});
-		function resize(){
-			var containerHeight = jQuery(".body").height();
-			containerHeight = containerHeight + 5;
-			jQuery(".footermenu").css("top", containerHeight);
-		}
-		</script>";
+		</div>";
 			when updating set webstyle.nav_top to "<body class="body">
 			<div class="mainpage">
 				<div class="websitetitlebar">
@@ -3445,7 +3419,6 @@ border-radius: 3px;
 
 				<p>HTML Header</p><br>
 				<textarea style="width:650px;height:285px;display:none" <# webstyle.html_header #> >
-					<html> 
 					<head> 
 						<title>Website Title</title> 
 						<link rel="shortcut icon" href="/favicon.ico"> 
@@ -3477,31 +3450,6 @@ border-radius: 3px;
 							<div class="copyright">Copyright 2013 My Company Name - All rights reserved.</div>
 						</div>
 					</div>
-					</body>
-					<script type="text/javascript">
-					jQuery(document).ready(function(){
-						setTimeout("resize()", 1000);
-						jQuery(window).resize(function(){
-							var containerHeight = jQuery(".body").height();
-							containerHeight = containerHeight + 5;
-							jQuery(".footermenu").css("top", containerHeight);
-						});
-						jQuery("a").bind('click', function(e) {
-							// all your magic resize mojo goes here
-							setTimeout("resize()", 1000);
-						});
-						jQuery('.sub_menu_trigger').click(function() {
-						  jQuery('.admin_sub_menu').slideToggle('fast', function() {
-						    // Animation complete.
-						  });
-						});
-					});
-					function resize(){
-						var containerHeight = jQuery(".body").height();
-						containerHeight = containerHeight + 5;
-						jQuery(".footermenu").css("top", containerHeight);
-					}
-					</script>
 				</textarea>
 
 				<p>Website Navigation Top<br>

@@ -1,7 +1,7 @@
 <html>
 <!-- 
 // IMPORTANTANT
-// delete lines 3 - 47 of this file after completing setup wizard on your website
+// delete lines 2 - 49 of this file after completing setup wizard on your website
 // then deploy via Google App Engine Launcher
 -->
 <# start list for webuser;
@@ -45,7 +45,6 @@ hide pager both;
 		</div>
 	</div>
 </div>
-
 <# end no results #>
 <# end list #>
 
