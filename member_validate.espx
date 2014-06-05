@@ -35,7 +35,7 @@
 
 <# if ("<#[mid.member_level]#>" == "<#[easvault.free_label]#>") {
 	
-	<p style="font-size: 14px;"><a href="https://<# system.domain #>/?page=member_payment_listener&mid=<#[url.mid]#>&result=approved">Click here</a> to complete your signup.</p>
+	<p style="font-size: 14px;"><a href="https://<# system.domain #>/?page=member_payment_listener&mid=<#[url.mid]#>&transaction_result=Approved">Click here</a> to complete your signup.</p>
 	
 } else {
 	<p style="font-size: 14px;"><a href="https://<# system.domain #>/?page=member_payment&mid=<#[url.mid]#>">Click here</a> to complete your signup.</p>
