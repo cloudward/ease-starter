@@ -10,6 +10,7 @@
 	update record for "webuser.<#[url.mid]#>" reference as "member";
 	set member.status to "active";
 	set member.billing_cid to "<#[url.contact_id]#>";
+
 #>
 
 
@@ -44,6 +45,12 @@
 	<p style="font-size: 12px;"><a href="/?page=member_update_billing_id&mid=<#[cookie.cid]#>&contact_id=<#[url.contact_id]#>">[Click here to enter the member site.]</a></p><br><br>
 </div>
 </center>
+
+<#
+	set cookie.orderid to "";
+	set cookie.price to "";
+	set cookie.sku to "";
+#>
 
 <# include "_member_footer.espx" #>
 
