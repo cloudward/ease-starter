@@ -770,7 +770,7 @@ jQuery(document).ready(function(){
 	
 	$("#sidebar-right").hide();
 	$(".span8").css("width", "97%");
-	$.getJSON('https://secure.cloudward.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
+	$.getJSON('https://secure.cloudward.com/billing/webservices/users/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "paymentMethods"},function(res){
 
 		// Iterate the payment methods first.
 		if($.isEmptyObject(res)){
