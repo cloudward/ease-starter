@@ -37,57 +37,28 @@
 
 <# start form for webimages <#[url.edit]#>; 
 when creating set webimages.status to "on"; 
-when creating set webimages.banner to "yes";
+when creating set webimages.banner to "no";
 when creating set webimages.created_on to "<# system.date_time_short #>";
-when creating redirect to "/?page=admin_banner_list";
-when updating redirect to "/?page=admin_banner_list";
-when deleting redirect to "/?page=admin_banner_list";
+when creating redirect to "/?page=admin_file_upload_list";
+when updating redirect to "/?page=admin_file_upload_list";
+when deleting redirect to "/?page=admin_file_upload_list";
 #> 
-<p>Banner Name<br>
+<p>File Name (for admin use)<br>
 <input type="text" style="width:400px" <# webimages.name #> >
 
-<p>Image<br>
-
-<script type="text/javascript">
-if("<#[system.core]#>" == "PHP"){
-	//do nothing
-}else{
-	document.write("<div>Trouble uploading? <a href='/genrateAccessToken?redirectURL=http://<# system.domain #>/?page=admin_banner_edit&t=true' id='tokenizer'>Generate Access Token</a></div>");
-}
-</script>
+<p>File/Image<br>
 
 <input type="text" style="width:400px"  <# webimages.image1 #> />
 <input type="file" <# upload file to googledrive "/<#[webstyle.uploads_folder_id]#>" for webimages.image1 #> />
 
-<p>Link<br>
-<input type="text" style="width:400px"  <# webimages.link #> >
-
-<p>Show in what order:<br>
-	<select <# webimages.showorder #> >
-	    <option value="1" >1</option>
-	    <option value="2" >2</option>
-	    <option value="3" >3</option>
-	    <option value="4" >4</option>
-	    <option value="5" >5</option>
-	    <option value="6" >6</option>
-	    <option value="7" >7</option>
-	    <option value="8" >8</option>
-	    <option value="9" >9</option>
-	</select>
-	
-<p>Show what banner after this one:<br>
-	<select <# webimages.shownext #> >
-	    <option value="1" >1</option>
-	    <option value="2" >2</option>
-	    <option value="3" >3</option>
-	    <option value="4" >4</option>
-	    <option value="5" >5</option>
-	    <option value="6" >6</option>
-	    <option value="7" >7</option>
-	    <option value="8" >8</option>
-	    <option value="9" >9</option>
-	</select>
-
+<p>File Type<br>
+<select <# webimages.file_type #>>
+  <option value="image">Image</option>
+  <option value="doc">Document</option>
+  <option value="pdf">PDF</option>
+  <option value="xls">Spreadsheet</option>
+  <option value="txt">Text File</option>
+</select> 
 <p>
 <input type="button" value="create" <# create button #> >
 <input type="button" value="update" <# update button #> >

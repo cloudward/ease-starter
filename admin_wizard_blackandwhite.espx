@@ -2381,6 +2381,7 @@ border: 1px #000 solid;
 						<li class="admin_menu"><a href="/?page=admin_content_list">Edit Content</a></li>
 						<li class="admin_menu"><a href="/?page=admin_member_list">Edit Members</a></li>
 						<li class="admin_menu"><a href="/?page=admin_banner_list">Edit Banners</a></li>
+						<li class="admin_menu"><a href="/?page=admin_file_upload_list">File Uploads</a></li>
 						<li class="admin_menu"><a href="/?page=admin_google_list">Contact Us Form</a></li>
 						<li class="admin_menu"><a href="/?page=admin_notifications">Notifications</a></li>
 						<li class="admin_menu"><a href="/?page=admin_profile">My Profile</a></li>
@@ -3639,6 +3640,7 @@ border: 1px #000 solid;
 								<li class="admin_menu"><a href="/?page=admin_content_list">Edit Content</a></li>
 								<li class="admin_menu"><a href="/?page=admin_member_list">Edit Members</a></li>
 								<li class="admin_menu"><a href="/?page=admin_banner_list">Edit Banners</a></li>
+								<li class="admin_menu"><a href="/?page=admin_file_upload_list">File Uploads</a></li>
 								<li class="admin_menu"><a href="/?page=admin_google_list">Contact Us Form</a></li>
 								<li class="admin_menu"><a href="/?page=admin_notifications">Notifications</a></li>
 								<li class="admin_menu"><a href="/?page=admin_profile">My Profile</a></li>

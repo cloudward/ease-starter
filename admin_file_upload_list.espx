@@ -1,0 +1,72 @@
+<# include "_authentication_admin.espx" #>
+<# include "_htmlheader.espx" #>
+
+
+<# include "_admin_menu.espx" #>
+
+<div class="welcomeheadline">Upload Files</div>
+<p>You can upload images and other files to your Google Drive account and then use the File Location from the list on this 
+    page to reference the file on other pages of your website.</p>
+<hr size="1">
+<a href="/?page=admin_file_upload_edit&edit=0">+Upload a New File</a>
+
+
+<hr size="1">
+
+<# start list for webimages; 
+include when banner <> "yes";
+show 25 rows per page;
+#>
+
+<# start header #>
+<table border='1' cellpadding='2' cellspacing='0'>
+	<tr>
+		<th>Name</th>
+		<th>Created On</th>
+		<th>File</th>
+		<th>File Location</th>
+	</tr>
+<# end header #>
+
+<# start row #>
+    <# if("<# webimages.file_type #>"=="image") {
+        set <# image_src #> to "<# webimages.image1_drive_web_url #>";
+    } #>
+     <# if("<# webimages.file_type #>"=="doc") {
+        set <# image_src #> to "/images/file_doc.png";
+    } #>
+    <# if("<# webimages.file_type #>"=="txt") {
+        set <# image_src #> to "/images/file_txt.png";
+    } #>
+    <# if("<# webimages.file_type #>"=="xls") {
+        set <# image_src #> to "/images/file_xls.png";
+    } #>
+    <# if("<# webimages.file_type #>"=="pdf") {
+        set <# image_src #> to "/images/file_pdf.png";
+    } #>
+
+	<tr>
+		<td><a href='/?page=admin_file_upload_edit&edit=<# webimages.id #>'><# webimages.name #> 
+		    <span style='font-weight:normal; font-size:9pt; padding-left:10px;'>[edit]</span></a></td>
+		<td><# webimages.created_on #></td>
+		<td><a href="<# webimages.image1_drive_web_url #>"  target="_blank"><img src="<# image_src #>"  style="width:125px;" /></a>
+		    <br /><# webimages.image1 #>
+		</td>
+		<td><# webimages.image1_drive_web_url #></td>
+	</tr>
+<# end row #>
+
+<# start footer #>
+</table>
+<# end footer #>
+
+<# no results #>
+	<h2>There are no files uploaded yet...</h2>
+<# end no results #>
+
+<# end list #>
+
+
+<# include "_admin_footer.espx" #>
+
+<# include "_htmlfooter.espx" #>
