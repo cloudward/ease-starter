@@ -6,6 +6,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'mmsApplication'){
 	/** init class **/
 	$mmsObj = new mmsApplicationProcessor($this, $_POST);
 	$mmsResponse = $mmsObj->processApplication();
+	var_dump($mmsResponse);
+	$mmsResponse = (array)$mmsResponse;
 	
 	if($mmsResponse['Result'] == "Approved"){
 
@@ -17,7 +19,11 @@ if(isset($_POST['action']) && $_POST['action'] == 'mmsApplication'){
 		/** redirect on success or failure **/
 		ease_set_value('api.response', "<p class='pHeader'>Success.... please read below.</p><p>Your application has been successfully submitted and we are reviewing the information.</p><p>You will receive and email when the application has been approved.</p>");
 	}else{
-		ease_set_value('api.response', "<p class='pHeader'>Oops.... There was an error in your applicaiton.</p><p>There was an error while processing your application.</p><p>Click on the 'Correct Application' button below to review your information.</p><input type='submit' value='Correct Application'/>");
+		$json = '{"Errors":[{"ErrorCode":"User Name : TEST, Password : TEST","ErrorDescription":"Invalid Credentials"}]}';
+		$message = "<p class='pHeader'>Oops.... There was an error in your applicaiton.</p><p>The following error(s) occurred while processing your application.</p>";
+	
+		$message .= "<p>Click on the 'Correct Application' button below to review your information.</p><input type='submit' value='Correct Application'/>";
+		ease_set_value('api.response', $message);
 	}
 
 }else{

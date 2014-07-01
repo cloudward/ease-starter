@@ -40,27 +40,31 @@ class mmsApplicationProcessor{
 	
 	
 	public function apiCaller(){
-		//request data
-		$data = $this->responseObj;
 
 		//build query for request data
-		$data = http_build_query($this->postData);
+		//$data = http_build_query($this->postData);
+
+		$data = json_encode($this->postData);
 
 		//build context for stream
 		$context = [
 		  'http' => [
 		    'method' => 'POST',
-		    'header' => "Content-type: application/x-www-form-urlencoded",
+		    'header' => "Content-type: application/json",
 		    'content' => $data
+		  ],
+		  'ssl' => [
+		    'verify_peer' => false
 		  ]
 		];
+
 
 		//create stream context
 		$context = stream_context_create($context);
 
 		//execute call to installer
-		$result = file_get_contents($this->endPoint, false, $context);
-
+		$result = file_get_contents($this->endPoint, true, $context);
+		$result = json_decode($result);
 		return $result;
 	}
 	
