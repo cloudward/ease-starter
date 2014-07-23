@@ -7,7 +7,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'mmsApplication'){
 	$mmsObj = new mmsApplicationProcessor($this, $_POST);
 	$mmsResponse = $mmsObj->processApplication();
 	$mmsResponse = (array)$mmsResponse;
-	
+	//var_dump($mmsResponse);
 	if($mmsResponse['Result'] == "Approved"){
 
 		/** update local record to completed **/
@@ -16,8 +16,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'mmsApplication'){
 		$sqlQuery = ease_db_query_params($sql, $sqlParams);
 
 		/** redirect on success or failure **/
-		ease_set_value('api.response', "<p class='pHeader'>Success.... please read below.</p> <p>Your application has been successfully submitted and we are reviewing the information.</p> <p><b style='color: red;'>ATTENTION:</b> There is one more step to the process... Please email a scanned copy (front and back) of both your Drivers License and Utility Bill (electric, water, gas etc etc.) so that we may use it in our vetting process. This information is kept strictly confidential.</p> <p>Email To: <a href='mailto: support@secure.cloudward.com?subject=Vetting Documents for".$_POST['LegalName']."'>support@secure.cloudward.com</a></p> <p>You will receive and email when the application has been approved.</p>");
-
+		ease_set_value('api.response', "<p class='pHeader'>Success.... please read below.</p> <p>Your application has been successfully submitted and we are reviewing the information.</p> <p><b style='color: red;'>ATTENTION:</b> There is one more step to the process... Please upload scanned copies (front and back) of both your Drivers License and Utility Bill (electric, water, gas etc etc.) so that we may use it in our vetting process. This information is kept strictly confidential.</p><p>You will receive and email when the application has been approved.</p>");
+		ease_set_value('mms.uploader', "<iframe style='width: 100%;height: 300px;border: 0;' src='https://secure.cloudward.com/?page=secure_uploader&d=".$_SERVER['HTTP_HOST']."'></iframe>");
 	
 	}else{
 		$message = "<p class='pHeader'>Oops.... There was an error in your applicaiton.</p><p>The following error(s) occurred while processing your application.</p>";
@@ -31,8 +31,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'mmsApplication'){
 	}
 
 }else{
+
 	ease_set_value('api.response', "");
-	
 }
 
 
@@ -104,7 +104,7 @@ jQuery(document).ready(function(){
 		text-shadow: 1px 1px #CCC;
 	}
 	.containerMessage{
-		width: 60%;
+		width: 95%;
 		min-height: 200px;
 		margin-left: auto;
 		margin-right: auto;
@@ -120,6 +120,7 @@ jQuery(document).ready(function(){
 		font-weight: bold;
 	}
 </style>
+
 <form id="merchantApplication" name="merchantApplication" action="/" method="POST">
 	<input type="hidden" name="page" value="admin_wizard_mms_application">
 <?php
@@ -133,7 +134,7 @@ foreach($_POST AS $key => $value){
 <div id="otherformelements" class="applicationDemo"> 
 	<div class="containerMessage">
 		<#[api.response]#>
-		<#[mms.uploader1]#>
+		<#[mms.uploader]#>
 	</div>
 	<div style="clear: both;"></div>
 </div>
