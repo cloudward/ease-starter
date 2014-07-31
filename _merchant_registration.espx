@@ -45,7 +45,7 @@ class mmsApplicationProcessor{
 		//$data = http_build_query($this->postData);
 
 		$data = json_encode($this->postData);
-
+	
 		//build context for stream
 		$context = [
 		  'http' => [
@@ -58,7 +58,7 @@ class mmsApplicationProcessor{
 		  ]
 		];
 
-
+		
 		//create stream context
 		$context = stream_context_create($context);
 
@@ -69,4 +69,4 @@ class mmsApplicationProcessor{
 	}
 	
 }
-
+?>

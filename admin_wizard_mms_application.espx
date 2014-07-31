@@ -15,7 +15,7 @@ $mmsResult = ease_db_fetch($mmsQuery);
 $mmsStatus = $mmsResult['complete'];
 
 /** is this and update or a create **/
-if($this->mmsStatus == "completed"){
+if($mmsStatus == "completed"){
 	
 	/** this is an update, get merchant state data **/
 	$params = array();
@@ -25,11 +25,9 @@ if($this->mmsStatus == "completed"){
 	ease_set_value('action.request', "updateApplication");
 	$dataObj = new mmsApplicationProcessor($this, $params);
 	$stateData = $dataObj->processApplication();
-
-	/** populate post array with application data **/
 	
 }else{
-	
+
 	/** create button and create request variable**/
 	ease_set_value('action.button', "<input type='submit' value='Submit Application' id='createApplication'/>");
 	ease_set_value('action.request', "createApplication");
