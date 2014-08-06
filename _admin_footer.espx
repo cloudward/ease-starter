@@ -83,8 +83,15 @@ jQuery(document).ready(function(){
 			jQuery('#red_billing_setup').html('<br><B><font style="color: red;"><u>Notice: To complete your setup, please click on the Setup Wizard on the left hand side.</u></font></B>');
 		}
 	}
+	
+	jQuery('.sub_menu_trigger').click(function() {
+	  jQuery('.admin_sub_menu').slideToggle('fast', function() {
+	    // Animation complete.
+	  });
+	});
 });
 </script>
+</body>
 
 <# if ( "<#[system.core]#>" == "PHP" ){
 <script type="text/javascript">
