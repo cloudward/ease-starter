@@ -48,9 +48,12 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 </style>
 <div id="otherformelements"> 
 		<p style="font-weight: bold;margin-top: 10px;">Cloudward Billing Credentials</p>
-		<div class="instructions" style="width: 65%;float: left;">
+		<div class="instructions" style="width: 45%;float: left;">
 			These are the ID's needed to integrate with your Cloudward Billing solution.<br>
 			Please enter the required ID's into the corresponding fields below and click the save button 
+		</div>
+		<div class="instructions" style="width: 40%;float: right;">
+			<input type="button" value="Purchase Gateway Solution" onclick="appStore();">
 		</div>
 		<div style="width: 100%;float: left;">
 		<div class="divSpacer">
