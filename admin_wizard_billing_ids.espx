@@ -6,7 +6,7 @@
 <script>
 
 jQuery(document).ready(function(){
-
+	$(".newslettersignup").css('width', '100%');
 	$.getJSON('https://secure.cloudward.com/billing/webservices/billing/?callback=?',{masterAccountId: '<#[easvault.marketplace_id]#>', apiPassword: "<#[easvault.merchant_password]#>", contactid: "<#[webuser.billing_cid]#>", request: "accountStatus"},function(res){
 
 		//console.log(res);
