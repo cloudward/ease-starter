@@ -96,10 +96,11 @@ jQuery(document).ready(function(){
 </script>
 </body>
 
-<# if ( "<#[system.core]#>" == "PHP" ){
 <script type="text/javascript">
-jQuery(document).ready(function(){
-	jQuery('li a[href$="/?page=admin_profile"]:first').parent().after('<li class="admin_menu"><a href="/?page=admin_support">Support</a></li>');
-});
+var core = '<#[system.core]#>';
+if(core == 'PHP'){
+    jQuery(document).ready(function(){
+    	jQuery('li a[href$="/?page=admin_profile"]:first').parent().after('<li class="admin_menu"><a href="/?page=admin_support">Support</a></li>');
+    });    
+}
 </script>
-}#>
