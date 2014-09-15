@@ -2343,7 +2343,7 @@ border: 1px #000 solid;
 				<div class="websitetitlebar">
 					<div class="websitetitle">
 						<span>Website Name</span><br>
-						<span class="websitesubtitle">Descrition & Subtitle</span>
+						<span class="websitesubtitle">Description & Subtitle</span>
 					</div>
 					<div style="clear: both;"></div>
 				</div>
@@ -3595,7 +3595,7 @@ border: 1px #000 solid;
 						<div class="websitetitlebar">
 							<div class="websitetitle">
 								<span>Website Name</span><br>
-								<span class="websitesubtitle">Descrition & Subtitle</span>
+								<span class="websitesubtitle">Description & Subtitle</span>
 							</div>
 							<div style="clear: both;"></div>
 						</div>
