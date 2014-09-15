@@ -1102,7 +1102,7 @@ border-left: 2px dotted #c0c0c0;
 	<div class="websitetitlebar">
 		<div class="websitetitle">
 			<span>Website Name</span><br>
-			<span class="websitesubtitle">Descrition & Subtitle</span>
+			<span class="websitesubtitle">Description & Subtitle</span>
 		</div>
 		<div style="clear: both;"></div>
 	</div>
@@ -2265,7 +2265,7 @@ border-left: 2px dotted #c0c0c0;
 				<div class="websitetitlebar">
 					<div class="websitetitle">
 						<span>Website Name</span><br>
-						<span class="websitesubtitle">Descrition & Subtitle</span>
+						<span class="websitesubtitle">Description & Subtitle</span>
 					</div>
 					<div style="clear: both;"></div>
 				</div>
@@ -3493,7 +3493,7 @@ border-left: 2px dotted #c0c0c0;
 						<div class="websitetitlebar">
 							<div class="websitetitle">
 								<span>Website Name</span><br>
-								<span class="websitesubtitle">Descrition & Subtitle</span>
+								<span class="websitesubtitle">Description & Subtitle</span>
 							</div>
 							<div style="clear: both;"></div>
 						</div>

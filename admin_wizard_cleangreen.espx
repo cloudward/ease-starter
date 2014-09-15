@@ -1115,7 +1115,7 @@ border-left: 2px dotted #c0c0c0;
 		</div>
 		<div class="websitetitle">
 			<span>Website Name</span><br>
-			<span class="websitesubtitle">Descrition & Subtitle</span>
+			<span class="websitesubtitle">Description & Subtitle</span>
 		</div>
 	</div>
 	<div class="homepagebanner1">
@@ -2272,7 +2272,7 @@ border-left: 2px dotted #c0c0c0;
 					</div>
 					<div class="websitetitle">
 						<span>Website Name</span><br>
-						<span class="websitesubtitle">Descrition & Subtitle</span>
+						<span class="websitesubtitle">Description & Subtitle</span>
 					</div>
 				</div>
 				<div class="homepagebanner1">
@@ -3495,7 +3495,7 @@ border-left: 2px dotted #c0c0c0;
 							</div>
 							<div class="websitetitle">
 								<span>Website Name</span><br>
-								<span class="websitesubtitle">Descrition & Subtitle</span>
+								<span class="websitesubtitle">Description & Subtitle</span>
 							</div>
 						</div>
 						<div class="homepagebanner1">
