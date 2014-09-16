@@ -26,7 +26,7 @@ set billapp.reseller_id to "<#[url.r]#>";
 <script>
 jQuery(document).ready(function(){
 	if("<#[billingapplication.complete]#>" == "started"){
-		jQuery('#message').html("<p>Congratulations! Your Cloudward Billing account is now setup.</p><p>Your Cloudward Billing account is now in 'Test Mode' and you may currently run test transactions.</p><p>To enable live transactions you must purchase a gateway solution via the Cloudward App Store. <a href='http://www.cloudward.com/appstore?cat_id=3899b7ea9a09fe2e6010ef0f2455c7ca'>Purchase Gateway Solution</a>.</p>");
+		jQuery('#message').html("<div style='width: 100%;height: 30px;background-color: #CCC;border-radius-top: 3px;border-bottom: 1px #555 solid;color: #000;font-weight: bold;text-align: left;padding-left: 3px;'>Success!</div><p>Congratulations! Your Cloudward Billing account is now setup.</p><p>Your Cloudward Billing account is now in 'Test Mode' and you may currently run test transactions.</p><p>To enable live transactions you must purchase a gateway solution via the Cloudward App Store.</p><p><input type='button' onclick='appStore();' value='Purchase Gateway Solution'></p>");
 	}else{
 		jQuery('#message').html("<p>Congratulations! Your merchant application has been submitted.</p><p>Your merchant account is under review and awaiting approval. Your account is in 'Test Mode' and you may currently run test transactions.</p><p>When your merchant application has been approved you may toggle test mode on and off (between live and test transactions) as you wish in the 'Setup Wizard->Billing ID' menu option.</p><div style='width: 82%;margin-left: auto;margin-right: auto;padding: 10px;Margin: 20px 0px;border: 1px #CCC solid;background-color: #F9F9F9;min-height: 50px;border-radius: 2px 2px 2px 2px;box-shadow: 2px 2px 2px #999;'> <span style='color: red;font-weight: bold;font-size: 13px;'>IMPORTANT!</span> <p>You will need to scan a void check (front and back) and valid government/drivers license ID (front and back) and email it to the following email address.</p> <p>Email Check To: <a href='mailto: support@cloudward.com' target='_blank'>support@cloudward.com</a></p> </div>");
 	}
@@ -39,11 +39,16 @@ jQuery(document).ready(function(){
 
 
 <div id="otherformelements"> 
-	<div id="message" style="width: 60%;margin-left: auto;margin-right: auto;margin-top: 50px;min-height: 150px;text-align: center;padding-top: 5px;">
+	<div id="message" style="margin-left: auto;margin-right: auto;margin-top: 50px;min-height: 150px;text-align: center;padding-top: 5px;background-color: #FFF;border: 1px #CCC solid;border-radius: 3px;box-shadow: 1px 1px 2px #CCC;min-height: 250px;width: 85%;">
 	
 	</div>
 </div>
-
+<script type="text/javascript">
+function appStore(){
+	var url = 'http://www.cloudward.com/appstore?cat_id=3899b7ea9a09fe2e6010ef0f2455c7ca';
+	window.open(url, '_blank');
+}
+</script>
 <# include "_admin_footer.espx" #>
 
 <# include "_htmlfooter.espx" #>
