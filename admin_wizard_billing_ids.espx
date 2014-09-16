@@ -106,7 +106,7 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 <script>
 
 jQuery(document).ready(function(){
-	jQuery('.newslettersignup').hide();
+	jQuery('.newslettersignup').css('display', 'none');
 });
 	
 function toggleTestMode(){
