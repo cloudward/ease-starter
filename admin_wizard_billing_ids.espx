@@ -104,7 +104,10 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 </div>
 <# end form #>
 <script>
-
+function appStore(){
+    var url = 'http://www.cloudward.com/appstore?cat_id=3899b7ea9a09fe2e6010ef0f2455c7ca';
+    window.open(url, '_blank');
+}
 jQuery(document).ready(function(){
 	jQuery('.newslettersignup').css('display', 'none');
 });

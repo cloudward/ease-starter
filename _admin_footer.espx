@@ -17,7 +17,10 @@ hide pager both;
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
-
+	/** only show billing id's menu **/
+	jQuery('.bids').show();
+	jQuery('.application').hide();
+	
 	var count_completion = 0;
 	if("<#[homepage.id]#>"){
 		jQuery('.home').hide();
