@@ -50,7 +50,9 @@ when deleting redirect to "/?page=admin_wizard_billing_ids&edit=9a7ac1363ff31893
 		<p style="font-weight: bold;margin-top: 10px;">Cloudward Billing Credentials</p>
 		<div class="instructions" style="width: 45%;float: left;">
 			These are the ID's needed to integrate with your Cloudward Billing solution.<br>
-			Please enter the required ID's into the corresponding fields below and click the save button 
+			Please enter the required ID's from your Cloudward Billing account into the<br> 
+			corresponding fields below and click the save button. Your Cloudward Billing<br> 
+			account is free, but you need to purchase a Gateway Solution.
 		</div>
 		<div class="instructions" style="width: 40%;float: right;">
 			<input type="button" value="Purchase Gateway Solution" onclick="appStore();">
